@@ -4,8 +4,8 @@ import { ArrowRight, Boxes, Compass, Sparkles, Users } from "lucide-react";
 import { BlogCard, EventCard, PartnerCard, ProgramCard, TestimonialCard } from "@/components/ui-kit/cards";
 import { CtaSection, SectionHeader, StatGrid, Tag } from "@/components/ui-kit/primitives";
 import { Button } from "@/components/ui/button";
-import { blogPosts } from "@/content/blog";
-import { events, sortedEvents } from "@/content/events";
+import type { BlogPost, OrigoEvent } from "@/content/types";
+import { listPublicEvents, listPublicPosts } from "@/lib/public-content.functions";
 import { partners, testimonials, testimonialsNote } from "@/content/people";
 import { featuredProgramSlugs, programs } from "@/content/programs";
 import {
@@ -37,15 +37,24 @@ export const Route = createFileRoute("/")({
     ],
     links: [{ rel: "canonical", href: "/" }],
   }),
+  loader: async () => {
+    const [events, posts] = await Promise.all([listPublicEvents(), listPublicPosts()]);
+    return { events, posts };
+  },
   component: HomePage,
 });
 
 const pillarIcons = [Compass, Boxes, Users, Sparkles];
 
 function HomePage() {
-  const upcoming = sortedEvents("upcoming").slice(0, 3);
+  const { events, posts } = Route.useLoaderData() as { events: OrigoEvent[]; posts: BlogPost[] };
+  const upcoming = events
+    .filter((event) => event.status === "upcoming")
+    .sort((a, b) => (a.date > b.date ? 1 : -1))
+    .slice(0, 3);
   const live = events.filter((event) => event.status === "live");
   const homeEvents = [...live, ...upcoming].slice(0, 3);
+  const blogPosts = posts;
   const featured = featuredProgramSlugs
     .map((slug) => programs.find((program) => program.slug === slug))
     .filter((program): program is (typeof programs)[number] => Boolean(program))

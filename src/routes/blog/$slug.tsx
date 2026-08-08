@@ -132,6 +132,7 @@ function BlogPostPage() {
         </div>
       </article>
 
+      {relatedPosts.length > 0 ? (
       <section className="section-y border-t border-hairline bg-surface">
         <div className="container-page">
           <SectionHeader eyebrow="Keep reading" title="Related articles" />
@@ -142,6 +143,7 @@ function BlogPostPage() {
           </div>
         </div>
       </section>
+      ) : null}
     </>
   );
 }
