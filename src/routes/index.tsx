@@ -154,7 +154,7 @@ function HomePage() {
 
           <ul className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {pillars.map((pillar, index) => {
-              const Icon = pillarIcons[index];
+              const Icon = pillarIcons[index] ?? Compass;
               return (
                 <li key={pillar.key} className="surface-card surface-card-hover p-6">
                   <span
