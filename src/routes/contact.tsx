@@ -40,7 +40,7 @@ export const Route = createFileRoute("/contact")({
 
 function ContactPage() {
   const [submitting, setSubmitting] = useState(false);
-  const [category, setCategory] = useState(contactCategories[0]);
+  const [category, setCategory] = useState<string>(contactCategories[0] ?? "General Inquiry");
 
   return (
     <>
@@ -132,7 +132,7 @@ function ContactPage() {
                   <p className="font-display text-xs font-bold uppercase tracking-[0.12em] text-muted-foreground">
                     Base
                   </p>
-                  <p className="text-foreground">{brand.location}</p>
+                  <p className="text-foreground">{brand.country}</p>
                 </li>
               </ul>
             </div>
@@ -142,7 +142,7 @@ function ContactPage() {
               <ul className="mt-4 space-y-2 text-sm">
                 {socialLinks.map((link) => (
                   <li key={link.label}>
-                    <a href={link.href} className="text-primary hover:underline">
+                    <a href={link.url} className="text-primary hover:underline">
                       {link.label}
                     </a>
                   </li>

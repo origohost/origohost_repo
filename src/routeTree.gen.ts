@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as CommunityRouteImport } from './routes/community'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as OrganizeAnEventRouteImport } from './routes/organize-an-event'
 import { Route as PartnershipsRouteImport } from './routes/partnerships'
 import { Route as ProgramsRouteImport } from './routes/programs'
@@ -34,6 +35,11 @@ const AboutRoute = AboutRouteImport.update({
 const CommunityRoute = CommunityRouteImport.update({
   id: '/community',
   path: '/community',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
 const OrganizeAnEventRoute = OrganizeAnEventRouteImport.update({
@@ -81,6 +87,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/community': typeof CommunityRoute
+  '/contact': typeof ContactRoute
   '/organize-an-event': typeof OrganizeAnEventRoute
   '/partnerships': typeof PartnershipsRoute
   '/programs': typeof ProgramsRoute
@@ -94,6 +101,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/community': typeof CommunityRoute
+  '/contact': typeof ContactRoute
   '/organize-an-event': typeof OrganizeAnEventRoute
   '/partnerships': typeof PartnershipsRoute
   '/programs': typeof ProgramsRoute
@@ -108,6 +116,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/community': typeof CommunityRoute
+  '/contact': typeof ContactRoute
   '/organize-an-event': typeof OrganizeAnEventRoute
   '/partnerships': typeof PartnershipsRoute
   '/programs': typeof ProgramsRoute
@@ -123,6 +132,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/community'
+    | '/contact'
     | '/organize-an-event'
     | '/partnerships'
     | '/programs'
@@ -136,6 +146,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/community'
+    | '/contact'
     | '/organize-an-event'
     | '/partnerships'
     | '/programs'
@@ -149,6 +160,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/community'
+    | '/contact'
     | '/organize-an-event'
     | '/partnerships'
     | '/programs'
@@ -163,6 +175,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   CommunityRoute: typeof CommunityRoute
+  ContactRoute: typeof ContactRoute
   OrganizeAnEventRoute: typeof OrganizeAnEventRoute
   PartnershipsRoute: typeof PartnershipsRoute
   ProgramsRoute: typeof ProgramsRoute
@@ -194,6 +207,13 @@ declare module '@tanstack/react-router' {
       path: '/community'
       fullPath: '/community'
       preLoaderRoute: typeof CommunityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/organize-an-event': {
@@ -259,6 +279,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   CommunityRoute: CommunityRoute,
+  ContactRoute: ContactRoute,
   OrganizeAnEventRoute: OrganizeAnEventRoute,
   PartnershipsRoute: PartnershipsRoute,
   ProgramsRoute: ProgramsRoute,
