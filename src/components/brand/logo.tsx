@@ -116,7 +116,7 @@ export function LogoResponsive({ onDark = false }: { onDark?: boolean }) {
         <LogoMark variant="symbol" height={32} />
       </span>
       <span className="hidden sm:block">
-        <LogoMark variant="horizontal" height={30} />
+        <LogoMark variant="horizontal" height={36} />
       </span>
     </Link>
   );
