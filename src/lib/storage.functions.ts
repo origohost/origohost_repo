@@ -106,7 +106,7 @@ export const createUploadTicket = createServerFn({ method: "POST" })
       await assertAnyPermission(supabase, userId, folder.permissions);
     }
 
-    const segments = [folder.prefix];
+    const segments: string[] = [folder.prefix];
     if (folder.ownFolder) segments.push(userId);
     else if (data.scope) segments.push(data.scope);
     segments.push(`${Date.now()}-${safeFilename(data.filename)}`);
