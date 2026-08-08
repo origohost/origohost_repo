@@ -15,6 +15,7 @@ import { Route as CommunityRouteImport } from './routes/community'
 import { Route as ProgramsRouteImport } from './routes/programs'
 import { Route as ResourcesRouteImport } from './routes/resources'
 import { Route as BlogIndexRouteImport } from './routes/blog/index'
+import { Route as BlogSlugRouteImport } from './routes/blog/$slug'
 import { Route as EventsIndexRouteImport } from './routes/events/index'
 import { Route as EventsSlugRouteImport } from './routes/events/$slug'
 
@@ -48,6 +49,11 @@ const BlogIndexRoute = BlogIndexRouteImport.update({
   path: '/blog/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/blog/$slug',
+  path: '/blog/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const EventsIndexRoute = EventsIndexRouteImport.update({
   id: '/events/',
   path: '/events/',
@@ -65,6 +71,7 @@ export interface FileRoutesByFullPath {
   '/community': typeof CommunityRoute
   '/programs': typeof ProgramsRoute
   '/resources': typeof ResourcesRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/events/$slug': typeof EventsSlugRoute
   '/blog/': typeof BlogIndexRoute
   '/events/': typeof EventsIndexRoute
@@ -75,6 +82,7 @@ export interface FileRoutesByTo {
   '/community': typeof CommunityRoute
   '/programs': typeof ProgramsRoute
   '/resources': typeof ResourcesRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/events/$slug': typeof EventsSlugRoute
   '/blog': typeof BlogIndexRoute
   '/events': typeof EventsIndexRoute
@@ -86,6 +94,7 @@ export interface FileRoutesById {
   '/community': typeof CommunityRoute
   '/programs': typeof ProgramsRoute
   '/resources': typeof ResourcesRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/events/$slug': typeof EventsSlugRoute
   '/blog/': typeof BlogIndexRoute
   '/events/': typeof EventsIndexRoute
@@ -98,6 +107,7 @@ export interface FileRouteTypes {
     | '/community'
     | '/programs'
     | '/resources'
+    | '/blog/$slug'
     | '/events/$slug'
     | '/blog/'
     | '/events/'
@@ -108,6 +118,7 @@ export interface FileRouteTypes {
     | '/community'
     | '/programs'
     | '/resources'
+    | '/blog/$slug'
     | '/events/$slug'
     | '/blog'
     | '/events'
@@ -118,6 +129,7 @@ export interface FileRouteTypes {
     | '/community'
     | '/programs'
     | '/resources'
+    | '/blog/$slug'
     | '/events/$slug'
     | '/blog/'
     | '/events/'
@@ -129,6 +141,7 @@ export interface RootRouteChildren {
   CommunityRoute: typeof CommunityRoute
   ProgramsRoute: typeof ProgramsRoute
   ResourcesRoute: typeof ResourcesRoute
+  BlogSlugRoute: typeof BlogSlugRoute
   EventsSlugRoute: typeof EventsSlugRoute
   BlogIndexRoute: typeof BlogIndexRoute
   EventsIndexRoute: typeof EventsIndexRoute
@@ -178,6 +191,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/blog/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/events/': {
       id: '/events/'
       path: '/events'
@@ -201,6 +221,7 @@ const rootRouteChildren: RootRouteChildren = {
   CommunityRoute: CommunityRoute,
   ProgramsRoute: ProgramsRoute,
   ResourcesRoute: ResourcesRoute,
+  BlogSlugRoute: BlogSlugRoute,
   EventsSlugRoute: EventsSlugRoute,
   BlogIndexRoute: BlogIndexRoute,
   EventsIndexRoute: EventsIndexRoute,
