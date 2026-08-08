@@ -27,6 +27,7 @@ import { Route as BlogSlugRouteImport } from './routes/blog/$slug'
 import { Route as EventsIndexRouteImport } from './routes/events/index'
 import { Route as EventsSlugRouteImport } from './routes/events/$slug'
 import { Route as MembersIndexRouteImport } from './routes/members/index'
+import { Route as MembersIdRouteImport } from './routes/members/$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -117,6 +118,11 @@ const MembersIndexRoute = MembersIndexRouteImport.update({
   path: '/members/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MembersIdRoute = MembersIdRouteImport.update({
+  id: '/members/$id',
+  path: '/members/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -133,6 +139,7 @@ export interface FileRoutesByFullPath {
   '/profile': typeof AuthenticatedProfileRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/events/$slug': typeof EventsSlugRoute
+  '/members/$id': typeof MembersIdRoute
   '/blog/': typeof BlogIndexRoute
   '/events/': typeof EventsIndexRoute
   '/members/': typeof MembersIndexRoute
@@ -152,6 +159,7 @@ export interface FileRoutesByTo {
   '/profile': typeof AuthenticatedProfileRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/events/$slug': typeof EventsSlugRoute
+  '/members/$id': typeof MembersIdRoute
   '/blog': typeof BlogIndexRoute
   '/events': typeof EventsIndexRoute
   '/members': typeof MembersIndexRoute
@@ -173,6 +181,7 @@ export interface FileRoutesById {
   '/_authenticated/profile': typeof AuthenticatedProfileRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/events/$slug': typeof EventsSlugRoute
+  '/members/$id': typeof MembersIdRoute
   '/blog/': typeof BlogIndexRoute
   '/events/': typeof EventsIndexRoute
   '/members/': typeof MembersIndexRoute
@@ -194,6 +203,7 @@ export interface FileRouteTypes {
     | '/profile'
     | '/blog/$slug'
     | '/events/$slug'
+    | '/members/$id'
     | '/blog/'
     | '/events/'
     | '/members/'
@@ -213,6 +223,7 @@ export interface FileRouteTypes {
     | '/profile'
     | '/blog/$slug'
     | '/events/$slug'
+    | '/members/$id'
     | '/blog'
     | '/events'
     | '/members'
@@ -233,6 +244,7 @@ export interface FileRouteTypes {
     | '/_authenticated/profile'
     | '/blog/$slug'
     | '/events/$slug'
+    | '/members/$id'
     | '/blog/'
     | '/events/'
     | '/members/'
@@ -251,6 +263,7 @@ export interface RootRouteChildren {
   ResourcesRoute: typeof ResourcesRoute
   BlogSlugRoute: typeof BlogSlugRoute
   EventsSlugRoute: typeof EventsSlugRoute
+  MembersIdRoute: typeof MembersIdRoute
   BlogIndexRoute: typeof BlogIndexRoute
   EventsIndexRoute: typeof EventsIndexRoute
   MembersIndexRoute: typeof MembersIndexRoute
@@ -384,6 +397,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MembersIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/members/$id': {
+      id: '/members/$id'
+      path: '/members/$id'
+      fullPath: '/members/$id'
+      preLoaderRoute: typeof MembersIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -415,6 +435,7 @@ const rootRouteChildren: RootRouteChildren = {
   ResourcesRoute: ResourcesRoute,
   BlogSlugRoute: BlogSlugRoute,
   EventsSlugRoute: EventsSlugRoute,
+  MembersIdRoute: MembersIdRoute,
   BlogIndexRoute: BlogIndexRoute,
   EventsIndexRoute: EventsIndexRoute,
   MembersIndexRoute: MembersIndexRoute,
