@@ -2,8 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import { PersonCard } from "@/components/ui-kit/cards";
 import { CtaSection, PageHero, SectionHeader, StatGrid, Timeline } from "@/components/ui-kit/primitives";
-import { governance, leadership } from "@/content/people";
-import { brand, impactStats, philosophy, storyTimeline } from "@/content/site";
+import { leadership } from "@/content/people";
+import { brand, governance, impactStats, philosophy, storyTimeline } from "@/content/site";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
