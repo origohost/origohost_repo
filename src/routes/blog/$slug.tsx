@@ -4,14 +4,14 @@ import { ArrowLeft } from "lucide-react";
 import { BlogCard } from "@/components/ui-kit/cards";
 import { Breadcrumbs, EmptyState, SectionHeader, Tag } from "@/components/ui-kit/primitives";
 import { Button } from "@/components/ui/button";
-import { blogPosts, getPostBySlug } from "@/content/blog";
+import { getPublicPost } from "@/lib/public-content.functions";
 import type { BlogPost } from "@/content/types";
 
 export const Route = createFileRoute("/blog/$slug")({
-  loader: ({ params }) => {
-    const post = getPostBySlug(params.slug);
-    if (!post) throw notFound();
-    return { post };
+  loader: async ({ params }) => {
+    const result = await getPublicPost({ data: { slug: params.slug } });
+    if (!result) throw notFound();
+    return result;
   },
   head: ({ loaderData }) => {
     if (!loaderData) {
@@ -75,12 +75,8 @@ function formatDate(iso: string) {
 }
 
 function BlogPostPage() {
-  const { post } = Route.useLoaderData() as { post: BlogPost };
-  const related = blogPosts
-    .filter((item) => item.slug !== post.slug && item.category === post.category)
-    .slice(0, 3);
-  const fallback = blogPosts.filter((item) => item.slug !== post.slug).slice(0, 3);
-  const relatedPosts = related.length > 0 ? related : fallback;
+  const { post, related } = Route.useLoaderData() as { post: BlogPost; related: BlogPost[] };
+  const relatedPosts = related;
 
   return (
     <>
@@ -136,6 +132,7 @@ function BlogPostPage() {
         </div>
       </article>
 
+      {relatedPosts.length > 0 ? (
       <section className="section-y border-t border-hairline bg-surface">
         <div className="container-page">
           <SectionHeader eyebrow="Keep reading" title="Related articles" />
@@ -146,6 +143,7 @@ function BlogPostPage() {
           </div>
         </div>
       </section>
+      ) : null}
     </>
   );
 }

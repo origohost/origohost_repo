@@ -4,7 +4,8 @@ import { useMemo, useState } from "react";
 import { BlogCard } from "@/components/ui-kit/cards";
 import { CtaSection, EmptyState, PageHero, SectionHeader } from "@/components/ui-kit/primitives";
 import { Button } from "@/components/ui/button";
-import { blogCategories, blogPosts } from "@/content/blog";
+import type { BlogPost } from "@/content/types";
+import { listPublicPosts } from "@/lib/public-content.functions";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/blog/")({
@@ -26,15 +27,33 @@ export const Route = createFileRoute("/blog/")({
     ],
     links: [{ rel: "canonical", href: "/blog" }],
   }),
+  loader: () => listPublicPosts(),
   component: BlogIndexPage,
+  errorComponent: BlogUnavailable,
 });
 
+function BlogUnavailable() {
+  return (
+    <div className="container-page py-40">
+      <EmptyState
+        title="Articles could not be loaded"
+        description="Something went wrong while loading the blog. Please refresh the page or try again shortly."
+      />
+    </div>
+  );
+}
+
 function BlogIndexPage() {
+  const blogPosts = Route.useLoaderData() as BlogPost[];
   const [category, setCategory] = useState("all");
 
+  const blogCategories = useMemo(
+    () => [...new Set(blogPosts.map((post) => post.category))].sort(),
+    [blogPosts],
+  );
   const sorted = useMemo(
     () => [...blogPosts].sort((a, b) => (a.date < b.date ? 1 : -1)),
-    [],
+    [blogPosts],
   );
   const filtered = useMemo(
     () => (category === "all" ? sorted : sorted.filter((post) => post.category === category)),

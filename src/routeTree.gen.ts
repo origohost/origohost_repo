@@ -26,6 +26,8 @@ import { Route as BlogIndexRouteImport } from './routes/blog/index'
 import { Route as BlogSlugRouteImport } from './routes/blog/$slug'
 import { Route as EventsIndexRouteImport } from './routes/events/index'
 import { Route as EventsSlugRouteImport } from './routes/events/$slug'
+import { Route as MembersIndexRouteImport } from './routes/members/index'
+import { Route as MembersIdRouteImport } from './routes/members/$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -111,6 +113,16 @@ const EventsSlugRoute = EventsSlugRouteImport.update({
   path: '/events/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MembersIndexRoute = MembersIndexRouteImport.update({
+  id: '/members/',
+  path: '/members/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MembersIdRoute = MembersIdRouteImport.update({
+  id: '/members/$id',
+  path: '/members/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -127,8 +139,10 @@ export interface FileRoutesByFullPath {
   '/profile': typeof AuthenticatedProfileRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/events/$slug': typeof EventsSlugRoute
+  '/members/$id': typeof MembersIdRoute
   '/blog/': typeof BlogIndexRoute
   '/events/': typeof EventsIndexRoute
+  '/members/': typeof MembersIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -145,8 +159,10 @@ export interface FileRoutesByTo {
   '/profile': typeof AuthenticatedProfileRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/events/$slug': typeof EventsSlugRoute
+  '/members/$id': typeof MembersIdRoute
   '/blog': typeof BlogIndexRoute
   '/events': typeof EventsIndexRoute
+  '/members': typeof MembersIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -165,8 +181,10 @@ export interface FileRoutesById {
   '/_authenticated/profile': typeof AuthenticatedProfileRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/events/$slug': typeof EventsSlugRoute
+  '/members/$id': typeof MembersIdRoute
   '/blog/': typeof BlogIndexRoute
   '/events/': typeof EventsIndexRoute
+  '/members/': typeof MembersIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -185,8 +203,10 @@ export interface FileRouteTypes {
     | '/profile'
     | '/blog/$slug'
     | '/events/$slug'
+    | '/members/$id'
     | '/blog/'
     | '/events/'
+    | '/members/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -203,8 +223,10 @@ export interface FileRouteTypes {
     | '/profile'
     | '/blog/$slug'
     | '/events/$slug'
+    | '/members/$id'
     | '/blog'
     | '/events'
+    | '/members'
   id:
     | '__root__'
     | '/'
@@ -222,8 +244,10 @@ export interface FileRouteTypes {
     | '/_authenticated/profile'
     | '/blog/$slug'
     | '/events/$slug'
+    | '/members/$id'
     | '/blog/'
     | '/events/'
+    | '/members/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -239,8 +263,10 @@ export interface RootRouteChildren {
   ResourcesRoute: typeof ResourcesRoute
   BlogSlugRoute: typeof BlogSlugRoute
   EventsSlugRoute: typeof EventsSlugRoute
+  MembersIdRoute: typeof MembersIdRoute
   BlogIndexRoute: typeof BlogIndexRoute
   EventsIndexRoute: typeof EventsIndexRoute
+  MembersIndexRoute: typeof MembersIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -364,6 +390,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EventsSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/members/': {
+      id: '/members/'
+      path: '/members'
+      fullPath: '/members/'
+      preLoaderRoute: typeof MembersIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/members/$id': {
+      id: '/members/$id'
+      path: '/members/$id'
+      fullPath: '/members/$id'
+      preLoaderRoute: typeof MembersIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -395,19 +435,11 @@ const rootRouteChildren: RootRouteChildren = {
   ResourcesRoute: ResourcesRoute,
   BlogSlugRoute: BlogSlugRoute,
   EventsSlugRoute: EventsSlugRoute,
+  MembersIdRoute: MembersIdRoute,
   BlogIndexRoute: BlogIndexRoute,
   EventsIndexRoute: EventsIndexRoute,
+  MembersIndexRoute: MembersIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}

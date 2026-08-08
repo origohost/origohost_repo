@@ -10,14 +10,17 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
-import { events, getEventBySlug } from "@/content/events";
+import { getPublicEvent, listPublicEvents } from "@/lib/public-content.functions";
 import type { OrigoEvent } from "@/content/types";
 
 export const Route = createFileRoute("/events/$slug")({
-  loader: ({ params }) => {
-    const event = getEventBySlug(params.slug);
+  loader: async ({ params }) => {
+    const [event, all] = await Promise.all([
+      getPublicEvent({ data: { slug: params.slug } }),
+      listPublicEvents(),
+    ]);
     if (!event) throw notFound();
-    return { event };
+    return { event, all };
   },
   head: ({ loaderData }) => {
     if (!loaderData) {
@@ -79,7 +82,7 @@ function EventNotFound() {
 }
 
 function EventDetailPage() {
-  const { event } = Route.useLoaderData() as { event: OrigoEvent };
+  const { event, all: events } = Route.useLoaderData() as { event: OrigoEvent; all: OrigoEvent[] };
   const related = events
     .filter((item) => item.slug !== event.slug && item.category === event.category)
     .slice(0, 3);

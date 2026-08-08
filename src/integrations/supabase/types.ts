@@ -44,6 +44,75 @@ export type Database = {
         }
         Relationships: []
       }
+      blog_posts: {
+        Row: {
+          author_name: string
+          author_role: string | null
+          author_user_id: string | null
+          category: string | null
+          content: string
+          cover_image_url: string | null
+          created_at: string
+          created_by: string | null
+          excerpt: string | null
+          id: string
+          published_at: string | null
+          reading_time: string | null
+          seo_description: string | null
+          seo_title: string | null
+          slug: string
+          status: Database["public"]["Enums"]["post_status"]
+          tags: string[]
+          title: string
+          updated_at: string
+          updated_by: string | null
+        }
+        Insert: {
+          author_name?: string
+          author_role?: string | null
+          author_user_id?: string | null
+          category?: string | null
+          content?: string
+          cover_image_url?: string | null
+          created_at?: string
+          created_by?: string | null
+          excerpt?: string | null
+          id?: string
+          published_at?: string | null
+          reading_time?: string | null
+          seo_description?: string | null
+          seo_title?: string | null
+          slug: string
+          status?: Database["public"]["Enums"]["post_status"]
+          tags?: string[]
+          title: string
+          updated_at?: string
+          updated_by?: string | null
+        }
+        Update: {
+          author_name?: string
+          author_role?: string | null
+          author_user_id?: string | null
+          category?: string | null
+          content?: string
+          cover_image_url?: string | null
+          created_at?: string
+          created_by?: string | null
+          excerpt?: string | null
+          id?: string
+          published_at?: string | null
+          reading_time?: string | null
+          seo_description?: string | null
+          seo_title?: string | null
+          slug?: string
+          status?: Database["public"]["Enums"]["post_status"]
+          tags?: string[]
+          title?: string
+          updated_at?: string
+          updated_by?: string | null
+        }
+        Relationships: []
+      }
       certificates: {
         Row: {
           certificate_number: string
@@ -51,8 +120,11 @@ export type Database = {
           event_id: string | null
           event_title: string
           id: string
+          issued_by: string | null
           issued_on: string
+          metadata: Json
           recipient_name: string
+          registration_id: string | null
           revoked_at: string | null
           revoked_reason: string | null
           type: Database["public"]["Enums"]["certificate_type"]
@@ -64,8 +136,11 @@ export type Database = {
           event_id?: string | null
           event_title: string
           id?: string
+          issued_by?: string | null
           issued_on?: string
+          metadata?: Json
           recipient_name: string
+          registration_id?: string | null
           revoked_at?: string | null
           revoked_reason?: string | null
           type?: Database["public"]["Enums"]["certificate_type"]
@@ -77,8 +152,11 @@ export type Database = {
           event_id?: string | null
           event_title?: string
           id?: string
+          issued_by?: string | null
           issued_on?: string
+          metadata?: Json
           recipient_name?: string
+          registration_id?: string | null
           revoked_at?: string | null
           revoked_reason?: string | null
           type?: Database["public"]["Enums"]["certificate_type"]
@@ -90,6 +168,13 @@ export type Database = {
             columns: ["event_id"]
             isOneToOne: false
             referencedRelation: "events"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "certificates_registration_id_fkey"
+            columns: ["registration_id"]
+            isOneToOne: false
+            referencedRelation: "event_registrations"
             referencedColumns: ["id"]
           },
         ]
@@ -129,10 +214,13 @@ export type Database = {
       chapters: {
         Row: {
           city: string | null
+          contact_email: string | null
           created_at: string
           id: string
           institution: string | null
           lead_user_id: string | null
+          links: Json
+          logo_url: string | null
           name: string
           organization_id: string | null
           region: string | null
@@ -144,10 +232,13 @@ export type Database = {
         }
         Insert: {
           city?: string | null
+          contact_email?: string | null
           created_at?: string
           id?: string
           institution?: string | null
           lead_user_id?: string | null
+          links?: Json
+          logo_url?: string | null
           name: string
           organization_id?: string | null
           region?: string | null
@@ -159,10 +250,13 @@ export type Database = {
         }
         Update: {
           city?: string | null
+          contact_email?: string | null
           created_at?: string
           id?: string
           institution?: string | null
           lead_user_id?: string | null
+          links?: Json
+          logo_url?: string | null
           name?: string
           organization_id?: string | null
           region?: string | null
@@ -184,30 +278,39 @@ export type Database = {
       }
       event_registrations: {
         Row: {
+          attendance_marked_by: string | null
           attended: boolean
           attended_at: string | null
           event_id: string
           feedback: Json | null
           id: string
+          notes: string | null
           registered_at: string
+          status: Database["public"]["Enums"]["registration_state"]
           user_id: string
         }
         Insert: {
+          attendance_marked_by?: string | null
           attended?: boolean
           attended_at?: string | null
           event_id: string
           feedback?: Json | null
           id?: string
+          notes?: string | null
           registered_at?: string
+          status?: Database["public"]["Enums"]["registration_state"]
           user_id: string
         }
         Update: {
+          attendance_marked_by?: string | null
           attended?: boolean
           attended_at?: string | null
           event_id?: string
           feedback?: Json | null
           id?: string
+          notes?: string | null
           registered_at?: string
+          status?: Database["public"]["Enums"]["registration_state"]
           user_id?: string
         }
         Relationships: [
@@ -223,78 +326,123 @@ export type Database = {
       events: {
         Row: {
           agenda: Json
+          audience: string[]
           capacity: number | null
           category: string | null
+          certificate_note: string | null
           chapter_id: string | null
           cover_image_url: string | null
           created_at: string
+          created_by: string | null
           description: string | null
           ends_at: string | null
+          faqs: Json
           id: string
+          learning_outcomes: string[]
           meeting_url: string | null
           mode: Database["public"]["Enums"]["event_mode"]
+          organizer: string | null
           organizer_user_id: string | null
+          partners: Json
           registration_status: Database["public"]["Enums"]["registration_status"]
           registration_url: string | null
           report: Json | null
+          seo_description: string | null
+          seo_title: string | null
           slug: string
+          speakers: Json
           starts_at: string
           status: Database["public"]["Enums"]["event_status"]
           summary: string | null
+          tags: string[]
+          time_label: string | null
           timezone: string
           title: string
+          topics: string[]
           updated_at: string
+          updated_by: string | null
           venue: string | null
+          who_should_attend: string[]
         }
         Insert: {
           agenda?: Json
+          audience?: string[]
           capacity?: number | null
           category?: string | null
+          certificate_note?: string | null
           chapter_id?: string | null
           cover_image_url?: string | null
           created_at?: string
+          created_by?: string | null
           description?: string | null
           ends_at?: string | null
+          faqs?: Json
           id?: string
+          learning_outcomes?: string[]
           meeting_url?: string | null
           mode?: Database["public"]["Enums"]["event_mode"]
+          organizer?: string | null
           organizer_user_id?: string | null
+          partners?: Json
           registration_status?: Database["public"]["Enums"]["registration_status"]
           registration_url?: string | null
           report?: Json | null
+          seo_description?: string | null
+          seo_title?: string | null
           slug: string
+          speakers?: Json
           starts_at: string
           status?: Database["public"]["Enums"]["event_status"]
           summary?: string | null
+          tags?: string[]
+          time_label?: string | null
           timezone?: string
           title: string
+          topics?: string[]
           updated_at?: string
+          updated_by?: string | null
           venue?: string | null
+          who_should_attend?: string[]
         }
         Update: {
           agenda?: Json
+          audience?: string[]
           capacity?: number | null
           category?: string | null
+          certificate_note?: string | null
           chapter_id?: string | null
           cover_image_url?: string | null
           created_at?: string
+          created_by?: string | null
           description?: string | null
           ends_at?: string | null
+          faqs?: Json
           id?: string
+          learning_outcomes?: string[]
           meeting_url?: string | null
           mode?: Database["public"]["Enums"]["event_mode"]
+          organizer?: string | null
           organizer_user_id?: string | null
+          partners?: Json
           registration_status?: Database["public"]["Enums"]["registration_status"]
           registration_url?: string | null
           report?: Json | null
+          seo_description?: string | null
+          seo_title?: string | null
           slug?: string
+          speakers?: Json
           starts_at?: string
           status?: Database["public"]["Enums"]["event_status"]
           summary?: string | null
+          tags?: string[]
+          time_label?: string | null
           timezone?: string
           title?: string
+          topics?: string[]
           updated_at?: string
+          updated_by?: string | null
           venue?: string | null
+          who_should_attend?: string[]
         }
         Relationships: [
           {
@@ -362,10 +510,13 @@ export type Database = {
           contact_email: string
           contact_name: string
           created_at: string
+          follow_up_at: string | null
           id: string
           message: string | null
+          notes: Json
           organization_id: string | null
           organization_name: string | null
+          owner_user_id: string | null
           partnership_type: string | null
           stage: Database["public"]["Enums"]["partnership_stage"]
           updated_at: string
@@ -374,10 +525,13 @@ export type Database = {
           contact_email: string
           contact_name: string
           created_at?: string
+          follow_up_at?: string | null
           id?: string
           message?: string | null
+          notes?: Json
           organization_id?: string | null
           organization_name?: string | null
+          owner_user_id?: string | null
           partnership_type?: string | null
           stage?: Database["public"]["Enums"]["partnership_stage"]
           updated_at?: string
@@ -386,10 +540,13 @@ export type Database = {
           contact_email?: string
           contact_name?: string
           created_at?: string
+          follow_up_at?: string | null
           id?: string
           message?: string | null
+          notes?: Json
           organization_id?: string | null
           organization_name?: string | null
+          owner_user_id?: string | null
           partnership_type?: string | null
           stage?: Database["public"]["Enums"]["partnership_stage"]
           updated_at?: string
@@ -425,6 +582,7 @@ export type Database = {
           skills: string[]
           technology_interests: string[]
           updated_at: string
+          visibility: Database["public"]["Enums"]["profile_visibility"]
         }
         Insert: {
           bio?: string | null
@@ -446,6 +604,7 @@ export type Database = {
           skills?: string[]
           technology_interests?: string[]
           updated_at?: string
+          visibility?: Database["public"]["Enums"]["profile_visibility"]
         }
         Update: {
           bio?: string | null
@@ -467,6 +626,7 @@ export type Database = {
           skills?: string[]
           technology_interests?: string[]
           updated_at?: string
+          visibility?: Database["public"]["Enums"]["profile_visibility"]
         }
         Relationships: []
       }
@@ -511,6 +671,15 @@ export type Database = {
         Returns: boolean
       }
       is_platform_admin: { Args: { _user_id: string }; Returns: boolean }
+      log_audit: {
+        Args: {
+          _action: string
+          _entity_id?: string
+          _entity_type: string
+          _metadata?: Json
+        }
+        Returns: undefined
+      }
     }
     Enums: {
       app_role:
@@ -579,6 +748,15 @@ export type Database = {
         | "active"
         | "renewal"
         | "closed"
+        | "lost"
+      post_status: "draft" | "published" | "archived"
+      profile_visibility: "public" | "community_only" | "private"
+      registration_state:
+        | "registered"
+        | "confirmed"
+        | "attended"
+        | "absent"
+        | "cancelled"
       registration_status: "not_open" | "open" | "waitlist" | "full" | "closed"
     }
     CompositeTypes: {
@@ -778,6 +956,16 @@ export const Constants = {
         "active",
         "renewal",
         "closed",
+        "lost",
+      ],
+      post_status: ["draft", "published", "archived"],
+      profile_visibility: ["public", "community_only", "private"],
+      registration_state: [
+        "registered",
+        "confirmed",
+        "attended",
+        "absent",
+        "cancelled",
       ],
       registration_status: ["not_open", "open", "waitlist", "full", "closed"],
     },

@@ -5,7 +5,8 @@ import { EventCard } from "@/components/ui-kit/cards";
 import { CtaSection, EmptyState, PageHero, SectionHeader } from "@/components/ui-kit/primitives";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { eventAudiences, eventCategories, events } from "@/content/events";
+import type { OrigoEvent } from "@/content/types";
+import { listPublicEvents } from "@/lib/public-content.functions";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/events/")({
@@ -27,8 +28,21 @@ export const Route = createFileRoute("/events/")({
     ],
     links: [{ rel: "canonical", href: "/events" }],
   }),
+  loader: () => listPublicEvents(),
   component: EventsPage,
+  errorComponent: EventsUnavailable,
 });
+
+function EventsUnavailable() {
+  return (
+    <div className="container-page py-40">
+      <EmptyState
+        title="Events could not be loaded"
+        description="Something went wrong while loading the calendar. Please refresh the page or try again shortly."
+      />
+    </div>
+  );
+}
 
 const statuses = ["all", "upcoming", "live", "past"] as const;
 const modes = ["all", "online", "offline", "hybrid"] as const;
@@ -72,6 +86,7 @@ function FilterRow({
 }
 
 function EventsPage() {
+  const events = Route.useLoaderData() as OrigoEvent[];
   const [status, setStatus] = useState<string>("all");
   const [mode, setMode] = useState<string>("all");
   const [category, setCategory] = useState<string>("all");
@@ -99,7 +114,16 @@ function EventsPage() {
         return haystack.includes(q);
       })
       .sort((a, b) => (a.date < b.date ? 1 : -1));
-  }, [status, mode, category, audience, query]);
+  }, [events, status, mode, category, audience, query]);
+
+  const eventCategories = useMemo(
+    () => [...new Set(events.map((event) => event.category))].sort(),
+    [events],
+  );
+  const eventAudiences = useMemo(
+    () => [...new Set(events.flatMap((event) => event.audience))].sort(),
+    [events],
+  );
 
   const reset = () => {
     setStatus("all");
