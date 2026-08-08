@@ -37,9 +37,9 @@ export function SiteHeader() {
               : "border-transparent bg-card/55 backdrop-blur-md",
           )}
         >
-          <Logo />
+          <LogoResponsive />
 
-          <ul className="ml-2 hidden items-center gap-0.5 lg:flex">
+          <ul className="ml-5 hidden items-center gap-0.5 lg:flex">
             {primaryNav.map((item) => (
               <li key={item.to}>
                 <Link
