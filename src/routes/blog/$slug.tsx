@@ -4,14 +4,14 @@ import { ArrowLeft } from "lucide-react";
 import { BlogCard } from "@/components/ui-kit/cards";
 import { Breadcrumbs, EmptyState, SectionHeader, Tag } from "@/components/ui-kit/primitives";
 import { Button } from "@/components/ui/button";
-import { blogPosts, getPostBySlug } from "@/content/blog";
+import { getPublicPost } from "@/lib/public-content.functions";
 import type { BlogPost } from "@/content/types";
 
 export const Route = createFileRoute("/blog/$slug")({
-  loader: ({ params }) => {
-    const post = getPostBySlug(params.slug);
-    if (!post) throw notFound();
-    return { post };
+  loader: async ({ params }) => {
+    const result = await getPublicPost({ data: { slug: params.slug } });
+    if (!result) throw notFound();
+    return result;
   },
   head: ({ loaderData }) => {
     if (!loaderData) {
