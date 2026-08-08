@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { events, getEventBySlug } from "@/content/events";
+import type { OrigoEvent } from "@/content/types";
 
 export const Route = createFileRoute("/events/$slug")({
   loader: ({ params }) => {
