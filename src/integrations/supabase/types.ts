@@ -14,6 +14,45 @@ export type Database = {
   }
   public: {
     Tables: {
+      analytics_events: {
+        Row: {
+          created_at: string
+          device: string | null
+          entity_id: string | null
+          entity_type: string | null
+          event_name: string
+          id: number
+          metadata: Json
+          path: string | null
+          referrer_host: string | null
+          user_id: string | null
+        }
+        Insert: {
+          created_at?: string
+          device?: string | null
+          entity_id?: string | null
+          entity_type?: string | null
+          event_name: string
+          id?: number
+          metadata?: Json
+          path?: string | null
+          referrer_host?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          created_at?: string
+          device?: string | null
+          entity_id?: string | null
+          entity_type?: string | null
+          event_name?: string
+          id?: number
+          metadata?: Json
+          path?: string | null
+          referrer_host?: string | null
+          user_id?: string | null
+        }
+        Relationships: []
+      }
       audit_logs: {
         Row: {
           action: string
@@ -41,6 +80,93 @@ export type Database = {
           entity_type?: string
           id?: string
           metadata?: Json
+        }
+        Relationships: []
+      }
+      automation_runs: {
+        Row: {
+          attempts: number
+          created_at: string
+          error: string | null
+          finished_at: string | null
+          id: string
+          payload: Json
+          result: Json | null
+          started_at: string | null
+          status: Database["public"]["Enums"]["automation_run_status"]
+          subject_id: string | null
+          subject_type: string | null
+          trigger_event: string
+          updated_at: string
+          workflow_key: string
+        }
+        Insert: {
+          attempts?: number
+          created_at?: string
+          error?: string | null
+          finished_at?: string | null
+          id?: string
+          payload?: Json
+          result?: Json | null
+          started_at?: string | null
+          status?: Database["public"]["Enums"]["automation_run_status"]
+          subject_id?: string | null
+          subject_type?: string | null
+          trigger_event: string
+          updated_at?: string
+          workflow_key: string
+        }
+        Update: {
+          attempts?: number
+          created_at?: string
+          error?: string | null
+          finished_at?: string | null
+          id?: string
+          payload?: Json
+          result?: Json | null
+          started_at?: string | null
+          status?: Database["public"]["Enums"]["automation_run_status"]
+          subject_id?: string | null
+          subject_type?: string | null
+          trigger_event?: string
+          updated_at?: string
+          workflow_key?: string
+        }
+        Relationships: []
+      }
+      automation_workflows: {
+        Row: {
+          actions: Json
+          created_at: string
+          description: string | null
+          id: string
+          is_enabled: boolean
+          key: string
+          name: string
+          trigger_event: string
+          updated_at: string
+        }
+        Insert: {
+          actions?: Json
+          created_at?: string
+          description?: string | null
+          id?: string
+          is_enabled?: boolean
+          key: string
+          name: string
+          trigger_event: string
+          updated_at?: string
+        }
+        Update: {
+          actions?: Json
+          created_at?: string
+          description?: string | null
+          id?: string
+          is_enabled?: boolean
+          key?: string
+          name?: string
+          trigger_event?: string
+          updated_at?: string
         }
         Relationships: []
       }
@@ -113,12 +239,64 @@ export type Database = {
         }
         Relationships: []
       }
+      certificate_templates: {
+        Row: {
+          accent_color: string | null
+          background_url: string | null
+          body_text: string
+          created_at: string
+          created_by: string | null
+          id: string
+          is_active: boolean
+          name: string
+          signatory_name: string | null
+          signatory_role: string | null
+          slug: string
+          title_text: string
+          type: Database["public"]["Enums"]["certificate_type"]
+          updated_at: string
+        }
+        Insert: {
+          accent_color?: string | null
+          background_url?: string | null
+          body_text?: string
+          created_at?: string
+          created_by?: string | null
+          id?: string
+          is_active?: boolean
+          name: string
+          signatory_name?: string | null
+          signatory_role?: string | null
+          slug: string
+          title_text?: string
+          type?: Database["public"]["Enums"]["certificate_type"]
+          updated_at?: string
+        }
+        Update: {
+          accent_color?: string | null
+          background_url?: string | null
+          body_text?: string
+          created_at?: string
+          created_by?: string | null
+          id?: string
+          is_active?: boolean
+          name?: string
+          signatory_name?: string | null
+          signatory_role?: string | null
+          slug?: string
+          title_text?: string
+          type?: Database["public"]["Enums"]["certificate_type"]
+          updated_at?: string
+        }
+        Relationships: []
+      }
       certificates: {
         Row: {
           certificate_number: string
           created_at: string
           event_id: string | null
           event_title: string
+          file_url: string | null
           id: string
           issued_by: string | null
           issued_on: string
@@ -127,6 +305,7 @@ export type Database = {
           registration_id: string | null
           revoked_at: string | null
           revoked_reason: string | null
+          template_id: string | null
           type: Database["public"]["Enums"]["certificate_type"]
           user_id: string | null
         }
@@ -135,6 +314,7 @@ export type Database = {
           created_at?: string
           event_id?: string | null
           event_title: string
+          file_url?: string | null
           id?: string
           issued_by?: string | null
           issued_on?: string
@@ -143,6 +323,7 @@ export type Database = {
           registration_id?: string | null
           revoked_at?: string | null
           revoked_reason?: string | null
+          template_id?: string | null
           type?: Database["public"]["Enums"]["certificate_type"]
           user_id?: string | null
         }
@@ -151,6 +332,7 @@ export type Database = {
           created_at?: string
           event_id?: string | null
           event_title?: string
+          file_url?: string | null
           id?: string
           issued_by?: string | null
           issued_on?: string
@@ -159,6 +341,7 @@ export type Database = {
           registration_id?: string | null
           revoked_at?: string | null
           revoked_reason?: string | null
+          template_id?: string | null
           type?: Database["public"]["Enums"]["certificate_type"]
           user_id?: string | null
         }
@@ -175,6 +358,13 @@ export type Database = {
             columns: ["registration_id"]
             isOneToOne: false
             referencedRelation: "event_registrations"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "certificates_template_id_fkey"
+            columns: ["template_id"]
+            isOneToOne: false
+            referencedRelation: "certificate_templates"
             referencedColumns: ["id"]
           },
         ]
@@ -276,6 +466,54 @@ export type Database = {
           },
         ]
       }
+      cms_pages: {
+        Row: {
+          blocks: Json
+          created_at: string
+          created_by: string | null
+          id: string
+          published_at: string | null
+          seo_description: string | null
+          seo_title: string | null
+          slug: string
+          status: Database["public"]["Enums"]["content_status"]
+          summary: string | null
+          title: string
+          updated_at: string
+          updated_by: string | null
+        }
+        Insert: {
+          blocks?: Json
+          created_at?: string
+          created_by?: string | null
+          id?: string
+          published_at?: string | null
+          seo_description?: string | null
+          seo_title?: string | null
+          slug: string
+          status?: Database["public"]["Enums"]["content_status"]
+          summary?: string | null
+          title: string
+          updated_at?: string
+          updated_by?: string | null
+        }
+        Update: {
+          blocks?: Json
+          created_at?: string
+          created_by?: string | null
+          id?: string
+          published_at?: string | null
+          seo_description?: string | null
+          seo_title?: string | null
+          slug?: string
+          status?: Database["public"]["Enums"]["content_status"]
+          summary?: string | null
+          title?: string
+          updated_at?: string
+          updated_by?: string | null
+        }
+        Relationships: []
+      }
       community_stories: {
         Row: {
           created_at: string
@@ -362,6 +600,79 @@ export type Database = {
           updated_at?: string
         }
         Relationships: []
+      }
+      contributions: {
+        Row: {
+          chapter_id: string | null
+          created_at: string
+          description: string | null
+          event_id: string | null
+          id: string
+          is_verified: boolean
+          kind: Database["public"]["Enums"]["contribution_kind"]
+          occurred_on: string | null
+          points: number
+          program_id: string | null
+          title: string
+          updated_at: string
+          user_id: string
+          verified_by: string | null
+        }
+        Insert: {
+          chapter_id?: string | null
+          created_at?: string
+          description?: string | null
+          event_id?: string | null
+          id?: string
+          is_verified?: boolean
+          kind?: Database["public"]["Enums"]["contribution_kind"]
+          occurred_on?: string | null
+          points?: number
+          program_id?: string | null
+          title: string
+          updated_at?: string
+          user_id: string
+          verified_by?: string | null
+        }
+        Update: {
+          chapter_id?: string | null
+          created_at?: string
+          description?: string | null
+          event_id?: string | null
+          id?: string
+          is_verified?: boolean
+          kind?: Database["public"]["Enums"]["contribution_kind"]
+          occurred_on?: string | null
+          points?: number
+          program_id?: string | null
+          title?: string
+          updated_at?: string
+          user_id?: string
+          verified_by?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "contributions_chapter_id_fkey"
+            columns: ["chapter_id"]
+            isOneToOne: false
+            referencedRelation: "chapters"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "contributions_event_id_fkey"
+            columns: ["event_id"]
+            isOneToOne: false
+            referencedRelation: "events"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "contributions_program_id_fkey"
+            columns: ["program_id"]
+            isOneToOne: false
+            referencedRelation: "programs"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       event_hosting_requests: {
         Row: {
@@ -637,6 +948,54 @@ export type Database = {
           label?: string
           updated_at?: string
           value?: string | null
+        }
+        Relationships: []
+      }
+      interactions: {
+        Row: {
+          actor_user_id: string | null
+          body: string | null
+          created_at: string
+          entity_id: string
+          entity_type: Database["public"]["Enums"]["crm_entity_type"]
+          follow_up_at: string | null
+          id: string
+          kind: Database["public"]["Enums"]["interaction_kind"]
+          metadata: Json
+          occurred_at: string
+          outcome: string | null
+          subject: string | null
+          updated_at: string
+        }
+        Insert: {
+          actor_user_id?: string | null
+          body?: string | null
+          created_at?: string
+          entity_id: string
+          entity_type: Database["public"]["Enums"]["crm_entity_type"]
+          follow_up_at?: string | null
+          id?: string
+          kind?: Database["public"]["Enums"]["interaction_kind"]
+          metadata?: Json
+          occurred_at?: string
+          outcome?: string | null
+          subject?: string | null
+          updated_at?: string
+        }
+        Update: {
+          actor_user_id?: string | null
+          body?: string | null
+          created_at?: string
+          entity_id?: string
+          entity_type?: Database["public"]["Enums"]["crm_entity_type"]
+          follow_up_at?: string | null
+          id?: string
+          kind?: Database["public"]["Enums"]["interaction_kind"]
+          metadata?: Json
+          occurred_at?: string
+          outcome?: string | null
+          subject?: string | null
+          updated_at?: string
         }
         Relationships: []
       }
@@ -1262,6 +1621,60 @@ export type Database = {
           },
         ]
       }
+      role_permissions: {
+        Row: {
+          created_at: string
+          id: string
+          permission: string
+          role: Database["public"]["Enums"]["app_role"]
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          permission: string
+          role: Database["public"]["Enums"]["app_role"]
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          permission?: string
+          role?: Database["public"]["Enums"]["app_role"]
+        }
+        Relationships: []
+      }
+      system_settings: {
+        Row: {
+          created_at: string
+          description: string | null
+          is_public: boolean
+          key: string
+          label: string | null
+          updated_at: string
+          updated_by: string | null
+          value: Json
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          is_public?: boolean
+          key: string
+          label?: string | null
+          updated_at?: string
+          updated_by?: string | null
+          value?: Json
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          is_public?: boolean
+          key?: string
+          label?: string | null
+          updated_at?: string
+          updated_by?: string | null
+          value?: Json
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           granted_at: string
@@ -1293,6 +1706,10 @@ export type Database = {
           _roles: Database["public"]["Enums"]["app_role"][]
           _user_id: string
         }
+        Returns: boolean
+      }
+      has_permission: {
+        Args: { _permission: string; _user_id: string }
         Returns: boolean
       }
       has_role: {
@@ -1331,6 +1748,12 @@ export type Database = {
         | "ambassador"
         | "member"
       application_status: "pending" | "approved" | "rejected"
+      automation_run_status:
+        | "pending"
+        | "running"
+        | "succeeded"
+        | "failed"
+        | "skipped"
       certificate_type:
         | "participant"
         | "speaker"
@@ -1351,6 +1774,24 @@ export type Database = {
         | "closed"
       chapter_type: "national" | "state" | "city" | "campus"
       content_status: "draft" | "published" | "archived"
+      contribution_kind:
+        | "speaking"
+        | "mentoring"
+        | "volunteering"
+        | "writing"
+        | "organizing"
+        | "reviewing"
+        | "open_source"
+        | "other"
+      crm_entity_type:
+        | "profile"
+        | "organization"
+        | "partnership_lead"
+        | "contact_enquiry"
+        | "event_hosting_request"
+        | "membership_application"
+        | "chapter"
+        | "event"
       enquiry_status: "new" | "in_review" | "responded" | "closed" | "spam"
       event_mode: "online" | "offline" | "hybrid"
       event_status:
@@ -1369,6 +1810,14 @@ export type Database = {
         | "approved"
         | "rejected"
         | "converted"
+      interaction_kind:
+        | "note"
+        | "call"
+        | "email"
+        | "meeting"
+        | "status_change"
+        | "task"
+        | "system"
       membership_status:
         | "none"
         | "pending"
@@ -1563,6 +2012,13 @@ export const Constants = {
         "member",
       ],
       application_status: ["pending", "approved", "rejected"],
+      automation_run_status: [
+        "pending",
+        "running",
+        "succeeded",
+        "failed",
+        "skipped",
+      ],
       certificate_type: [
         "participant",
         "speaker",
@@ -1585,6 +2041,26 @@ export const Constants = {
       ],
       chapter_type: ["national", "state", "city", "campus"],
       content_status: ["draft", "published", "archived"],
+      contribution_kind: [
+        "speaking",
+        "mentoring",
+        "volunteering",
+        "writing",
+        "organizing",
+        "reviewing",
+        "open_source",
+        "other",
+      ],
+      crm_entity_type: [
+        "profile",
+        "organization",
+        "partnership_lead",
+        "contact_enquiry",
+        "event_hosting_request",
+        "membership_application",
+        "chapter",
+        "event",
+      ],
       enquiry_status: ["new", "in_review", "responded", "closed", "spam"],
       event_mode: ["online", "offline", "hybrid"],
       event_status: [
@@ -1599,6 +2075,15 @@ export const Constants = {
         "archived",
       ],
       hosting_status: ["new", "reviewing", "approved", "rejected", "converted"],
+      interaction_kind: [
+        "note",
+        "call",
+        "email",
+        "meeting",
+        "status_change",
+        "task",
+        "system",
+      ],
       membership_status: [
         "none",
         "pending",
