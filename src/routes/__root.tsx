@@ -77,21 +77,45 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "OrigoHOST — Where Builders Become Innovators" },
+      {
+        name: "description",
+        content:
+          "OrigoHOST is a professional technology community where students, developers, professionals, researchers and founders learn, build, collaborate and grow.",
+      },
+      { name: "author", content: "OrigoHOST" },
+      { property: "og:site_name", content: "OrigoHOST" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "theme-color", content: "#0b1a3a" },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
       },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap",
+      },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "OrigoHOST",
+          slogan: "Where Builders Become Innovators",
+          foundingDate: "2026",
+          areaServed: "IN",
+          description:
+            "A professional technology community helping students, developers, professionals, researchers, founders and innovators learn, build, collaborate and grow.",
+        }),
+      },
     ],
   }),
   shellComponent: RootShell,
