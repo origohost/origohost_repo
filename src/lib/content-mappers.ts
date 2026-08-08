@@ -90,16 +90,16 @@ export function mapEvent(row: EventRow): OrigoEvent {
     learningOutcomes: row.learning_outcomes ?? [],
     partners: asArray<string>(row.partners),
     organizer: row.organizer ?? "OrigoHOST",
-    registrationUrl: row.registration_url ?? undefined,
+    ...(row.registration_url ? { registrationUrl: row.registration_url } : {}),
     registrationStatus:
       row.registration_status === "not_open"
         ? "not-open"
         : (row.registration_status as OrigoEvent["registrationStatus"]),
     status: publicEventStatus(row),
-    certificate: row.certificate_note ?? undefined,
+    ...(row.certificate_note ? { certificate: row.certificate_note } : {}),
     faqs: asArray(row.faqs),
     tags: row.tags ?? [],
-    report: (row.report as EventReport | null) ?? undefined,
+    ...(row.report ? { report: row.report as EventReport } : {}),
   };
 }
 
@@ -130,7 +130,7 @@ export function mapPost(row: BlogRow): BlogPost & { coverImage?: string } {
     readingTime: row.reading_time ?? estimateReadingTime(row.content),
     tags: row.tags ?? [],
     body: row.content.split(/\n{2,}/).map((p) => p.trim()).filter(Boolean),
-    coverImage: row.cover_image_url ?? undefined,
+    ...(row.cover_image_url ? { coverImage: row.cover_image_url } : {}),
   };
 }
 
