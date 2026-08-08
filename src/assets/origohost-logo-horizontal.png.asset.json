@@ -1,11 +1,11 @@
 {
-  "version": 1,
   "asset_id": "ddd1ff92-a56e-47e9-8653-41ec8874856a",
-  "project_id": "ba879a4d-70ea-4bcf-8e1c-ee62d840704d",
-  "url": "/__l5e/assets-v1/ddd1ff92-a56e-47e9-8653-41ec8874856a/origohost-logo-horizontal.png",
-  "r2_key": "a/v1/ba879a4d-70ea-4bcf-8e1c-ee62d840704d/ddd1ff92-a56e-47e9-8653-41ec8874856a/origohost-logo-horizontal.png",
-  "original_filename": "origohost-logo-horizontal.png",
-  "size": 2118042,
   "content_type": "image/png",
-  "created_at": "2026-08-08T03:30:35Z"
+  "created_at": "2026-08-08T03:30:35Z",
+  "original_filename": "origohost-logo-horizontal.png",
+  "project_id": "ee145197-aa0d-4f78-9f87-ebfe577fcf3b",
+  "r2_key": "a/v1/ee145197-aa0d-4f78-9f87-ebfe577fcf3b/ddd1ff92-a56e-47e9-8653-41ec8874856a/origohost-logo-horizontal.png",
+  "size": 2118042,
+  "url": "/__l5e/assets-v1/ddd1ff92-a56e-47e9-8653-41ec8874856a/origohost-logo-horizontal.png",
+  "version": 1
 }
