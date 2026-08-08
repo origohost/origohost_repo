@@ -110,7 +110,10 @@ function MemberCard({ member }: { member: PublicMember }) {
 }
 
 function MembersPage() {
-  const { initial, facets } = Route.useLoaderData();
+  const { initial, facets } = Route.useLoaderData() as {
+    initial: { members: PublicMember[]; total: number; page: number; pageSize: number };
+    facets: { skills: string[]; interests: string[]; organizations: string[] };
+  };
   const [result, setResult] = useState(initial);
   const [q, setQ] = useState("");
   const [skill, setSkill] = useState("");

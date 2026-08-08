@@ -28,6 +28,7 @@ export const primaryNav = [
   { label: "Events", to: "/events" },
   { label: "Resources", to: "/resources" },
   { label: "Blog", to: "/blog" },
+  { label: "Members", to: "/members" },
   { label: "Partnerships", to: "/partnerships" },
 ] as const;
 
@@ -243,6 +244,7 @@ export const footerColumns = [
       { label: "Events", to: "/events" },
       { label: "Resources", to: "/resources" },
       { label: "Blog", to: "/blog" },
+  { label: "Members", to: "/members" },
     ],
   },
   {
