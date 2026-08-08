@@ -2,7 +2,7 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
-import { Logo } from "@/components/brand/logo";
+import { LogoResponsive } from "@/components/brand/logo";
 import { Button } from "@/components/ui/button";
 import { primaryNav } from "@/content/site";
 import { cn } from "@/lib/utils";
