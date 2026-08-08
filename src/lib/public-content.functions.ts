@@ -87,7 +87,7 @@ export type PublicMember = {
   technology_interests: string[];
   professional_interests: string[];
   photo_url: string | null;
-  links: unknown;
+  links: { label?: string; url?: string }[];
 };
 
 const DirectoryQuery = z.object({
