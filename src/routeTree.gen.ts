@@ -19,6 +19,7 @@ import { Route as OrganizeAnEventRouteImport } from './routes/organize-an-event'
 import { Route as PartnershipsRouteImport } from './routes/partnerships'
 import { Route as ProgramsRouteImport } from './routes/programs'
 import { Route as ResourcesRouteImport } from './routes/resources'
+import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
 import { Route as AuthenticatedProfileRouteImport } from './routes/_authenticated/profile'
 import { Route as BlogIndexRouteImport } from './routes/blog/index'
@@ -75,6 +76,11 @@ const ResourcesRoute = ResourcesRouteImport.update({
   path: '/resources',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedAdminRoute = AuthenticatedAdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
   id: '/dashboard',
   path: '/dashboard',
@@ -116,6 +122,7 @@ export interface FileRoutesByFullPath {
   '/partnerships': typeof PartnershipsRoute
   '/programs': typeof ProgramsRoute
   '/resources': typeof ResourcesRoute
+  '/admin': typeof AuthenticatedAdminRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/profile': typeof AuthenticatedProfileRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -133,6 +140,7 @@ export interface FileRoutesByTo {
   '/partnerships': typeof PartnershipsRoute
   '/programs': typeof ProgramsRoute
   '/resources': typeof ResourcesRoute
+  '/admin': typeof AuthenticatedAdminRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/profile': typeof AuthenticatedProfileRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -152,6 +160,7 @@ export interface FileRoutesById {
   '/partnerships': typeof PartnershipsRoute
   '/programs': typeof ProgramsRoute
   '/resources': typeof ResourcesRoute
+  '/_authenticated/admin': typeof AuthenticatedAdminRoute
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
   '/_authenticated/profile': typeof AuthenticatedProfileRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -171,6 +180,7 @@ export interface FileRouteTypes {
     | '/partnerships'
     | '/programs'
     | '/resources'
+    | '/admin'
     | '/dashboard'
     | '/profile'
     | '/blog/$slug'
@@ -188,6 +198,7 @@ export interface FileRouteTypes {
     | '/partnerships'
     | '/programs'
     | '/resources'
+    | '/admin'
     | '/dashboard'
     | '/profile'
     | '/blog/$slug'
@@ -206,6 +217,7 @@ export interface FileRouteTypes {
     | '/partnerships'
     | '/programs'
     | '/resources'
+    | '/_authenticated/admin'
     | '/_authenticated/dashboard'
     | '/_authenticated/profile'
     | '/blog/$slug'
@@ -303,6 +315,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ResourcesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated/admin': {
+      id: '/_authenticated/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AuthenticatedAdminRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/dashboard': {
       id: '/_authenticated/dashboard'
       path: '/dashboard'
@@ -349,11 +368,13 @@ declare module '@tanstack/react-router' {
 }
 
 interface AuthenticatedRouteRouteChildren {
+  AuthenticatedAdminRoute: typeof AuthenticatedAdminRoute
   AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
   AuthenticatedProfileRoute: typeof AuthenticatedProfileRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedAdminRoute: AuthenticatedAdminRoute,
   AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
   AuthenticatedProfileRoute: AuthenticatedProfileRoute,
 }

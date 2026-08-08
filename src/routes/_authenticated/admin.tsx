@@ -37,7 +37,7 @@ function AdminPage() {
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             <StatCard label="Members" value={data?.metrics.members ?? 0} />
             <StatCard label="Upcoming events" value={data?.metrics.upcomingEvents ?? 0} />
-            <StatCard label="Chapters" value={data?.metrics.chapters ?? 0} />
+            <StatCard label="Active chapters" value={data?.metrics.activeChapters ?? 0} />
             <StatCard label="Open leads" value={data?.metrics.openLeads ?? 0} />
           </div>
 
