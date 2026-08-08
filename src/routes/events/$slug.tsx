@@ -82,7 +82,7 @@ function EventNotFound() {
 }
 
 function EventDetailPage() {
-  const { event } = Route.useLoaderData() as { event: OrigoEvent };
+  const { event, all: events } = Route.useLoaderData() as { event: OrigoEvent; all: OrigoEvent[] };
   const related = events
     .filter((item) => item.slug !== event.slug && item.category === event.category)
     .slice(0, 3);

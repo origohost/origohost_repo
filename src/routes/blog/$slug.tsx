@@ -75,12 +75,8 @@ function formatDate(iso: string) {
 }
 
 function BlogPostPage() {
-  const { post } = Route.useLoaderData() as { post: BlogPost };
-  const related = blogPosts
-    .filter((item) => item.slug !== post.slug && item.category === post.category)
-    .slice(0, 3);
-  const fallback = blogPosts.filter((item) => item.slug !== post.slug).slice(0, 3);
-  const relatedPosts = related.length > 0 ? related : fallback;
+  const { post, related } = Route.useLoaderData() as { post: BlogPost; related: BlogPost[] };
+  const relatedPosts = related;
 
   return (
     <>
