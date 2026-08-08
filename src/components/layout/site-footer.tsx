@@ -9,7 +9,7 @@ export function SiteFooter() {
       <div className="container-page py-14 md:py-18">
         <div className="grid gap-12 lg:grid-cols-[1.15fr_2.6fr]">
           <div className="max-w-sm">
-            <Logo variant="inverse" />
+            <Logo variant="horizontal" height={32} onDark />
             <p className="mt-5 font-display text-lg font-bold tracking-tight text-navy-foreground">
               {brand.tagline}
             </p>

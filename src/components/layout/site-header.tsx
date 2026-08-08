@@ -2,7 +2,7 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
-import { Logo } from "@/components/brand/logo";
+import { LogoResponsive } from "@/components/brand/logo";
 import { Button } from "@/components/ui/button";
 import { primaryNav } from "@/content/site";
 import { cn } from "@/lib/utils";
@@ -37,9 +37,9 @@ export function SiteHeader() {
               : "border-transparent bg-card/55 backdrop-blur-md",
           )}
         >
-          <Logo />
+          <LogoResponsive />
 
-          <ul className="ml-2 hidden items-center gap-0.5 lg:flex">
+          <ul className="ml-5 hidden items-center gap-0.5 lg:flex">
             {primaryNav.map((item) => (
               <li key={item.to}>
                 <Link
