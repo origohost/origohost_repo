@@ -1,9 +1,11 @@
 import { Link } from "@tanstack/react-router";
 
-import horizontalAsset from "@/assets/origohost-logo-horizontal.png.asset.json";
-import monogramAsset from "@/assets/origohost-monogram.png.asset.json";
+// Served from public/ so the logos resolve on any host (Lovable, Vercel, self-hosted).
+const horizontalAsset = { url: "/brand/origohost-logo-horizontal.png" };
+const monogramAsset = { url: "/brand/origohost-monogram.png" };
 import { brand } from "@/content/site";
 import { cn } from "@/lib/utils";
+
 
 /**
  * OFFICIAL BRAND ASSETS — DO NOT MODIFY.
