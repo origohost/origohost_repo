@@ -5,10 +5,17 @@
 -- ==============================================================================
 
 -- ------------------------------------------------------------------------------
--- SECTION 1: EXTENSIONS & INITIAL SETUP
+-- SECTION 1: EXTENSIONS & INITIAL CLEANUP OF LEGACY CONSTRAINTS
 -- ------------------------------------------------------------------------------
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 CREATE EXTENSION IF NOT EXISTS "pgcrypto";
+
+-- Drop legacy table constraints if tables pre-existed in Supabase
+ALTER TABLE IF EXISTS public.events DROP CONSTRAINT IF EXISTS events_format_check;
+ALTER TABLE IF EXISTS public.events DROP CONSTRAINT IF EXISTS events_status_check;
+ALTER TABLE IF EXISTS public.crm_contacts DROP CONSTRAINT IF EXISTS crm_contacts_status_check;
+ALTER TABLE IF EXISTS public.crm_leads DROP CONSTRAINT IF EXISTS crm_leads_status_check;
+ALTER TABLE IF EXISTS public.crm_applications DROP CONSTRAINT IF EXISTS crm_applications_status_check;
 
 -- ------------------------------------------------------------------------------
 -- SECTION 2: OPERATIONAL TABLE DEFINITIONS & INDEXES
