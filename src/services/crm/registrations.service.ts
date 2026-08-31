@@ -1,7 +1,8 @@
 import type { CrmRegistrationItem } from '@/types/crm';
 import { RegistrationsRepository } from '@/repositories/crm/registrations.repository';
-import { logAuditEvent } from './audit.service';
+import { emitDomainEvent } from '@/lib/events/domainEvents';
 import type { ServiceResult } from './base.service';
+import { createContact, getContacts } from './contacts.service';
 
 export async function getCrmRegistrations(
   query?: string,
@@ -21,8 +22,33 @@ export async function createCrmRegistration(
   data: Partial<CrmRegistrationItem>,
   operatorId = 'usr-operator-01'
 ): Promise<ServiceResult<CrmRegistrationItem>> {
+  // 1. Link / Create Contact Record to avoid duplicate contact identities
+  if (data.participantEmail) {
+    const existing = await getContacts(data.participantEmail);
+    if (!existing.data || existing.data.length === 0) {
+      const names = (data.participantName || 'Event Attendee').split(' ');
+      const firstName = names[0] || 'Attendee';
+      const lastName = names.slice(1).join(' ') || '';
+      await createContact({
+        firstName,
+        lastName,
+        email: data.participantEmail,
+        role: 'Event Attendee',
+        source: 'Event Registration',
+        status: 'Active',
+      });
+    }
+  }
+
+  // 2. Persist registration record
   const newReg = await RegistrationsRepository.create(data);
-  await logAuditEvent(operatorId, 'System Operator', 'CREATE', 'Registration', newReg.id);
+
+  // 3. Emit Domain Event for audit trail & downstream notifications
+  await emitDomainEvent('REGISTRATION_CREATED', newReg.id, 'Registration', {
+    operatorId,
+    data: newReg,
+  });
+
   return { success: true, data: newReg };
 }
 
@@ -32,7 +58,10 @@ export async function updateCrmRegistration(
   operatorId = 'usr-operator-01'
 ): Promise<ServiceResult<CrmRegistrationItem>> {
   const updated = await RegistrationsRepository.update(id, data);
-  await logAuditEvent(operatorId, 'System Operator', 'UPDATE', 'Registration', id);
+  await emitDomainEvent('REGISTRATION_UPDATED', id, 'Registration', {
+    operatorId,
+    data: updated,
+  });
   return { success: true, data: updated };
 }
 
@@ -42,7 +71,7 @@ export async function deleteCrmRegistration(
 ): Promise<ServiceResult<boolean>> {
   const success = await RegistrationsRepository.softDelete(id);
   if (success) {
-    await logAuditEvent(operatorId, 'System Operator', 'DELETE', 'Registration', id);
+    await emitDomainEvent('REGISTRATION_UPDATED', id, 'Registration', { operatorId });
   }
   return { success, data: success };
 }
@@ -52,7 +81,7 @@ export async function toggleRegistrationCheckIn(
   operatorId = 'usr-operator-01'
 ): Promise<ServiceResult<CrmRegistrationItem>> {
   const updated = await RegistrationsRepository.toggleCheckIn(id);
-  await logAuditEvent(operatorId, 'System Operator', 'UPDATE', 'RegistrationCheckIn', id);
+  await emitDomainEvent('REGISTRATION_UPDATED', id, 'RegistrationCheckIn', { operatorId, data: updated });
   return { success: true, data: updated };
 }
 
