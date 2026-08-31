@@ -4,9 +4,21 @@ import { createApplication } from '@/services/crm/applications.service';
 import { createCrmTask } from '@/services/crm/tasks.service';
 
 
+import { checkRateLimit } from '@/lib/security/rateLimit';
+
 export async function POST(request: Request) {
   try {
+    const ip = request.headers.get('x-forwarded-for') || 'anon-client';
+    const rateLimit = checkRateLimit(`join-${ip}`, 5, 60000);
+    if (!rateLimit.success) {
+      return NextResponse.json(
+        { success: false, error: 'Too many applications submitted. Please try again in a minute.' },
+        { status: 429 }
+      );
+    }
+
     const rawBody = await request.json();
+
 
     // 1. Honeypot check for automated bots
     if (rawBody._hp) {
