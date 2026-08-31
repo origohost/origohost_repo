@@ -44,7 +44,8 @@ export const Button = React.forwardRef<
     },
     ref
   ) => {
-    const isReducedMotion = typeof window !== 'undefined' ? Boolean(useReducedMotion()) : false;
+    const reducedMotionHook = useReducedMotion();
+    const isReducedMotion = Boolean(reducedMotionHook);
     const buttonRef = useRef<HTMLButtonElement | HTMLAnchorElement | null>(null);
 
 

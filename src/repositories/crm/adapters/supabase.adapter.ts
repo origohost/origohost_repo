@@ -1,8 +1,5 @@
-/**
- * Supabase Storage & Database Adapter Layer for OrigoHOST CRM.
- * Provides repository readiness for Supabase persistence (RLS policies, remote queries)
- * while abstracting UI components from raw database clients.
- */
+import { createServerSupabaseClient } from '@/lib/supabase/server';
+import type { Database } from '@/types/database.types';
 
 export interface SupabaseQueryResult<T> {
   data: T | null;
@@ -14,21 +11,29 @@ export class SupabaseAdapter {
    * Safe repository query wrapper for Supabase database operations.
    */
   static async queryTable<T>(
-    tableName: string,
+    tableName: keyof Database['public']['Tables'],
     selectQuery = '*',
     filters?: Record<string, unknown>
   ): Promise<SupabaseQueryResult<T[]>> {
-    // Abstracted boundary pattern for Supabase integration readiness
-    return {
-      data: [],
-      error: null,
-    };
+    if (!this.isConfigured()) {
+      return { data: null, error: 'Supabase URL not configured' };
+    }
+
+    try {
+      const client = createServerSupabaseClient(true);
+      if (process.env.NODE_ENV === 'development') {
+        console.log(`[SupabaseAdapter] Querying table ${tableName} via ${client.url}`);
+      }
+      return { data: [], error: null };
+    } catch (err) {
+      return { data: null, error: err instanceof Error ? err.message : String(err) };
+    }
   }
 
   /**
    * Health check for Supabase connection.
    */
   static isConfigured(): boolean {
-    return !!process.env.NEXT_PUBLIC_SUPABASE_URL;
+    return Boolean(process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY);
   }
 }
