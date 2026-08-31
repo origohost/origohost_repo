@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS public.crm_contacts (
   phone VARCHAR(50),
   role VARCHAR(100) DEFAULT 'Member',
   organization VARCHAR(255),
-  status VARCHAR(50) DEFAULT 'ACTIVE' CHECK (status IN ('ACTIVE', 'INACTIVE', 'ARCHIVED')),
+  status VARCHAR(50) DEFAULT 'ACTIVE',
   lifecycle_stage VARCHAR(50) DEFAULT 'MEMBER',
   tags TEXT[] DEFAULT '{}',
   notes TEXT,
@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS public.crm_leads (
   organization VARCHAR(255),
   title VARCHAR(255),
   source VARCHAR(100) DEFAULT 'Public Website',
-  status VARCHAR(50) DEFAULT 'NEW' CHECK (status IN ('NEW', 'CONTACTED', 'QUALIFIED', 'LOST', 'CONVERTED')),
+  status VARCHAR(50) DEFAULT 'NEW',
   score INT DEFAULT 0,
   assigned_to VARCHAR(100) DEFAULT 'usr-operator-01',
   notes TEXT,
@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS public.crm_applications (
   applicant_name VARCHAR(255) NOT NULL,
   email VARCHAR(255) NOT NULL,
   pathway VARCHAR(100) NOT NULL,
-  status VARCHAR(50) DEFAULT 'PENDING' CHECK (status IN ('PENDING', 'UNDER_REVIEW', 'ACCEPTED', 'REJECTED')),
+  status VARCHAR(50) DEFAULT 'PENDING',
   chapter_name VARCHAR(255),
   notes TEXT,
   reviewed_by VARCHAR(100),
@@ -81,11 +81,11 @@ CREATE TABLE IF NOT EXISTS public.events (
   description TEXT,
   start_date TIMESTAMPTZ NOT NULL,
   end_date TIMESTAMPTZ NOT NULL,
-  format VARCHAR(50) NOT NULL CHECK (format IN ('Virtual', 'In-Person', 'Hybrid')),
-  status VARCHAR(50) DEFAULT 'Upcoming' CHECK (status IN ('Draft', 'Upcoming', 'Live', 'Completed', 'Cancelled')),
+  format VARCHAR(50) NOT NULL DEFAULT 'Virtual',
+  status VARCHAR(50) DEFAULT 'Upcoming',
   location VARCHAR(255),
   registration_url VARCHAR(500),
-  capacity INT DEFAULT 100 CHECK (capacity >= 0),
+  capacity INT DEFAULT 100,
   featured BOOLEAN DEFAULT FALSE,
   tags TEXT[] DEFAULT '{}',
   created_at TIMESTAMPTZ DEFAULT NOW(),
@@ -102,8 +102,8 @@ CREATE TABLE IF NOT EXISTS public.event_registrations (
   user_id VARCHAR(100),
   name VARCHAR(255) NOT NULL,
   email VARCHAR(255) NOT NULL,
-  status VARCHAR(50) DEFAULT 'REGISTERED' CHECK (status IN ('REGISTERED', 'WAITLISTED', 'CANCELLED')),
-  check_in_status VARCHAR(50) DEFAULT 'NOT_ATTENDED' CHECK (check_in_status IN ('NOT_ATTENDED', 'ATTENDED', 'EXCUSED')),
+  status VARCHAR(50) DEFAULT 'REGISTERED',
+  check_in_status VARCHAR(50) DEFAULT 'NOT_ATTENDED',
   registered_at TIMESTAMPTZ DEFAULT NOW(),
   CONSTRAINT unique_event_registration UNIQUE(event_id, email)
 );
@@ -120,7 +120,7 @@ CREATE TABLE IF NOT EXISTS public.community_members (
   avatar VARCHAR(500),
   bio TEXT,
   email VARCHAR(255),
-  status VARCHAR(50) DEFAULT 'ACTIVE' CHECK (status IN ('ACTIVE', 'INACTIVE')),
+  status VARCHAR(50) DEFAULT 'ACTIVE',
   joined_date TIMESTAMPTZ DEFAULT NOW()
 );
 
@@ -221,8 +221,65 @@ CREATE POLICY "Operator Manage Audit Logs" ON public.audit_logs
 -- ------------------------------------------------------------------------------
 -- SECTION 5: BASELINE OPERATIONAL SEED DATA
 -- ------------------------------------------------------------------------------
-INSERT INTO public.events (id, slug, title, summary, description, start_date, end_date, format, status, location, capacity, featured, tags)
+INSERT INTO public.events (
+  id,
+  slug,
+  title,
+  summary,
+  description,
+  start_date,
+  end_date,
+  format,
+  status,
+  location,
+  registration_url,
+  capacity,
+  featured,
+  tags
+)
 VALUES
-  ('evt-kss-03', 'kss2026-ep03-cybersecurity-ethical-hacking', 'Cybersecurity & Ethical Hacking Essentials', 'Deep dive into penetration testing, threat modeling, and modern defense strategies.', 'Join industry experts for a comprehensive workshop on securing distributed cloud applications and ethical hacking methodologies.', NOW() + INTERVAL '7 days', NOW() + INTERVAL '7 days 2 hours', 'Virtual', 'Upcoming', 'Online Webinar', 250, true, ARRAY['cybersecurity', 'webinar', 'kss2026']),
-  ('evt-cyberforge-2026', 'cyberforge-2026', 'CyberForge 2026 Hackathon', '48-hour intensive hackathon building next-generation secure cloud applications.', 'Assemble your teams and compete for prizes in cloud architecture, AI defense systems, and resilient infrastructure.', NOW() + INTERVAL '21 days', NOW() + INTERVAL '23 days', 'Hybrid', 'Upcoming', 'Tech Hub Center & Virtual', 150, true, ARRAY['hackathon', 'cybersecurity', 'ai'])
-ON CONFLICT (id) DO NOTHING;
+  (
+    'evt-kss-03',
+    'kss2026-ep03-cybersecurity-ethical-hacking',
+    'Cybersecurity & Ethical Hacking Essentials',
+    'Deep dive into penetration testing, threat modeling, and modern defense strategies.',
+    'Join industry experts for a comprehensive workshop on securing distributed cloud applications and ethical hacking methodologies.',
+    NOW() + INTERVAL '7 days',
+    NOW() + INTERVAL '7 days 2 hours',
+    'Virtual',
+    'Upcoming',
+    'Online Webinar',
+    'https://origohost.com/events/kss2026-ep03-cybersecurity-ethical-hacking',
+    250,
+    true,
+    ARRAY['cybersecurity', 'webinar', 'kss2026']
+  ),
+  (
+    'evt-cyberforge-2026',
+    'cyberforge-2026',
+    'CyberForge 2026 Hackathon',
+    '48-hour intensive hackathon building next-generation secure cloud applications.',
+    'Assemble your teams and compete for prizes in cloud architecture, AI defense systems, and resilient infrastructure.',
+    NOW() + INTERVAL '21 days',
+    NOW() + INTERVAL '23 days',
+    'Hybrid',
+    'Upcoming',
+    'Tech Hub Center & Virtual',
+    'https://origohost.com/events/cyberforge-2026',
+    150,
+    true,
+    ARRAY['hackathon', 'cybersecurity', 'ai']
+  )
+ON CONFLICT (id) DO UPDATE SET
+  title = EXCLUDED.title,
+  summary = EXCLUDED.summary,
+  description = EXCLUDED.description,
+  start_date = EXCLUDED.start_date,
+  end_date = EXCLUDED.end_date,
+  format = EXCLUDED.format,
+  status = EXCLUDED.status,
+  location = EXCLUDED.location,
+  registration_url = EXCLUDED.registration_url,
+  capacity = EXCLUDED.capacity,
+  featured = EXCLUDED.featured,
+  tags = EXCLUDED.tags;
