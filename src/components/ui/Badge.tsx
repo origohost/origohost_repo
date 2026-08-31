@@ -1,48 +1,47 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
 
-export interface BadgeProps {
-  variant?: 'primary' | 'secondary' | 'success' | 'warning' | 'error' | 'info' | 'outline';
-  size?: 'sm' | 'md';
+export type BadgeVariant =
+  | 'primary'
+  | 'secondary'
+  | 'success'
+  | 'warning'
+  | 'error'
+  | 'info'
+  | 'neutral'
+  | 'orange'
+  | 'default'
+  | 'destructive'
+  | 'outline';
+
+export type BadgeSize = 'sm' | 'md' | 'lg';
+
+export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
+  variant?: BadgeVariant;
+  size?: BadgeSize;
   dot?: boolean;
   className?: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
-const variantStyles: Record<string, { bg: string; dot: string }> = {
-  primary: {
-    bg: 'bg-orange-500/15 text-orange-700 dark:text-orange-300 border border-orange-500/30',
-    dot: 'bg-orange-500',
-  },
-  secondary: {
-    bg: 'bg-slate-100 text-slate-800 dark:bg-slate-800/80 dark:text-slate-200 border border-slate-200 dark:border-slate-700',
-    dot: 'bg-slate-500',
-  },
-  success: {
-    bg: 'bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30',
-    dot: 'bg-emerald-500',
-  },
-  warning: {
-    bg: 'bg-amber-500/15 text-amber-700 dark:text-amber-300 border border-amber-500/30',
-    dot: 'bg-amber-500',
-  },
-  error: {
-    bg: 'bg-rose-500/15 text-rose-700 dark:text-rose-300 border border-rose-500/30',
-    dot: 'bg-rose-500',
-  },
-  info: {
-    bg: 'bg-sky-500/15 text-sky-700 dark:text-sky-300 border border-sky-500/30',
-    dot: 'bg-sky-500',
-  },
-  outline: {
-    bg: 'bg-transparent text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-slate-700',
-    dot: 'bg-slate-500',
-  },
+const variantStyles: Record<BadgeVariant, string> = {
+  primary: 'bg-brand-primary/10 text-brand-primary border-brand-primary/20',
+  secondary: 'bg-surface-elevated text-foreground-muted border-border',
+  success: 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20',
+  warning: 'bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/20',
+  error: 'bg-rose-500/10 text-rose-600 dark:text-rose-400 border-rose-500/20',
+  destructive: 'bg-rose-500/10 text-rose-600 dark:text-rose-400 border-rose-500/20',
+  info: 'bg-sky-500/10 text-sky-600 dark:text-sky-400 border-sky-500/20',
+  neutral: 'bg-slate-500/10 text-slate-600 dark:text-slate-400 border-slate-500/20',
+  orange: 'bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/20',
+  default: 'bg-brand-primary/10 text-brand-primary border-brand-primary/20',
+  outline: 'bg-transparent text-foreground border-border',
 };
 
-const sizeStyles: Record<string, string> = {
-  sm: 'px-2 py-0.5 text-[10px] tracking-wider rounded-full gap-1',
-  md: 'px-2.5 py-1 text-xs tracking-wide rounded-full gap-1.5',
+const sizeStyles: Record<BadgeSize, string> = {
+  sm: 'px-2 py-0.5 text-[11px] font-mono font-medium',
+  md: 'px-2.5 py-1 text-body-xs font-mono font-semibold',
+  lg: 'px-3 py-1.5 text-body-sm font-mono font-bold',
 };
 
 export function Badge({
@@ -51,21 +50,28 @@ export function Badge({
   dot = false,
   className,
   children,
+  ...props
 }: BadgeProps) {
-  const selectedVariant = variantStyles[variant] || variantStyles.primary;
-
   return (
     <span
       className={cn(
-        'inline-flex items-center font-semibold uppercase select-none',
-        selectedVariant.bg,
-        sizeStyles[size],
+        'inline-flex items-center gap-1.5 rounded-full border transition-colors select-none',
+        variantStyles[variant] || variantStyles.primary,
+        sizeStyles[size] || sizeStyles.md,
         className
       )}
+      {...props}
     >
       {dot && (
         <span
-          className={cn('h-1.5 w-1.5 rounded-full shrink-0 animate-pulse', selectedVariant.dot)}
+          className={cn(
+            'h-1.5 w-1.5 rounded-full shrink-0 animate-pulse',
+            variant === 'success' && 'bg-emerald-500',
+            variant === 'warning' && 'bg-amber-500',
+            variant === 'error' && 'bg-rose-500',
+            variant === 'info' && 'bg-sky-500',
+            (!variant || variant === 'primary' || variant === 'default') && 'bg-brand-primary'
+          )}
           aria-hidden="true"
         />
       )}

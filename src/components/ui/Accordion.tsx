@@ -51,7 +51,7 @@ export function Accordion({
                 aria-expanded={isOpen}
                 aria-controls={panelId}
                 onClick={() => toggle(item.id)}
-                className="w-full flex items-center justify-between py-3 text-left font-semibold text-ink text-body-lg hover:text-primary transition-colors duration-150 outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-xs"
+                className="w-full flex items-center justify-between py-3 text-left font-semibold text-ink text-body-lg hover:text-primary transition-colors duration-150 outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-xs cursor-pointer"
               >
                 <span>{item.title}</span>
                 <ChevronDown
