@@ -1,0 +1,42 @@
+import type { CrmTaskItem } from '@/types/crm';
+
+export const mockTasks: CrmTaskItem[] = [
+  {
+    id: 'tsk-01',
+    title: 'Confirm Rahul Sharma keynote slide deck for KSS Episode 05',
+    description: 'Verify system design diagrams and database sharding benchmark slides.',
+    assignee: 'Community Ops Team',
+    contactId: 'cnt-01',
+    contactName: 'Rahul Sharma',
+    dueDate: '2026-09-02',
+    priority: 'High',
+    status: 'In Progress',
+    createdAt: '2026-08-27T10:00:00Z',
+  },
+  {
+    id: 'tsk-02',
+    title: 'Send DevCloud sponsorship certificate & cloud credit voucher',
+    description: 'Dispatch official certificate of appreciation for supporting KSS series.',
+    assignee: 'Partnerships Lead',
+    contactId: 'cnt-03',
+    contactName: 'Ankit Mehta',
+    organizationId: 'org-03',
+    organizationName: 'DevCloud Labs',
+    dueDate: '2026-09-05',
+    priority: 'Medium',
+    status: 'To Do',
+    createdAt: '2026-08-25T11:00:00Z',
+  },
+  {
+    id: 'tsk-03',
+    title: 'Review Sneha Rao AI Foundation Program application',
+    description: 'Evaluate embedded ML research proposal and schedule technical interview.',
+    assignee: 'AI Program Committee',
+    contactId: 'cnt-04',
+    contactName: 'Sneha Rao',
+    dueDate: '2026-09-01',
+    priority: 'Urgent',
+    status: 'In Progress',
+    createdAt: '2026-08-29T12:00:00Z',
+  },
+];
