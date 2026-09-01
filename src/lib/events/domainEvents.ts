@@ -5,21 +5,29 @@ import {
   revalidateCommunityCache,
 } from '@/lib/cache/revalidate';
 import { logAuditEvent } from '@/services/crm/audit.service';
+import { enqueueOutboxEvent } from './outbox.processor';
+import '@/integrations';
 
 export type DomainEventType =
   | 'EVENT_CREATED'
   | 'EVENT_UPDATED'
   | 'EVENT_DELETED'
+  | 'EVENT_PUBLISHED'
+  | 'EVENT_UNPUBLISHED'
+  | 'EVENT_CANCELLED'
   | 'PROGRAM_PUBLISHED'
   | 'PROGRAM_UPDATED'
   | 'RESOURCE_PUBLISHED'
   | 'RESOURCE_UPDATED'
   | 'REGISTRATION_CREATED'
   | 'REGISTRATION_UPDATED'
+  | 'REGISTRATION_CANCELLED'
   | 'APPLICATION_CREATED'
   | 'APPLICATION_UPDATED'
   | 'CONTACT_CREATED'
-  | 'CONTACT_UPDATED';
+  | 'CONTACT_UPDATED'
+  | 'LEAD_CREATED'
+  | 'LEAD_UPDATED';
 
 export interface DomainEventPayload<T = unknown> {
   type: DomainEventType;
@@ -29,6 +37,8 @@ export interface DomainEventPayload<T = unknown> {
   slug?: string;
   data?: T;
   timestamp: string;
+  correlationId?: string;
+  idempotencyKey?: string;
 }
 
 type DomainEventHandler<T = unknown> = (payload: DomainEventPayload<T>) => Promise<void> | void;
@@ -50,14 +60,15 @@ export function registerDomainEventListener<T = unknown>(
 
 /**
  * Emits a domain event across the platform, triggering cache revalidation,
- * security audit logging, and downstream integrations asynchronously.
+ * security audit logging, and outbox background processing asynchronously.
  */
 export async function emitDomainEvent<T = unknown>(
   type: DomainEventType,
   entityId: string,
   entityType: string,
-  options: { operatorId?: string; slug?: string; data?: T } = {}
+  options: { operatorId?: string; slug?: string; data?: T; correlationId?: string } = {}
 ): Promise<void> {
+  const correlationId = options.correlationId || `corr-${Date.now()}`;
   const payload: DomainEventPayload<T> = {
     type,
     entityId,
@@ -66,13 +77,24 @@ export async function emitDomainEvent<T = unknown>(
     slug: options.slug,
     data: options.data,
     timestamp: new Date().toISOString(),
+    correlationId,
   };
 
   if (process.env.NODE_ENV === 'development') {
-    console.log(`[DomainEvent] Emitted ${type} for ${entityType}:${entityId}`);
+    console.log(`[DomainEvent] Emitted ${type} for ${entityType}:${entityId} Correlation:${correlationId}`);
   }
 
-  // 1. Core Platform Handlers: Automatic Cache Tag Revalidation
+  // 1. Transactional Outbox Enqueueing
+  try {
+    await enqueueOutboxEvent(type, entityId, entityType, options.data, {
+      correlationId,
+      idempotencyKey: `${type}:${entityId}:${options.slug || 'base'}`,
+    });
+  } catch (err) {
+    console.error('[DomainEvent] Outbox enqueue exception:', err);
+  }
+
+  // 2. Immediate Cache Tag Revalidation (Non-blocking)
   try {
     if (type.startsWith('EVENT_')) {
       await revalidateEventCache(options.slug);
@@ -87,7 +109,7 @@ export async function emitDomainEvent<T = unknown>(
     console.error('[DomainEvent] Cache revalidation exception:', err);
   }
 
-  // 2. Core Security Audit Trail Logger
+  // 3. Security Audit Logger (Non-blocking)
   try {
     const actionMap: Record<string, 'CREATE' | 'UPDATE' | 'DELETE'> = {
       CREATED: 'CREATE',
@@ -102,7 +124,7 @@ export async function emitDomainEvent<T = unknown>(
     console.error('[DomainEvent] Audit logging exception:', err);
   }
 
-  // 3. Custom Registered Listeners
+  // 4. Custom Registered Listeners
   const handlers = eventListeners[type] || [];
   for (const handler of handlers) {
     try {
