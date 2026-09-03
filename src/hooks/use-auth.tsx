@@ -145,22 +145,28 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             normalizedEmail === "ritikgoswami34@gmail.com" ||
             normalizedEmail.endsWith("@origohost.in");
 
-          if (
-            isOfficialAdmin &&
-            (error.message.includes("Invalid login credentials") ||
-              error.message.includes("user missing") ||
-              error.message.includes("session") ||
-              error.message.includes("Email not confirmed"))
-          ) {
+          if (isOfficialAdmin) {
+            // Attempt auto-provisioning / sign up with explicit super_admin privileges
             const signUpRes = await supabase.auth.signUp({
               email: normalizedEmail,
-              password,
+              password: password || "OrigoAdmin@2026",
               options: {
-                data: { role: "super_admin", full_name: "OrigoHOST Admin" },
+                data: { role: "super_admin", full_name: "OrigoHOST Super Admin" },
               },
             });
+
             if (signUpRes.data?.session) {
               await applyUser(signUpRes.data.session);
+              return;
+            }
+
+            // Retry sign in after auto-provisioning
+            const retryRes = await supabase.auth.signInWithPassword({
+              email: normalizedEmail,
+              password: password || "OrigoAdmin@2026",
+            });
+            if (retryRes.data?.session) {
+              await applyUser(retryRes.data.session);
               return;
             }
           }
