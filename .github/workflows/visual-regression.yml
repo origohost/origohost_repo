@@ -59,7 +59,7 @@ jobs:
 
       - name: Commit updated baselines back to main
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        uses: stefanzweifel/git-auto-commit-action@v5
+        uses: stefanzweifel/git-auto-commit-action@v7
         with:
           commit_message: "chore(visual): refresh Playwright baselines [skip ci]"
           file_pattern: "e2e/**/*-snapshots/**"
