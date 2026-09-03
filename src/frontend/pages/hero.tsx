@@ -46,7 +46,7 @@ export default function HeroSection() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-500 opacity-75"></span>
               <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-blue-500"></span>
             </span>
-            <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-blue-400">
+            <span className="text-xs sm:text-xs font-bold uppercase tracking-widest text-blue-400">
               TECHNOLOGY COMMUNITY • EVENTS • KNOWLEDGE • COLLABORATION
             </span>
           </motion.div>
@@ -56,7 +56,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-4xl font-black leading-[1.08] tracking-tight sm:text-5xl md:text-6xl lg:text-6xl mb-6"
+            className="text-3xl sm:text-5xl md:text-6xl lg:text-6xl font-black leading-[1.1] tracking-tight mb-6"
           >
             Where Technology Communities
             <br />
@@ -87,7 +87,7 @@ export default function HeroSection() {
             <Button
               asChild
               size="lg"
-              className="w-full sm:w-auto h-14 rounded-full bg-blue-600 hover:bg-blue-700 px-8 font-bold text-white shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_30px_rgba(37,99,235,0.6)] transition-all hover:scale-105"
+              className="w-full sm:w-auto h-14 rounded-full bg-blue-600 hover:bg-blue-700 px-8 font-bold text-base text-white shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_30px_rgba(37,99,235,0.6)] transition-all hover:scale-105"
             >
               <Link to="/events">
                 Explore Events <ArrowRight className="ml-2 h-4 w-4" />
@@ -98,7 +98,7 @@ export default function HeroSection() {
               asChild
               size="lg"
               variant="outline"
-              className="w-full sm:w-auto h-14 rounded-full border-white/20 bg-white/5 px-8 font-bold text-white backdrop-blur-md hover:bg-white/10 hover:border-white/30 transition-all hover:-translate-y-1 group"
+              className="w-full sm:w-auto h-14 rounded-full border-white/20 bg-white/5 px-8 font-bold text-base text-white backdrop-blur-md hover:bg-white/10 hover:border-white/30 transition-all hover:-translate-y-1 group"
             >
               <Link to="/register">
                 Join the Community{" "}
@@ -111,7 +111,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.35 }}
-            className="text-xs font-semibold text-slate-400 tracking-wide"
+            className="text-xs sm:text-sm font-semibold text-slate-400 tracking-wide"
           >
             ✓ A Technology Community Where Ideas, People & Possibilities Connect.
           </motion.div>
@@ -164,10 +164,10 @@ export default function HeroSection() {
                   <div className="mb-4 grid h-12 w-12 place-items-center rounded-2xl bg-blue-50">
                     <s.icon className="h-6 w-6 text-blue-600" />
                   </div>
-                  <div className="relative z-10 text-4xl font-black tracking-tight text-slate-900 sm:text-5xl">
+                  <div className="relative z-10 text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-slate-900">
                     <Counter value={s.value} suffix={s.suffix} />
                   </div>
-                  <div className="mt-2 text-xs font-bold tracking-wide text-slate-600 relative inline-block">
+                  <div className="mt-2 text-xs sm:text-sm font-bold tracking-wide text-slate-600 relative inline-block">
                     {s.label}
                   </div>
                 </Tilt>
