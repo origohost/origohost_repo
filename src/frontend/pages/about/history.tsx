@@ -27,11 +27,11 @@ export default function AboutHistoryPage() {
 
             <h2 id="the-founding">2023: The Founding</h2>
             <p>
-              In 2023, technology entrepreneur <strong>Ritik Kumar</strong> realized there was a significant gap in the Indian
-              developer ecosystem. Students and early-stage startups lacked affordable,
-              high-performance cloud infrastructure and the mentorship required to scale modern
-              applications. They founded <strong>OrigoHOST Community</strong> as a localized effort
-              to run hackathons, workshops, and open-source sprints.
+              In 2023, technology entrepreneur <strong>Ritik Kumar</strong> realized there was a
+              significant gap in the Indian developer ecosystem. Students and early-stage startups
+              lacked affordable, high-performance cloud infrastructure and the mentorship required
+              to scale modern applications. They founded <strong>OrigoHOST Community</strong> as a
+              localized effort to run hackathons, workshops, and open-source sprints.
             </p>
 
             <h2 id="the-expansion">2024: The Ecosystem Expansion</h2>

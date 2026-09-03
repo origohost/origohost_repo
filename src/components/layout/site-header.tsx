@@ -193,7 +193,10 @@ export function SiteHeader() {
           {user ? (
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="relative h-10 w-10 rounded-full hidden md:inline-flex">
+                <Button
+                  variant="ghost"
+                  className="relative h-10 w-10 rounded-full hidden md:inline-flex"
+                >
                   <Avatar className="h-10 w-10 border border-foreground/10">
                     <AvatarImage src={user.user_metadata?.avatar_url} alt={user.email || ""} />
                     <AvatarFallback className="bg-gradient-to-r from-[var(--brand-orange)] to-[var(--brand-green)] text-white font-bold">

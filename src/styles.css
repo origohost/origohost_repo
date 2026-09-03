@@ -313,23 +313,42 @@
   }
 }
 @keyframes orbit-spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 @keyframes orbit-spin-reverse {
-  0% { transform: rotate(360deg); }
-  100% { transform: rotate(0deg); }
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }
 @keyframes wave-flow {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 @keyframes animated-border {
-  100% { transform: rotate(1turn); }
+  100% {
+    transform: rotate(1turn);
+  }
 }
 @keyframes float-card {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 /* ─── Utilities ──────────────────────────────────────────────────── */
@@ -411,8 +430,8 @@
     stroke-dasharray: 100;
     stroke-dashoffset: 100;
     @media (prefers-reduced-motion: no-preference) {
-    animation: draw-line 2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  }
+      animation: draw-line 2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
   }
 }
 /* CSS-only invalid shake for uncontrolled forms: fires only after the
@@ -525,15 +544,21 @@
   overflow: hidden;
   border-radius: inherit;
   z-index: 0;
-  
+
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 50%;
     left: 50%;
     width: 300%;
     height: 300%;
-    background: conic-gradient(from 90deg at 50% 50%, transparent 0%, transparent 60%, oklch(0.6 0.22 27) 80%, white 100%);
+    background: conic-gradient(
+      from 90deg at 50% 50%,
+      transparent 0%,
+      transparent 60%,
+      oklch(0.6 0.22 27) 80%,
+      white 100%
+    );
     transform: translate(-50%, -50%);
     z-index: -2;
     @media (prefers-reduced-motion: no-preference) {
@@ -542,7 +567,7 @@
   }
 
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     inset: 1px;
     background: black;
@@ -638,8 +663,10 @@
   a,
   button,
   .card {
-    transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
+    transition:
+      color 0.2s ease,
+      background-color 0.2s ease,
+      border-color 0.2s ease,
+      opacity 0.2s ease;
   }
 }
-
-

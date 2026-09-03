@@ -149,7 +149,11 @@ const EVENTS = [
 
 import React, { useMemo } from "react";
 import HeroSection from "@/frontend/pages/hero";
-const PartnersMarqueeSection = React.lazy(() => import("@/components/partners-marquee-section").then(mod => ({ default: mod.PartnersMarqueeSection })));
+const PartnersMarqueeSection = React.lazy(() =>
+  import("@/components/partners-marquee-section").then((mod) => ({
+    default: mod.PartnersMarqueeSection,
+  })),
+);
 import { OptimizedImage } from "@/components/ui/optimized-image";
 import { useQuery } from "@tanstack/react-query";
 import { eventApi } from "@/modules/events/api/eventApi";
@@ -162,24 +166,24 @@ export default function HomePage() {
 
   const top6Events = useMemo(() => {
     const publishedEvents = dynamicEvents.filter((e) => e.is_published);
-    
+
     const sortedEvents = [...publishedEvents].sort((a, b) => {
-        const aIsPast = a.status === "Past";
-        const bIsPast = b.status === "Past";
-        
-        if (aIsPast && !bIsPast) return 1;
-        if (!aIsPast && bIsPast) return -1;
-        
-        const timeA = new Date(`${a.date}T${a.start_time || "00:00"}`).getTime();
-        const timeB = new Date(`${b.date}T${b.start_time || "00:00"}`).getTime();
-        
-        if (aIsPast) {
-          // Both are past, sort descending
-          return timeB - timeA;
-        } else {
-          // Both are upcoming/live, sort ascending
-          return timeA - timeB;
-        }
+      const aIsPast = a.status === "Past";
+      const bIsPast = b.status === "Past";
+
+      if (aIsPast && !bIsPast) return 1;
+      if (!aIsPast && bIsPast) return -1;
+
+      const timeA = new Date(`${a.date}T${a.start_time || "00:00"}`).getTime();
+      const timeB = new Date(`${b.date}T${b.start_time || "00:00"}`).getTime();
+
+      if (aIsPast) {
+        // Both are past, sort descending
+        return timeB - timeA;
+      } else {
+        // Both are upcoming/live, sort ascending
+        return timeA - timeB;
+      }
     });
 
     return sortedEvents.slice(0, 6);
@@ -189,18 +193,18 @@ export default function HomePage() {
     if (!timeString) return "";
     const [h, m] = timeString.split(":");
     let hours = parseInt(h, 10);
-    const ampm = hours >= 12 ? 'PM' : 'AM';
+    const ampm = hours >= 12 ? "PM" : "AM";
     hours = hours % 12;
     hours = hours ? hours : 12;
-    return `${hours.toString().padStart(2, '0')}:${m} ${ampm}`;
+    return `${hours.toString().padStart(2, "0")}:${m} ${ampm}`;
   };
 
   const displayEvents = useMemo(() => {
-    return top6Events.length > 0 
-      ? top6Events.map(e => {
+    return top6Events.length > 0
+      ? top6Events.map((e) => {
           const d = new Date(e.date);
-          const month = d.toLocaleString('default', { month: 'short' }).toUpperCase();
-          const day = d.getDate().toString().padStart(2, '0');
+          const month = d.toLocaleString("default", { month: "short" }).toUpperCase();
+          const day = d.getDate().toString().padStart(2, "0");
           let timeStr = formatTime(e.start_time);
           if (e.end_time) {
             timeStr += ` – ${formatTime(e.end_time)}`;
@@ -212,13 +216,13 @@ export default function HomePage() {
             time: timeStr,
             title: e.title,
             desc: e.short_description,
-            city: e.venue_name || (e.mode === 'online' ? 'Live Webinar' : 'TBA'),
+            city: e.venue_name || (e.mode === "online" ? "Live Webinar" : "TBA"),
             image: e.thumbnail_url || null,
             slug: e.slug,
             status: e.status || "Upcoming",
           };
-        }) 
-      : EVENTS.map(e => ({ ...e, status: "Upcoming" }));
+        })
+      : EVENTS.map((e) => ({ ...e, status: "Upcoming" }));
   }, [top6Events]);
 
   return (
@@ -231,17 +235,13 @@ export default function HomePage() {
             "@context": "https://schema.org",
             "@type": "Organization",
             name: "OrigoHOST",
-            description: "OrigoHOST is India's premier Developer and Technology Community focusing on Artificial Intelligence, Cloud Computing, DevOps, Software Engineering, and Hackathons.",
-            founder: [
-              { "@type": "Person", name: "Ritik Kumar" }
-            ],
+            description:
+              "OrigoHOST is India's premier Developer and Technology Community focusing on Artificial Intelligence, Cloud Computing, DevOps, Software Engineering, and Hackathons.",
+            founder: [{ "@type": "Person", name: "Ritik Kumar" }],
             foundingDate: "2024",
             url: "https://origohost.com",
-            sameAs: [
-              "https://twitter.com/origohost",
-              "https://linkedin.com/company/origohost"
-            ]
-          })
+            sameAs: ["https://twitter.com/origohost", "https://linkedin.com/company/origohost"],
+          }),
         }}
       />
 
@@ -656,7 +656,9 @@ export default function HomePage() {
                       {e.day}
                     </div>
                   </div>
-                  <div className={`absolute right-4 top-4 z-10 rounded-full backdrop-blur px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white ${e.status === 'Upcoming' ? 'bg-[var(--brand-orange)]/90' : e.status === 'Live' ? 'bg-green-500/90 animate-pulse' : 'bg-black/50'}`}>
+                  <div
+                    className={`absolute right-4 top-4 z-10 rounded-full backdrop-blur px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white ${e.status === "Upcoming" ? "bg-[var(--brand-orange)]/90" : e.status === "Live" ? "bg-green-500/90 animate-pulse" : "bg-black/50"}`}
+                  >
                     {e.status}
                   </div>
                 </div>
@@ -674,7 +676,8 @@ export default function HomePage() {
                   <div className="mt-auto pt-6">
                     <div className="flex items-center justify-between border-t border-[var(--brand-ink)]/5 pt-4">
                       <span className="flex items-center gap-1 text-sm text-[var(--brand-ink)]/70 truncate max-w-[50%]">
-                        <MapPin className="h-4 w-4 shrink-0" /> <span className="truncate">{e.city}</span>
+                        <MapPin className="h-4 w-4 shrink-0" />{" "}
+                        <span className="truncate">{e.city}</span>
                       </span>
                       {e.slug ? (
                         <a
@@ -946,7 +949,9 @@ export default function HomePage() {
 
               <form className="space-y-5 rounded-3xl bg-white p-8 shadow-[var(--shadow-soft)]">
                 <div>
-                  <label htmlFor="contact-name" className="text-sm font-semibold">Name</label>
+                  <label htmlFor="contact-name" className="text-sm font-semibold">
+                    Name
+                  </label>
                   <Input
                     id="contact-name"
                     placeholder="Your name"
@@ -954,7 +959,9 @@ export default function HomePage() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="contact-email" className="text-sm font-semibold">E-mail</label>
+                  <label htmlFor="contact-email" className="text-sm font-semibold">
+                    E-mail
+                  </label>
                   <Input
                     id="contact-email"
                     type="email"
@@ -963,7 +970,9 @@ export default function HomePage() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="contact-message" className="text-sm font-semibold">Message</label>
+                  <label htmlFor="contact-message" className="text-sm font-semibold">
+                    Message
+                  </label>
                   <Textarea
                     id="contact-message"
                     placeholder="Tell us about your infrastructure vision..."

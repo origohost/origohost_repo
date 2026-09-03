@@ -20,8 +20,7 @@ const ABOUT_FAQS = [
   },
   {
     question: "Who founded OrigoHOST?",
-    answer:
-      "OrigoHOST was founded by technology entrepreneur Ritik Kumar.",
+    answer: "OrigoHOST was founded by technology entrepreneur Ritik Kumar.",
   },
   {
     question: "What is the mission of OrigoHOST?",

@@ -1,7 +1,17 @@
 import { useEffect, useMemo, useState } from "react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
-import { Loader2, Pencil, Plus, Trash2, X, Search, Download, Trash, UploadCloud } from "lucide-react";
+import {
+  Loader2,
+  Pencil,
+  Plus,
+  Trash2,
+  X,
+  Search,
+  Download,
+  Trash,
+  UploadCloud,
+} from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { DialogTitle } from "@radix-ui/react-dialog";
 import { queryKeys } from "@/lib/query-keys";
@@ -579,7 +589,17 @@ export function AdminCrud({ config }: { config: CrudConfig }) {
   );
 }
 
-function ImageUploadField({ value, onChange, id, bucket = "sponsor_assets" }: { value: string; onChange: (v: string) => void; id: string, bucket?: string }) {
+function ImageUploadField({
+  value,
+  onChange,
+  id,
+  bucket = "sponsor_assets",
+}: {
+  value: string;
+  onChange: (v: string) => void;
+  id: string;
+  bucket?: string;
+}) {
   const [isDragging, setIsDragging] = useState(false);
   const [isUploading, setIsUploading] = useState(false);
 
@@ -594,7 +614,7 @@ function ImageUploadField({ value, onChange, id, bucket = "sponsor_assets" }: { 
         reader.onerror = reject;
         reader.readAsDataURL(file);
       });
-      
+
       const res = await secureUploadFn({
         data: {
           fileData: base64Data,
@@ -602,7 +622,7 @@ function ImageUploadField({ value, onChange, id, bucket = "sponsor_assets" }: { 
           mimeType: file.type,
           bucket: bucket,
           allowedType: "image",
-        }
+        },
       });
 
       if (!res || !res.success) throw new Error("Upload failed");
@@ -616,7 +636,9 @@ function ImageUploadField({ value, onChange, id, bucket = "sponsor_assets" }: { 
       toast.success("Image uploaded successfully", { id: "upload" });
     } catch (error) {
       console.error(error);
-      toast.error(error instanceof Error ? error.message : "Failed to upload image", { id: "upload" });
+      toast.error(error instanceof Error ? error.message : "Failed to upload image", {
+        id: "upload",
+      });
     } finally {
       setIsUploading(false);
     }
@@ -626,7 +648,11 @@ function ImageUploadField({ value, onChange, id, bucket = "sponsor_assets" }: { 
     <div className="flex flex-col gap-3 mt-1">
       {value ? (
         <div className="relative w-full overflow-hidden rounded-xl border border-[var(--brand-ink)]/10 bg-zinc-50/50 group">
-          <img src={value} alt="Uploaded preview" className="w-full h-auto object-contain max-h-48 rounded-lg" />
+          <img
+            src={value}
+            alt="Uploaded preview"
+            className="w-full h-auto object-contain max-h-48 rounded-lg"
+          />
           <Button
             type="button"
             variant="destructive"
@@ -638,19 +664,25 @@ function ImageUploadField({ value, onChange, id, bucket = "sponsor_assets" }: { 
           </Button>
         </div>
       ) : (
-        <div 
+        <div
           className={`relative flex flex-col items-center justify-center p-8 rounded-xl border-2 border-dashed transition-all duration-200 ${
-            isDragging 
-              ? 'border-[var(--brand-ink)] bg-[var(--brand-ink)]/5 scale-[0.99]' 
-              : 'border-[var(--brand-ink)]/20 bg-zinc-50/50 hover:bg-zinc-50 hover:border-[var(--brand-ink)]/40'
+            isDragging
+              ? "border-[var(--brand-ink)] bg-[var(--brand-ink)]/5 scale-[0.99]"
+              : "border-[var(--brand-ink)]/20 bg-zinc-50/50 hover:bg-zinc-50 hover:border-[var(--brand-ink)]/40"
           }`}
-          onDragOver={(e) => { e.preventDefault(); setIsDragging(true); }}
-          onDragLeave={(e) => { e.preventDefault(); setIsDragging(false); }}
+          onDragOver={(e) => {
+            e.preventDefault();
+            setIsDragging(true);
+          }}
+          onDragLeave={(e) => {
+            e.preventDefault();
+            setIsDragging(false);
+          }}
           onDrop={(e) => {
             e.preventDefault();
             setIsDragging(false);
             const file = e.dataTransfer.files?.[0];
-            if (file && file.type.startsWith('image/')) handleUpload(file);
+            if (file && file.type.startsWith("image/")) handleUpload(file);
           }}
         >
           <input
@@ -660,13 +692,15 @@ function ImageUploadField({ value, onChange, id, bucket = "sponsor_assets" }: { 
             onChange={(e) => {
               const file = e.target.files?.[0];
               if (file) handleUpload(file);
-              e.target.value = '';
+              e.target.value = "";
             }}
             className="absolute inset-0 w-full h-full opacity-0 cursor-pointer disabled:cursor-not-allowed"
             disabled={isUploading}
           />
           <div className="flex flex-col items-center gap-3 text-center pointer-events-none">
-            <div className={`p-3 rounded-full ${isUploading ? 'bg-transparent' : 'bg-[var(--brand-ink)]/5'}`}>
+            <div
+              className={`p-3 rounded-full ${isUploading ? "bg-transparent" : "bg-[var(--brand-ink)]/5"}`}
+            >
               {isUploading ? (
                 <Loader2 className="h-6 w-6 animate-spin text-[var(--brand-ink)]/60" />
               ) : (

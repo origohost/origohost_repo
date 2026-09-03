@@ -65,7 +65,10 @@ export const validateRegisterSecurityFn = createServerFn({ method: "POST" })
 
     const request = getRequest();
     const headers = request?.headers;
-    const ip = headers?.get("x-forwarded-for")?.split(",")[0]?.trim() || headers?.get("x-real-ip") || "127.0.0.1";
+    const ip =
+      headers?.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+      headers?.get("x-real-ip") ||
+      "127.0.0.1";
 
     const rateLimit = await authRateLimiter.limit(ip);
     if (!rateLimit.success) {
@@ -507,8 +510,6 @@ function FormPanel({
               <RoleGrid value={role} onChange={setRole} reduced={reduced} />
 
               <RoleDetails role={role} />
-
-
 
               <div className="mt-6 flex flex-col sm:flex-row gap-4 items-center w-full">
                 <Magnetic className="w-full sm:w-1/2">

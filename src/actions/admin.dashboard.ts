@@ -34,110 +34,110 @@ export const getDashboardTrafficData = createServerFn({ method: "GET" })
       .select("role")
       .eq("user_id", ctx.context.userId)
       .single();
-      
+
     if (roleError || (roleData?.role !== "admin" && roleData?.role !== "super_admin")) {
       throw new Error("Unauthorized: Admin access required.");
     }
 
     // In a real app we'd group by month. Since this is new, we'll just group by date.
-  // However, to keep it simple and aligned with the UI expectation, we'll return
-  // some recent days of data based on the created_at column.
-  const thirtyDaysAgo = new Date();
-  thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+    // However, to keep it simple and aligned with the UI expectation, we'll return
+    // some recent days of data based on the created_at column.
+    const thirtyDaysAgo = new Date();
+    thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
 
-  const { data, error } = await supabase
-    .from("platform_visits")
-    .select("created_at")
-    .gte("created_at", thirtyDaysAgo.toISOString());
+    const { data, error } = await supabase
+      .from("platform_visits")
+      .select("created_at")
+      .gte("created_at", thirtyDaysAgo.toISOString());
 
-  if (error) throw error;
+    if (error) throw error;
 
-  // Group by month name (e.g. "Jan", "Feb")
-  const monthCounts: Record<string, number> = {};
-  const months = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
-  ];
+    // Group by month name (e.g. "Jan", "Feb")
+    const monthCounts: Record<string, number> = {};
+    const months = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ];
 
-  // Initialize the last 7 months so the chart doesn't look completely empty if there's no data
-  const currentMonthIndex = new Date().getMonth();
-  for (let i = 6; i >= 0; i--) {
-    const m = (currentMonthIndex - i + 12) % 12;
-    monthCounts[months[m]] = 0;
-  }
-
-  data.forEach((visit) => {
-    const date = new Date(visit.created_at);
-    const monthName = months[date.getMonth()];
-    if (monthCounts[monthName] !== undefined) {
-      monthCounts[monthName]++;
-    } else {
-      monthCounts[monthName] = 1;
+    // Initialize the last 7 months so the chart doesn't look completely empty if there's no data
+    const currentMonthIndex = new Date().getMonth();
+    for (let i = 6; i >= 0; i--) {
+      const m = (currentMonthIndex - i + 12) % 12;
+      monthCounts[months[m]] = 0;
     }
+
+    data.forEach((visit) => {
+      const date = new Date(visit.created_at);
+      const monthName = months[date.getMonth()];
+      if (monthCounts[monthName] !== undefined) {
+        monthCounts[monthName]++;
+      } else {
+        monthCounts[monthName] = 1;
+      }
+    });
+
+    const result = Object.entries(monthCounts).map(([name, visitors]) => ({
+      name,
+      visitors,
+    }));
+
+    return result;
   });
-
-  const result = Object.entries(monthCounts).map(([name, visitors]) => ({
-    name,
-    visitors,
-  }));
-
-  return result;
-});
 
 export const getDashboardDeviceData = createServerFn({ method: "GET" })
   .middleware([requireSupabaseAuth])
   .handler(async (ctx) => {
     const supabase = getAdminSupabase();
-    
+
     // Verify Admin Role
     const { data: roleData, error: roleError } = await supabase
       .from("user_roles")
       .select("role")
       .eq("user_id", ctx.context.userId)
       .single();
-      
+
     if (roleError || (roleData?.role !== "admin" && roleData?.role !== "super_admin")) {
       throw new Error("Unauthorized: Admin access required.");
     }
 
     const { data, error } = await supabase.from("platform_visits").select("device_type");
 
-  if (error) throw error;
+    if (error) throw error;
 
-  let desktop = 0,
-    mobile = 0,
-    tablet = 0;
-  data.forEach((visit) => {
-    if (visit.device_type === "Desktop") desktop++;
-    else if (visit.device_type === "Mobile") mobile++;
-    else if (visit.device_type === "Tablet") tablet++;
-  });
+    let desktop = 0,
+      mobile = 0,
+      tablet = 0;
+    data.forEach((visit) => {
+      if (visit.device_type === "Desktop") desktop++;
+      else if (visit.device_type === "Mobile") mobile++;
+      else if (visit.device_type === "Tablet") tablet++;
+    });
 
-  // Avoid completely empty charts
-  if (desktop === 0 && mobile === 0 && tablet === 0) {
+    // Avoid completely empty charts
+    if (desktop === 0 && mobile === 0 && tablet === 0) {
+      return [
+        { name: "Desktop", value: 1, color: "#f97316" },
+        { name: "Mobile", value: 0, color: "#3b82f6" },
+        { name: "Tablet", value: 0, color: "#10b981" },
+      ];
+    }
+
     return [
-      { name: "Desktop", value: 1, color: "#f97316" },
-      { name: "Mobile", value: 0, color: "#3b82f6" },
-      { name: "Tablet", value: 0, color: "#10b981" },
+      { name: "Desktop", value: desktop, color: "#f97316" }, // orange-500
+      { name: "Mobile", value: mobile, color: "#3b82f6" }, // blue-500
+      { name: "Tablet", value: tablet, color: "#10b981" }, // emerald-500
     ];
-  }
-
-  return [
-    { name: "Desktop", value: desktop, color: "#f97316" }, // orange-500
-    { name: "Mobile", value: mobile, color: "#3b82f6" }, // blue-500
-    { name: "Tablet", value: tablet, color: "#10b981" }, // emerald-500
-  ];
-});
+  });
 
 export const logPlatformVisit = createServerFn({ method: "POST" })
   .validator((data: { path: string; device_type: "Desktop" | "Mobile" | "Tablet" }) => data)
@@ -165,7 +165,7 @@ export const getDashboardEventRegistrationData = createServerFn({ method: "GET" 
       .select("role")
       .eq("user_id", ctx.context.userId)
       .single();
-      
+
     if (roleError || (roleData?.role !== "admin" && roleData?.role !== "super_admin")) {
       throw new Error("Unauthorized: Admin access required.");
     }
@@ -219,5 +219,4 @@ export const getDashboardEventRegistrationData = createServerFn({ method: "GET" 
       { name: "Sat", rsvps: dayCounts["Sat"] },
       { name: "Sun", rsvps: dayCounts["Sun"] },
     ];
-  },
-);
+  });

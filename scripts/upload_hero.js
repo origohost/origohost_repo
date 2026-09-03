@@ -1,5 +1,5 @@
-import { v2 as cloudinary } from 'cloudinary';
-import dotenv from 'dotenv';
+import { v2 as cloudinary } from "cloudinary";
+import dotenv from "dotenv";
 dotenv.config();
 
 cloudinary.config({
@@ -10,12 +10,12 @@ cloudinary.config({
 
 async function run() {
   try {
-    const res = await cloudinary.uploader.upload('src/assets/hero-bg-team.jpg', {
-      folder: 'system',
-      public_id: 'hero-bg-team'
+    const res = await cloudinary.uploader.upload("src/assets/hero-bg-team.jpg", {
+      folder: "system",
+      public_id: "hero-bg-team",
     });
     console.log("CLOUDINARY_URL=" + res.secure_url);
-  } catch(e) {
+  } catch (e) {
     console.error(e);
   }
 }

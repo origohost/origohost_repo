@@ -26,12 +26,7 @@ export interface StoredConsent {
 }
 
 export type ConsentStatus =
-  | "loading"
-  | "first-visit"
-  | "accepted"
-  | "rejected"
-  | "customized"
-  | "error";
+  "loading" | "first-visit" | "accepted" | "rejected" | "customized" | "error";
 
 export interface CookieCategoryMeta {
   id: CookieCategoryId;

@@ -50,13 +50,13 @@ export default function EventsPage() {
     result = [...result].sort((a, b) => {
       const aIsPast = a.status === "Past";
       const bIsPast = b.status === "Past";
-      
+
       if (aIsPast && !bIsPast) return 1;
       if (!aIsPast && bIsPast) return -1;
-      
+
       const timeA = new Date(`${a.date}T${a.start_time || "00:00"}`).getTime();
       const timeB = new Date(`${b.date}T${b.start_time || "00:00"}`).getTime();
-      
+
       if (aIsPast) {
         // Both are past, sort descending
         return timeB - timeA;

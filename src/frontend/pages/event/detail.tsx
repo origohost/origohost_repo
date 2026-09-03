@@ -100,15 +100,17 @@ export default function EventDetailsPage() {
   };
 
   const generateGoogleCalendarLink = () => {
-    const start = new Date(`${event.date}T${event.start_time}`).toISOString().replace(/-|:|\.\d\d\d/g, "");
+    const start = new Date(`${event.date}T${event.start_time}`)
+      .toISOString()
+      .replace(/-|:|\.\d\d\d/g, "");
     let end = start;
     if (event.end_time) {
       end = new Date(`${event.date}T${event.end_time}`).toISOString().replace(/-|:|\.\d\d\d/g, "");
     }
     const url = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(
-      event.title
+      event.title,
     )}&dates=${start}/${end}&details=${encodeURIComponent(
-      event.short_description || ""
+      event.short_description || "",
     )}&location=${encodeURIComponent(event.venue_name || event.mode)}`;
     window.open(url, "_blank");
   };
@@ -118,7 +120,10 @@ export default function EventDetailsPage() {
       {/* Dynamic SEO Head is handled in the Route definition */}
 
       {/* 1. HERO SECTION */}
-      <EventHero event={event} onRegisterClick={event.registration_link ? handleExternalRegister : handleRegister} />
+      <EventHero
+        event={event}
+        onRegisterClick={event.registration_link ? handleExternalRegister : handleRegister}
+      />
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* Registration Floating Action Bar (Mobile Sticky Bottom / Desktop Sticky Top) */}
@@ -156,7 +161,12 @@ export default function EventDetailsPage() {
                   <CheckCircle2 className="w-5 h-5" /> Event Completed
                 </button>
                 <button
-                  onClick={() => window.scrollTo({ top: document.getElementById('details')?.offsetTop || 600, behavior: 'smooth' })}
+                  onClick={() =>
+                    window.scrollTo({
+                      top: document.getElementById("details")?.offsetTop || 600,
+                      behavior: "smooth",
+                    })
+                  }
                   className="hidden md:flex w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-gray-100 text-gray-700 border border-gray-200 hover:bg-gray-200 rounded-full font-bold items-center justify-center gap-2 text-sm md:text-base transition-colors"
                 >
                   View Details
@@ -171,8 +181,8 @@ export default function EventDetailsPage() {
                 >
                   {rsvpMutation.isPending && !event.registration_link
                     ? "Registering..."
-                    : event.registration_link 
-                      ? "Register Now" 
+                    : event.registration_link
+                      ? "Register Now"
                       : "Secure Your Spot"}
                 </button>
                 <button

@@ -5,13 +5,13 @@ on:
     branches:
       - main
     paths:
-      - 'supabase/**'
+      - "supabase/**"
 
 jobs:
   test-migrations:
     name: Test Database Migrations
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -26,6 +26,6 @@ jobs:
 
       - name: Start Supabase Local Development
         run: supabase start
-        
+
       - name: Verify Migrations applied successfully
         run: supabase db lint || echo "No linting errors found"

@@ -13,8 +13,7 @@ const HOME_FAQS = [
   },
   {
     question: "Who founded OrigoHOST?",
-    answer:
-      "OrigoHOST was founded by technology entrepreneur Ritik Kumar.",
+    answer: "OrigoHOST was founded by technology entrepreneur Ritik Kumar.",
   },
   {
     question: "What events does OrigoHOST organize?",
@@ -30,7 +29,8 @@ export const Route = createFileRoute("/")({
       description:
         "OrigoHOST Community — India's leading hosting & infrastructure community for developers. Learn, build, and grow with modern AI and cloud engineering.",
       path: "/",
-      preloadImage: "https://res.cloudinary.com/dhx72dmyt/image/upload/f_auto,q_auto/v1785444373/system/hero-bg-team.jpg",
+      preloadImage:
+        "https://res.cloudinary.com/dhx72dmyt/image/upload/f_auto,q_auto/v1785444373/system/hero-bg-team.jpg",
       schemas: [buildOrganizationSchema(), buildFAQSchema(HOME_FAQS), buildWebSiteSchema()],
     }),
   loader: ({ context }) => context.queryClient.ensureQueryData(partnersQueryOptions()),

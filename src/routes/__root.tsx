@@ -122,7 +122,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "dns-prefetch", href: "https://plausible.io" },
       { rel: "preconnect", href: "https://api.github.com", crossOrigin: "anonymous" },
       { rel: "dns-prefetch", href: "https://api.github.com" },
-      { rel: "preconnect", href: "https://vtjxacmlmiatwpzyrifw.supabase.co", crossOrigin: "anonymous" },
+      {
+        rel: "preconnect",
+        href: "https://vtjxacmlmiatwpzyrifw.supabase.co",
+        crossOrigin: "anonymous",
+      },
       { rel: "dns-prefetch", href: "https://vtjxacmlmiatwpzyrifw.supabase.co" },
     ],
   }),

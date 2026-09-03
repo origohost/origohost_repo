@@ -35,7 +35,7 @@ export function OptimizedImage({
     <div
       className={cn(
         "relative overflow-hidden bg-zinc-100 dark:bg-zinc-900 flex items-center justify-center",
-        containerClassName
+        containerClassName,
       )}
       style={{
         width: width ? `${width}px` : "100%",
@@ -69,7 +69,7 @@ export function OptimizedImage({
             objectFit === "none" && "object-none",
             objectFit === "scale-down" && "object-scale-down",
             !isLoaded && !priority ? "opacity-0 scale-105" : "opacity-100 scale-100",
-            className
+            className,
           )}
           {...props}
         />

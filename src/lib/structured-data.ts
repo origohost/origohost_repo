@@ -124,9 +124,7 @@ export function buildFounderSchemaTarun() {
       { "@id": `${SITE_CONFIG.url}/#organization` },
       { "@id": "https://aadvick.org/#organization" },
     ],
-    founderOf: [
-      { "@id": `${SITE_CONFIG.url}/#organization` },
-    ],
+    founderOf: [{ "@id": `${SITE_CONFIG.url}/#organization` }],
     description:
       "AI Engineer, Technology Entrepreneur, and Co-Founder & President of OrigoHOST Community.",
     image: `${SITE_CONFIG.url}/tarun-kumar.png`,

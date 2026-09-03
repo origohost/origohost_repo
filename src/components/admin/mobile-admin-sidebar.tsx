@@ -30,7 +30,10 @@ export function MobileAdminSidebar() {
           <Menu className="h-5 w-5" />
         </button>
       </SheetTrigger>
-      <SheetContent side="left" className="w-[85vw] p-0 flex flex-col bg-[#f8fafc] border-r-0 max-w-sm">
+      <SheetContent
+        side="left"
+        className="w-[85vw] p-0 flex flex-col bg-[#f8fafc] border-r-0 max-w-sm"
+      >
         <div className="flex h-16 items-center px-6 border-b border-[var(--brand-ink)]/5 shrink-0 bg-white">
           <Link to="/" onClick={() => setOpen(false)} className="flex items-center gap-2">
             <BrandLogo size={24} />
@@ -58,9 +61,7 @@ export function MobileAdminSidebar() {
                           : "text-[var(--brand-ink)]/50",
                       )}
                     />
-                    <span className="font-semibold text-[var(--brand-ink)] text-sm">
-                      {ws.name}
-                    </span>
+                    <span className="font-semibold text-[var(--brand-ink)] text-sm">{ws.name}</span>
                   </div>
                   {activeWorkspace === ws.name ? (
                     <ChevronDown className="h-4 w-4 text-[var(--brand-ink)]/40" />

@@ -508,7 +508,6 @@ export default function ContactPage() {
               <AnimatePresenceErr id="message-error" message={errors.message?.message} />
             </motion.div>
 
-
             <div className={`mt-6 flex gap-3 ${step !== 2 ? "hidden md:flex" : ""}`}>
               <Button
                 type="button"

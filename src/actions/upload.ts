@@ -23,13 +23,13 @@ function isRealImage(buffer: Uint8Array): boolean {
   if (hex.startsWith("FFD8FF") || hex === "89504E47" || hex === "47494638" || hex === "52494646") {
     return true;
   }
-  
+
   // Basic SVG check
   const text = new TextDecoder().decode(buffer.subarray(0, 100)).trim();
   if (text.toLowerCase().includes("<svg") || text.toLowerCase().includes("<?xml")) {
     return true;
   }
-  
+
   return false;
 }
 
@@ -46,7 +46,7 @@ export const secureUploadFn = createServerFn({ method: "POST" })
   )
   .handler(async (ctx) => {
     const { fileData, fileName, mimeType, bucket, allowedType = "pdf" } = ctx.data;
-    
+
     // Basic validation
     if (bucket !== "secure_resumes" && bucket !== "sponsor_assets") {
       throw new Error("Invalid bucket destination.");
@@ -140,16 +140,21 @@ export const secureUploadFn = createServerFn({ method: "POST" })
             (error, result) => {
               if (error) reject(error);
               else resolve(result);
-            }
+            },
           );
-          
+
           uploadStream.end(buffer);
         });
 
         // Log the successful upload event
         await supabase.from("security_audit_logs").insert({
           action: "SECURE_FILE_UPLOAD_CLOUDINARY",
-          metadata: { bucket, secureFileName: uploadResponse.public_id, originalSize: buffer.length, allowedType },
+          metadata: {
+            bucket,
+            secureFileName: uploadResponse.public_id,
+            originalSize: buffer.length,
+            allowedType,
+          },
         });
 
         // Return the ready-to-use Cloudinary URL

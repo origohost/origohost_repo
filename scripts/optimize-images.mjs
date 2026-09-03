@@ -1,6 +1,6 @@
-import fs from 'fs';
-import path from 'path';
-import sharp from 'sharp';
+import fs from "fs";
+import path from "path";
+import sharp from "sharp";
 
 async function walk(dir) {
   let results = [];
@@ -19,7 +19,7 @@ async function walk(dir) {
 }
 
 async function run() {
-  const files = [...await walk('public'), ...await walk('src/assets')];
+  const files = [...(await walk("public")), ...(await walk("src/assets"))];
   let saved = 0;
   let total = 0;
   for (const file of files) {
@@ -28,13 +28,13 @@ async function run() {
     const parsed = path.parse(file);
     const avifOut = path.join(parsed.dir, `${parsed.name}.avif`);
     const webpOut = path.join(parsed.dir, `${parsed.name}.webp`);
-    
+
     // Create AVIF
     if (!fs.existsSync(avifOut)) {
       await sharp(file).avif({ quality: 65, speed: 5 }).toFile(avifOut);
       console.log(`Created ${avifOut}`);
     }
-    
+
     // Create WebP
     if (!fs.existsSync(webpOut)) {
       await sharp(file).webp({ quality: 78 }).toFile(webpOut);

@@ -26,8 +26,8 @@ export default defineConfig({
         webp: { quality: 78 },
         avif: { quality: 65, speed: 5 },
       }),
-      viteCompression({ algorithm: 'brotliCompress', ext: '.br' }),
-      viteCompression({ algorithm: 'gzip', ext: '.gz' }),
+      viteCompression({ algorithm: "brotliCompress", ext: ".br" }),
+      viteCompression({ algorithm: "gzip", ext: ".gz" }),
     ],
     build: {
       sourcemap: false,
@@ -49,7 +49,7 @@ export default defineConfig({
       },
     },
     esbuild: {
-      drop: ['console', 'debugger'],
+      drop: ["console", "debugger"],
     },
   },
 });

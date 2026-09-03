@@ -220,8 +220,13 @@ export default function FounderProfilePage({ founder }: { founder: FounderProfil
                   {founder.currentRoles.map((role, i) => {
                     const IconC = ICONS[role.icon] || Building2;
                     return (
-                      <div key={i} className="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-                        <IconC className={`h-4 w-4 ${role.accent === 'orange' ? 'text-[var(--brand-orange)]' : role.accent === 'blue' ? 'text-blue-500' : 'text-gray-600'}`} />
+                      <div
+                        key={i}
+                        className="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm border border-gray-100 hover:shadow-md transition-shadow"
+                      >
+                        <IconC
+                          className={`h-4 w-4 ${role.accent === "orange" ? "text-[var(--brand-orange)]" : role.accent === "blue" ? "text-blue-500" : "text-gray-600"}`}
+                        />
                         {role.title}
                       </div>
                     );

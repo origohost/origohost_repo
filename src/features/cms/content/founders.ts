@@ -4,7 +4,8 @@ export const foundersContent: FoundersContent = {
   meta: {
     slug: "founders",
     title: "Executive Profiles | OrigoHOST",
-    description: "Meet the founders and leadership behind OrigoHOST Community: Tarun Kumar, Ritik Kumar, and Brajesh Kumar.",
+    description:
+      "Meet the founders and leadership behind OrigoHOST Community: Tarun Kumar, Ritik Kumar, and Brajesh Kumar.",
   },
   profiles: [
     {
@@ -151,8 +152,12 @@ export const foundersContent: FoundersContent = {
         "Ritik believes that technology becomes truly valuable when knowledge is openly shared and communities grow together. His leadership philosophy emphasizes innovation, collaboration, transparency, continuous learning, and building ecosystems where developers can transform ideas into impactful solutions. Rather than focusing only on individual success, he advocates creating opportunities that enable entire communities to learn, build, contribute, and lead through technology.",
 
       currentRoles: [
-        { title: "Founder & CEO, Binarize Technologies Pvt. Ltd.", icon: "Building2", accent: "orange" },
-        { title: "Director, Yennick Pharma Pvt. Ltd.", icon: "Activity", accent: "blue" }
+        {
+          title: "Founder & CEO, Binarize Technologies Pvt. Ltd.",
+          icon: "Building2",
+          accent: "orange",
+        },
+        { title: "Director, Yennick Pharma Pvt. Ltd.", icon: "Activity", accent: "blue" },
       ],
 
       timeline: [
@@ -291,7 +296,8 @@ export const foundersContent: FoundersContent = {
         },
         { label: "GitHub", href: "https://github.com/codewithritik19", icon: "Github" },
       ],
-    }, {
+    },
+    {
       slug: "brajesh-kumar",
       name: "Brajesh Kumar",
       role: "Community Manager",
@@ -300,48 +306,52 @@ export const foundersContent: FoundersContent = {
       badge: "Community Manager",
       avatarUrl: "/brajesh-kumar.jpg",
       coverImage: "/assets/images/founders/tarun-cover.jpg",
-      quote: "Brajesh believes in empowering the next generation of builders. He creates environments where students, developers, and startups can thrive collaboratively.",
+      quote:
+        "Brajesh believes in empowering the next generation of builders. He creates environments where students, developers, and startups can thrive collaboratively.",
       communitySince: "2023",
       expertiseChips: ["Community Growth", "Developer Relations", "Mentorship"],
       achievementsCount: "20+",
       projectsCount: "10+",
       eventsLed: "30+",
-      communityImpact: "Led community initiatives and scaled the developer network across campuses.",
-      biography: "Brajesh Kumar is a dynamic Community Manager and DevRel advocate, currently leading community growth and engagement at the OrigoHOST Community. Driven by a passion for technology and education, Brajesh specializes in architecting inclusive developer ecosystems that empower students, professionals, and startups.\n\nWith deep technical expertise spanning AI, Cloud Infrastructure, and Full Stack development, Brajesh brings authentic engineering insight to his community leadership. He has a proven track record of orchestrating high-impact technical events, including hackathons, hands-on workshops, and large-scale developer meetups.",
-      vision: "To cultivate India’s premier ecosystem for developers and technology enthusiasts, transforming the OrigoHOST Community into a thriving hub of innovation.",
-      mission: "To build inclusive, highly engaged developer networks, driving student empowerment and accelerating learning through open-source contribution and mentorship.",
-      leadershipPhilosophy: "A strategic thinker and empathetic leader, Brajesh unites diverse groups under a shared vision, focusing on sustainable growth, active participation, and creating measurable value.",
-      timeline: [
-        { title: "Community Manager", subtitle: "OrigoHOST Community", icon: "Users" }
-      ],
+      communityImpact:
+        "Led community initiatives and scaled the developer network across campuses.",
+      biography:
+        "Brajesh Kumar is a dynamic Community Manager and DevRel advocate, currently leading community growth and engagement at the OrigoHOST Community. Driven by a passion for technology and education, Brajesh specializes in architecting inclusive developer ecosystems that empower students, professionals, and startups.\n\nWith deep technical expertise spanning AI, Cloud Infrastructure, and Full Stack development, Brajesh brings authentic engineering insight to his community leadership. He has a proven track record of orchestrating high-impact technical events, including hackathons, hands-on workshops, and large-scale developer meetups.",
+      vision:
+        "To cultivate India’s premier ecosystem for developers and technology enthusiasts, transforming the OrigoHOST Community into a thriving hub of innovation.",
+      mission:
+        "To build inclusive, highly engaged developer networks, driving student empowerment and accelerating learning through open-source contribution and mentorship.",
+      leadershipPhilosophy:
+        "A strategic thinker and empathetic leader, Brajesh unites diverse groups under a shared vision, focusing on sustainable growth, active participation, and creating measurable value.",
+      timeline: [{ title: "Community Manager", subtitle: "OrigoHOST Community", icon: "Users" }],
       expertise: [
         { label: "Community Growth", icon: "Users" },
         { label: "Developer Engagement", icon: "Code2" },
         { label: "Mentorship", icon: "Heart" },
         { label: "Technical Events", icon: "Mic" },
-        { label: "Open Source", icon: "Github" }
+        { label: "Open Source", icon: "Github" },
       ],
       contributions: [
         "Spearheading community growth across campuses and digital platforms.",
         "Organizing high-impact hackathons, meetups, and technical workshops.",
         "Mentoring students transitioning into the tech industry.",
-        "Fostering strategic partnerships with startups and academic organizations."
+        "Fostering strategic partnerships with startups and academic organizations.",
       ],
       impactStats: [
         { label: "Hackathons", value: "20+" },
         { label: "Workshops", value: "30+" },
-        { label: "Developers Reached", value: "10K+" }
+        { label: "Developers Reached", value: "10K+" },
       ],
       coreResponsibilities: [
         { title: "Community Strategy", icon: "Globe" },
         { title: "Event Management", icon: "Mic" },
-        { title: "Mentorship", icon: "Users" }
+        { title: "Mentorship", icon: "Users" },
       ],
       skills: ["Community Building", "Developer Relations", "Public Speaking", "Event Management"],
       techStack: [
         { label: "Cloud Computing", icon: "Cloud" },
         { label: "Full-Stack Development", icon: "Code2" },
-        { label: "AI", icon: "Brain" }
+        { label: "AI", icon: "Brain" },
       ],
       currentFocus: ["Campus Communities", "Open Source Incubation", "Developer Advocacy"],
       media: [],
@@ -350,7 +360,7 @@ export const foundersContent: FoundersContent = {
       certifications: [],
       gallery: [],
       faqs: [],
-      links: []
-    }
+      links: [],
+    },
   ],
 };

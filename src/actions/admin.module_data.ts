@@ -35,7 +35,7 @@ export const getModuleRecords = createServerFn({ method: "GET" })
       .select("role")
       .eq("user_id", ctx.context.userId)
       .single();
-      
+
     if (roleError || (roleData?.role !== "admin" && roleData?.role !== "super_admin")) {
       throw new Error("Unauthorized: Admin access required.");
     }
@@ -55,14 +55,14 @@ export const createModuleRecord = createServerFn({ method: "POST" })
   .validator((data: { module_name: string; data: Record<string, unknown> }) => data)
   .handler(async (ctx) => {
     const supabase = getAdminSupabase();
-    
+
     // Verify Admin Role
     const { data: roleData, error: roleError } = await supabase
       .from("user_roles")
       .select("role")
       .eq("user_id", ctx.context.userId)
       .single();
-      
+
     if (roleError || (roleData?.role !== "admin" && roleData?.role !== "super_admin")) {
       throw new Error("Unauthorized: Admin access required.");
     }
@@ -80,14 +80,14 @@ export const updateModuleRecord = createServerFn({ method: "POST" })
   .validator((data: { id: string; data: Record<string, unknown> }) => data)
   .handler(async (ctx) => {
     const supabase = getAdminSupabase();
-    
+
     // Verify Admin Role
     const { data: roleData, error: roleError } = await supabase
       .from("user_roles")
       .select("role")
       .eq("user_id", ctx.context.userId)
       .single();
-      
+
     if (roleError || (roleData?.role !== "admin" && roleData?.role !== "super_admin")) {
       throw new Error("Unauthorized: Admin access required.");
     }
@@ -105,14 +105,14 @@ export const deleteModuleRecord = createServerFn({ method: "POST" })
   .validator((id: string) => id)
   .handler(async (ctx) => {
     const supabase = getAdminSupabase();
-    
+
     // Verify Admin Role
     const { data: roleData, error: roleError } = await supabase
       .from("user_roles")
       .select("role")
       .eq("user_id", ctx.context.userId)
       .single();
-      
+
     if (roleError || (roleData?.role !== "admin" && roleData?.role !== "super_admin")) {
       throw new Error("Unauthorized: Admin access required.");
     }
@@ -127,14 +127,14 @@ export const bulkDeleteModuleRecords = createServerFn({ method: "POST" })
   .validator((ids: string[]) => ids)
   .handler(async (ctx) => {
     const supabase = getAdminSupabase();
-    
+
     // Verify Admin Role
     const { data: roleData, error: roleError } = await supabase
       .from("user_roles")
       .select("role")
       .eq("user_id", ctx.context.userId)
       .single();
-      
+
     if (roleError || (roleData?.role !== "admin" && roleData?.role !== "super_admin")) {
       throw new Error("Unauthorized: Admin access required.");
     }

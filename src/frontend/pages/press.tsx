@@ -22,8 +22,8 @@ export default function PressPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-4">About OrigoHOST</h2>
             <p className="text-lg text-slate-700 leading-relaxed max-w-3xl">
               OrigoHOST is an India-based technology community and enterprise cloud infrastructure
-              provider. Founded by Ritik Kumar, OrigoHOST bridges the gap between
-              grassroots developer communities and scalable, high-performance platform engineering.
+              provider. Founded by Ritik Kumar, OrigoHOST bridges the gap between grassroots
+              developer communities and scalable, high-performance platform engineering.
             </p>
           </div>
 

@@ -101,7 +101,10 @@ export function EventHero({ event, onRegisterClick }: EventHeroProps) {
             </span>
             {/* @ts-ignore */}
             {event.seo_metadata?.badges?.map((badge: string) => (
-              <span key={badge} className="px-3 py-1 bg-white/10 backdrop-blur-md border border-white/20 text-white rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider">
+              <span
+                key={badge}
+                className="px-3 py-1 bg-white/10 backdrop-blur-md border border-white/20 text-white rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider"
+              >
                 {badge}
               </span>
             ))}
@@ -171,7 +174,7 @@ export function EventHero({ event, onRegisterClick }: EventHeroProps) {
               </button>
             )}
 
-            <button 
+            <button
               onClick={() => {
                 navigator.clipboard.writeText(window.location.href);
                 alert("Link copied to clipboard!");
@@ -181,12 +184,18 @@ export function EventHero({ event, onRegisterClick }: EventHeroProps) {
               <Share2 className="w-5 h-5" />
               Share
             </button>
-            
+
             {!isPast && (
-              <button 
+              <button
                 onClick={() => {
-                  const start = new Date(`${event.date}T${event.start_time}`).toISOString().replace(/-|:|\.\d\d\d/g, "");
-                  const end = event.end_time ? new Date(`${event.date}T${event.end_time}`).toISOString().replace(/-|:|\.\d\d\d/g, "") : start;
+                  const start = new Date(`${event.date}T${event.start_time}`)
+                    .toISOString()
+                    .replace(/-|:|\.\d\d\d/g, "");
+                  const end = event.end_time
+                    ? new Date(`${event.date}T${event.end_time}`)
+                        .toISOString()
+                        .replace(/-|:|\.\d\d\d/g, "")
+                    : start;
                   const url = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(event.title)}&dates=${start}/${end}&location=${encodeURIComponent(event.venue_name || event.mode)}`;
                   window.open(url, "_blank");
                 }}

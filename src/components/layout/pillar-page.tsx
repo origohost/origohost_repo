@@ -78,7 +78,10 @@ export function PillarPage({
                 <h3 className="text-2xl font-bold mb-4 md:mb-6">Key Capabilities</h3>
                 <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 -mx-6 px-6 md:mx-0 md:px-0 md:pb-0 md:flex-col lg:flex-col hide-scrollbar">
                   {(features || []).map((f, i) => (
-                    <div key={i} className="snap-center shrink-0 w-[75vw] md:w-auto bg-white md:bg-transparent p-5 md:p-0 rounded-2xl md:rounded-none border md:border-0 border-gray-100 shadow-sm md:shadow-none">
+                    <div
+                      key={i}
+                      className="snap-center shrink-0 w-[75vw] md:w-auto bg-white md:bg-transparent p-5 md:p-0 rounded-2xl md:rounded-none border md:border-0 border-gray-100 shadow-sm md:shadow-none"
+                    >
                       <h4 className="font-bold text-gray-900 mb-1">{f.title}</h4>
                       <p className="text-gray-600 text-sm">{f.desc}</p>
                     </div>

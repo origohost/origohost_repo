@@ -3,9 +3,7 @@ import { ambassadorApplicationSchema, type AmbassadorApplicationData } from "./s
 import { escapeHtml } from "@/lib/escape-html";
 
 export const submitApplicationFn = createServerFn({ method: "POST" })
-  .validator(
-    (d: AmbassadorApplicationData & { idempotencyKey?: string }) => d,
-  )
+  .validator((d: AmbassadorApplicationData & { idempotencyKey?: string }) => d)
   .handler(async ({ data }) => {
     const { getSupabaseAdmin, checkIdempotency } = await import("@/lib/idempotency");
     const { ambassadorRateLimiter } = await import("@/lib/rate-limit");

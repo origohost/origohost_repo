@@ -69,7 +69,10 @@ export function PartnersMarqueeSection() {
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-8 mb-16">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 id="partners-heading" className="text-sm font-bold tracking-widest text-gray-500 uppercase">
+          <h2
+            id="partners-heading"
+            className="text-sm font-bold tracking-widest text-gray-500 uppercase"
+          >
             Trusted & Loved By Tech Communities
           </h2>
         </div>

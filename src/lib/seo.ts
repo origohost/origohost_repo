@@ -79,7 +79,12 @@ export function buildSeo({
 
   const linkTags = [{ rel: "canonical", href: url }];
   if (preloadImage) {
-    linkTags.push({ rel: "preload", href: preloadImage, as: "image", fetchPriority: "high" } as any);
+    linkTags.push({
+      rel: "preload",
+      href: preloadImage,
+      as: "image",
+      fetchPriority: "high",
+    } as any);
   }
 
   return { meta, links: linkTags, scripts };

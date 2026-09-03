@@ -213,7 +213,10 @@ export default function UserDashboard() {
         </motion.div>
 
         {/* Stats Grid - Premium Minimal */}
-        <motion.div variants={itemAnim} className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 -mx-4 px-4 md:mx-0 md:px-0 md:pb-0 md:grid md:grid-cols-3 hide-scrollbar">
+        <motion.div
+          variants={itemAnim}
+          className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 -mx-4 px-4 md:mx-0 md:px-0 md:pb-0 md:grid md:grid-cols-3 hide-scrollbar"
+        >
           <Card className="snap-center shrink-0 w-[75vw] md:w-auto border-gray-100 shadow-[var(--shadow-soft)] bg-white rounded-3xl hover:shadow-lg transition-all duration-300 group">
             <CardHeader className="flex flex-row items-center justify-between pb-2 border-b border-gray-50 mb-4">
               <CardTitle className="text-xs font-black text-gray-400 uppercase tracking-widest">
