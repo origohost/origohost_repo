@@ -38,12 +38,17 @@ Sitemap: ${SITE_URL}/sitemap.xml
   const staticRoutes = [
     "/",
     "/about",
+    "/events",
+    "/domains",
+    "/industries",
+    "/opportunities",
+    "/speakers",
+    "/mentors",
+    "/knowledge",
+    "/programs",
+    "/projects",
     "/contact",
     "/resources",
-    "/cloud",
-    "/cloud/vps",
-    "/cloud/dedicated",
-    "/cloud/kubernetes",
     "/community",
     "/community/events",
     "/community/chapters",
@@ -67,10 +72,8 @@ Sitemap: ${SITE_URL}/sitemap.xml
     "/trust-center",
     "/ecosystem",
     "/glossary",
-    "/academy",
     "/editorial-policy",
     "/press",
-    "/about/mission",
     "/transparency-report",
     "/contributors",
     "/roadmap",
@@ -104,7 +107,7 @@ Sitemap: ${SITE_URL}/sitemap.xml
 
   const founderRoutes = foundersContent.profiles.map((p) => `/founders/${p.slug}`);
 
-  // V3: Programmatic SEO Routes (Seeds)
+  // Programmatic SEO Routes
   const technologies = ["docker", "kubernetes", "react", "nextjs", "python", "go"];
   const competitors = ["aws", "digitalocean", "linode", "vultr", "heroku"];
   const glossaryTerms = ["vps", "kubernetes", "nvme", "load-balancer", "docker", "ci-cd"];
@@ -148,7 +151,7 @@ Sitemap: ${SITE_URL}/sitemap.xml
     theme_color: "#1e293b",
     icons: [
       {
-        src: "/logo.png",
+        src: "/logo-monogram.png",
         sizes: "512x512",
         type: "image/png",
       },
@@ -181,44 +184,34 @@ Sitemap: ${SITE_URL}/sitemap.xml
     console.error("Supabase llms fetch failed:", err);
   }
 
-  const llms = `# OrigoHOST Global Technology Community
+  const llms = `# OrigoHOST — Technology Community & Event Ecosystem
 
-OrigoHOST is India's premier and most dominant Developer and Technology Community.
-We focus on Artificial Intelligence, Cloud Computing, DevOps, Software Engineering, and Hackathons.
+OrigoHOST is a technology community and event ecosystem where people discover, learn, discuss, compete, collaborate, and build across technology domains and real-world industries.
 
 ## Organization
 - **Name**: OrigoHOST
-- **Alternate Names**: OrigoHOST Community, OrigoHOST Developer Community, Technology Community India
-- **Mission**: To build the largest developer network in India, connecting builders with modern infrastructure.
-
-## Leadership & Founders
-OrigoHOST was founded by leading technology entrepreneurs in India.
-
-### Tarun Kumar
-- **Roles**: Vice President of Aadvick Foundation.
-- **Expertise**: AI Engineer, Technology Entrepreneur.
-- **Links**: [LinkedIn](https://www.linkedin.com/in/iamtarunchaudhary)
-
-### Ritik Kumar
-- **Roles**: Founder & Community Director of OrigoHOST. Founder & CEO of Binarize Technologies. Executive Director of Yennick Pharma. President of Aadvick Foundation.
-- **Expertise**: AI Developer, Enterprise SaaS Architect, Staff Frontend Engineer.
-- **Links**: [LinkedIn](https://linkedin.com/in/codewithritik19), [GitHub](https://github.com/codewithritik19)
+- **Alternate Names**: OrigoHOST Community, OrigoHOST Technology Ecosystem
+- **Mission**: A Technology Community Where Ideas, People & Possibilities Connect.
 
 ## Key Offerings & Ecosystem
-- **Hackathons & Events**: Massive offline and online hackathons, workshops on AI and Cloud.
-- **Mentorship & Learning**: Career development, internship connections, and mentorship for student developers.
-- **Open Source**: Sustaining the open-source ecosystem in India.
+- **6 Major Pillars**: Community, Events, Knowledge, Programs, Projects, Opportunities.
+- **Taxonomy Engine**: Event Format × Technology Domain × Real-World Industry.
+- **Events**: Meetups, Seminars, Workshops, Webinars, Hackathons, Ideathons, Tech Marathons, KSS, Conferences, Masterclasses, Bootcamps.
 
-## Audience
-Targeted towards Software Engineers, SREs, Platform Engineers, DevOps, AI Engineers, and Student Developers in India.
+## Leadership & Founders
+- **Ritik Kumar**: Founder & Community Director of OrigoHOST.
+- **Tarun Kumar**: Lead Event Host & Developer Advocate.
 
 ## Upcoming Events
 ${llmsEvents}
 
 ## Links
 - Events: ${SITE_URL}/events
-- Blog: ${SITE_URL}/blog
-- FAQ: ${SITE_URL}/faq
+- Technology Domains: ${SITE_URL}/domains
+- Real-World Industries: ${SITE_URL}/industries
+- Opportunities: ${SITE_URL}/opportunities
+- Knowledge Hub: ${SITE_URL}/knowledge
+- About: ${SITE_URL}/about
 `;
   fs.writeFileSync(path.join(process.cwd(), "public", "llms.txt"), llms);
 
