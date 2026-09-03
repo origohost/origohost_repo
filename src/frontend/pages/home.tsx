@@ -31,12 +31,6 @@ import { Button } from "@/components/ui/button";
 import { FadeIn, ScaleIn, Tilt } from "@/components/motion/primitives";
 import HeroSection from "@/frontend/pages/hero";
 
-const PartnersMarqueeSection = React.lazy(() =>
-  import("@/components/partners-marquee-section").then((mod) => ({
-    default: mod.PartnersMarqueeSection,
-  })),
-);
-
 // 12 EVENT FORMATS
 const EVENT_FORMATS = [
   {
@@ -119,11 +113,6 @@ export default function HomePage() {
     <div className="relative min-h-screen bg-white text-[#0a0a0a] selection:bg-blue-600 selection:text-white">
       {/* 1. HERO SECTION */}
       <HeroSection />
-
-      {/* PARTNERS MARQUEE */}
-      <React.Suspense fallback={<div className="h-28 bg-slate-50" />}>
-        <PartnersMarqueeSection />
-      </React.Suspense>
 
       {/* 2. EXPLORE THE COMMUNITY */}
       <section id="participate" className="relative bg-white py-24 border-b border-slate-100">
