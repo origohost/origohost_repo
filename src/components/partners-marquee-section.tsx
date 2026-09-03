@@ -67,17 +67,6 @@ export function PartnersMarqueeSection() {
       data-testid="partners-marquee"
       className="bg-white py-16 overflow-hidden border-b border-[var(--brand-ink)]/5"
     >
-      <div className="mx-auto max-w-7xl px-6 lg:px-8 mb-16">
-        <div className="mx-auto max-w-3xl text-center">
-          <h2
-            id="partners-heading"
-            className="text-sm font-bold tracking-widest text-gray-500 uppercase"
-          >
-            Trusted & Loved By Tech Communities
-          </h2>
-        </div>
-      </div>
-
       <div className="flex flex-col gap-12">
         <FadeIn delay={0.1}>
           <Marquee speed={35} ariaLabel="Industry partners row 1">
