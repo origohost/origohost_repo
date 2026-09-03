@@ -14,10 +14,10 @@ import { Button } from "@/components/ui/button";
 import { Counter, ScaleIn, Tilt } from "@/components/motion/primitives";
 
 const CANONICAL_METRICS = [
-  { value: 90, suffix: "K+", label: "Developers & learners reached", icon: Users },
-  { value: 500, suffix: "+", label: "Colleges & institutions", icon: GraduationCap },
-  { value: 50, suffix: "+", label: "Community meetups", icon: Calendar },
-  { value: 400, suffix: "+", label: "Workshops & learning sessions", icon: BookOpen },
+  { value: 15, suffix: "K+", label: "Developers & learners reached", icon: Users },
+  { value: 75, suffix: "+", label: "Colleges & institutions", icon: GraduationCap },
+  { value: 35, suffix: "+", label: "Community meetups", icon: Calendar },
+  { value: 120, suffix: "+", label: "Workshops & learning sessions", icon: BookOpen },
 ];
 
 export default function HeroSection() {

@@ -164,10 +164,10 @@ export default function SponsorPage() {
 
               <div className="grid grid-cols-2 gap-8">
                 {[
-                  { label: "Community Reach", value: "90K+" },
-                  { label: "Active Chapters", value: "50+" },
-                  { label: "Hackathons Hosted", value: "100+" },
-                  { label: "Developer Teams", value: "500+" },
+                  { label: "Community Reach", value: "15K+" },
+                  { label: "Colleges & Chapters", value: "75+" },
+                  { label: "Community Meetups", value: "35+" },
+                  { label: "Workshops Hosted", value: "120+" },
                 ].map((stat, i) => (
                   <div key={i} className="border-l-4 border-blue-500 pl-4">
                     <div className="text-4xl md:text-5xl font-black text-[var(--brand-ink)] mb-1 tracking-tighter">

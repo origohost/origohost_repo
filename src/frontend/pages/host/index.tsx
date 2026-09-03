@@ -99,10 +99,10 @@ export default function HostLandingPage() {
               {/* Stats Grid */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                 {[
-                  { label: "Developers", value: "90K+" },
-                  { label: "Organizations", value: "500+" },
-                  { label: "Ambassadors", value: "3K+" },
-                  { label: "Mentors", value: "100+" },
+                  { label: "Developers", value: "15K+" },
+                  { label: "Colleges", value: "75+" },
+                  { label: "Meetups", value: "35+" },
+                  { label: "Workshops", value: "120+" },
                 ].map((stat, i) => (
                   <div
                     key={i}
