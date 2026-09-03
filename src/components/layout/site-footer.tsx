@@ -2,19 +2,15 @@ import { Link } from "@tanstack/react-router";
 import { m as motion, Variants } from "framer-motion";
 import "./site-footer.css";
 import {
-  Instagram,
   Linkedin,
-  Github,
-  MessageCircle,
   Youtube,
   Twitter,
-  Send,
   ArrowUpRight,
   Shield,
   Globe,
   Clock,
-  Heart,
   ChevronDown,
+  MessageCircle,
 } from "lucide-react";
 import { BrandLogo } from "@/components/brand/brand-logo";
 import { CookiePreferencesButton } from "@/features/cookie-consent";
@@ -28,7 +24,7 @@ const fadeUp: Variants = {
 };
 
 const zoomOut: Variants = {
-  hidden: { opacity: 0, scale: 1.1 },
+  hidden: { opacity: 0, scale: 1.05 },
   visible: {
     opacity: 1,
     scale: 1,
@@ -44,37 +40,36 @@ const stagger = {
   },
 };
 
-// --- DATA ---
+// --- FOOTER LINKS DATA ---
 const EXPLORE_LINKS = [
-  { label: "Home", to: "/" },
   { label: "About", to: "/about" },
-  { label: "Mission & Vision", to: "/about/mission" },
-  { label: "Ecosystem", to: "/ecosystem" },
-  { label: "Contributors", to: "/contributors" },
+  { label: "Community", to: "/community" },
   { label: "Events", to: "/community/events" },
+  { label: "Programs", to: "#pathways" },
+  { label: "Resources", to: "/resources" },
+  { label: "Ecosystem", to: "/ecosystem" },
+  { label: "Partners", to: "/partners" },
+  { label: "Sponsors", to: "/become-a-sponsor" },
+  { label: "Team", to: "/leadership" },
+  { label: "Blog & News", to: "/blog" },
   { label: "Gallery", to: "/gallery" },
-  { label: "Blog", to: "/blog" },
 ];
 
-const PROGRAMS_LINKS = [
-  { label: "Ambassador", to: "/ambassador" },
-  { label: "Hackathons", to: "/events?type=hackathon" },
-  { label: "Meetups", to: "/events?type=meetup" },
-  { label: "Workshops", to: "/events?type=workshop" },
-  { label: "Certificates", to: "/certificates" },
-];
-
-const SUPPORT_LINKS = [
+const CONNECT_LINKS = [
   { label: "Contact", to: "/contact" },
-  { label: "Help Center", to: "/faq" },
+  { label: "Join / Get Involved", to: "/joincommunity" },
+  { label: "FAQ", to: "/faq" },
   { label: "Public Roadmap", to: "/roadmap" },
-  { label: "Transparency Report", to: "/transparency-report" },
   {
     label: "Partner With Us",
     to: "mailto:origohostscommunity@gmail.com?subject=Partnership%20Inquiry",
   },
-  { label: "Feedback", to: "mailto:origohostscommunity@gmail.com?subject=Feedback" },
-  { label: "Report Issue", to: "mailto:rudrapandit1917@gmail.com?subject=Website%20Issue" },
+];
+
+const LEGAL_LINKS = [
+  { label: "Privacy Policy", to: "/privacy" },
+  { label: "Terms & Conditions", to: "/terms" },
+  { label: "Sitemap", to: "/sitemap.xml" },
 ];
 
 const SOCIALS = [
@@ -93,8 +88,6 @@ const SOCIALS = [
     label: "WhatsApp",
   },
 ];
-
-// --- COMPONENTS ---
 
 function FooterCol({ title, links }: { title: string; links: { to: string; label: string }[] }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -116,7 +109,7 @@ function FooterCol({ title, links }: { title: string; links: { to: string; label
       <div
         className={`overflow-hidden transition-all duration-300 lg:!max-h-none lg:opacity-100 ${isOpen ? "max-h-96 opacity-100 pb-4" : "max-h-0 opacity-0"}`}
       >
-        <ul className="space-y-4 lg:space-y-2 text-base lg:text-sm text-white/50 font-medium w-full">
+        <ul className="space-y-3 lg:space-y-2 text-base lg:text-xs text-white/60 font-medium w-full">
           {links.map((l) => (
             <li key={l.label}>
               <a
@@ -141,7 +134,7 @@ function FooterCol({ title, links }: { title: string; links: { to: string; label
 export function SiteFooter() {
   return (
     <motion.footer
-      className="relative bg-[#050B14] text-white overflow-hidden pt-16 pb-6 selection:bg-blue-500/30 border-t border-white/10 glow-pulse"
+      className="relative bg-[#050B14] text-white overflow-hidden pt-16 pb-8 selection:bg-blue-500/30 border-t border-white/10 glow-pulse"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "100px" }}
@@ -157,13 +150,13 @@ export function SiteFooter() {
           variants={stagger}
           className="flex flex-col gap-12"
         >
-          {/* ROW 1: Links and Brand */}
+          {/* ROW 1: Brand Info & Columns */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
-            {/* Left: Brand (Span 4) */}
+            {/* Left: Brand Description */}
             <div className="lg:col-span-4 flex flex-col items-center lg:items-start text-center lg:text-left">
               <a
                 href="/"
-                className="flex items-center justify-center lg:justify-start gap-3 text-3xl lg:text-2xl font-black mb-4 lg:mb-2 group w-fit"
+                className="flex items-center justify-center lg:justify-start gap-3 text-3xl lg:text-2xl font-black mb-4 lg:mb-3 group w-fit"
               >
                 <BrandLogo
                   size={32}
@@ -176,12 +169,9 @@ export function SiteFooter() {
                   </span>
                 </span>
               </a>
-              <h4 className="text-sm font-bold text-white mb-2">
-                Where Builders Become Innovators
-              </h4>
-              <p className="text-white/50 text-xs leading-relaxed mb-6 max-w-sm">
-                India's leading developer community helping students and professionals grow through
-                Cloud, DevOps, AI, Platform Engineering, Open Source and Real-world Projects.
+              <p className="text-white/70 text-xs leading-relaxed mb-6 max-w-sm">
+                OrigoHOST is an enterprise-grade developer ecosystem and community platform bridging
+                the gap between learning technology and building production systems across India.
               </p>
 
               <div className="flex flex-col sm:flex-row flex-wrap justify-center lg:justify-start gap-3 lg:gap-2 w-full">
@@ -189,90 +179,54 @@ export function SiteFooter() {
                   href="https://chat.whatsapp.com/BZnqAGpubNLDXLncASeOTM"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-1.5 text-sm lg:text-xs font-bold bg-[#25D366]/10 text-[#25D366] border border-[#25D366]/20 px-4 lg:px-3 py-3 lg:py-1.5 rounded-xl lg:rounded-md hover:bg-[#25D366]/20 transition-colors w-full sm:w-auto min-h-[44px]"
+                  className="inline-flex items-center justify-center gap-1.5 text-xs font-bold bg-[#25D366]/10 text-[#25D366] border border-[#25D366]/20 px-4 py-2 rounded-lg hover:bg-[#25D366]/20 transition-colors w-full sm:w-auto"
                 >
-                  <MessageCircle className="h-4 w-4 lg:h-3.5 lg:w-3.5" /> Join Community
+                  <MessageCircle className="h-4 w-4" /> Join Community
                 </a>
                 <a
                   href="/become-ambassador"
-                  className="inline-flex items-center justify-center gap-1.5 text-sm lg:text-xs font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20 px-4 lg:px-3 py-3 lg:py-1.5 rounded-xl lg:rounded-md hover:bg-blue-500/20 transition-colors w-full sm:w-auto min-h-[44px]"
+                  className="inline-flex items-center justify-center gap-1.5 text-xs font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20 px-4 py-2 rounded-lg hover:bg-blue-500/20 transition-colors w-full sm:w-auto"
                 >
-                  <Shield className="h-4 w-4 lg:h-3.5 lg:w-3.5" /> Become Ambassador
-                </a>
-                <a
-                  href="/host"
-                  className="inline-flex items-center justify-center gap-1.5 text-sm lg:text-xs font-bold bg-white/5 text-white border border-white/10 px-4 lg:px-3 py-3 lg:py-1.5 rounded-xl lg:rounded-md hover:bg-white/10 transition-colors w-full sm:w-auto min-h-[44px]"
-                >
-                  <Globe className="h-4 w-4 lg:h-3.5 lg:w-3.5" /> Host Event
+                  <Shield className="h-4 w-4" /> Become Ambassador
                 </a>
               </div>
             </div>
 
-            {/* Center: Explore & Programs (Span 5) */}
-            <div className="lg:col-span-5 flex flex-col sm:grid sm:grid-cols-2 gap-0 lg:gap-8 border-t border-white/5 pt-4 lg:pt-0 lg:border-t-0">
+            {/* Navigation Columns */}
+            <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-3 gap-8 border-t border-white/5 pt-6 lg:pt-0 lg:border-t-0">
               <FooterCol title="Explore" links={EXPLORE_LINKS} />
-              <FooterCol title="Programs" links={PROGRAMS_LINKS} />
-            </div>
-
-            {/* Right: Support (Span 3) */}
-            <div className="lg:col-span-3">
-              <FooterCol title="Support" links={SUPPORT_LINKS} />
+              <FooterCol title="Connect" links={CONNECT_LINKS} />
+              <FooterCol title="Legal" links={LEGAL_LINKS} />
             </div>
           </div>
 
-          {/* ROW 2: Contact Card and Socials */}
-          <div className="flex flex-col md:flex-row justify-between items-center md:items-end gap-10 pt-10 border-t border-white/5 text-center md:text-left">
-            {/* Contact Details */}
+          {/* ROW 2: Contact Info & Socials */}
+          <div className="flex flex-col md:flex-row justify-between items-center md:items-end gap-8 pt-8 border-t border-white/5 text-center md:text-left">
             <motion.div
               variants={fadeUp}
-              className="flex flex-col items-center md:items-start gap-6 lg:flex-row lg:flex-wrap lg:gap-8 w-full md:w-auto"
+              className="flex flex-col sm:flex-row flex-wrap items-center md:items-start gap-6 lg:gap-8 text-xs text-white/60"
             >
-              <div className="flex flex-col items-center md:items-start gap-1">
-                <div className="text-[10px] font-bold text-white/40 uppercase tracking-wider">
-                  Community & General
-                </div>
+              <div>
+                <span className="text-[10px] font-bold uppercase tracking-wider text-white/40 block">
+                  Email Support
+                </span>
                 <a
                   href="mailto:origohostscommunity@gmail.com"
-                  className="text-sm font-medium text-white/80 hover:text-blue-400 transition-colors"
+                  className="font-semibold text-white/90 hover:text-blue-400 transition-colors"
                 >
-                  Email Us
+                  origohostscommunity@gmail.com
                 </a>
               </div>
-              <div className="flex flex-col gap-1">
-                <div className="text-[10px] font-bold text-white/40 uppercase tracking-wider">
-                  Business Partnerships
-                </div>
-                <a
-                  href="mailto:origohostscommunity@gmail.com"
-                  className="text-sm font-medium text-white/80 hover:text-blue-400 transition-colors"
-                >
-                  Email Us
-                </a>
-              </div>
-              <div className="flex flex-col gap-1">
-                <div className="text-[10px] font-bold text-white/40 uppercase tracking-wider">
-                  Support
-                </div>
-                <a
-                  href="mailto:origohostscommunity@gmail.com"
-                  className="text-sm font-medium text-white/80 hover:text-blue-400 transition-colors"
-                >
-                  Email Us
-                </a>
-              </div>
-              <div className="flex flex-col gap-1">
-                <div className="text-[10px] font-bold text-white/40 uppercase tracking-wider flex items-center gap-1">
-                  <Clock className="h-3 w-3" /> Response Time
-                </div>
-                <div className="text-sm font-bold text-green-400">Within 24 Hours</div>
+              <div>
+                <span className="text-[10px] font-bold uppercase tracking-wider text-white/40 block">
+                  Response Time
+                </span>
+                <span className="font-bold text-emerald-400">Within 24 Hours</span>
               </div>
             </motion.div>
 
             {/* Social Icons */}
-            <motion.div
-              variants={fadeUp}
-              className="flex flex-wrap justify-center md:justify-end gap-3 lg:gap-2 w-full md:w-auto"
-            >
+            <motion.div variants={fadeUp} className="flex flex-wrap justify-center gap-2">
               {SOCIALS.map(({ icon: Icon, href, label }) => (
                 <a
                   key={label}
@@ -280,31 +234,29 @@ export function SiteFooter() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="flex h-12 w-12 lg:h-9 lg:w-9 items-center justify-center rounded-xl lg:rounded-md bg-white/5 border border-white/5 text-white/60 transition-all hover:bg-white/10 hover:text-white"
+                  className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/5 border border-white/10 text-white/70 transition-all hover:bg-white/15 hover:text-white"
                 >
-                  <Icon className="h-5 w-5 lg:h-4 lg:w-4" />
+                  <Icon className="h-4 w-4" />
                 </a>
               ))}
             </motion.div>
           </div>
 
-          {/* BOTTOM BAR */}
+          {/* BOTTOM COPYRIGHT BAR */}
           <motion.div
             variants={fadeUp}
-            className="flex flex-col md:flex-row items-center justify-center md:justify-between gap-6 lg:gap-4 pt-8 border-t border-white/5 text-sm lg:text-xs text-white/40 font-medium text-center md:text-left pb-8 lg:pb-0"
+            className="flex flex-col md:flex-row items-center justify-between gap-4 pt-6 border-t border-white/5 text-xs text-white/50 font-medium"
           >
-            <div>© {new Date().getFullYear()} OrigoHOST Community</div>
-
-            <div className="flex items-center gap-1.5">
-              Website Development by Binarize Technologies Pvt Ltd
-            </div>
-
+            <div>© 2026 OrigoHOST. All rights reserved. Where Builders Become Innovators.</div>
             <div className="flex items-center gap-4">
               <a href="/privacy" className="hover:text-white transition-colors">
-                Privacy
+                Privacy Policy
               </a>
               <a href="/terms" className="hover:text-white transition-colors">
-                Terms
+                Terms & Conditions
+              </a>
+              <a href="/sitemap.xml" className="hover:text-white transition-colors">
+                Sitemap
               </a>
               <CookiePreferencesButton />
             </div>

@@ -1,7 +1,7 @@
+import React from "react";
 import { m as motion } from "framer-motion";
 import {
   ArrowRight,
-  ArrowUpRight,
   Sparkles,
   Server,
   Users,
@@ -11,1009 +11,1019 @@ import {
   Code2,
   Trophy,
   Calendar,
-  MapPin,
   Clock,
-  PlayCircle,
-  Camera,
-  Handshake,
-  Send,
-  Instagram,
-  Twitter,
-  Linkedin,
-  MessageCircle,
-  Rocket,
-  Gift,
-  Heart,
-  LayoutGrid,
-  Globe,
-  Terminal,
-  Cpu,
+  BookOpen,
+  Download,
+  GraduationCap,
+  ChevronRight,
+  CheckCircle2,
+  FileText,
+  HelpCircle,
 } from "lucide-react";
-import { buildSeo } from "@/lib/seo";
+import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import {
-  BackgroundOrbs,
   Counter,
   FadeIn,
-  Magnetic,
-  Reveal,
   ScaleIn,
   Tilt,
-  Typewriter,
   SpotlightCard,
   Stagger,
-  Marquee,
-  ScrollVelocity,
-  TextRevealStagger,
 } from "@/components/motion/primitives";
-
-const PILLARS = [
-  {
-    icon: Cloud,
-    title: "Cloud & Edge",
-    body: "Deep dives on AWS, GCP, Cloudflare, Fly, and edge-native runtimes.",
-  },
-  {
-    icon: Shield,
-    title: "Reliability",
-    body: "SRE playbooks, incident retros, and observability patterns that actually scale.",
-  },
-  {
-    icon: Code2,
-    title: "Platform Eng",
-    body: "IDPs, CI/CD, Kubernetes, IaC — the tooling behind fast-moving teams.",
-  },
-];
-
-const WHAT_WE_DO = [
-  {
-    icon: Zap,
-    title: "Workshops & Training",
-    body: "Practical sessions on Kubernetes, Terraform, WebXR, and modern platform engineering designed to help participants build and ship real-time projects. Open to all levels, with certification provided.",
-  },
-  {
-    icon: Trophy,
-    title: "Hackathons & Challenges",
-    body: "Short-format immersive tech competitions focused on creative problem-solving and cloud/infra development. Supported by mentors and evaluated by industry experts.",
-  },
-  {
-    icon: Users,
-    title: "Community Events",
-    body: "Developer meetups, speaker series, and interactive sessions hosted in partnership with organisations like Google and AWS — fostering collaboration and knowledge.",
-  },
-  {
-    icon: Handshake,
-    title: "Brand & Campus Partnership",
-    body: "Collaborations with institutions, universities, and tech organisations to deliver curated cloud & infra programs — including student workshops, tech booths, and long-term training models.",
-  },
-];
-
-const EVENTS = [
-  {
-    month: "JUL",
-    day: "12",
-    tag: "ONLINE",
-    time: "12:00 PM – 2:00 PM",
-    title: "Knowledge Sharing Series 2026 — Building Intelligent Systems",
-    desc: "A practical journey into Embedded Systems & Robotics with Mr. Kushagra Petwal, Chairperson of The Robotics Club, G. B. Pant University of Agriculture & Technology. Hosted by Mr. Tarun Kumar.",
-    city: "Live Webinar",
-    image: "/event-poster.jpg",
-    slug: "knowledge-sharing-series-2026",
-  },
-  {
-    month: "JUN",
-    day: "15",
-    tag: "OFFLINE",
-    time: "10:00 AM",
-    title: "Community Meetup & Workshop",
-    desc: "Hands-on session exploring real-world cloud scaling, open-source projects, and networking with fellow engineers.",
-    city: "Delhi NCR",
-    image: "/event-gallery-1.jpg",
-    slug: "community-meetup-workshop",
-  },
-  {
-    month: "MAY",
-    day: "22",
-    tag: "OFFLINE",
-    time: "02:00 PM",
-    title: "Masterclass: Modern Infrastructure",
-    desc: "An immersive deep dive into containerization, Kubernetes, and setting up internal developer platforms.",
-    city: "Bangalore",
-    image: "/event-gallery-2.jpg",
-    slug: "masterclass-modern-infrastructure",
-  },
-  {
-    month: "APR",
-    day: "10",
-    tag: "OFFLINE",
-    time: "11:00 AM",
-    title: "Educational Leadership Summit",
-    desc: "An exclusive meetup with 50+ school directors to share insights on enhancing educational performance, modern knowledge delivery, and how our infrastructure solutions empower learning institutions.",
-    city: "Mathura",
-    image: "/event-gallery-3.jpg",
-    slug: "educational-leadership-summit",
-  },
-  {
-    month: "MAR",
-    day: "05",
-    tag: "OFFLINE",
-    time: "09:30 AM",
-    title: "AI Foundation & Awareness Workshop",
-    desc: "An engaging workshop training students across different classes on AI evolution, real-world applications, and responsible usage. Focused on digital safety and empowering a future-ready generation.",
-    city: "School Campus",
-    image: "/event-gallery-4.jpg",
-  },
-];
-
-import React, { useMemo } from "react";
 import HeroSection from "@/frontend/pages/hero";
+
 const PartnersMarqueeSection = React.lazy(() =>
   import("@/components/partners-marquee-section").then((mod) => ({
     default: mod.PartnersMarqueeSection,
   })),
 );
-import { OptimizedImage } from "@/components/ui/optimized-image";
-import { useQuery } from "@tanstack/react-query";
-import { eventApi } from "@/modules/events/api/eventApi";
+
+// --- DATA DEFINITIONS FOR FRONTEND CONTENT ---
+
+// Section 2: Why OrigoHOST
+const WHY_ORIGOHOST = [
+  {
+    icon: Cloud,
+    title: "Cloud Compute Infrastructure",
+    body: "Access real compute sandboxes, database instances, and automated deployment pipelines engineered for practical learning.",
+  },
+  {
+    icon: Users,
+    title: "Peer Developer Network",
+    body: "Connect with thousands of student developers, open-source contributors, and co-builders across university campuses.",
+  },
+  {
+    icon: Zap,
+    title: "Industry-Aligned Cohorts",
+    body: "Master full-stack architecture, cloud systems, and AI fundamentals through structured, expert-guided programs.",
+  },
+  {
+    icon: Trophy,
+    title: "Career & Venture Launchpad",
+    body: "Transform hackathon prototypes into production software and gain direct visibility with top technology hiring partners.",
+  },
+];
+
+// Section 3: Audience Sections
+const AUDIENCES = [
+  {
+    label: "// FOR DEVELOPERS",
+    title: "Students & Engineers",
+    body: "Gain hands-on software engineering experience, access cloud development environments, and collaborate with peers on real-world projects.",
+    cta: "Explore Developer Hub",
+    link: "/community",
+  },
+  {
+    label: "// FOR COMMUNITY LEADERS",
+    title: "Campus Leads & Mentors",
+    body: "Establish an official OrigoHOST chapter at your institution, host practical technical workshops, and empower emerging tech talent.",
+    cta: "Join Community Network",
+    link: "/community/ambassadors",
+  },
+  {
+    label: "// FOR INSTITUTIONS",
+    title: "Partners & Enterprise Sponsors",
+    body: "Engage high-caliber student developers, support flagship hackathons, and collaborate on technical education initiatives.",
+    cta: "Partner With Us",
+    link: "/become-a-sponsor",
+  },
+];
+
+// Section 4: Ecosystem Reach
+const REACH_METRICS = [
+  {
+    value: 3000,
+    suffix: "+",
+    label: "Active Community Members",
+    desc: "Students, software engineers, and technology builders across India",
+  },
+  {
+    value: 20,
+    suffix: "+",
+    label: "Workshops & Hackathons",
+    desc: "Hands-on learning sessions, webinars, and build competitions",
+  },
+  {
+    value: 10,
+    suffix: "+",
+    label: "University Chapters",
+    desc: "Chartered student communities empowering local developer ecosystems",
+  },
+  {
+    value: 2,
+    suffix: "",
+    label: "Flagship Initiatives",
+    desc: "Knowledge Sharing Series (KSS) & AI Foundation Program",
+  },
+];
+
+// Section 5: Learning & Growth Pathways
+const PATHWAYS = [
+  {
+    step: "01",
+    title: "Aspiring Software Engineers",
+    desc: "Build practical expertise in cloud computing and software design while building a standout portfolio of real-world applications.",
+  },
+  {
+    step: "02",
+    title: "Campus Chapter Leaders & Volunteers",
+    desc: "Lead tech initiatives at your university with dedicated resources, workshop toolkits, and ongoing support from the OrigoHOST team.",
+  },
+  {
+    step: "03",
+    title: "Industry Partners & Sponsors",
+    desc: "Connect with talented student engineers, sponsor CyberForge hackathons, and contribute to industry-aligned learning programs.",
+  },
+];
+
+// Section 6: Featured Initiatives
+const FEATURED_PROGRAMS = [
+  {
+    title: "Knowledge Sharing Series 2026 — KSS2026",
+    status: "Active",
+    type: "Episode-based webinar series — multiple episodes per year",
+    desc: "A structured, episode-based webinar series where technology practitioners share verified knowledge, practical insights and real-world experience with the OrigoHOST community.",
+    topics: ["Cybersecurity", "Cloud Computing", "DevOps", "Artificial Intelligence", "+1"],
+    cta: "Explore Program",
+    link: "/community/events",
+  },
+  {
+    title: "OrigoHOST AI Foundation Program",
+    status: "Upcoming",
+    type: "Foundational AI Cohort",
+    desc: "An introductory program exploring artificial intelligence, machine learning and generative AI — designed to make AI accessible to builders at all levels.",
+    topics: ["Artificial Intelligence", "Machine Learning", "Generative AI"],
+    cta: "Explore Program",
+    link: "/community/events",
+  },
+];
+
+// Section 7: Upcoming Events & Workshops
+const UPCOMING_SESSIONS = [
+  {
+    title: "Cybersecurity & Ethical Hacking Essentials",
+    type: "Webinar",
+    status: "Registration Open",
+    audience: "Open Community",
+    date: "7 September 2026",
+    desc: "Deep dive into penetration testing, threat modeling, and modern defense strategies.",
+    format: "Online Webinar",
+    link: "/community/events",
+  },
+  {
+    title: "CyberForge 2026 Hackathon",
+    type: "Hackathon",
+    status: "Registration Open",
+    audience: "Open Community",
+    date: "21 September 2026",
+    desc: "48-hour intensive hackathon building next-generation secure cloud applications.",
+    format: "Tech Hub Center & Virtual",
+    link: "/community/events",
+  },
+];
+
+// Section 8: Opportunities
+const OPPORTUNITIES = [
+  {
+    title: "Campus Chapter Leadership",
+    category: "Chapters",
+    desc: "Establish an official student chapter at your university, receive mentorship and event support, and cultivate a thriving developer community on campus.",
+    cta: "Apply for Chapter Leadership",
+    link: "/community/ambassadors",
+  },
+  {
+    title: "Community Volunteering",
+    category: "Volunteering",
+    desc: "Help organize interactive masterclasses, assist with hackathon operations, and contribute to open-source developer tools.",
+    cta: "Join as Volunteer",
+    link: "/joincommunity",
+  },
+  {
+    title: "Technical Mentorship",
+    category: "Mentorship",
+    desc: "Share your professional insights, review student projects, and guide aspiring software engineers toward industry success.",
+    cta: "Become a Mentor",
+    link: "/contact",
+  },
+];
+
+// Section 9: Community Knowledge
+const ARTICLES = [
+  {
+    category: "News",
+    date: "2026-08-20",
+    title: "Launching KSS2026: Knowledge Sharing webinar Series for Builders",
+    desc: "We are officially launching the Knowledge Sharing Series (KSS2026) webinar, designed to connect developers directly with technical experts and practitioners.",
+    author: "Ritik Kumar",
+    role: "Community Director",
+    topics: ["CLOUD", "AI/ML", "OPEN SOURCE", "DEVOPS", "CYBERSECURITY", "TUTORIALS"],
+    link: "/blog",
+  },
+  {
+    category: "Events",
+    date: "2026-06-15",
+    title: "CyberForge 2026 Hackathon: Concluded with Success at GL Bajaj",
+    desc: "Highlights and winning projects from our 48-hour buildathon empowering 500+ builders to build scalable cloud solutions.",
+    author: "OrigoHOST Team",
+    role: "Editorial",
+    topics: ["HACKATHON", "COMMUNITY", "CLOUD"],
+    link: "/blog",
+  },
+];
+
+// Section 10: Learning Resources
+const RESOURCES = [
+  {
+    title: "Git & GitHub Version Control Guide",
+    type: "Guide",
+    access: "Internal",
+    desc: "A practical, step-by-step documentation guide covering git flow, pull requests, commit guidelines and repository management for community projects.",
+    topics: ["Open Source", "DevOps"],
+    format: "PDF Document",
+    cta: "Download Guide",
+    link: "/resources",
+  },
+  {
+    title: "Deploying to VPS & Bare-Metal Basics",
+    type: "Documentation",
+    access: "Internal",
+    desc: "Practical guides from OrigoHOST Cloud on provisioning virtual private servers, configuring firewalls, setting reverse proxies and managing secure SSH access.",
+    topics: ["Cloud Computing", "Infrastructure & Hosting"],
+    format: "PDF Document",
+    cta: "Download Guide",
+    link: "/resources",
+  },
+];
+
+// Section 11: Collaborators
+const COLLABORATORS = [
+  {
+    category: "Technology Partners",
+    items: [
+      { name: "Supabase", detail: "Database" },
+      { name: "Vercel", detail: "Host Platforms" },
+      { name: "GitHub Campus Program", detail: "Developer Tools" },
+    ],
+  },
+  {
+    category: "Academic Institutions",
+    items: [
+      { name: "Leading Technology Institutes", detail: "Academic Network" },
+      { name: "Delhi Technological University", detail: "Campus Partner" },
+      { name: "NIET Chapter Alliance", detail: "Student Hub" },
+    ],
+  },
+  {
+    category: "Industry Sponsors",
+    items: [
+      { name: "CyberForge Industry Sponsors", detail: "Hackathon Partners" },
+      { name: "OrigoHOST Cloud Compute Hubs", detail: "Infrastructure" },
+      { name: "National Hackathon Panels", detail: "Jury Alliance" },
+    ],
+  },
+];
+
+// Section 12: Developer Journey
+const JOURNEY_STAGES = [
+  {
+    step: "Stage 01",
+    title: "Learn",
+    desc: "Master practical systems engineering and modern software development standards.",
+  },
+  {
+    step: "Stage 02",
+    title: "Explore",
+    desc: "Discover emerging technologies through interactive, expert-led technical sessions.",
+  },
+  {
+    step: "Stage 03",
+    title: "Connect",
+    desc: "Engage with motivated developer peers, industry mentors, and project collaborators.",
+  },
+  {
+    step: "Stage 04",
+    title: "Collaborate",
+    desc: "Work alongside peer developers to contribute to active open-source initiatives.",
+  },
+  {
+    step: "Stage 05",
+    title: "Build",
+    desc: "Develop and deploy functional software applications using modern cloud environments.",
+  },
+  {
+    step: "Stage 06",
+    title: "Solve",
+    desc: "Participate in CyberForge hackathons to address real-world engineering challenges.",
+  },
+  {
+    step: "Stage 07",
+    title: "Lead",
+    desc: "Establish and guide an official OrigoHOST Student Chapter at your university.",
+  },
+  {
+    step: "Stage 08",
+    title: "Innovate",
+    desc: "Transform validated software prototypes into impactful, scalable projects.",
+  },
+  {
+    step: "Stage 09",
+    title: "Guide",
+    desc: "Share your knowledge as a technical mentor or speaker for upcoming cohorts.",
+  },
+];
+
+// Section 13: Community Testimonials
+const TESTIMONIALS = [
+  {
+    name: "Aarav Mehta",
+    role: "Builder",
+    quote:
+      "Participating in CyberForge 2026 was my turning point. I went from reading articles about ethical hacking to collaborating on a team of four to build a real-time vulnerability scanner.",
+  },
+  {
+    name: "Diya Sharma",
+    role: "Chapter Lead · Noida Chapter",
+    quote:
+      "Directing our campus chapter under the OrigoHOST master brand allowed us to host local workshops on DevOps practices. Watching peers deploy their first Linux VPS was incredibly fulfilling.",
+  },
+];
+
+// Section 14: FAQ
+const FAQS = [
+  {
+    q: "What is OrigoHOST and who can join?",
+    a: "OrigoHOST is an enterprise-grade developer ecosystem and infrastructure platform in India. It is open to engineering students, software developers, campus community leaders, and industry professionals eager to learn, build, and deploy production-ready systems.",
+  },
+  {
+    q: "How do campus chapters work and how can I charter one at my college?",
+    a: "Campus chapters are student-led developer hubs operating under an official OrigoHOST charter. Chapter leads receive complete event toolkits, workshop curricula, cloud resources, and guidance from the OrigoHOST team to run technical activities on campus.",
+  },
+  {
+    q: "Are OrigoHOST learning programs and masterclasses free for students?",
+    a: "Yes, our flagship educational cohorts (such as the Knowledge Sharing Series) and open webinars are completely free for verified community members and university students.",
+  },
+  {
+    q: "What is CyberForge and how do hackathons work on OrigoHOST?",
+    a: "CyberForge is our national hackathon and buildathon series. Developers team up to solve real-world problem statements provided by industry partners, using OrigoHOST cloud infrastructure to build and present working software.",
+  },
+  {
+    q: "How can companies and technology organizations partner with OrigoHOST?",
+    a: "Enterprise partners can sponsor hackathons, provide API credentials/cloud credits, host guest technical masterclasses, and recruit pre-vetted developer talent directly through our ecosystem pipelines.",
+  },
+  {
+    q: "How do I access developer sandboxes and deployment tools?",
+    a: "Once registered on the OrigoHOST platform, active community members receive sandbox access keys and deployment guides within their developer dashboard.",
+  },
+];
 
 export default function HomePage() {
-  const { data: dynamicEvents = [] } = useQuery({
-    queryKey: ["events", "home"],
-    queryFn: () => eventApi.getEvents(100),
-  });
-
-  const top6Events = useMemo(() => {
-    const publishedEvents = dynamicEvents.filter((e) => e.is_published);
-
-    const sortedEvents = [...publishedEvents].sort((a, b) => {
-      const aIsPast = a.status === "Past";
-      const bIsPast = b.status === "Past";
-
-      if (aIsPast && !bIsPast) return 1;
-      if (!aIsPast && bIsPast) return -1;
-
-      const timeA = new Date(`${a.date}T${a.start_time || "00:00"}`).getTime();
-      const timeB = new Date(`${b.date}T${b.start_time || "00:00"}`).getTime();
-
-      if (aIsPast) {
-        // Both are past, sort descending
-        return timeB - timeA;
-      } else {
-        // Both are upcoming/live, sort ascending
-        return timeA - timeB;
-      }
-    });
-
-    return sortedEvents.slice(0, 6);
-  }, [dynamicEvents]);
-
-  const formatTime = (timeString: string) => {
-    if (!timeString) return "";
-    const [h, m] = timeString.split(":");
-    let hours = parseInt(h, 10);
-    const ampm = hours >= 12 ? "PM" : "AM";
-    hours = hours % 12;
-    hours = hours ? hours : 12;
-    return `${hours.toString().padStart(2, "0")}:${m} ${ampm}`;
-  };
-
-  const displayEvents = useMemo(() => {
-    return top6Events.length > 0
-      ? top6Events.map((e) => {
-          const d = new Date(e.date);
-          const month = d.toLocaleString("default", { month: "short" }).toUpperCase();
-          const day = d.getDate().toString().padStart(2, "0");
-          let timeStr = formatTime(e.start_time);
-          if (e.end_time) {
-            timeStr += ` – ${formatTime(e.end_time)}`;
-          }
-          return {
-            month,
-            day,
-            tag: e.mode?.toUpperCase() || "ONLINE",
-            time: timeStr,
-            title: e.title,
-            desc: e.short_description,
-            city: e.venue_name || (e.mode === "online" ? "Live Webinar" : "TBA"),
-            image: e.thumbnail_url || null,
-            slug: e.slug,
-            status: e.status || "Upcoming",
-          };
-        })
-      : EVENTS.map((e) => ({ ...e, status: "Upcoming" }));
-  }, [top6Events]);
+  const [activeFaq, setActiveFaq] = React.useState<number | null>(0);
 
   return (
-    <div className="relative min-h-screen bg-white text-[var(--brand-ink)] selection:bg-[var(--brand-ink)] selection:text-white">
-      {/* Generative Engine Optimization (GEO) & Answer Engine Optimization (AEO) Block via JSON-LD */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            name: "OrigoHOST",
-            description:
-              "OrigoHOST is India's premier Developer and Technology Community focusing on Artificial Intelligence, Cloud Computing, DevOps, Software Engineering, and Hackathons.",
-            founder: [{ "@type": "Person", name: "Ritik Kumar" }],
-            foundingDate: "2024",
-            url: "https://origohost.com",
-            sameAs: ["https://twitter.com/origohost", "https://linkedin.com/company/origohost"],
-          }),
-        }}
-      />
-
-      {/* HERO */}
+    <div className="relative min-h-screen bg-white text-[#0a0a0a] selection:bg-blue-600 selection:text-white">
+      {/* 1. HERO SECTION */}
       <HeroSection />
 
       {/* PARTNERS / SPONSORS MARQUEE */}
-      <React.Suspense fallback={<div className="h-48 bg-[#f2f9ff]" />}>
+      <React.Suspense fallback={<div className="h-32 bg-slate-50" />}>
         <PartnersMarqueeSection />
       </React.Suspense>
 
-      {/* WHO WE ARE - BENTO GRID */}
-      <section id="about" data-testid="about" className="relative bg-white py-24 overflow-hidden">
-        {/* Aurora Mesh Gradient Background Layer */}
-        <div
-          className="absolute inset-0 pointer-events-none opacity-30 mix-blend-multiply"
-          style={{ background: "var(--gradient-aurora)" }}
-        />
-        <div
-          className="absolute inset-0 pointer-events-none opacity-[0.03]"
-          style={{
-            backgroundImage:
-              "url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E')",
-          }}
-        />
-
-        <div className="relative mx-auto max-w-6xl px-4 text-center sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <Pill icon={Users} label="WHO WE ARE" tone="ink" />
-            <ScrollVelocity>
-              <h2 className="mt-6 text-5xl font-black tracking-tighter sm:text-6xl md:text-7xl">
-                🚀 OrigoHOST{" "}
-                <span className="bg-gradient-to-r from-[var(--brand-orange)] to-[var(--brand-orange-glow)] bg-clip-text text-transparent">
-                  Technology Community
-                </span>
-              </h2>
-            </ScrollVelocity>
-            <TextRevealStagger
-              text="OrigoHOST, also known as OrigoHOST Tech Community, is an India-based technology community focused on helping students, developers, and professionals learn, build, collaborate, and grow through technical events, hackathons, and workshops."
-              className="mx-auto mt-6 max-w-3xl text-lg font-medium text-[var(--brand-ink)]/70"
-            />
-          </motion.div>
-
-          <Stagger className="mt-16 flex overflow-x-auto snap-x snap-mandatory gap-4 pb-8 -mx-4 px-4 md:mx-0 md:px-0 md:grid md:grid-cols-3 md:gap-6 md:overflow-visible hide-scrollbar">
-            {/* Left Large Card */}
-            <Tilt
-              max={3}
-              className="w-[85vw] shrink-0 snap-center md:w-auto md:shrink md:col-span-1 md:row-span-2"
-            >
-              <SpotlightCard
-                color="255, 237, 213"
-                className="group relative flex h-full flex-col justify-between overflow-hidden rounded-[2rem] bg-slate-50 p-8 text-left shadow-sm transition-transform hover:-translate-y-1"
-              >
-                <div className="relative z-10">
-                  <div className="grid h-12 w-12 place-items-center rounded-2xl bg-orange-100 text-[var(--brand-orange)] animate-draw-svg">
-                    <Code2 className="h-6 w-6" />
-                  </div>
-                  <h3 className="mt-8 text-2xl font-black leading-tight text-[var(--brand-ink)] tracking-tighter">
-                    Trusted Partners: OrigoHOST Team & Partners
-                  </h3>
-                  <p className="mt-4 text-sm font-medium leading-relaxed text-[var(--brand-ink)]/60">
-                    Built with the support of industry leaders, academia, and government — to bring
-                    cloud and platform engineering to the grassroots.
-                  </p>
-                </div>
-                <div className="mt-8 -mx-8 -mb-8 overflow-hidden rounded-b-[2rem]">
-                  <OptimizedImage
-                    src="/team-group.jpg"
-                    alt="OrigoHOST Team"
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    containerClassName="h-full w-full"
-                  />
-                </div>
-              </SpotlightCard>
-            </Tilt>
-
-            {/* Right Side: 2x2 Grid */}
-            <Tilt max={5} className="w-[85vw] shrink-0 snap-center md:w-auto md:shrink">
-              <SpotlightCard
-                color="219, 234, 254"
-                className="h-full rounded-[2rem] bg-slate-50 p-8 text-left shadow-sm transition-transform hover:-translate-y-1"
-              >
-                <div className="grid h-12 w-12 place-items-center rounded-2xl bg-blue-100 text-blue-600 animate-draw-svg">
-                  <Users className="h-6 w-6" />
-                </div>
-                <h4 className="mt-6 text-xl font-bold text-[var(--brand-ink)] tracking-tighter">
-                  90,000+ Developers Trained
-                </h4>
-                <p className="mt-3 text-sm leading-relaxed text-[var(--brand-ink)]/60">
-                  Workshops. Bootcamps. Challenges. We've empowered thousands to master platform
-                  engineering hands-on.
-                </p>
-              </SpotlightCard>
-            </Tilt>
-
-            <Tilt max={5} className="w-[85vw] shrink-0 snap-center md:w-auto md:shrink">
-              <SpotlightCard
-                color="243, 232, 255"
-                className="h-full rounded-[2rem] bg-slate-50 p-8 text-left shadow-sm transition-transform hover:-translate-y-1"
-              >
-                <div className="grid h-12 w-12 place-items-center rounded-2xl bg-purple-100 text-purple-600 animate-draw-svg">
-                  <Rocket className="h-6 w-6" />
-                </div>
-                <h4 className="mt-6 text-xl font-bold text-[var(--brand-ink)] tracking-tighter">
-                  500+ Teams Onboarded
-                </h4>
-                <p className="mt-3 text-sm leading-relaxed text-[var(--brand-ink)]/60">
-                  From indie apps to enterprise infra — our community ideates and builds what the
-                  world uses.
-                </p>
-              </SpotlightCard>
-            </Tilt>
-
-            <Tilt max={5} className="w-[85vw] shrink-0 snap-center md:w-auto md:shrink">
-              <SpotlightCard
-                color="209, 250, 229"
-                className="h-full rounded-[2rem] bg-slate-50 p-8 text-left shadow-sm transition-transform hover:-translate-y-1"
-              >
-                <div className="grid h-12 w-12 place-items-center rounded-2xl bg-emerald-100 text-emerald-600 animate-draw-svg">
-                  <Gift className="h-6 w-6" />
-                </div>
-                <h4 className="mt-6 text-xl font-bold text-[var(--brand-ink)] tracking-tighter">
-                  50+ Meetups Hosted
-                </h4>
-                <p className="mt-3 text-sm leading-relaxed text-[var(--brand-ink)]/60">
-                  From speaker-led masterclasses to national hackathons, we've created moments that
-                  spark tech learning.
-                </p>
-              </SpotlightCard>
-            </Tilt>
-
-            <Tilt max={5} className="w-[85vw] shrink-0 snap-center md:w-auto md:shrink">
-              <SpotlightCard
-                color="255, 228, 230"
-                className="h-full rounded-[2rem] bg-slate-50 p-8 text-left shadow-sm transition-transform hover:-translate-y-1"
-              >
-                <div className="grid h-12 w-12 place-items-center rounded-2xl bg-rose-100 text-rose-600 animate-draw-svg">
-                  <Heart className="h-6 w-6" />
-                </div>
-                <h4 className="mt-6 text-xl font-bold text-[var(--brand-ink)] tracking-tighter">
-                  400+ Workshops
-                </h4>
-                <p className="mt-3 text-sm leading-relaxed text-[var(--brand-ink)]/60">
-                  Across IITs, private institutions, and tier-2 campuses — OrigoHOST makes
-                  infrastructure learning accessible nationwide.
-                </p>
-              </SpotlightCard>
-            </Tilt>
-          </Stagger>
-        </div>
-      </section>
-
-      {/* WHAT WE DO */}
+      {/* 2. WHY ORIGOHOST */}
       <section
-        id="what-we-do"
-        data-testid="what-we-do"
-        className="relative overflow-hidden bg-gradient-to-b from-[var(--brand-cream)] to-white py-24"
+        id="why"
+        className="relative bg-white py-24 overflow-hidden border-b border-slate-100"
       >
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
-            <Pill icon={Zap} label="What We Do" tone="ink" />
-            <h2 className="mt-6 text-5xl font-black tracking-tighter sm:text-6xl">
-              Learn, Build, Grow — with{" "}
-              <span className="bg-gradient-to-r from-[var(--brand-orange)] to-[var(--brand-orange-glow)] bg-clip-text text-transparent">
-                Modern Infra
-              </span>
+            <span className="text-xs font-bold uppercase tracking-widest text-blue-600 bg-blue-50 px-3 py-1 rounded-full">
+              WHY ORIGOHOST
+            </span>
+            <h2 className="mt-4 text-4xl font-black tracking-tight sm:text-5xl">
+              Everything You Need to Build & Scale
             </h2>
-            <p className="mx-auto mt-6 max-w-2xl text-[var(--brand-ink)]/70">
-              We don't just talk about the future — we build it, together. Hands-on, high-impact
-              experiences that bring cloud, edge, and platform engineering to life.
+            <p className="mt-4 text-lg text-slate-600">
+              Designed from the ground up to empower software builders with real tools,
+              collaborative networks, and institutional backing.
             </p>
           </div>
 
-          <div className="mt-14 grid gap-6 lg:grid-cols-3">
-            <FadeIn className="lg:row-span-2">
-              <div className="relative h-full overflow-hidden rounded-3xl bg-[var(--brand-ink)] p-8 text-white shadow-[var(--shadow-elevated)]">
-                <div className="pointer-events-none absolute -right-10 -top-10 h-48 w-48 rounded-full bg-[var(--brand-orange)]/20 blur-3xl" />
-                <Sparkles className="h-6 w-6 text-[var(--brand-yellow)]" />
-                <h3 className="mt-4 text-2xl font-black">Have an idea?</h3>
-                <p className="mt-2 text-3xl font-black text-[var(--brand-orange)]">
-                  Let's collaborate!
-                </p>
-                <ul className="mt-8 space-y-4 text-sm text-white/85">
-                  {[
-                    "Custom Cloud Workshops",
-                    "Hackathon Support",
-                    "Co-Branded Tech Events",
-                    "Brand Partnerships",
-                  ].map((x) => (
-                    <li key={x} className="flex items-center gap-3">
-                      <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-[var(--brand-green)]/20 text-[var(--brand-green)]">
-                        ✓
-                      </span>
-                      <span>{x}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Button
-                  asChild
-                  className="mt-10 w-full rounded-full bg-gradient-to-r from-[var(--brand-orange)] to-[var(--brand-orange-glow)] text-white hover:opacity-90"
-                >
-                  <a href="#contact">
-                    Partner With Us <ArrowRight className="ml-1 h-4 w-4" />
-                  </a>
-                </Button>
-              </div>
-            </FadeIn>
-
-            <div className="grid gap-6 sm:grid-cols-2 lg:col-span-2">
-              {WHAT_WE_DO.map((w, i) => (
-                <ScaleIn key={w.title} delay={i * 0.08} from={0.92}>
-                  <Tilt className="h-full">
-                    <SpotlightCard
-                      color="16, 185, 129"
-                      className="h-full rounded-3xl border border-[var(--brand-ink)]/5 bg-white p-8 shadow-[var(--shadow-soft)] transition-shadow hover:shadow-[var(--shadow-elevated)]"
-                    >
-                      <div className="grid h-12 w-12 place-items-center rounded-2xl bg-[var(--brand-mint)]">
-                        <w.icon className="h-5 w-5 text-[var(--brand-green)]" />
-                      </div>
-                      <h3 className="mt-5 text-xl font-bold text-[var(--brand-orange)] tracking-tight">
-                        {w.title}
-                      </h3>
-                      <p className="mt-2 text-sm text-[var(--brand-ink)]/70">{w.body}</p>
-                    </SpotlightCard>
-                  </Tilt>
-                </ScaleIn>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FEATURED INITIATIVE */}
-      <section className="bg-white py-24">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl text-center">
-            <Pill icon={Trophy} label="Featured Initiatives" tone="ink" />
-            <h2 className="mt-6 text-5xl font-black tracking-tighter sm:text-6xl">
-              ✨ Ecosystem{" "}
-              <span className="bg-gradient-to-r from-[var(--brand-orange)] to-[var(--brand-orange-glow)] bg-clip-text text-transparent">
-                Spotlights
-              </span>
-            </h2>
-            <p className="mx-auto mt-6 max-w-2xl text-[var(--brand-ink)]/70">
-              National-level infrastructure hackathons, industry collaborations, and long-term
-              platform engineering impact.
-            </p>
-          </div>
-
-          <div className="mt-14 overflow-hidden rounded-3xl border border-[var(--brand-ink)]/5 bg-[var(--brand-cream)] shadow-[var(--shadow-soft)] lg:grid lg:grid-cols-2">
-            <motion.div
-              initial={{ clipPath: "inset(0 100% 0 0)", scale: 1.1 }}
-              whileInView={{ clipPath: "inset(0 0 0 0)", scale: 1 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-              className="relative aspect-video lg:aspect-auto overflow-hidden group"
-            >
-              <OptimizedImage
-                src="/event-gallery-1.jpg"
-                alt="Origo Summit"
-                className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                containerClassName="absolute inset-0 h-full w-full"
-              />
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-900/80 via-[var(--brand-orange)]/60 to-[var(--brand-green)]/80 mix-blend-multiply" />
-              <div className="absolute left-6 top-6 grid h-12 w-12 place-items-center rounded-2xl bg-white shadow-lg z-10">
-                <Trophy className="h-5 w-5 text-[var(--brand-orange)]" />
-              </div>
-              <div className="absolute inset-0 grid place-items-center z-10">
-                <p className="text-4xl font-black text-white tracking-widest drop-shadow-md">
-                  ORIGO SUMMIT
-                </p>
-              </div>
-            </motion.div>
-            <div className="p-8 lg:p-12">
-              <div className="flex items-center gap-2">
-                <Trophy className="h-5 w-5 text-[var(--brand-orange)]" />
-                <h3 className="text-2xl font-black">OrigoHOST Hackathon 2026</h3>
-              </div>
-              <p className="mt-4 text-[var(--brand-ink)]/70">
-                In partnership with leading cloud providers, the Origo Infra Hackathon is a national
-                3-phase platform engineering initiative culminating live at Origo Summit 2026. Over
-                9 months, it brings together operators from across India to build production-grade
-                infrastructure, mentor-led platform projects, and pitch-ready internal developer
-                platforms.
-              </p>
-              <div className="mt-8 grid grid-cols-3 gap-4 rounded-2xl bg-white p-6">
-                {[
-                  { v: "1,918+", l: "Registrations" },
-                  { v: "4", l: "Tracks", sub: "across the country" },
-                  { v: "₹4 Lakh", l: "Cash Prize", sub: "top 5 teams" },
-                ].map((x) => (
-                  <div key={x.l} className="text-center">
-                    <div className="text-2xl font-black text-[var(--brand-orange)]">{x.v}</div>
-                    <div className="mt-1 text-xs font-semibold text-[var(--brand-ink)]">{x.l}</div>
-                    {x.sub && <div className="text-[10px] text-[var(--brand-ink)]/50">{x.sub}</div>}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Partner spotlight */}
-          <div className="mt-8 overflow-hidden rounded-3xl border border-[var(--brand-ink)]/5 bg-[var(--brand-cream)] shadow-[var(--shadow-soft)] lg:grid lg:grid-cols-2">
-            <div className="p-8 lg:p-12">
-              <div className="flex items-center gap-2">
-                <Handshake className="h-5 w-5 text-[var(--brand-orange)]" />
-                <h3 className="text-2xl font-black">🤝 OrigoHOST × Cloud Partners</h3>
-              </div>
-              <p className="mt-4 text-[var(--brand-ink)]/70">
-                A nationwide collaboration to empower India's infrastructure community. As one of
-                India's most active hosting partners, OrigoHOST works closely with AWS, GCP,
-                Cloudflare and Fly to design and execute scalable, outcome-focused platform
-                engineering initiatives — hands-on cloud workshops, chaos engineering days, and
-                curated hackathons.
-              </p>
-              <div className="mt-8 grid grid-cols-3 gap-4 rounded-2xl bg-white p-6">
-                {[
-                  { v: "33+", l: "Events Conducted" },
-                  { v: "2,372+", l: "Operators Trained" },
-                  { v: "10+", l: "Cities Reached" },
-                ].map((x) => (
-                  <div key={x.l} className="text-center">
-                    <div className="text-2xl font-black text-[var(--brand-orange)]">{x.v}</div>
-                    <div className="mt-1 text-xs font-semibold text-[var(--brand-ink)]">{x.l}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <motion.div
-              initial={{ clipPath: "inset(0 0 0 100%)", scale: 1.1 }}
-              whileInView={{ clipPath: "inset(0 0 0 0)", scale: 1 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-              className="relative aspect-video lg:aspect-auto overflow-hidden group"
-            >
-              <OptimizedImage
-                src="/sponsor_hero.png"
-                alt="Partnerships"
-                className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                containerClassName="absolute inset-0 h-full w-full"
-              />
-              <div className="absolute inset-0 bg-gradient-to-br from-[var(--brand-green)]/80 via-blue-600/60 to-[var(--brand-yellow)]/80 mix-blend-multiply" />
-              <div className="absolute inset-0 grid place-items-center z-10">
-                <p className="text-4xl font-black tracking-widest text-white drop-shadow-md">
-                  PARTNERSHIPS
-                </p>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* EVENTS */}
-      <section id="events" className="bg-gradient-to-b from-[var(--brand-cream)] to-white py-24">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="flex flex-wrap items-end justify-between gap-4">
-            <div>
-              <Pill icon={Calendar} label="Immersive Events" tone="ink" />
-              <h2 className="mt-6 text-5xl font-black tracking-tighter sm:text-6xl">
-                Upcoming Infra{" "}
-                <span className="bg-gradient-to-r from-[var(--brand-orange)] to-[var(--brand-orange-glow)] bg-clip-text text-transparent">
-                  Meetups
-                </span>
-              </h2>
-            </div>
-            <Button
-              asChild
-              variant="outline"
-              className="rounded-full border-[var(--brand-ink)]/20 bg-white"
-            >
-              <a href="#">
-                View All Events <ArrowRight className="ml-1 h-4 w-4" />
-              </a>
-            </Button>
-          </div>
-
-          <div className="mt-12 flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 -mx-4 px-4 md:mx-0 md:px-0 md:grid md:grid-cols-2 lg:grid-cols-3 md:overflow-visible hide-scrollbar">
-            {displayEvents.map((e, i) => (
-              <motion.article
-                key={e.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.08 }}
-                className="group overflow-hidden rounded-3xl bg-white shadow-[var(--shadow-soft)] min-w-[85vw] shrink-0 snap-center md:min-w-0 md:shrink flex flex-col"
-              >
-                <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-slate-800 via-slate-900 to-black shrink-0">
-                  <div className="absolute inset-0">
-                    {e.image ? (
-                      <OptimizedImage
-                        src={e.image}
-                        alt={e.title}
-                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                        containerClassName="h-full w-full"
-                      />
-                    ) : (
-                      <div className="flex h-full w-full place-items-center justify-center">
-                        <Server className="h-16 w-16 text-white/20" />
-                      </div>
-                    )}
-                  </div>
-                  <div className="absolute left-4 top-4 z-10 rounded-2xl bg-white px-3 py-2 text-center shadow-lg">
-                    <div className="text-[10px] font-bold text-[var(--brand-orange)]">
-                      {e.month}
-                    </div>
-                    <div className="text-2xl font-black leading-none text-[var(--brand-ink)]">
-                      {e.day}
-                    </div>
-                  </div>
-                  <div
-                    className={`absolute right-4 top-4 z-10 rounded-full backdrop-blur px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white ${e.status === "Upcoming" ? "bg-[var(--brand-orange)]/90" : e.status === "Live" ? "bg-green-500/90 animate-pulse" : "bg-black/50"}`}
+          <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            {WHY_ORIGOHOST.map((item, i) => (
+              <ScaleIn key={item.title} delay={i * 0.08}>
+                <Tilt className="h-full">
+                  <SpotlightCard
+                    color="37, 99, 235"
+                    className="h-full rounded-3xl border border-slate-200/80 bg-slate-50/50 p-8 shadow-sm transition-all hover:shadow-md hover:border-blue-300"
                   >
-                    {e.status}
-                  </div>
-                </div>
-                <div className="p-6 flex flex-col flex-1">
-                  <div className="flex items-center gap-3">
-                    <span className="rounded-full bg-[var(--brand-mint)] px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[var(--brand-green)]">
-                      {e.tag}
-                    </span>
-                    <span className="flex items-center gap-1 text-xs text-[var(--brand-ink)]/60">
-                      <Clock className="h-3 w-3" /> {e.time}
-                    </span>
-                  </div>
-                  <h3 className="mt-4 text-lg font-bold leading-snug">{e.title}</h3>
-                  <p className="mt-2 text-sm text-[var(--brand-ink)]/60 line-clamp-3">{e.desc}</p>
-                  <div className="mt-auto pt-6">
-                    <div className="flex items-center justify-between border-t border-[var(--brand-ink)]/5 pt-4">
-                      <span className="flex items-center gap-1 text-sm text-[var(--brand-ink)]/70 truncate max-w-[50%]">
-                        <MapPin className="h-4 w-4 shrink-0" />{" "}
-                        <span className="truncate">{e.city}</span>
-                      </span>
-                      {e.slug ? (
-                        <a
-                          href={`/community/events/${e.slug}`}
-                          className="flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold text-white bg-[var(--brand-orange)] hover:bg-[var(--brand-orange-glow)] transition-all shadow-md shrink-0"
-                        >
-                          View Details <ArrowRight className="h-3 w-3" />
-                        </a>
-                      ) : (
-                        <span className="px-4 py-2 rounded-full text-xs font-bold text-[var(--brand-ink)]/40 bg-zinc-100">
-                          Coming Soon
-                        </span>
-                      )}
+                    <div className="grid h-12 w-12 place-items-center rounded-2xl bg-blue-100 text-blue-600">
+                      <item.icon className="h-6 w-6" />
                     </div>
-                  </div>
-                </div>
-              </motion.article>
+                    <h3 className="mt-6 text-xl font-bold tracking-tight text-slate-900">
+                      {item.title}
+                    </h3>
+                    <p className="mt-3 text-sm leading-relaxed text-slate-600">{item.body}</p>
+                  </SpotlightCard>
+                </Tilt>
+              </ScaleIn>
             ))}
           </div>
         </div>
       </section>
 
-      {/* DELIVERED IMPACT */}
-      <section className="py-24 bg-white">
+      {/* 3. AUDIENCE SECTIONS */}
+      <section id="audiences" className="bg-slate-900 py-24 text-white">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-[#1b3b86] to-[#142966] py-20 px-8 md:px-16 text-center text-white shadow-2xl">
-            {/* Constellation/Mesh Background */}
-            <div
-              className="absolute inset-0 opacity-20 pointer-events-none"
-              style={{
-                backgroundImage:
-                  "url('data:image/svg+xml,%3Csvg width=\\'100%25\\' height=\\'100%25\\' xmlns=\\'http://www.w3.org/2000/svg\\'%3E%3Cdefs%3E%3Cpattern id=\\'dots\\' width=\\'40\\' height=\\'40\\' patternUnits=\\'userSpaceOnUse\\'%3E%3Ccircle cx=\\'2\\' cy=\\'2\\' r=\\'1.5\\' fill=\\'rgba(255,255,255,0.5)\\'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width=\\'100%25\\' height=\\'100%25\\' fill=\\'url(%23dots)\\'/%3E%3C/svg%3E')",
-              }}
-            />
-
-            <div className="relative z-10">
-              <h2 className="text-4xl md:text-5xl font-black uppercase tracking-wider mb-4">
-                Delivered Impact
-              </h2>
-              <p className="text-lg md:text-xl font-medium text-blue-100 mb-16">
-                Every program is designed to create outcomes that matter to the business
-              </p>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 divide-y md:divide-y-0 md:divide-x divide-white/10 text-center">
-                <div className="pt-6 md:pt-0">
-                  <div className="flex items-center justify-center gap-1">
-                    <span className="text-4xl lg:text-5xl font-black">25K+</span>
-                    <span className="grid h-6 w-6 place-items-center rounded-full bg-white/20 text-white text-xs">
-                      ▲
-                    </span>
-                  </div>
-                  <p className="mt-4 text-sm text-blue-100/90 leading-relaxed max-w-[200px] mx-auto">
-                    Developers and builders engaged across each hackathon cycle
-                  </p>
-                </div>
-                <div className="pt-6 md:pt-0">
-                  <div className="flex items-center justify-center gap-1">
-                    <span className="text-4xl lg:text-5xl font-black">12K+</span>
-                    <span className="grid h-6 w-6 place-items-center rounded-full bg-white/20 text-white text-xs">
-                      ▲
-                    </span>
-                  </div>
-                  <p className="mt-4 text-sm text-blue-100/90 leading-relaxed max-w-[200px] mx-auto">
-                    Mentor hours delivered to teams each hackathon cycle across India
-                  </p>
-                </div>
-                <div className="pt-6 md:pt-0">
-                  <div className="flex items-center justify-center gap-1">
-                    <span className="text-4xl lg:text-5xl font-black">70%</span>
-                    <span className="grid h-6 w-6 place-items-center rounded-full bg-white/20 text-white text-xs rotate-180">
-                      ▲
-                    </span>
-                  </div>
-                  <p className="mt-4 text-sm text-blue-100/90 leading-relaxed max-w-[200px] mx-auto">
-                    Lower cost per validated hire versus traditional recruiting channels
-                  </p>
-                </div>
-                <div className="pt-6 md:pt-0">
-                  <div className="flex items-center justify-center gap-1">
-                    <span className="text-4xl lg:text-5xl font-black">3x</span>
-                    <span className="grid h-6 w-6 place-items-center rounded-full bg-white/20 text-white text-xs">
-                      ▲
-                    </span>
-                  </div>
-                  <p className="mt-4 text-sm text-blue-100/90 leading-relaxed max-w-[200px] mx-auto">
-                    More production ready solutions versus in house R&D sprints
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* WHAT PARTNERS SAY */}
-      <section className="bg-[var(--brand-cream)] py-24">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mb-12">
-            <span className="text-xs font-black uppercase tracking-widest text-blue-600">
-              What Partners Say
+          <div className="mx-auto max-w-3xl text-center mb-16">
+            <span className="text-xs font-bold uppercase tracking-widest text-blue-400">
+              TAILORED EXPERIENCE
             </span>
-            <h2 className="mt-2 text-4xl md:text-5xl font-black tracking-tight text-[var(--brand-ink)]">
-              Outcomes, not optics.
+            <h2 className="mt-4 text-4xl font-black tracking-tight sm:text-5xl">
+              Built for Every Builder in the Ecosystem
             </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Testimonial 1 */}
-            <div className="relative rounded-[2rem] bg-white p-8 shadow-sm border border-gray-100 flex flex-col justify-between hover:shadow-md transition-shadow">
-              <div className="absolute top-6 left-6 text-6xl text-blue-100 font-serif leading-none">
-                "
-              </div>
-              <p className="relative z-10 mt-6 text-[var(--brand-ink)]/80 leading-relaxed">
-                Partnering with OrigoHOST for the Digifest Hackathon was a game-changer for TiE.
-                Their ability to mobilize and mentor tech talent at scale is exactly what India's
-                'Bharat' startups need to go global.
-              </p>
-              <div className="mt-12 flex items-center gap-4">
-                <div className="h-12 w-12 rounded-full bg-gray-200 overflow-hidden">
-                  <img
-                    loading="lazy"
-                    decoding="async"
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop"
-                    alt="Mahavir Pratap Sharma"
-                    width={200}
-                    height={200}
-                    className="h-full w-full object-cover"
-                  />
+            {AUDIENCES.map((aud, i) => (
+              <FadeIn key={aud.title} delay={i * 0.1}>
+                <div className="h-full flex flex-col justify-between rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm hover:border-blue-500/50 transition-colors">
+                  <div>
+                    <span className="text-xs font-mono font-bold text-blue-400 block mb-4">
+                      {aud.label}
+                    </span>
+                    <h3 className="text-2xl font-bold text-white mb-4">{aud.title}</h3>
+                    <p className="text-sm text-slate-300 leading-relaxed mb-8">{aud.body}</p>
+                  </div>
+                  <Button
+                    asChild
+                    variant="outline"
+                    className="w-full rounded-full border-white/20 bg-white/10 text-white hover:bg-blue-600 hover:border-blue-600 transition-all"
+                  >
+                    <Link to={aud.link}>
+                      {aud.cta} <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
                 </div>
-                <div>
-                  <h4 className="font-bold text-sm text-[var(--brand-ink)]">
-                    Mahavir Pratap Sharma
-                  </h4>
-                  <p className="text-xs text-[var(--brand-ink)]/50 mt-0.5">
-                    Past Chair, TiE Global Board of Trustees
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Testimonial 2 */}
-            <div className="relative rounded-[2rem] bg-white p-8 shadow-sm border border-gray-100 flex flex-col justify-between hover:shadow-md transition-shadow">
-              <div className="absolute top-6 left-6 text-6xl text-blue-100 font-serif leading-none">
-                "
-              </div>
-              <p className="relative z-10 mt-6 text-[var(--brand-ink)]/80 leading-relaxed">
-                A big congratulations to OrigoHOST and OMOTEC (On My Own Technology) for envisioning
-                this brilliant initiative and to the Microsoft Azure Developer Community for
-                supporting it.
-              </p>
-              <div className="mt-12 flex items-center gap-4">
-                <div className="h-12 w-12 rounded-full bg-gray-200 overflow-hidden">
-                  <img
-                    loading="lazy"
-                    decoding="async"
-                    src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=200&auto=format&fit=crop"
-                    alt="Dr. Manish Malhotra"
-                    width={200}
-                    height={200}
-                    className="h-full w-full object-cover"
-                  />
-                </div>
-                <div>
-                  <h4 className="font-bold text-sm text-[var(--brand-ink)]">Dr. Manish Malhotra</h4>
-                  <p className="text-xs text-[var(--brand-ink)]/50 mt-0.5">
-                    Founder - Futred Innovation Studios
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Testimonial 3 */}
-            <div className="relative rounded-[2rem] bg-white p-8 shadow-sm border border-gray-100 flex flex-col justify-between hover:shadow-md transition-shadow">
-              <div className="absolute top-6 left-6 text-6xl text-blue-100 font-serif leading-none">
-                "
-              </div>
-              <p className="relative z-10 mt-6 text-[var(--brand-ink)]/80 leading-relaxed">
-                OrigoHOST has been at fore front of technology evangelism for young students of our
-                Country. Ritik and his team have created an exemplary ecosystem utilising their
-                network effect at top notch organization like Facebook and Microsoft.
-              </p>
-              <div className="mt-12 flex items-center gap-4">
-                <div className="h-12 w-12 rounded-full bg-gray-200 overflow-hidden">
-                  <img
-                    loading="lazy"
-                    decoding="async"
-                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=200&auto=format&fit=crop"
-                    alt="Dr. Monit Kapoor"
-                    width={200}
-                    height={200}
-                    className="h-full w-full object-cover"
-                  />
-                </div>
-                <div>
-                  <h4 className="font-bold text-sm text-[var(--brand-ink)]">Dr. Monit Kapoor</h4>
-                  <p className="text-xs text-[var(--brand-ink)]/50 mt-0.5">
-                    Professor and Dean, CSE - Chitkara University
-                  </p>
-                </div>
-              </div>
-            </div>
+              </FadeIn>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* CONTACT */}
-      <section id="contact" className="bg-white py-24">
+      {/* 4. ECOSYSTEM REACH */}
+      <section id="reach" className="bg-blue-600 py-20 text-white">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="rounded-[2rem] bg-gradient-to-br from-white to-[var(--brand-mint)]/40 p-8 shadow-[var(--shadow-soft)] md:p-14">
-            <div className="grid gap-12 lg:grid-cols-2">
-              <div>
-                <Pill icon={Send} label="Get In Touch" tone="ink" />
-                <h2 className="mt-6 text-4xl font-black leading-[1.1] tracking-tight sm:text-5xl">
-                  Let's Build
-                  <br />
-                  Something
-                  <br />
-                  <span className="bg-gradient-to-r from-[var(--brand-orange)] to-[var(--brand-orange-glow)] bg-clip-text text-transparent">
-                    Extraordinary
-                  </span>
-                  <br />
-                  <span className="bg-gradient-to-r from-[var(--brand-green)] to-[var(--brand-green-glow)] bg-clip-text text-transparent">
-                    Together
-                  </span>
-                </h2>
-                <p className="mt-6 max-w-md text-[var(--brand-ink)]/70">
-                  Whether you're hosting an infra event, planning a cloud workshop, or exploring
-                  platform partnerships — drop us a message. We're always up for meaningful
-                  conversations.
-                </p>
+          <div className="mx-auto max-w-3xl text-center mb-16">
+            <span className="text-xs font-bold uppercase tracking-widest text-blue-200">
+              ECOSYSTEM REACH
+            </span>
+            <h2 className="mt-2 text-4xl font-black tracking-tight sm:text-5xl">
+              Our Impact Across the Community
+            </h2>
+          </div>
 
-                <div className="mt-8 grid grid-cols-2 gap-3">
-                  {[
-                    {
-                      icon: Instagram,
-                      label: "@origohost",
-                      href: "https://www.instagram.com/origohost?igsh=MWgxOWdhM2F1MGliMw==",
-                    },
-                    { icon: Twitter, label: "@origohost", href: "https://twitter.com/origohosts" },
-                    {
-                      icon: Linkedin,
-                      label: "@origohost",
-                      href: "https://linkedin.com/company/origohosts",
-                    },
-                    {
-                      icon: MessageCircle,
-                      label: "OrigoHOST",
-                      href: "https://wa.me/message/origohost",
-                    },
-                  ].map((s, idx) => (
-                    <a
-                      key={idx}
-                      href={s.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-between rounded-2xl bg-white p-4 text-sm shadow-sm transition-shadow hover:shadow-md"
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {REACH_METRICS.map((m, i) => (
+              <ScaleIn key={m.label} delay={i * 0.08}>
+                <div className="rounded-3xl bg-white/10 p-8 backdrop-blur-md border border-white/15 text-center h-full flex flex-col justify-between">
+                  <div>
+                    <div className="text-5xl font-black tracking-tight">
+                      <Counter value={m.value} suffix={m.suffix} />
+                    </div>
+                    <div className="mt-3 text-lg font-bold text-white">{m.label}</div>
+                  </div>
+                  <p className="mt-4 text-xs text-blue-100/80 leading-relaxed">{m.desc}</p>
+                </div>
+              </ScaleIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 5. LEARNING & GROWTH PATHWAYS */}
+      <section id="pathways" className="bg-slate-50 py-24 border-b border-slate-200">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl text-center mb-16">
+            <span className="text-xs font-bold uppercase tracking-widest text-blue-600 bg-blue-100 px-3 py-1 rounded-full">
+              GROWTH PATHWAYS
+            </span>
+            <h2 className="mt-4 text-4xl font-black tracking-tight sm:text-5xl">
+              Structured Programs Designed for Every Stage of Your Journey
+            </h2>
+            <p className="mt-4 text-lg text-slate-600">
+              OrigoHOST provides clear, guided pathways tailored to your goals—whether you are
+              mastering new technologies, leading a student community, or partnering to support
+              technological innovation.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            {PATHWAYS.map((p, i) => (
+              <FadeIn key={p.step} delay={i * 0.1}>
+                <div className="h-full rounded-3xl bg-white p-8 shadow-sm border border-slate-200 flex flex-col justify-between hover:shadow-md transition-shadow">
+                  <div>
+                    <span className="text-4xl font-black text-blue-600/30 block mb-4 font-mono">
+                      {p.step}
+                    </span>
+                    <h3 className="text-xl font-bold text-slate-900 mb-3">{p.title}</h3>
+                    <p className="text-sm text-slate-600 leading-relaxed">{p.desc}</p>
+                  </div>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+
+          <div className="text-center">
+            <Button
+              asChild
+              size="lg"
+              className="rounded-full bg-blue-600 hover:bg-blue-700 font-bold px-8 shadow-md"
+            >
+              <Link to="/register">
+                Get Started With OrigoHOST <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. FEATURED INITIATIVES */}
+      <section id="initiatives" className="bg-white py-24 border-b border-slate-100">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-widest text-blue-600">
+                FEATURED INITIATIVES
+              </span>
+              <h2 className="mt-2 text-4xl font-black tracking-tight sm:text-5xl">
+                Our Active Programs
+              </h2>
+            </div>
+            <Button asChild variant="outline" className="rounded-full border-slate-300">
+              <Link to="/community/events">
+                View All Programs <ChevronRight className="ml-1 h-4 w-4" />
+              </Link>
+            </Button>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {FEATURED_PROGRAMS.map((prog) => (
+              <div
+                key={prog.title}
+                className="rounded-3xl border border-slate-200 bg-slate-50/50 p-8 shadow-sm flex flex-col justify-between hover:border-blue-300 transition-colors"
+              >
+                <div>
+                  <div className="flex items-center justify-between gap-4 mb-4">
+                    <span
+                      className={`text-xs font-bold px-3 py-1 rounded-full ${
+                        prog.status === "Active"
+                          ? "bg-emerald-100 text-emerald-700"
+                          : "bg-amber-100 text-amber-700"
+                      }`}
                     >
-                      <span className="flex items-center gap-3">
-                        <span className="grid h-8 w-8 place-items-center rounded-xl bg-[var(--brand-mint)]">
-                          <s.icon className="h-4 w-4 text-[var(--brand-green)]" />
-                        </span>
-                        <span className="font-medium">{s.label}</span>
-                      </span>
-                      <ArrowUpRight className="h-4 w-4 text-[var(--brand-ink)]/40" />
-                    </a>
-                  ))}
-                </div>
-              </div>
+                      {prog.status}
+                    </span>
+                    <span className="text-xs text-slate-500 font-medium">{prog.type}</span>
+                  </div>
 
-              <form className="space-y-5 rounded-3xl bg-white p-8 shadow-[var(--shadow-soft)]">
-                <div>
-                  <label htmlFor="contact-name" className="text-sm font-semibold">
-                    Name
-                  </label>
-                  <Input
-                    id="contact-name"
-                    placeholder="Your name"
-                    className="mt-2 h-12 rounded-xl bg-[var(--brand-cream)]/60"
-                  />
+                  <h3 className="text-2xl font-bold text-slate-900 mb-3">{prog.title}</h3>
+                  <p className="text-sm text-slate-600 leading-relaxed mb-6">{prog.desc}</p>
+
+                  <div className="flex flex-wrap gap-2 mb-8">
+                    {prog.topics.map((t) => (
+                      <span
+                        key={t}
+                        className="text-[11px] font-semibold bg-white text-slate-700 border border-slate-200 px-3 py-1 rounded-full"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
                 </div>
+
+                <Button asChild className="w-full rounded-full bg-blue-600 hover:bg-blue-700">
+                  <Link to={prog.link}>
+                    {prog.cta} <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 7. UPCOMING EVENTS & WORKSHOPS */}
+      <section id="events" className="bg-slate-900 py-24 text-white">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-widest text-blue-400">
+                UPCOMING SESSIONS
+              </span>
+              <h2 className="mt-2 text-4xl font-black tracking-tight sm:text-5xl">
+                Participate in Our Next Technical Session
+              </h2>
+            </div>
+            <Button
+              asChild
+              variant="outline"
+              className="rounded-full border-white/20 text-white hover:bg-white/10"
+            >
+              <Link to="/community/events">
+                View Event Calendar <Calendar className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {UPCOMING_SESSIONS.map((ev) => (
+              <div
+                key={ev.title}
+                className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-md flex flex-col justify-between"
+              >
                 <div>
-                  <label htmlFor="contact-email" className="text-sm font-semibold">
-                    E-mail
-                  </label>
-                  <Input
-                    id="contact-email"
-                    type="email"
-                    placeholder="you@company.com"
-                    className="mt-2 h-12 rounded-xl bg-[var(--brand-cream)]/60"
-                  />
+                  <div className="flex flex-wrap items-center gap-3 mb-4">
+                    <span className="text-xs font-bold bg-blue-500/20 text-blue-300 px-3 py-1 rounded-full border border-blue-500/30">
+                      {ev.type}
+                    </span>
+                    <span className="text-xs font-semibold text-emerald-400 flex items-center gap-1">
+                      <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+                      {ev.status}
+                    </span>
+                    <span className="text-xs text-slate-400 font-mono ml-auto">{ev.date}</span>
+                  </div>
+
+                  <h3 className="text-2xl font-bold text-white mb-3">{ev.title}</h3>
+                  <p className="text-sm text-slate-300 leading-relaxed mb-6">{ev.desc}</p>
+
+                  <div className="flex items-center gap-4 text-xs text-slate-400 mb-8 border-t border-white/10 pt-4">
+                    <span>
+                      Format: <strong className="text-white">{ev.format}</strong>
+                    </span>
+                    <span>
+                      Audience: <strong className="text-white">{ev.audience}</strong>
+                    </span>
+                  </div>
                 </div>
+
+                <Button
+                  asChild
+                  className="w-full rounded-full bg-blue-600 hover:bg-blue-700 text-white font-bold"
+                >
+                  <Link to={ev.link}>
+                    Details <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 8. OPPORTUNITIES */}
+      <section id="opportunities" className="bg-slate-50 py-24 border-b border-slate-200">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl text-center mb-16">
+            <span className="text-xs font-bold uppercase tracking-widest text-blue-600 bg-blue-100 px-3 py-1 rounded-full">
+              OPPORTUNITIES
+            </span>
+            <h2 className="mt-4 text-4xl font-black tracking-tight sm:text-5xl">
+              Ways to Get Involved
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {OPPORTUNITIES.map((opp) => (
+              <div
+                key={opp.title}
+                className="rounded-3xl bg-white p-8 shadow-sm border border-slate-200 flex flex-col justify-between hover:shadow-md transition-shadow"
+              >
                 <div>
-                  <label htmlFor="contact-message" className="text-sm font-semibold">
-                    Message
-                  </label>
-                  <Textarea
-                    id="contact-message"
-                    placeholder="Tell us about your infrastructure vision..."
-                    className="mt-2 min-h-[140px] rounded-xl bg-[var(--brand-cream)]/60"
-                  />
+                  <span className="text-xs font-mono font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full inline-block mb-4">
+                    {opp.category}
+                  </span>
+                  <h3 className="text-xl font-bold text-slate-900 mb-3">{opp.title}</h3>
+                  <p className="text-sm text-slate-600 leading-relaxed mb-8">{opp.desc}</p>
                 </div>
                 <Button
-                  type="button"
-                  size="lg"
-                  className="w-full rounded-2xl bg-[var(--brand-ink)] text-white hover:bg-[var(--brand-ink)]/90"
+                  asChild
+                  variant="outline"
+                  className="w-full rounded-full border-slate-300 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all"
                 >
-                  Send Message <Send className="ml-2 h-4 w-4" />
+                  <Link to={opp.link}>
+                    {opp.cta} <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
                 </Button>
-              </form>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 9. COMMUNITY KNOWLEDGE */}
+      <section id="articles" className="bg-white py-24 border-b border-slate-100">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-widest text-blue-600">
+                COMMUNITY KNOWLEDGE
+              </span>
+              <h2 className="mt-2 text-4xl font-black tracking-tight sm:text-5xl">
+                Technical Insights & Articles
+              </h2>
             </div>
+            <Button asChild variant="outline" className="rounded-full border-slate-300">
+              <Link to="/blog">
+                Read All Articles <BookOpen className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {ARTICLES.map((art) => (
+              <div
+                key={art.title}
+                className="rounded-3xl border border-slate-200 bg-slate-50/50 p-8 shadow-sm flex flex-col justify-between hover:border-blue-300 transition-colors"
+              >
+                <div>
+                  <div className="flex items-center justify-between text-xs text-slate-500 mb-4">
+                    <span className="font-bold text-blue-600 bg-blue-50 px-2.5 py-1 rounded-full">
+                      {art.category}
+                    </span>
+                    <span>{art.date}</span>
+                  </div>
+
+                  <h3 className="text-xl font-bold text-slate-900 mb-3">{art.title}</h3>
+                  <p className="text-sm text-slate-600 leading-relaxed mb-6">{art.desc}</p>
+
+                  <div className="text-xs text-slate-500 mb-6">
+                    By <strong className="text-slate-900">{art.author}</strong> ({art.role})
+                  </div>
+
+                  <div className="flex flex-wrap gap-1.5 mb-8">
+                    {art.topics.map((t) => (
+                      <span
+                        key={t}
+                        className="text-[10px] font-mono bg-white text-slate-600 px-2 py-0.5 rounded border border-slate-200"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <Button asChild variant="outline" className="w-full rounded-full border-slate-300">
+                  <Link to={art.link}>
+                    Read Post <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 10. LEARNING RESOURCES */}
+      <section id="resources" className="bg-slate-900 py-24 text-white">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-widest text-blue-400">
+                LEARNING RESOURCES
+              </span>
+              <h2 className="mt-2 text-4xl font-black tracking-tight sm:text-5xl">
+                Curated Developer Guides & Tools
+              </h2>
+            </div>
+            <Button
+              asChild
+              variant="outline"
+              className="rounded-full border-white/20 text-white hover:bg-white/10"
+            >
+              <Link to="/resources">
+                View All Resources <FileText className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {RESOURCES.map((res) => (
+              <div
+                key={res.title}
+                className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-md flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-xs font-bold bg-blue-500/20 text-blue-300 px-3 py-1 rounded-full border border-blue-500/30">
+                      {res.type}
+                    </span>
+                    <span className="text-xs font-mono text-slate-400">{res.access}</span>
+                  </div>
+
+                  <h3 className="text-2xl font-bold text-white mb-3">{res.title}</h3>
+                  <p className="text-sm text-slate-300 leading-relaxed mb-6">{res.desc}</p>
+
+                  <div className="flex flex-wrap gap-2 mb-8">
+                    {res.topics.map((t) => (
+                      <span
+                        key={t}
+                        className="text-xs bg-white/10 text-slate-200 px-3 py-1 rounded-full"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <Button
+                  asChild
+                  className="w-full rounded-full bg-blue-600 hover:bg-blue-700 text-white font-bold"
+                >
+                  <Link to={res.link}>
+                    {res.cta} <Download className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 11. COLLABORATORS */}
+      <section id="collaborators" className="bg-white py-24 border-b border-slate-100">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl text-center mb-16">
+            <span className="text-xs font-bold uppercase tracking-widest text-blue-600 bg-blue-50 px-3 py-1 rounded-full">
+              COLLABORATORS
+            </span>
+            <h2 className="mt-4 text-4xl font-black tracking-tight sm:text-5xl">
+              Valued Partners & Sponsors
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {COLLABORATORS.map((group) => (
+              <div
+                key={group.category}
+                className="rounded-3xl border border-slate-200 bg-slate-50/50 p-8 shadow-sm"
+              >
+                <h3 className="text-lg font-bold text-slate-900 mb-6 pb-3 border-b border-slate-200">
+                  {group.category}
+                </h3>
+                <ul className="space-y-4">
+                  {group.items.map((item) => (
+                    <li key={item.name} className="flex items-center justify-between text-sm">
+                      <span className="font-semibold text-slate-800">{item.name}</span>
+                      <span className="text-xs text-slate-500 font-mono">{item.detail}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 12. DEVELOPER JOURNEY */}
+      <section id="journey" className="bg-slate-900 py-24 text-white">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl text-center mb-16">
+            <span className="text-xs font-bold uppercase tracking-widest text-blue-400">
+              ROADMAP
+            </span>
+            <h2 className="mt-4 text-4xl font-black tracking-tight sm:text-5xl">
+              Community Learning & Growth Stages
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {JOURNEY_STAGES.map((s) => (
+              <div
+                key={s.step}
+                className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm hover:border-blue-500/50 transition-colors"
+              >
+                <span className="text-xs font-mono font-bold text-blue-400 block mb-2">
+                  {s.step}
+                </span>
+                <h3 className="text-xl font-bold text-white mb-2">{s.title}</h3>
+                <p className="text-xs text-slate-300 leading-relaxed">{s.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 13. COMMUNITY TESTIMONIALS */}
+      <section id="testimonials" className="bg-slate-50 py-24 border-b border-slate-200">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl text-center mb-16">
+            <span className="text-xs font-bold uppercase tracking-widest text-blue-600 bg-blue-100 px-3 py-1 rounded-full">
+              COMMUNITY TESTIMONIALS
+            </span>
+            <h2 className="mt-4 text-4xl font-black tracking-tight sm:text-5xl">
+              Voices From Our Community
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {TESTIMONIALS.map((t) => (
+              <div
+                key={t.name}
+                className="rounded-3xl bg-white p-8 shadow-sm border border-slate-200 flex flex-col justify-between"
+              >
+                <p className="text-slate-700 italic text-base leading-relaxed mb-6">"{t.quote}"</p>
+                <div>
+                  <div className="font-bold text-slate-900 text-lg">{t.name}</div>
+                  <div className="text-xs text-blue-600 font-semibold">{t.role}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 14. FAQ ACCORDION */}
+      <section id="faq" className="bg-white py-24 border-b border-slate-100">
+        <div className="mx-auto max-w-4xl px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <span className="text-xs font-bold uppercase tracking-widest text-blue-600 bg-blue-50 px-3 py-1 rounded-full">
+              FAQ
+            </span>
+            <h2 className="mt-4 text-4xl font-black tracking-tight sm:text-5xl">
+              Everything You Need to Know
+            </h2>
+            <p className="mt-4 text-lg text-slate-600">
+              Got questions about joining, chartering a chapter, or participating in events? We have
+              answers.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            {FAQS.map((faq, index) => {
+              const isOpen = activeFaq === index;
+              return (
+                <div
+                  key={faq.q}
+                  className="rounded-2xl border border-slate-200 bg-slate-50/50 overflow-hidden transition-all"
+                >
+                  <button
+                    onClick={() => setActiveFaq(isOpen ? null : index)}
+                    className="w-full flex items-center justify-between p-6 text-left font-bold text-slate-900 text-lg hover:text-blue-600 transition-colors"
+                  >
+                    <span>{faq.q}</span>
+                    <ChevronRight
+                      className={`h-5 w-5 text-slate-400 transition-transform ${
+                        isOpen ? "rotate-90 text-blue-600" : ""
+                      }`}
+                    />
+                  </button>
+                  {isOpen && (
+                    <div className="px-6 pb-6 text-sm text-slate-600 leading-relaxed border-t border-slate-200/60 pt-4">
+                      {faq.a}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* 15. FINAL CTA */}
+      <section
+        id="join"
+        className="bg-gradient-to-br from-blue-700 via-blue-800 to-slate-900 py-24 text-white"
+      >
+        <div className="mx-auto max-w-5xl px-6 lg:px-8 text-center">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight mb-6">
+            Ready to Build the Future of Software?
+          </h2>
+          <p className="text-lg sm:text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed mb-10">
+            Join thousands of passionate student developers, campus chapter leads, and industry
+            mentors collaborating across India. Access deployment resources, attend expert
+            masterclasses, and ship production-grade code.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Button
+              asChild
+              size="lg"
+              className="w-full sm:w-auto h-14 rounded-full bg-white text-blue-900 hover:bg-blue-50 font-bold px-8 shadow-xl hover:scale-105 transition-all"
+            >
+              <Link to="/register">
+                Join OrigoHOST Today <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </Button>
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="w-full sm:w-auto h-14 rounded-full border-white/30 bg-white/10 text-white hover:bg-white/20 font-bold px-8"
+            >
+              <Link to="/contact">Contact Community Team</Link>
+            </Button>
           </div>
         </div>
       </section>
     </div>
-  );
-}
-
-function Pill({
-  icon: Icon,
-  label,
-  tone,
-}: {
-  icon: React.ComponentType<{ className?: string }>;
-  label: string;
-  tone: "ink" | "light";
-}) {
-  return (
-    <span
-      className={`inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider ${
-        tone === "ink"
-          ? "bg-[var(--brand-ink)] text-[var(--brand-yellow)]"
-          : "bg-white text-[var(--brand-ink)]"
-      }`}
-    >
-      <Icon className="h-3.5 w-3.5" />
-      {label}
-    </span>
   );
 }
