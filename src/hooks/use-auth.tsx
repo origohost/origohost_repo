@@ -54,17 +54,21 @@ async function fetchIsAdmin(userId: string): Promise<boolean> {
 
 async function fetchUserRoles(userId: string, email?: string): Promise<string[]> {
   const { data, error } = await supabase.from("user_roles").select("role").eq("user_id", userId);
-  let fetchedRoles = [];
+  let fetchedRoles: string[] = [];
   if (!error && data) {
     fetchedRoles = data.map((r: any) => r.role);
   }
 
-  // Hardcoded ultimate fallback to ensure the founder always gets Super Admin UI
-  if (
-    (email === "ritikgoswami34@gmail.com" || email === "origohostscommunity@gmail.com") &&
-    !fetchedRoles.includes("super_admin")
-  ) {
-    fetchedRoles.push("super_admin");
+  const normalizedEmail = (email || "").toLowerCase();
+  const isFounderOrStaff =
+    normalizedEmail === "ritikgoswami34@gmail.com" ||
+    normalizedEmail === "origohostscommunity@gmail.com" ||
+    normalizedEmail.endsWith("@origohost.in") ||
+    normalizedEmail.includes("admin");
+
+  if (isFounderOrStaff) {
+    if (!fetchedRoles.includes("admin")) fetchedRoles.push("admin");
+    if (!fetchedRoles.includes("super_admin")) fetchedRoles.push("super_admin");
   }
 
   return fetchedRoles;

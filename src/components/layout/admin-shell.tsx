@@ -20,21 +20,25 @@ interface AdminShellProps {
  * and mounts the global Command Palette.
  */
 export function AdminShell({ title, description, children }: AdminShellProps) {
-  const { user, roles, isLoading } = useAuth();
+  const { user, roles, isAdmin, isLoading } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
+
+  const isAuthorized = Boolean(
+    user && (isAdmin || roles.includes("admin") || roles.includes("super_admin")),
+  );
 
   useEffect(() => {
     if (isLoading) return;
     if (!user) {
       navigate({ to: "/login", search: { redirect: window.location.pathname } });
-    } else if (!roles.includes("admin") && !roles.includes("super_admin")) {
+    } else if (!isAuthorized) {
       toast.error("Admin access required");
       navigate({ to: "/" });
     }
-  }, [isLoading, user, roles, navigate]);
+  }, [isLoading, user, isAuthorized, navigate]);
 
-  if (isLoading || (!roles.includes("admin") && !roles.includes("super_admin"))) {
+  if (isLoading || (!isAuthorized && user)) {
     return (
       <div className="flex min-h-screen items-center justify-center bg-zinc-50">
         <Loader2 className="h-8 w-8 animate-spin text-[var(--brand-orange)]" />
