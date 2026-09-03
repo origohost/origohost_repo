@@ -6,21 +6,21 @@ interface BrandLogoProps {
 }
 
 /**
- * OrigoHOST brand mark.
+ * Official OrigoHOST brand mark.
  */
 export function BrandLogo({ size = 28, className, alt = "OrigoHOST" }: BrandLogoProps) {
   return (
     <img
       loading="lazy"
       decoding="async"
-      src="/logo.png"
+      src="/logo-monogram.png"
       alt={alt}
       width={size}
       height={size}
       className={
         className
-          ? `${className} overflow-hidden rounded-full object-cover`
-          : "overflow-hidden rounded-full object-cover"
+          ? `${className} object-contain transition-transform`
+          : "object-contain transition-transform"
       }
     />
   );

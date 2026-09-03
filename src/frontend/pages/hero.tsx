@@ -123,9 +123,9 @@ export default function HeroSection() {
             <div className="relative z-10 w-[260px] h-[260px] sm:w-[360px] sm:h-[360px] lg:w-[400px] lg:h-[400px] flex items-center justify-center transition-transform duration-500 hover:scale-105">
               <div className="absolute inset-0 bg-blue-600/20 rounded-full blur-[80px] -z-10" />
               <img
-                src="/logo-transparent.png"
-                alt="OrigoHOST Tech Community"
-                className="relative z-10 w-full h-full object-contain drop-shadow-[0_0_25px_rgba(37,99,235,0.4)]"
+                src="/logo-monogram.png"
+                alt="OrigoHOST Official Monogram"
+                className="relative z-10 w-full h-full object-contain drop-shadow-[0_0_35px_rgba(37,99,235,0.5)]"
               />
             </div>
           </Tilt>
