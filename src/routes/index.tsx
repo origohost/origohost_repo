@@ -9,29 +9,27 @@ const HOME_FAQS = [
   {
     question: "What is OrigoHOST?",
     answer:
-      "OrigoHOST is a technology ecosystem built around people who want to learn, build, experiment, and grow together across cloud computing, AI, DevOps, and software engineering.",
+      "OrigoHOST is a technology community and event ecosystem where people discover, learn, discuss, compete, collaborate, and build across technology domains and real-world industries.",
   },
   {
-    question: "Who can join OrigoHOST?",
+    question: "Who can participate in OrigoHOST?",
     answer:
-      "OrigoHOST brings developers, students, builders, educators, and technology communities together across India.",
+      "Students, developers, engineers, researchers, founders, educators, professionals, and technology enthusiasts can all participate in meetups, hackathons, seminars, and workshops.",
   },
   {
-    question: "Are OrigoHOST learning programs free for students?",
+    question: "Are OrigoHOST events and community programs free?",
     answer:
-      "Yes, our flagship educational cohorts and webinars are completely free for verified community members and university students.",
+      "Yes, flagship community events, webinars, KSS sessions, and learning cohorts are free for community members.",
   },
 ];
 
 export const Route = createFileRoute("/")({
   head: () =>
     buildSeo({
-      title: "OrigoHOST — Build. Learn. Connect. Shape What's Next",
+      title: "OrigoHOST — A Technology Community Where Ideas, People & Possibilities Connect",
       description:
-        "OrigoHOST brings developers, students, builders, educators, and technology communities together to learn modern technology, build real solutions, and shape what's next.",
+        "OrigoHOST brings together developers, students, builders, educators, and technology enthusiasts through events, learning experiences, hackathons, and collaborative initiatives.",
       path: "/",
-      preloadImage:
-        "https://res.cloudinary.com/dhx72dmyt/image/upload/f_auto,q_auto/v1785444373/system/hero-bg-team.jpg",
       schemas: [buildOrganizationSchema(), buildFAQSchema(HOME_FAQS), buildWebSiteSchema()],
     }),
   loader: ({ context }) => context.queryClient.ensureQueryData(partnersQueryOptions()),

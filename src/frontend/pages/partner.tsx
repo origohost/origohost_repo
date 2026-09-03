@@ -1,39 +1,72 @@
-import { createFileRoute, Link, useRouter } from "@tanstack/react-router";
+import { Link, useRouter } from "@tanstack/react-router";
 import { m as motion, useReducedMotion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import {
+  ArrowRight,
+  Building2,
+  GraduationCap,
+  Cpu,
+  Users,
+  Rocket,
+  Award,
+  Tv,
+  BookOpen,
+} from "lucide-react";
 import { PageShell } from "@/components/layout/page-shell";
 import { Button } from "@/components/ui/button";
-import { PartnerLogo } from "@/components/partner-logo";
-import { buildSeo } from "@/lib/seo";
-import { contentLoader } from "@/features/cms";
-import { PartnerTrackCard } from "@/features/cms/blocks";
-import { supabase } from "@/integrations/supabase/client";
-import { useQuery } from "@tanstack/react-query";
-import { queryKeys } from "@/lib/query-keys";
 
-const staticMeta = contentLoader.getSync("partners").meta;
+const PARTNER_CATEGORIES = [
+  {
+    icon: Cpu,
+    title: "Technology Partners",
+    desc: "Platforms, cloud providers, AI frameworks, and tool creators.",
+  },
+  {
+    icon: GraduationCap,
+    title: "Education Partners",
+    desc: "Universities, colleges, institutes, and learning organizations.",
+  },
+  {
+    icon: Building2,
+    title: "Industry Partners",
+    desc: "Enterprise companies and tech teams transforming real-world fields.",
+  },
+  {
+    icon: Users,
+    title: "Community Partners",
+    desc: "Developer communities, user groups, and tech clubs.",
+  },
+  {
+    icon: Rocket,
+    title: "Startup Partners",
+    desc: "Emerging companies building disruptive technology.",
+  },
+  {
+    icon: Award,
+    title: "Institutional Partners",
+    desc: "Government bodies, public initiatives, and non-profits.",
+  },
+  { icon: Tv, title: "Media Partners", desc: "Tech publications, podcasts, and media channels." },
+  {
+    icon: BookOpen,
+    title: "Knowledge Partners",
+    desc: "Research labs, educators, and content creators.",
+  },
+];
 
-/**
- * Route-level error boundary. Renders a rich, actionable diagnostic when the
- * partners CMS content fails reference-order validation in development so the
- * author can see *which* tile drifted and fix it. In production we redact the
- * detail (no leaking internal field paths to end users) and show a generic
- * apology while offering a retry that re-runs the loader.
- */
 export function PartnersErrorPage() {
   const router = useRouter();
   return (
     <PageShell
       eyebrow="Partnerships"
       title="Partners are temporarily unavailable"
-      description="We couldn't load the partner directory just now. Please try again in a moment."
+      description="We couldn't load the partner directory just now."
       breadcrumb={[{ label: "Partners" }]}
     >
-      <div className="mx-auto max-w-2xl rounded-3xl border border-[var(--brand-orange)]/30 bg-[var(--brand-cream)] p-8 text-center shadow-[var(--shadow-soft)]">
+      <div className="mx-auto max-w-2xl rounded-3xl border border-blue-200 bg-blue-50 p-8 text-center">
         <h2 className="text-2xl font-black">Something went wrong</h2>
         <Button
           onClick={() => router.invalidate()}
-          className="mt-6 rounded-full bg-gradient-to-r from-[var(--brand-orange)] to-[var(--brand-orange-glow)] px-6 text-white hover:opacity-90"
+          className="mt-6 rounded-full bg-blue-600 text-white"
         >
           Try again
         </Button>
@@ -47,10 +80,10 @@ export function PartnersNotFoundPage() {
     <PageShell
       eyebrow="Partnerships"
       title="Partners not found"
-      description="We couldn't find the partners directory."
+      description="Directory unavailable."
       breadcrumb={[{ label: "Partners" }]}
     >
-      <div className="text-center text-sm text-[var(--brand-ink)]/60">
+      <div className="text-center text-sm text-slate-600">
         <Link to="/" className="underline">
           Return home
         </Link>
@@ -60,153 +93,61 @@ export function PartnersNotFoundPage() {
 }
 
 export default function PartnersPage() {
-  const content = contentLoader.getSync("partners");
-  const prefersReducedMotion = useReducedMotion();
-
-  const { data: partners = [] } = useQuery({
-    queryKey: queryKeys.partners.list(),
-    queryFn: async () => {
-      const { data, error } = await supabase
-        .from("partners")
-        .select("*")
-        .eq("published", true)
-        .order("sort_order", { ascending: true });
-      if (error) throw error;
-      return data || [];
-    },
-  });
-
-  const logos = partners.length > 0 ? partners.filter((p) => p.type === "logo") : content.logos;
-  const institutes =
-    partners.length > 0 ? partners.filter((p) => p.type === "institute") : content.institutes || [];
-
-  const tileInitial = prefersReducedMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 };
-  const tileWhileInView = { opacity: 1, y: 0 };
-  const tileTransition = (i: number) => ({
-    duration: prefersReducedMotion ? 0 : 0.45,
-    delay: prefersReducedMotion ? 0 : Math.min(i * 0.03, 0.6),
-    ease: [0.2, 0.7, 0.2, 1] as const,
-  });
-  const headingInitial = prefersReducedMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 };
-
   return (
-    <PageShell
-      eyebrow={content.meta.eyebrow ?? "Partnerships"}
-      title={
-        <>
-          Grow with a{" "}
-          <span className="bg-gradient-to-r from-[var(--brand-orange)] to-[var(--brand-orange-glow)] bg-clip-text text-transparent">
-            nationwide
-          </span>{" "}
-          hosting community
-        </>
-      }
-      description={content.meta.heroDescription ?? content.meta.description}
-      breadcrumb={[{ label: "Partners" }]}
-    >
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {content.tracks.map((t, i) => (
-          <PartnerTrackCard key={t.title} track={t} index={i} />
-        ))}
-      </div>
-
-      <section className="mt-16 sm:mt-20">
-        <motion.div
-          initial={headingInitial}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: prefersReducedMotion ? 0 : 0.5, ease: [0.2, 0.7, 0.2, 1] }}
-          className="mb-8 text-center sm:mb-12"
-        >
-          <h2 className="text-2xl font-black tracking-tight sm:text-3xl lg:text-5xl">
-            Our Clientele
-          </h2>
-        </motion.div>
-        <ul
-          data-testid="enterprise-grid"
-          className="mx-auto grid max-w-6xl grid-cols-2 items-center gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 sm:gap-y-10 lg:grid-cols-6 lg:gap-y-12"
-          aria-label="Enterprise partners"
-        >
-          {logos.map((l: any, i: number) => (
-            <motion.li
-              key={l.name || i}
-              initial={tileInitial}
-              whileInView={tileWhileInView}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={tileTransition(i)}
-              className="grid h-16 place-items-center logo-hover sm:h-20 lg:h-24"
-            >
-              <PartnerLogo entry={l} size={140} fallbackTextClassName="text-xs sm:text-sm" />
-            </motion.li>
-          ))}
-        </ul>
-      </section>
-
-      {institutes.length > 0 && (
-        <section className="mt-20 sm:mt-24">
-          <motion.div
-            initial={headingInitial}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.4 }}
-            transition={{ duration: prefersReducedMotion ? 0 : 0.5, ease: [0.2, 0.7, 0.2, 1] }}
-            className="mb-8 text-center sm:mb-12"
-          >
-            <h2 className="text-2xl font-black tracking-tight sm:text-3xl lg:text-5xl">
-              Partners &amp; Collaborators
-            </h2>
-          </motion.div>
-          <ul
-            data-testid="institutes-grid"
-            className="mx-auto grid max-w-6xl grid-cols-2 items-center gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 sm:gap-y-10 lg:grid-cols-6 lg:gap-y-12"
-            aria-label="Institute partners"
-          >
-            {institutes.map((l: any, i: number) => (
-              <motion.li
-                key={l.name || i}
-                initial={tileInitial}
-                whileInView={tileWhileInView}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={tileTransition(i)}
-                className="grid h-16 place-items-center logo-hover sm:h-20 lg:h-24"
-              >
-                <PartnerLogo entry={l} size={140} fallbackTextClassName="text-xs sm:text-sm" />
-              </motion.li>
-            ))}
-          </ul>
-          <motion.p
-            initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true, amount: 0.6 }}
-            transition={{
-              duration: prefersReducedMotion ? 0 : 0.4,
-              delay: prefersReducedMotion ? 0 : 0.2,
-            }}
-            className="mt-8 text-center text-xs text-[var(--brand-ink)]/60 sm:mt-12 sm:text-sm"
-          >
-            and +150 companies
-          </motion.p>
-        </section>
-      )}
-
-      <div className="mt-16 overflow-hidden rounded-3xl bg-[var(--brand-ink)] p-10 text-white lg:grid lg:grid-cols-2 lg:gap-10">
-        <div>
-          <h2 className="text-3xl font-black">Ready to partner with OrigoHOST?</h2>
-          <p className="mt-4 text-white/70">
-            Tell us about your program, audience, and goals. We'll design an outcome-focused
-            collaboration tuned to your teams.
+    <div className="relative min-h-screen bg-white text-slate-900 pt-28 pb-20 selection:bg-blue-600 selection:text-white">
+      {/* HERO */}
+      <section className="bg-slate-900 text-white py-20 px-6 lg:px-8 border-b border-slate-800">
+        <div className="mx-auto max-w-4xl text-center">
+          <span className="text-xs font-bold uppercase tracking-widest text-blue-400 bg-blue-500/20 px-3 py-1 rounded-full border border-blue-500/30">
+            COLLABORATION & ALLIANCES
+          </span>
+          <h1 className="mt-6 text-4xl sm:text-5xl font-black tracking-tight leading-tight">
+            Build the Ecosystem With Us.
+          </h1>
+          <p className="mt-4 text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
+            Collaborate with OrigoHOST across technology, education, industry, research, and
+            community initiatives.
           </p>
         </div>
-        <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row lg:mt-0 lg:justify-end">
+      </section>
+
+      {/* PARTNER CATEGORIES */}
+      <section className="py-20 px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {PARTNER_CATEGORIES.map((pc) => (
+            <div
+              key={pc.title}
+              className="rounded-3xl border border-slate-200 bg-slate-50/50 p-6 shadow-sm flex flex-col justify-between hover:border-blue-300 transition-colors"
+            >
+              <div>
+                <pc.icon className="h-7 w-7 text-blue-600 mb-4" />
+                <h3 className="text-xl font-bold text-slate-900 mb-2">{pc.title}</h3>
+                <p className="text-xs text-slate-600 leading-relaxed mb-4">{pc.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* CTA BANNER */}
+        <div className="mt-16 rounded-3xl bg-slate-900 p-10 text-white flex flex-col lg:flex-row items-center justify-between gap-6">
+          <div>
+            <h2 className="text-3xl font-black">Ready to partner with OrigoHOST?</h2>
+            <p className="mt-2 text-slate-300 text-sm max-w-xl">
+              Tell us about your program, audience, and goals. We'll design an outcome-focused
+              collaboration tuned to your teams.
+            </p>
+          </div>
           <Button
             asChild
-            className="rounded-full bg-gradient-to-r from-[var(--brand-orange)] to-[var(--brand-orange-glow)] px-7 text-white hover:opacity-90"
+            size="lg"
+            className="rounded-full bg-blue-600 hover:bg-blue-700 font-bold px-8"
           >
             <Link to="/contact">
-              Start a partnership <ArrowRight className="ml-1 h-4 w-4" />
+              Start a Partnership <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>
         </div>
-      </div>
-    </PageShell>
+      </section>
+    </div>
   );
 }

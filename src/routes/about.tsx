@@ -1,24 +1,14 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { buildSeo } from "@/lib/seo";
-import { m as motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import {
-  ArrowRight,
-  BookOpen,
-  Code2,
-  Users,
-  Share2,
-  Target,
-  Sparkles,
-  ShieldCheck,
-} from "lucide-react";
+import { ArrowRight, BookOpen, Code2, Users, Share2, Target } from "lucide-react";
 
 export const Route = createFileRoute("/about")({
   head: () =>
     buildSeo({
-      title: "About OrigoHOST — Building a Community for the Next Generation",
+      title: "About OrigoHOST — Technology Community & Event Ecosystem",
       description:
-        "OrigoHOST brings together people who are passionate about technology, learning, experimentation, and collaboration.",
+        "OrigoHOST is a technology community and event ecosystem connecting people, ideas, technology, and real-world challenges.",
       path: "/about",
     }),
   component: AboutPage,
@@ -44,7 +34,7 @@ const VALUES = [
   {
     icon: Target,
     title: "Impact",
-    desc: "Technology should create measurable and meaningful outcomes.",
+    desc: "Technology should create measurable and meaningful real-world outcomes.",
   },
 ];
 
@@ -58,11 +48,11 @@ function AboutPage() {
             ABOUT ORIGOHOST
           </span>
           <h1 className="mt-6 text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight">
-            Building a Community for the Next Generation of Technology.
+            Connecting People, Ideas & Possibilities.
           </h1>
           <p className="mt-6 text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            OrigoHOST brings together people who are passionate about technology, learning,
-            experimentation, and collaboration.
+            OrigoHOST is a technology community and event ecosystem connecting people, ideas,
+            technology, and real-world challenges.
           </p>
         </div>
       </section>
@@ -75,12 +65,13 @@ function AboutPage() {
           </span>
           <h2 className="text-3xl sm:text-4xl font-black mt-2 mb-6">How It Started</h2>
           <p className="text-base sm:text-lg text-slate-600 leading-relaxed mb-4">
-            OrigoHOST began with a simple idea: technology becomes more powerful when people learn
-            and build together.
+            OrigoHOST began with a simple idea: technology becomes more powerful when people learn,
+            compete, and build together.
           </p>
           <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
-            What started as a community initiative has grown into an ecosystem connecting learners,
-            developers, educators, builders, institutions, and technology organizations.
+            What started as a community initiative has grown into an ecosystem connecting students,
+            developers, engineers, researchers, founders, educators, and technology enthusiasts
+            across India.
           </p>
         </div>
       </section>
@@ -95,7 +86,7 @@ function AboutPage() {
             <h3 className="text-2xl font-black mt-4 mb-3">Our Mission</h3>
             <p className="text-slate-600 leading-relaxed text-sm">
               To create an open technology ecosystem where people can access knowledge, develop
-              practical skills, collaborate with others, and turn ideas into real-world impact.
+              practical skills, collaborate with peers, and turn ideas into real-world solutions.
             </p>
           </div>
           <div className="rounded-3xl bg-white p-8 border border-slate-200 shadow-sm">
@@ -104,8 +95,8 @@ function AboutPage() {
             </span>
             <h3 className="text-2xl font-black mt-4 mb-3">Our Vision</h3>
             <p className="text-slate-600 leading-relaxed text-sm">
-              A future where access to technology, knowledge, and opportunity is not limited by
-              geography, background, or existing networks.
+              A future where access to technology, knowledge, and community opportunity is open to
+              everyone shaping the digital world.
             </p>
           </div>
         </div>
@@ -129,19 +120,6 @@ function AboutPage() {
             </div>
           ))}
         </div>
-      </section>
-
-      {/* OUR APPROACH */}
-      <section className="py-20 px-6 lg:px-8 max-w-4xl mx-auto text-center border-b border-slate-100">
-        <span className="text-xs font-bold uppercase tracking-widest text-blue-600">
-          METHODOLOGY
-        </span>
-        <h2 className="text-3xl font-black mt-2 mb-4">Our Approach</h2>
-        <p className="text-base text-slate-600 leading-relaxed">
-          We combine community, education, events, projects, research, and partnerships to create an
-          ecosystem where people can move from curiosity to capability and from capability to
-          contribution.
-        </p>
       </section>
 
       {/* FINAL CTA */}

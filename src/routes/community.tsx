@@ -2,20 +2,30 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { buildSeo } from "@/lib/seo";
 import { buildBreadcrumbSchema, buildWebPageSchema } from "@/lib/structured-data";
 import { SITE_CONFIG } from "@/config/site";
-import { Users, Calendar, MapPin, ArrowRight } from "lucide-react";
-import { PageShell } from "@/components/layout/page-shell";
+import {
+  Users,
+  Calendar,
+  MapPin,
+  ArrowRight,
+  BookOpen,
+  UserCheck,
+  Trophy,
+  Code,
+  Share2,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/community")({
   head: () =>
     buildSeo({
-      title: "OrigoHOST Developer Community",
+      title: "Community — Meet the People Behind the Ideas",
       description:
-        "Join India's fastest-growing developer community. Participate in hackathons, join student chapters, and become an ambassador.",
+        "OrigoHOST is a community of people curious about technology and passionate about learning, sharing, solving problems, and building together.",
       path: "/community",
       schemas: [
         buildWebPageSchema(
-          "OrigoHOST Developer Community",
-          "A thriving ecosystem connecting students, developers, founders, and industry experts.",
+          "OrigoHOST Technology Community",
+          "Meet the people behind the ideas across developers, researchers, students, and leaders.",
           `${SITE_CONFIG.url}/community`,
         ),
         buildBreadcrumbSchema([
@@ -27,95 +37,112 @@ export const Route = createFileRoute("/community")({
   component: CommunityPillarPage,
 });
 
+const PARTICIPANTS = [
+  "Students",
+  "Developers",
+  "Engineers",
+  "Researchers",
+  "Designers",
+  "Founders",
+  "Entrepreneurs",
+  "Educators",
+  "Technology Professionals",
+  "Industry Experts",
+  "Technology Enthusiasts",
+];
+
+const COMMUNITY_ACTIONS = [
+  { icon: BookOpen, title: "Learn", desc: "Discover new technologies and perspectives." },
+  { icon: Users, title: "Connect", desc: "Meet people from different backgrounds and domains." },
+  {
+    icon: Trophy,
+    title: "Compete",
+    desc: "Participate in challenges, hackathons, and competitions.",
+  },
+  { icon: Code, title: "Collaborate", desc: "Find people to work with on meaningful projects." },
+  { icon: Share2, title: "Share", desc: "Teach, speak, write, mentor, and contribute." },
+  { icon: UserCheck, title: "Build", desc: "Turn ideas into production-ready solutions." },
+];
+
 function CommunityPillarPage() {
   return (
-    <PageShell title="Community">
-      <div className="bg-slate-50">
-        {/* Hero Section */}
-        <section className="bg-slate-900 text-white py-24 relative overflow-hidden">
-          <div className="absolute inset-0 z-0">
-            <img
-              src="https://images.unsplash.com/photo-1540317580384-e5d43616b9aa?q=80&w=2000&auto=format&fit=crop"
-              alt="Community Background"
-              className="w-full h-full object-cover opacity-20"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent"></div>
-          </div>
-          <div className="container mx-auto px-4 max-w-5xl relative z-10 text-center">
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-black mb-6 tracking-tight">
-              The <span className="text-blue-400">OrigoHOST</span> Community
-            </h1>
-            <p className="text-lg sm:text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto mb-10 leading-relaxed">
-              Where builders become innovators. Join thousands of developers learning modern
-              technologies through hands-on workshops, hackathons, and mentorship.
-            </p>
-          </div>
-        </section>
+    <div className="relative min-h-screen bg-white text-slate-900 pt-28 pb-20 selection:bg-blue-600 selection:text-white">
+      {/* HERO */}
+      <section className="bg-slate-900 text-white py-20 px-6 lg:px-8 border-b border-slate-800">
+        <div className="mx-auto max-w-4xl text-center">
+          <span className="text-xs font-bold uppercase tracking-widest text-blue-400 bg-blue-500/20 px-3 py-1 rounded-full border border-blue-500/30">
+            PEOPLE & NETWORK
+          </span>
+          <h1 className="mt-6 text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight">
+            Meet the People Behind the Ideas.
+          </h1>
+          <p className="mt-6 text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+            OrigoHOST is a community of people who are curious about technology and passionate about
+            learning, sharing, solving problems, and building together.
+          </p>
+        </div>
+      </section>
 
-        {/* Hub Links */}
-        <section className="py-20">
-          <div className="container mx-auto px-4 max-w-6xl">
-            <div className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-6 -mx-4 px-4 md:mx-0 md:px-0 md:pb-0 md:grid md:grid-cols-3 hide-scrollbar">
-              {/* Events Hub */}
-              <div className="bg-white rounded-3xl p-8 md:p-10 shadow-sm border border-slate-200 hover:shadow-xl transition-all duration-300 group flex flex-col h-full snap-center shrink-0 w-[85vw] md:w-auto">
-                <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <Calendar className="w-8 h-8 text-blue-600" />
-                </div>
-                <h2 className="text-3xl font-bold text-slate-900 mb-4">Events & Hackathons</h2>
-                <p className="text-slate-600 text-lg mb-8 flex-grow">
-                  Discover upcoming tech meetups, coding bootcamps, and global hackathons sponsored
-                  by OrigoHOST.
-                </p>
-                <Link
-                  to="/community/events"
-                  className="inline-flex items-center font-bold text-blue-600 group-hover:text-blue-700"
-                >
-                  Explore Events{" "}
-                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </div>
+      {/* WHO CAN PARTICIPATE */}
+      <section className="py-20 px-6 lg:px-8 max-w-6xl mx-auto border-b border-slate-100">
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <span className="text-xs font-bold uppercase tracking-widest text-blue-600">
+            PARTICIPANTS
+          </span>
+          <h2 className="text-3xl font-black mt-2">Who Can Participate?</h2>
+        </div>
+        <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
+          {PARTICIPANTS.map((p) => (
+            <span
+              key={p}
+              className="text-xs font-bold bg-slate-100 text-slate-800 px-4 py-2 rounded-full border border-slate-200"
+            >
+              {p}
+            </span>
+          ))}
+        </div>
+      </section>
 
-              {/* Chapters Hub */}
-              <div className="bg-white rounded-3xl p-8 md:p-10 shadow-sm border border-slate-200 hover:shadow-xl transition-all duration-300 group flex flex-col h-full snap-center shrink-0 w-[85vw] md:w-auto">
-                <div className="w-16 h-16 bg-emerald-100 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <MapPin className="w-8 h-8 text-emerald-600" />
-                </div>
-                <h2 className="text-3xl font-bold text-slate-900 mb-4">Student Chapters</h2>
-                <p className="text-slate-600 text-lg mb-8 flex-grow">
-                  Start or join an OrigoHOST Student Chapter at your university. Get funding, swags,
-                  and direct mentorship.
-                </p>
-                <Link
-                  to="/community/chapters"
-                  className="inline-flex items-center font-bold text-emerald-600 group-hover:text-emerald-700"
-                >
-                  View Chapters{" "}
-                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </div>
-
-              {/* Ambassadors Hub */}
-              <div className="bg-white rounded-3xl p-8 md:p-10 shadow-sm border border-slate-200 hover:shadow-xl transition-all duration-300 group flex flex-col h-full snap-center shrink-0 w-[85vw] md:w-auto">
-                <div className="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <Users className="w-8 h-8 text-purple-600" />
-                </div>
-                <h2 className="text-3xl font-bold text-slate-900 mb-4">Ambassador Program</h2>
-                <p className="text-slate-600 text-lg mb-8 flex-grow">
-                  Become a core community leader. Represent OrigoHOST, build your personal brand,
-                  and access exclusive career opportunities.
-                </p>
-                <Link
-                  to="/community/ambassadors"
-                  className="inline-flex items-center font-bold text-purple-600 group-hover:text-purple-700"
-                >
-                  Apply Now{" "}
-                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </div>
+      {/* WHAT CAN YOU DO */}
+      <section className="py-20 px-6 lg:px-8 max-w-7xl mx-auto border-b border-slate-100">
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <span className="text-xs font-bold uppercase tracking-widest text-blue-600">
+            ENGAGEMENT
+          </span>
+          <h2 className="text-3xl font-black mt-2">What Can You Do?</h2>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {COMMUNITY_ACTIONS.map((act) => (
+            <div
+              key={act.title}
+              className="rounded-3xl border border-slate-200 bg-slate-50/50 p-8 shadow-sm"
+            >
+              <act.icon className="h-8 w-8 text-blue-600 mb-4" />
+              <h3 className="text-2xl font-bold text-slate-900 mb-2">{act.title}</h3>
+              <p className="text-sm text-slate-600 leading-relaxed">{act.desc}</p>
             </div>
-          </div>
-        </section>
-      </div>
-    </PageShell>
+          ))}
+        </div>
+      </section>
+
+      {/* JOIN CTA */}
+      <section className="py-20 px-6 lg:px-8 bg-slate-900 text-white text-center">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl font-black mb-4">Join the OrigoHOST Community.</h2>
+          <p className="text-slate-300 text-base mb-8">
+            Connect with learners, developers, and creators shaping the future of technology.
+          </p>
+          <Button
+            asChild
+            size="lg"
+            className="rounded-full bg-blue-600 hover:bg-blue-700 font-bold px-8"
+          >
+            <Link to="/register">
+              Get Started <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+          </Button>
+        </div>
+      </section>
+    </div>
   );
 }
