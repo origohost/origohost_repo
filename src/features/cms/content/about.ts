@@ -3,67 +3,60 @@ import type { AboutContent } from "../types";
 export const aboutContent: AboutContent = {
   meta: {
     slug: "about",
-    title: "About OrigoHOST | OrigoHOST Tech Community",
+    title: "About OrigoHOST — Technology Community & Event Ecosystem",
     description:
-      "OrigoHOST, also known as OrigoHOST Tech Community, is an India-based technology community for developers, students, and professionals.",
+      "OrigoHOST brings together students, developers, engineers, researchers, founders, educators, and technology enthusiasts across India.",
     eyebrow: "Our Story",
     heroTitle: "About OrigoHOST",
     heroDescription:
-      "More than a community — a movement empowering India's next generation of infrastructure and platform engineers.",
+      "A Technology Community Where Ideas, People & Possibilities Connect across technology domains and real-world industries.",
   },
 
   storyEyebrow: "Our Purpose",
-  storyTitle: "Driving Infra Innovation in India",
+  storyTitle: "Connecting Ideas, People & Possibilities",
   storyBody:
-    "OrigoHOST, also known as OrigoHOST Tech Community, is an India-based technology community focused on helping students, developers, and professionals learn, build, collaborate, and grow. We operate programs covering modern hosting, cloud technologies, DevOps, and AI. Through hands-on workshops, national-level hackathons, and community meetups, we connect our members with the skills and networks needed to excel. Led by founder Ritik Kumar, our official presence spans across platforms to empower India's next generation of infrastructure and platform engineers.",
+    "OrigoHOST is a technology community and event ecosystem connecting students, developers, engineers, researchers, founders, educators, professionals, and technology enthusiasts. Through meetups, hackathons, ideathons, workshops, and webinars, OrigoHOST bridges technology domains with real-world industry challenges across India. Led by founder Ritik Kumar and community director Tarun Kumar, OrigoHOST creates an open space where people discover, learn, discuss, compete, collaborate, and build.",
 
   purpose: {
     mission: {
       title: "Our Mission",
-      body: "To democratize infrastructure education across India by providing accessible resources, hands-on workshops, and real-world opportunities for the next generation of operators.",
+      body: "To create an open technology ecosystem where people can access knowledge, develop practical skills, collaborate with peers, and turn ideas into real-world solutions across industries.",
       stats: [
-        { value: "90K+", label: "Students reached" },
-        { value: "500+", label: "Colleges" },
+        { value: "15K+", label: "Learners reached" },
+        { value: "75+", label: "Colleges" },
       ],
     },
     vision: {
       title: "Our Vision",
-      body: "To establish India as a global leader in platform engineering by nurturing a thriving ecosystem of creators, SREs, and infrastructure entrepreneurs.",
+      body: "A future where access to technology, knowledge, mentorship, and community opportunity is open to everyone shaping the digital and physical world.",
       stats: [
         { value: "2030", label: "Target year", caption: "" },
-        { value: "1M+", label: "Goal members" },
+        { value: "500K+", label: "Ecosystem goal" },
       ],
     },
   },
 
   timeline: [
     {
-      year: "2022",
-      title: "The Inception",
-      body: "OrigoHOST was born with a vision to democratize hosting and infrastructure education in India.",
+      year: "2024",
+      title: "Foundation & Community Launch",
+      body: "OrigoHOST was established with a vision to connect developer talent with real-world industry challenges through open events and hands-on workshops.",
       icon: "Rocket",
       accent: "orange",
     },
     {
-      year: "2023",
-      title: "Strategic Alliances",
-      body: "Partnered with global cloud leaders to bring world-class curriculum to Indian students and operators.",
+      year: "2025",
+      title: "Pan-India Expansion",
+      body: "Expanded campus chapters across 75+ institutions and launched hackathons, ideathons, and knowledge-sharing series (KSS).",
       icon: "Handshake",
       accent: "green",
     },
     {
-      year: "2024",
-      title: "National Impact",
-      body: "Collaborated with the Ministry of Education and AICTE to standardize platform engineering skills across universities.",
+      year: "2026",
+      title: "Multidimensional Ecosystem",
+      body: "Pioneered the Event Format × Technology Domain × Industry taxonomy framework, empowering thousands of builders across India.",
       icon: "Award",
       accent: "yellow",
-    },
-    {
-      year: "2025",
-      title: "Community at Scale",
-      body: "Crossed 90,000+ members across 20+ cities with meetups, hackathons, and ambassador chapters.",
-      icon: "Users",
-      accent: "blue",
     },
   ],
 
@@ -71,48 +64,48 @@ export const aboutContent: AboutContent = {
     {
       icon: "Heart",
       title: "Community First",
-      body: "Everything we build starts with our members. Their growth is our success.",
+      body: "Everything we build starts with our members. Their growth and collaboration drive our success.",
       accent: "orange",
     },
     {
       icon: "Lightbulb",
       title: "Innovation",
-      body: "We push boundaries and explore new frontiers in cloud, edge, and platform engineering.",
+      body: "We push boundaries and explore new frontiers across AI, Cloud, Cybersecurity, DevOps, and Emerging Tech.",
       accent: "yellow",
     },
     {
       icon: "Users",
       title: "Inclusivity",
-      body: "Great infrastructure knowledge should be accessible to every student, regardless of background.",
+      body: "Great technical knowledge and opportunities should be accessible to every builder regardless of background.",
       accent: "green",
     },
     {
       icon: "Rocket",
       title: "Excellence",
-      body: "We strive for the highest quality in workshops, content, and community experiences.",
+      body: "We strive for the highest quality in workshops, hackathons, mentorship, and community experiences.",
       accent: "orange",
     },
     {
       icon: "Shield",
       title: "Integrity",
-      body: "Transparency and honesty guide all our partnerships and interactions.",
+      body: "Transparency and authenticity guide all our partnerships, initiatives, and community interactions.",
       accent: "blue",
     },
     {
       icon: "Globe",
       title: "Impact",
-      body: "Creating lasting change in India's technology landscape and beyond.",
+      body: "Creating lasting real-world change in India's technology ecosystem and emerging industries.",
       accent: "green",
     },
   ],
 
   numbers: [
-    { value: "90K+", label: "Community Members", caption: "Operators across India" },
-    { value: "500+", label: "Partner Colleges", caption: "Educational institutions" },
-    { value: "100+", label: "Events Organized", caption: "Workshops & meetups" },
-    { value: "50+", label: "Hackathons", caption: "Innovation challenges" },
-    { value: "18", label: "States Covered", caption: "Pan-India presence" },
-    { value: "200+", label: "Industry Partners", caption: "Corporate collaborations" },
+    { value: "15K+", label: "Developers & Learners", caption: "Community members" },
+    { value: "75+", label: "Colleges & Institutions", caption: "Campus network" },
+    { value: "35+", label: "Community Meetups", caption: "Offline gatherings" },
+    { value: "120+", label: "Workshops & Sessions", caption: "Learning experiences" },
+    { value: "18", label: "States Covered", caption: "Pan-India footprint" },
+    { value: "50+", label: "Project Collaborations", caption: "Open-source & startups" },
   ],
 
   ctas: [

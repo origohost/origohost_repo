@@ -105,7 +105,10 @@ const config: CrudConfig = {
 
 export default function AdminEventsPage() {
   return (
-    <AdminShell title="Events Workspace" description="Manage OrigoHOST events, taxonomy, schedules, and publication state.">
+    <AdminShell
+      title="Events Workspace"
+      description="Manage OrigoHOST events, taxonomy, schedules, and publication state."
+    >
       <AdminCrud config={config} />
     </AdminShell>
   );
