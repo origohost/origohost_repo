@@ -25,6 +25,10 @@ import {
   Megaphone,
   BarChart3,
   Grip,
+  BriefcaseBusiness,
+  Layers,
+  Server,
+  User,
 } from "lucide-react";
 
 export function slugify(text: string) {
@@ -34,17 +38,28 @@ export function slugify(text: string) {
     .replace(/(^-|-$)+/g, "");
 }
 
+export const ADMIN_PILLARS = [
+  { id: "BUSINESS", name: "Business", icon: BriefcaseBusiness, color: "text-blue-500" },
+  { id: "CONTENT", name: "Content", icon: Layers, color: "text-emerald-500" },
+  { id: "PLATFORM", name: "Platform", icon: Server, color: "text-purple-500" },
+  { id: "PERSONAL", name: "Personal", icon: User, color: "text-amber-500" },
+];
+
 export const WORKSPACES = [
   {
     name: "Dashboard",
+    pillar: "BUSINESS",
     icon: LayoutDashboard,
     items: [
       { label: "Overview", href: "/admin", icon: LayoutDashboard },
       { label: "Search (Cmd+K)", href: "#search", icon: Search },
     ],
   },
+
+  // === BUSINESS PILLAR ===
   {
     name: "Operations",
+    pillar: "BUSINESS",
     icon: Settings,
     items: [
       "Users",
@@ -71,6 +86,7 @@ export const WORKSPACES = [
   },
   {
     name: "Community",
+    pillar: "BUSINESS",
     icon: Users,
     items: [
       "Community Members",
@@ -90,32 +106,8 @@ export const WORKSPACES = [
     ],
   },
   {
-    name: "Content",
-    icon: FileText,
-    items: [
-      "CMS",
-      "Homepage",
-      "Landing Pages",
-      "Page Builder",
-      "Blog",
-      "Categories",
-      "Authors",
-      "Gallery",
-      "Media Library",
-      "Videos",
-      "Resources",
-      "Testimonials",
-      "FAQs",
-      "Menus",
-      "Footer",
-      "Navigation",
-      "Forms Builder",
-      "Popup Builder",
-      "Banner Manager",
-    ],
-  },
-  {
     name: "Events",
+    pillar: "BUSINESS",
     icon: Calendar,
     items: [
       "Events",
@@ -140,6 +132,7 @@ export const WORKSPACES = [
   },
   {
     name: "Recruitment",
+    pillar: "BUSINESS",
     icon: Briefcase,
     items: [
       "Companies",
@@ -154,6 +147,7 @@ export const WORKSPACES = [
   },
   {
     name: "Marketing",
+    pillar: "BUSINESS",
     icon: Megaphone,
     items: [
       "Newsletter",
@@ -170,49 +164,8 @@ export const WORKSPACES = [
     ],
   },
   {
-    name: "Analytics",
-    icon: BarChart3,
-    items: [
-      "Dashboard",
-      "Users",
-      "Traffic",
-      "Events",
-      "Jobs",
-      "Organizations",
-      "Countries",
-      "Cities",
-      "Devices",
-      "Browsers",
-      "Conversions",
-      "Funnels",
-      "Retention",
-      "Reports",
-      "Heatmaps",
-      "Realtime",
-      "Exports",
-    ],
-  },
-  {
-    name: "AI Center",
-    icon: Bot,
-    items: [
-      "AI Dashboard",
-      "AI Search",
-      "AI Chatbot",
-      "AI Career Advisor",
-      "AI Resume Review",
-      "AI Analytics",
-      "AI Content Generator",
-      "AI Moderation",
-      "Prompt Library",
-      "Prompt Templates",
-      "AI Logs",
-      "Token Usage",
-      "AI Settings",
-    ],
-  },
-  {
     name: "Finance",
+    pillar: "BUSINESS",
     icon: CreditCard,
     items: [
       "Payments",
@@ -227,8 +180,39 @@ export const WORKSPACES = [
       "Reports",
     ],
   },
+
+  // === CONTENT PILLAR ===
+  {
+    name: "Content",
+    pillar: "CONTENT",
+    icon: FileText,
+    items: [
+      "CMS",
+      "Homepage",
+      "Landing Pages",
+      "Page Builder",
+      "Blog",
+      "Categories",
+      "Authors",
+      "Gallery",
+      "Media Library",
+      "Videos",
+      "Resources",
+      "Testimonials",
+      "FAQs",
+      "Menus",
+      "Footer",
+      "Navigation",
+      "Forms Builder",
+      "Popup Builder",
+      "Banner Manager",
+    ],
+  },
+
+  // === PLATFORM PILLAR ===
   {
     name: "System",
+    pillar: "PLATFORM",
     icon: Cpu,
     items: [
       "Settings",
@@ -252,6 +236,7 @@ export const WORKSPACES = [
   },
   {
     name: "Developer",
+    pillar: "PLATFORM",
     icon: Terminal,
     items: [
       "API Explorer",
@@ -272,7 +257,54 @@ export const WORKSPACES = [
     ],
   },
   {
+    name: "AI Center",
+    pillar: "PLATFORM",
+    icon: Bot,
+    items: [
+      "AI Dashboard",
+      "AI Search",
+      "AI Chatbot",
+      "AI Career Advisor",
+      "AI Resume Review",
+      "AI Analytics",
+      "AI Content Generator",
+      "AI Moderation",
+      "Prompt Library",
+      "Prompt Templates",
+      "AI Logs",
+      "Token Usage",
+      "AI Settings",
+    ],
+  },
+  {
+    name: "Analytics",
+    pillar: "PLATFORM",
+    icon: BarChart3,
+    items: [
+      "Dashboard",
+      "Users",
+      "Traffic",
+      "Events",
+      "Jobs",
+      "Organizations",
+      "Countries",
+      "Cities",
+      "Devices",
+      "Browsers",
+      "Conversions",
+      "Funnels",
+      "Retention",
+      "Reports",
+      "Heatmaps",
+      "Realtime",
+      "Exports",
+    ],
+  },
+
+  // === PERSONAL PILLAR ===
+  {
     name: "Personal",
+    pillar: "PERSONAL",
     icon: UserCircle,
     items: [
       "My Profile",

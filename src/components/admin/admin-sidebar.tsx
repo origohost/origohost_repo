@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 import { LogOut, ChevronLeft, ChevronRight, Search, Grip, LayoutDashboard } from "lucide-react";
 import { useState } from "react";
 import { useAuth } from "@/hooks/use-auth";
-import { WORKSPACES, WORKSPACE_OVERRIDES, slugify } from "@/config/admin";
+import { WORKSPACES, WORKSPACE_OVERRIDES, ADMIN_PILLARS, slugify } from "@/config/admin";
 import { BrandLogo } from "@/components/brand/brand-logo";
 
 export function AdminSidebar() {
@@ -21,9 +21,9 @@ export function AdminSidebar() {
 
   return (
     <div className="hidden md:flex h-screen bg-white shrink-0">
-      {/* 1. Thin Left Rail (Workspace Switcher) - Linear Style */}
+      {/* 1. Thin Left Rail (Workspace Switcher) - Grouped by Pillar */}
       <aside className="w-16 flex flex-col items-center border-r border-[var(--brand-ink)]/10 bg-zinc-50/50 py-4 z-20">
-        <div className="mb-6">
+        <div className="mb-4">
           <Link
             to="/"
             className="grid h-10 w-10 place-items-center rounded-xl bg-[var(--brand-ink)] text-white shadow-sm transition-transform hover:scale-105"
@@ -32,22 +32,34 @@ export function AdminSidebar() {
           </Link>
         </div>
 
-        <div className="flex-1 w-full space-y-2 px-2 overflow-y-auto scrollbar-hide flex flex-col items-center">
-          {WORKSPACES.map((ws) => (
-            <button
-              key={ws.name}
-              onClick={() => setActiveWorkspace(ws.name)}
-              title={ws.name}
-              className={cn(
-                "grid h-10 w-10 place-items-center rounded-xl transition-all",
-                activeWorkspace === ws.name
-                  ? "bg-[var(--brand-orange)]/10 text-[var(--brand-orange)] ring-1 ring-[var(--brand-orange)]/20"
-                  : "text-[var(--brand-ink)]/50 hover:bg-[var(--brand-ink)]/5 hover:text-[var(--brand-ink)]",
-              )}
-            >
-              <ws.icon className="h-5 w-5" />
-            </button>
-          ))}
+        <div className="flex-1 w-full space-y-4 px-2 overflow-y-auto scrollbar-hide flex flex-col items-center">
+          {ADMIN_PILLARS.map((pillar) => {
+            const pillarWorkspaces = WORKSPACES.filter((w) => w.pillar === pillar.id);
+            if (pillarWorkspaces.length === 0) return null;
+
+            return (
+              <div key={pillar.id} className="w-full flex flex-col items-center space-y-1.5 pt-1 border-t border-[var(--brand-ink)]/5 first:border-t-0 first:pt-0">
+                <span className="text-[9px] font-black uppercase tracking-wider text-[var(--brand-ink)]/40 px-1 select-none">
+                  {pillar.id.slice(0, 3)}
+                </span>
+                {pillarWorkspaces.map((ws) => (
+                  <button
+                    key={ws.name}
+                    onClick={() => setActiveWorkspace(ws.name)}
+                    title={`${ws.name} (${pillar.name} Pillar)`}
+                    className={cn(
+                      "grid h-10 w-10 place-items-center rounded-xl transition-all relative group",
+                      activeWorkspace === ws.name
+                        ? "bg-[var(--brand-orange)]/10 text-[var(--brand-orange)] ring-1 ring-[var(--brand-orange)]/20"
+                        : "text-[var(--brand-ink)]/50 hover:bg-[var(--brand-ink)]/5 hover:text-[var(--brand-ink)]",
+                    )}
+                  >
+                    <ws.icon className="h-4 w-4" />
+                  </button>
+                ))}
+              </div>
+            );
+          })}
         </div>
 
         <div className="mt-4 w-full px-2">
@@ -68,9 +80,12 @@ export function AdminSidebar() {
           collapsed ? "w-0 overflow-hidden border-r-0 opacity-0" : "w-[260px] opacity-100",
         )}
       >
-        <div className="flex h-16 items-center px-6 border-b border-[var(--brand-ink)]/5 shrink-0">
-          <h2 className="font-bold text-[var(--brand-ink)] flex items-center gap-2">
-            <currentWorkspace.icon className="h-4 w-4 opacity-50" />
+        <div className="flex flex-col justify-center px-6 py-4 border-b border-[var(--brand-ink)]/5 shrink-0 bg-zinc-50/30">
+          <span className="text-[10px] font-bold uppercase tracking-widest text-[var(--brand-orange)] font-mono">
+            {currentWorkspace.pillar} PILLAR
+          </span>
+          <h2 className="font-bold text-[var(--brand-ink)] flex items-center gap-2 mt-0.5 text-base">
+            <currentWorkspace.icon className="h-4 w-4 opacity-70 text-[var(--brand-orange)]" />
             {currentWorkspace.name}
           </h2>
         </div>
@@ -116,7 +131,7 @@ export function AdminSidebar() {
                     className={cn(
                       "group flex items-center rounded-xl px-3 py-2.5 text-sm font-medium transition-all",
                       isActive
-                        ? "bg-[var(--brand-ink)]/5 text-[var(--brand-ink)]"
+                        ? "bg-[var(--brand-ink)]/5 text-[var(--brand-ink)] font-bold"
                         : "text-[var(--brand-ink)]/60 hover:bg-[var(--brand-ink)]/5 hover:text-[var(--brand-ink)]",
                     )}
                   >
