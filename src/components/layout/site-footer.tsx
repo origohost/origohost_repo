@@ -40,39 +40,46 @@ const stagger = {
 };
 
 const EXPLORE_LINKS = [
-  { label: "About", to: "/about" },
+  { label: "Events", to: "/events" },
   { label: "Programs", to: "/programs" },
-  { label: "Events", to: "/community/events" },
-  { label: "Community", to: "/community" },
   { label: "Projects", to: "/projects" },
-  { label: "Research", to: "/research" },
-  { label: "Resources", to: "/resources" },
-  { label: "Blog", to: "/blog" },
+  { label: "Opportunities", to: "/opportunities" },
+  { label: "About Us", to: "/about" },
+];
+
+const DOMAINS_LINKS = [
+  { label: "Artificial Intelligence", to: "/domains" },
+  { label: "Cloud Computing", to: "/domains" },
+  { label: "Cybersecurity", to: "/domains" },
+  { label: "DevOps & Infrastructure", to: "/domains" },
+  { label: "Software Engineering", to: "/domains" },
+  { label: "Robotics & Web3", to: "/domains" },
+];
+
+const INDUSTRIES_LINKS = [
+  { label: "Agriculture & AgriTech", to: "/industries" },
+  { label: "FinTech & Business", to: "/industries" },
+  { label: "Healthcare & HealthTech", to: "/industries" },
+  { label: "EdTech & Learning", to: "/industries" },
+  { label: "Smart Cities & IoT", to: "/industries" },
 ];
 
 const COMMUNITY_LINKS = [
-  { label: "Join", to: "/register" },
-  { label: "Events", to: "/community/events" },
-  { label: "Hackathons", to: "/community/events?type=hackathon" },
-  { label: "Workshops", to: "/community/events?type=workshop" },
-  { label: "Meetups", to: "/community/events?type=meetup" },
-  { label: "Certificates", to: "/certificates" },
+  { label: "Join Community", to: "/register" },
+  { label: "Speakers & Experts", to: "/speakers" },
+  { label: "Mentors & Leaders", to: "/mentors" },
+  { label: "Gallery", to: "/gallery" },
+  { label: "Partners", to: "/partners" },
+  { label: "Sponsors", to: "/sponsor" },
 ];
 
-const ECOSYSTEM_LINKS = [
-  { label: "Origo Cloud", to: "/cloud" },
-  { label: "Origo Academy", to: "/academy" },
-  { label: "Origo Community", to: "/community" },
-  { label: "Origo Events", to: "/community/events" },
-  { label: "Origo AI", to: "/topics/ai" },
-  { label: "Origo Dev", to: "/open-source" },
-];
-
-const CONNECT_LINKS = [
-  { label: "Contact", to: "/contact" },
-  { label: "Partnerships", to: "/partners" },
-  { label: "Sponsorships", to: "/sponsor" },
+const KNOWLEDGE_LINKS = [
+  { label: "Knowledge Hub", to: "/knowledge" },
+  { label: "Research (Origo Labs)", to: "/research" },
+  { label: "Resources & Guides", to: "/resources" },
+  { label: "Blog & Insights", to: "/blog" },
   { label: "FAQ", to: "/faq" },
+  { label: "Contact", to: "/contact" },
 ];
 
 const LEGAL_LINKS = [
@@ -114,7 +121,7 @@ function FooterCol({ title, links }: { title: string; links: { to: string; label
       <div
         className={`overflow-hidden transition-all duration-300 lg:!max-h-none lg:opacity-100 ${isOpen ? "max-h-96 opacity-100 pb-3" : "max-h-0 opacity-0"}`}
       >
-        <ul className="space-y-2.5 text-xs text-white/60 font-medium w-full">
+        <ul className="space-y-2.5 text-xs text-slate-400 font-medium w-full">
           {links.map((l) => (
             <li key={l.label}>
               <a
@@ -151,9 +158,9 @@ export function SiteFooter() {
         {/* FOOTER CTA BANNER */}
         <div className="mb-16 rounded-3xl bg-gradient-to-r from-blue-900/40 via-blue-800/30 to-emerald-900/30 p-8 border border-white/10 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
           <div>
-            <h3 className="text-2xl font-black text-white">Ready to build with us?</h3>
+            <h3 className="text-2xl font-black text-white">Your Next Build Could Start Here.</h3>
             <p className="text-xs text-slate-300 mt-1">
-              Join thousands of developers and builders shaping the future of technology.
+              Learn something new. Meet someone new. Build something meaningful.
             </p>
           </div>
           <Button
@@ -174,9 +181,9 @@ export function SiteFooter() {
           variants={stagger}
           className="flex flex-col gap-12"
         >
-          {/* ROW 1: Brand Info & Navigation Columns */}
+          {/* Brand Info & Columns */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
-            {/* Left: Brand Description */}
+            {/* Left: Brand */}
             <div className="lg:col-span-3 flex flex-col items-center lg:items-start text-center lg:text-left">
               <a
                 href="/"
@@ -193,9 +200,8 @@ export function SiteFooter() {
                   </span>
                 </span>
               </a>
-              <p className="text-white/70 text-xs leading-relaxed mb-6 max-w-xs">
-                A technology community and ecosystem for people learning, building, and shaping what
-                comes next.
+              <p className="text-slate-300 text-xs leading-relaxed mb-6 max-w-xs">
+                A Technology Community Where Ideas, People & Possibilities Connect.
               </p>
               <div className="flex flex-wrap justify-center lg:justify-start gap-2 w-full">
                 <a
@@ -207,10 +213,10 @@ export function SiteFooter() {
                   <MessageCircle className="h-3.5 w-3.5" /> WhatsApp
                 </a>
                 <a
-                  href="/become-ambassador"
+                  href="/register"
                   className="inline-flex items-center justify-center gap-1.5 text-xs font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20 px-3 py-1.5 rounded-lg hover:bg-blue-500/20 transition-colors"
                 >
-                  <Shield className="h-3.5 w-3.5" /> Ambassador
+                  <Shield className="h-3.5 w-3.5" /> Join Community
                 </a>
               </div>
             </div>
@@ -218,17 +224,17 @@ export function SiteFooter() {
             {/* Navigation Columns */}
             <div className="lg:col-span-9 grid grid-cols-2 sm:grid-cols-5 gap-6 border-t border-white/5 pt-6 lg:pt-0 lg:border-t-0">
               <FooterCol title="Explore" links={EXPLORE_LINKS} />
+              <FooterCol title="Domains" links={DOMAINS_LINKS} />
+              <FooterCol title="Industries" links={INDUSTRIES_LINKS} />
               <FooterCol title="Community" links={COMMUNITY_LINKS} />
-              <FooterCol title="Ecosystem" links={ECOSYSTEM_LINKS} />
-              <FooterCol title="Connect" links={CONNECT_LINKS} />
-              <FooterCol title="Legal" links={LEGAL_LINKS} />
+              <FooterCol title="Knowledge" links={KNOWLEDGE_LINKS} />
             </div>
           </div>
 
-          {/* ROW 2: Social Icons */}
+          {/* Social Icons & Copyright */}
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4 pt-6 border-t border-white/5">
-            <div className="text-xs text-white/50 font-medium text-center sm:text-left">
-              © 2026 OrigoHOST. All rights reserved. Where Builders Become Innovators.
+            <div className="text-xs text-slate-400 font-medium text-center sm:text-left">
+              © 2026 OrigoHOST. All rights reserved. Learn. Connect. Compete. Build.
             </div>
 
             <motion.div variants={fadeUp} className="flex flex-wrap justify-center gap-2">
@@ -239,7 +245,7 @@ export function SiteFooter() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 border border-white/10 text-white/70 transition-all hover:bg-white/15 hover:text-white"
+                  className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 border border-white/10 text-slate-300 transition-all hover:bg-white/15 hover:text-white"
                 >
                   <Icon className="h-3.5 w-3.5" />
                 </a>

@@ -10,7 +10,13 @@ import {
   ChevronDown,
   User as UserIcon,
   LayoutDashboard,
-  Search,
+  Sparkles,
+  Layers,
+  Cpu,
+  Globe,
+  BookOpen,
+  Users,
+  Trophy,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { BrandLogo } from "@/components/brand/brand-logo";
@@ -25,25 +31,59 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-const MAIN_NAV = [
-  { to: "/about", label: "About" },
-  { to: "/programs", label: "Programs" },
-  { to: "/community/events", label: "Events" },
-  { to: "/community", label: "Community" },
-  { to: "/projects", label: "Projects" },
-  { to: "/resources", label: "Resources" },
-  { to: "/blog", label: "Blog" },
+const EXPLORE_MENU = [
+  { to: "/events", label: "Events", desc: "Meetups, Hackathons, Ideathons, KSS & Seminars" },
+  {
+    to: "/domains",
+    label: "Technology Domains",
+    desc: "AI, Cloud, Cyber, DevOps, Data, Web3 & Robotics",
+  },
+  {
+    to: "/industries",
+    label: "Industries & Fields",
+    desc: "AgriTech, FinTech, HealthTech, EdTech & Smart Cities",
+  },
+  { to: "/programs", label: "Programs", desc: "Bootcamps, Learning Cohorts & Technical Training" },
+  { to: "/projects", label: "Projects", desc: "Open Source & Real-World Innovations" },
+  {
+    to: "/opportunities",
+    label: "Opportunities",
+    desc: "Competitions, Speaking, Mentorship & Volunteering",
+  },
 ] as const;
 
-const MORE_NAV = [
-  { to: "/research", label: "Research" },
-  { to: "/gallery", label: "Gallery" },
-  { to: "/leadership", label: "Team" },
-  { to: "/partners", label: "Partners" },
-  { to: "/sponsor", label: "Sponsors" },
-  { to: "/certificates", label: "Certificates" },
-  { to: "/faq", label: "FAQ" },
-  { to: "/contact", label: "Contact" },
+const COMMUNITY_MENU = [
+  {
+    to: "/community",
+    label: "Community",
+    desc: "Meet developers, students, researchers & founders",
+  },
+  {
+    to: "/speakers",
+    label: "Speakers & Experts",
+    desc: "Learn from industry practitioners & leaders",
+  },
+  {
+    to: "/mentors",
+    label: "Mentors & Leaders",
+    desc: "Connect with community guides & organizers",
+  },
+  { to: "/gallery", label: "Gallery", desc: "Moments from workshops, hackathons & meetups" },
+] as const;
+
+const KNOWLEDGE_MENU = [
+  {
+    to: "/knowledge",
+    label: "Knowledge Hub",
+    desc: "Articles, Tutorials, Guides & Event Insights",
+  },
+  {
+    to: "/research",
+    label: "Research (Origo Labs)",
+    desc: "Emerging tech & distributed systems research",
+  },
+  { to: "/resources", label: "Resources", desc: "Developer tools, playbooks & learning paths" },
+  { to: "/blog", label: "Blog & Stories", desc: "Community insights & technology articles" },
 ] as const;
 
 export function SiteHeader() {
@@ -129,8 +169,8 @@ export function SiteHeader() {
         onPointerMove={onPointerMove}
         onPointerLeave={onPointerLeave}
         className={
-          "group relative mx-auto flex items-center justify-between gap-2 xl:gap-4 overflow-hidden rounded-full px-3 sm:px-4 py-2 lg:py-2.5 will-change-transform " +
-          "border border-white/20 bg-slate-900/90 text-white " +
+          "group relative mx-auto flex items-center justify-between gap-3 overflow-hidden rounded-full px-4 py-2 lg:py-2.5 will-change-transform " +
+          "border border-white/20 bg-slate-900/95 text-white " +
           "backdrop-blur-xl backdrop-saturate-150 shadow-2xl " +
           "motion-safe:transition-[max-width,box-shadow] motion-safe:duration-500 motion-safe:ease-out"
         }
@@ -166,61 +206,116 @@ export function SiteHeader() {
           </Link>
         </motion.div>
 
-        {/* Primary Desktop Navigation */}
+        {/* Primary Mega Navigation */}
         <nav
-          className="relative hidden items-center gap-1 xl:gap-1.5 lg:flex"
+          className="relative hidden items-center gap-1 xl:gap-2 lg:flex"
           aria-label="Main"
           style={{ transform: "translateZ(24px)" }}
         >
-          {MAIN_NAV.map((item) => {
-            const isActive =
-              item.to === "/community" ? pathname === "/community" : pathname.startsWith(item.to);
-            return (
-              <Link
-                key={item.to}
-                to={item.to}
-                className={`relative rounded-full px-2.5 py-1.5 text-xs xl:text-sm font-semibold transition-colors ${
-                  isActive
-                    ? "text-white bg-white/15"
-                    : "text-slate-300 hover:text-white hover:bg-white/10"
-                }`}
-              >
-                <span className="relative z-10">{item.label}</span>
-              </Link>
-            );
-          })}
-
-          {/* More / Explore Dropdown */}
+          {/* Explore Dropdown */}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <button className="flex items-center gap-1 rounded-full px-2.5 py-1.5 text-xs xl:text-sm font-semibold text-slate-300 hover:text-white hover:bg-white/10 transition-colors outline-none">
+              <button className="flex items-center gap-1 rounded-full px-3 py-1.5 text-xs xl:text-sm font-semibold text-slate-200 hover:text-white hover:bg-white/10 transition-colors outline-none">
                 <span>Explore</span>
                 <ChevronDown className="h-3.5 w-3.5 opacity-70" />
               </button>
             </DropdownMenuTrigger>
             <DropdownMenuContent
-              align="end"
-              className="w-48 p-2 rounded-2xl bg-slate-900/95 text-white backdrop-blur-xl border border-white/10 shadow-2xl z-50"
+              align="start"
+              className="w-72 p-2 rounded-2xl bg-slate-900/95 text-white backdrop-blur-xl border border-white/10 shadow-2xl z-50"
             >
-              <DropdownMenuLabel className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
-                More Ecosystem Pages
+              <DropdownMenuLabel className="text-[10px] font-bold uppercase tracking-wider text-slate-400 px-3 py-1">
+                Explore Ecosystem
               </DropdownMenuLabel>
               <DropdownMenuSeparator className="bg-white/10" />
-              {MORE_NAV.map((sub) => (
-                <DropdownMenuItem key={sub.to} asChild>
+              {EXPLORE_MENU.map((item) => (
+                <DropdownMenuItem key={item.to} asChild>
                   <Link
-                    to={sub.to}
-                    className="cursor-pointer font-medium text-xs text-slate-200 hover:text-white rounded-xl py-2"
+                    to={item.to}
+                    className="cursor-pointer flex flex-col items-start gap-0.5 rounded-xl px-3 py-2 hover:bg-white/10"
                   >
-                    {sub.label}
+                    <span className="font-bold text-xs text-white">{item.label}</span>
+                    <span className="text-[10px] text-slate-400 leading-tight">{item.desc}</span>
                   </Link>
                 </DropdownMenuItem>
               ))}
             </DropdownMenuContent>
           </DropdownMenu>
+
+          {/* Community Dropdown */}
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <button className="flex items-center gap-1 rounded-full px-3 py-1.5 text-xs xl:text-sm font-semibold text-slate-200 hover:text-white hover:bg-white/10 transition-colors outline-none">
+                <span>Community</span>
+                <ChevronDown className="h-3.5 w-3.5 opacity-70" />
+              </button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent
+              align="start"
+              className="w-72 p-2 rounded-2xl bg-slate-900/95 text-white backdrop-blur-xl border border-white/10 shadow-2xl z-50"
+            >
+              <DropdownMenuLabel className="text-[10px] font-bold uppercase tracking-wider text-slate-400 px-3 py-1">
+                People & Network
+              </DropdownMenuLabel>
+              <DropdownMenuSeparator className="bg-white/10" />
+              {COMMUNITY_MENU.map((item) => (
+                <DropdownMenuItem key={item.to} asChild>
+                  <Link
+                    to={item.to}
+                    className="cursor-pointer flex flex-col items-start gap-0.5 rounded-xl px-3 py-2 hover:bg-white/10"
+                  >
+                    <span className="font-bold text-xs text-white">{item.label}</span>
+                    <span className="text-[10px] text-slate-400 leading-tight">{item.desc}</span>
+                  </Link>
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
+
+          {/* Knowledge Dropdown */}
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <button className="flex items-center gap-1 rounded-full px-3 py-1.5 text-xs xl:text-sm font-semibold text-slate-200 hover:text-white hover:bg-white/10 transition-colors outline-none">
+                <span>Knowledge</span>
+                <ChevronDown className="h-3.5 w-3.5 opacity-70" />
+              </button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent
+              align="start"
+              className="w-72 p-2 rounded-2xl bg-slate-900/95 text-white backdrop-blur-xl border border-white/10 shadow-2xl z-50"
+            >
+              <DropdownMenuLabel className="text-[10px] font-bold uppercase tracking-wider text-slate-400 px-3 py-1">
+                Insights & Research
+              </DropdownMenuLabel>
+              <DropdownMenuSeparator className="bg-white/10" />
+              {KNOWLEDGE_MENU.map((item) => (
+                <DropdownMenuItem key={item.to} asChild>
+                  <Link
+                    to={item.to}
+                    className="cursor-pointer flex flex-col items-start gap-0.5 rounded-xl px-3 py-2 hover:bg-white/10"
+                  >
+                    <span className="font-bold text-xs text-white">{item.label}</span>
+                    <span className="text-[10px] text-slate-400 leading-tight">{item.desc}</span>
+                  </Link>
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
+
+          {/* About Link */}
+          <Link
+            to="/about"
+            className={`rounded-full px-3 py-1.5 text-xs xl:text-sm font-semibold transition-colors ${
+              pathname === "/about"
+                ? "text-white bg-white/15"
+                : "text-slate-200 hover:text-white hover:bg-white/10"
+            }`}
+          >
+            About
+          </Link>
         </nav>
 
-        {/* Action Button & User Profile */}
+        {/* Action Button & Profile */}
         <div className="relative flex items-center gap-2" style={{ transform: "translateZ(30px)" }}>
           {user ? (
             <DropdownMenu>
@@ -302,7 +397,7 @@ export function SiteHeader() {
         </div>
       </div>
 
-      {/* Mobile Drawer Menu (z-40 so it floats above content) */}
+      {/* Mobile Drawer Menu (z-40 floating overlay) */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -323,34 +418,44 @@ export function SiteHeader() {
           >
             <div className="flex flex-col gap-1.5 mt-2">
               <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 px-3 mb-1">
-                Main Menu
-              </span>
-              {MAIN_NAV.map((item) => (
-                <Link
-                  key={item.to}
-                  to={item.to}
-                  onClick={() => setOpen(false)}
-                  className="block rounded-xl px-4 py-2.5 text-base font-bold text-slate-200 hover:bg-white/10 hover:text-white transition-colors"
-                >
-                  {item.label}
-                </Link>
-              ))}
-
-              <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 px-3 mt-4 mb-1">
-                Explore More
+                Explore Ecosystem
               </span>
               <div className="grid grid-cols-2 gap-1.5">
-                {MORE_NAV.map((sub) => (
+                {EXPLORE_MENU.map((item) => (
                   <Link
-                    key={sub.to}
-                    to={sub.to}
+                    key={item.to}
+                    to={item.to}
                     onClick={() => setOpen(false)}
-                    className="block rounded-xl px-3 py-2 text-xs font-semibold text-slate-300 hover:bg-white/10 hover:text-white transition-colors"
+                    className="block rounded-xl px-3 py-2 text-xs font-semibold text-slate-200 hover:bg-white/10 transition-colors"
                   >
-                    {sub.label}
+                    {item.label}
                   </Link>
                 ))}
               </div>
+
+              <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 px-3 mt-4 mb-1">
+                Community & Knowledge
+              </span>
+              <div className="grid grid-cols-2 gap-1.5">
+                {COMMUNITY_MENU.concat(KNOWLEDGE_MENU).map((item) => (
+                  <Link
+                    key={item.to}
+                    to={item.to}
+                    onClick={() => setOpen(false)}
+                    className="block rounded-xl px-3 py-2 text-xs font-semibold text-slate-200 hover:bg-white/10 transition-colors"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+
+              <Link
+                to="/about"
+                onClick={() => setOpen(false)}
+                className="mt-3 block rounded-xl px-4 py-2.5 text-base font-bold text-white bg-white/10"
+              >
+                About OrigoHOST
+              </Link>
             </div>
 
             {!user && (

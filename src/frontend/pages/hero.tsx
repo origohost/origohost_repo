@@ -1,10 +1,19 @@
 import { m as motion } from "framer-motion";
-import { ArrowRight, Calendar, Users, GraduationCap, Code, Server, BookOpen } from "lucide-react";
+import {
+  ArrowRight,
+  Calendar,
+  Users,
+  GraduationCap,
+  BookOpen,
+  Layers,
+  Cpu,
+  Sparkles,
+} from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { Counter, ScaleIn, Tilt } from "@/components/motion/primitives";
 
-const CANONICAL_IMPACT = [
+const CANONICAL_METRICS = [
   { value: 90, suffix: "K+", label: "Developers & learners reached", icon: Users },
   { value: 500, suffix: "+", label: "Colleges & institutions", icon: GraduationCap },
   { value: 50, suffix: "+", label: "Community meetups", icon: Calendar },
@@ -18,14 +27,14 @@ export default function HeroSection() {
       data-testid="hero"
       className="relative overflow-hidden bg-[#050505] text-white"
     >
-      {/* Glow background effects */}
+      {/* Background glow radial */}
       <div className="absolute inset-0 pointer-events-none z-0">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-600/10 rounded-full blur-[120px]" />
         <div className="absolute right-0 top-1/4 w-[600px] h-[600px] bg-emerald-600/10 rounded-full blur-[100px]" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 pt-28 pb-12 sm:pt-36 sm:pb-16 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        {/* Left Content */}
+        {/* Left Side */}
         <div className="max-w-2xl">
           {/* Eyebrow */}
           <motion.div
@@ -38,7 +47,7 @@ export default function HeroSection() {
               <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-blue-500"></span>
             </span>
             <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-blue-400">
-              INDIA'S TECHNOLOGY COMMUNITY
+              TECHNOLOGY COMMUNITY • EVENTS • KNOWLEDGE • COLLABORATION
             </span>
           </motion.div>
 
@@ -49,10 +58,10 @@ export default function HeroSection() {
             transition={{ delay: 0.1 }}
             className="text-4xl font-black leading-[1.08] tracking-tight sm:text-5xl md:text-6xl lg:text-6xl mb-6"
           >
-            Build. Learn. Connect.
+            Where Technology Communities
             <br />
             <span className="text-[#0066ff] drop-shadow-[0_0_20px_rgba(0,102,255,0.4)]">
-              Shape What's Next.
+              Come Together.
             </span>
           </motion.h1>
 
@@ -61,11 +70,11 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-base sm:text-lg text-gray-300 leading-relaxed mb-8"
+            className="text-base sm:text-lg text-slate-300 leading-relaxed mb-8"
           >
-            OrigoHOST brings developers, students, builders, educators, and technology communities
-            together to learn modern technology, build real solutions, collaborate with peers, and
-            create meaningful impact.
+            OrigoHOST is a technology community bringing people together through meetups, seminars,
+            hackathons, ideathons, tech marathons, webinars, KSS sessions, workshops, and other
+            experiences across technology domains and real-world industries.
           </motion.p>
 
           {/* CTAs */}
@@ -80,8 +89,8 @@ export default function HeroSection() {
               size="lg"
               className="w-full sm:w-auto h-14 rounded-full bg-blue-600 hover:bg-blue-700 px-8 font-bold text-white shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_30px_rgba(37,99,235,0.6)] transition-all hover:scale-105"
             >
-              <Link to="/register">
-                Join the Community <ArrowRight className="ml-2 h-4 w-4" />
+              <Link to="/events">
+                Explore Events <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
 
@@ -91,25 +100,24 @@ export default function HeroSection() {
               variant="outline"
               className="w-full sm:w-auto h-14 rounded-full border-white/20 bg-white/5 px-8 font-bold text-white backdrop-blur-md hover:bg-white/10 hover:border-white/30 transition-all hover:-translate-y-1 group"
             >
-              <Link to="/community/events">
-                Explore Events{" "}
-                <Calendar className="ml-2 h-4 w-4 transition-transform group-hover:-rotate-12 group-hover:-translate-y-1" />
+              <Link to="/register">
+                Join the Community{" "}
+                <Users className="ml-2 h-4 w-4 transition-transform group-hover:scale-110" />
               </Link>
             </Button>
           </motion.div>
 
-          {/* Trust Statement */}
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.35 }}
-            className="text-xs font-semibold text-gray-400 tracking-wide"
+            className="text-xs font-semibold text-slate-400 tracking-wide"
           >
-            ✓ A growing ecosystem for people building the future of technology.
+            ✓ A Technology Community Where Ideas, People & Possibilities Connect.
           </motion.div>
         </div>
 
-        {/* Right Content / Brand Graphic */}
+        {/* Right Graphic */}
         <div className="relative min-h-[360px] lg:min-h-[440px] flex items-center justify-center mt-6 lg:mt-0">
           <Tilt>
             <div className="relative z-10 w-[260px] h-[260px] sm:w-[360px] sm:h-[360px] lg:w-[400px] lg:h-[400px] flex items-center justify-center transition-transform duration-500 hover:scale-105">
@@ -124,7 +132,7 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Curved Divider */}
+      {/* Curved Bottom Divider */}
       <div className="relative w-full h-[80px] sm:h-[120px] lg:h-[160px] overflow-hidden leading-none z-10 mt-auto">
         <svg
           viewBox="0 0 1440 320"
@@ -146,11 +154,11 @@ export default function HeroSection() {
         </svg>
       </div>
 
-      {/* Canonical Impact Counter Grid */}
+      {/* Impact Counter Grid */}
       <div className="relative bg-white z-20 pb-16">
         <div className="mx-auto max-w-6xl px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 -mt-8 md:-mt-12">
-            {CANONICAL_IMPACT.map((s, i) => (
+            {CANONICAL_METRICS.map((s, i) => (
               <ScaleIn key={s.label} delay={i * 0.08} from={0.85} className="h-full">
                 <Tilt className="group relative h-full flex flex-col items-center justify-center rounded-[2rem] bg-white p-6 text-center shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] border border-slate-200 transition-all duration-300 hover:shadow-lg hover:border-blue-300">
                   <div className="mb-4 grid h-12 w-12 place-items-center rounded-2xl bg-blue-50">
