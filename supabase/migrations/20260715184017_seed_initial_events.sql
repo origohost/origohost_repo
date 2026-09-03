@@ -1,0 +1,10 @@
+-- Seed initial events into events_v2 so the "View Details" button from the homepage works correctly.
+
+INSERT INTO public.events_v2 (slug, title, short_description, date, start_time, end_time, timezone, mode, venue_name, thumbnail_url, is_published, category)
+VALUES 
+('knowledge-sharing-series-2026', 'Knowledge Sharing Series 2026 — Building Intelligent Systems', 'A practical journey into Embedded Systems & Robotics with Mr. Kushagra Petwal, Chairperson of The Robotics Club, G. B. Pant University of Agriculture & Technology. Hosted by Mr. Tarun Kumar.', '2026-07-12', '12:00:00', '14:00:00', 'IST', 'Online', 'Live Webinar', '/event-poster.jpg', true, 'Workshop'),
+('community-meetup-workshop', 'Community Meetup & Workshop', 'Hands-on session exploring real-world cloud scaling, open-source projects, and networking with fellow engineers.', '2026-06-15', '10:00:00', '14:00:00', 'IST', 'Offline', 'Delhi NCR', '/event-gallery-1.jpg', true, 'Meetup'),
+('masterclass-modern-infrastructure', 'Masterclass: Modern Infrastructure', 'An immersive deep dive into containerization, Kubernetes, and setting up internal developer platforms.', '2026-05-22', '14:00:00', '17:00:00', 'IST', 'Offline', 'Bangalore', '/event-gallery-2.jpg', true, 'Workshop'),
+('educational-leadership-summit', 'Educational Leadership Summit', 'An exclusive meetup with 50+ school directors to share insights on enhancing educational performance, modern knowledge delivery, and how our infrastructure solutions empower learning institutions.', '2026-04-10', '11:00:00', '15:00:00', 'IST', 'Offline', 'Mathura', '/event-gallery-3.jpg', true, 'Conference'),
+('ai-foundation-awareness', 'AI Foundation & Awareness Workshop', 'An engaging workshop training students across different classes on AI evolution, real-world applications, and responsible usage. Focused on digital safety and empowering a future-ready generation.', '2026-03-05', '09:30:00', '12:30:00', 'IST', 'Offline', 'Delhi NCR', '/event-gallery-4.jpg', true, 'Workshop')
+ON CONFLICT (slug) DO NOTHING;

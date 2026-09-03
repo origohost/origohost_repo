@@ -1,0 +1,77 @@
+import type { EventsContent } from "../types";
+
+export const eventsContent: EventsContent = {
+  meta: {
+    slug: "events",
+    title: "Tech Events, Hackathons & Workshops | OrigoHOST",
+    description:
+      "Workshops, meetups, hackathons and bootcamps hosted by OrigoHOST Community across India.",
+    eyebrow: "Immersive Events",
+    heroTitle: "Learn, build & meet the operators shipping India's software",
+    heroDescription:
+      "Discover upcoming workshops, meetups, hackathons and bootcamps hosted across the country.",
+  },
+  categories: ["All", "Workshops", "Meetups", "Hackathons", "Bootcamps", "Webinars"],
+  events: [
+    {
+      id: "e1",
+      month: "MAY",
+      day: "25",
+      mode: "OFFLINE",
+      time: "10:00 AM",
+      title: "Platform Engineering Summit — Bengaluru",
+      city: "Bengaluru",
+      category: "Meetups",
+    },
+    {
+      id: "e2",
+      month: "JUN",
+      day: "12",
+      mode: "ONLINE",
+      time: "07:00 PM",
+      title: "Kubernetes at Scale — Live Workshop",
+      city: "Virtual",
+      category: "Workshops",
+    },
+    {
+      id: "e3",
+      month: "JUL",
+      day: "03",
+      mode: "OFFLINE",
+      time: "09:30 AM",
+      title: "OrigoHOST Cloud Meetup — Delhi NCR",
+      city: "Delhi NCR",
+      category: "Meetups",
+    },
+    {
+      id: "e4",
+      month: "JUL",
+      day: "20",
+      mode: "OFFLINE",
+      time: "09:00 AM",
+      title: "Origo Infra Hackathon — Regional Round",
+      city: "Pune",
+      category: "Hackathons",
+    },
+    {
+      id: "e5",
+      month: "AUG",
+      day: "08",
+      mode: "ONLINE",
+      time: "06:30 PM",
+      title: "SRE Foundations Bootcamp — Week 1",
+      city: "Virtual",
+      category: "Bootcamps",
+    },
+    {
+      id: "e6",
+      month: "AUG",
+      day: "22",
+      mode: "ONLINE",
+      time: "05:00 PM",
+      title: "Edge Compute Deep Dive Webinar",
+      city: "Virtual",
+      category: "Webinars",
+    },
+  ],
+};

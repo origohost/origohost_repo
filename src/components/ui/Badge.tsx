@@ -1,81 +1,32 @@
-import React from 'react';
-import { cn } from '@/lib/utils';
+import * as React from "react";
+import { cva, type VariantProps } from "class-variance-authority";
 
-export type BadgeVariant =
-  | 'primary'
-  | 'secondary'
-  | 'success'
-  | 'warning'
-  | 'error'
-  | 'info'
-  | 'neutral'
-  | 'orange'
-  | 'default'
-  | 'destructive'
-  | 'outline';
+import { cn } from "@/lib/utils";
 
-export type BadgeSize = 'sm' | 'md' | 'lg';
+const badgeVariants = cva(
+  "inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
+  {
+    variants: {
+      variant: {
+        default: "border-transparent bg-primary text-primary-foreground shadow hover:bg-primary/80",
+        secondary:
+          "border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80",
+        destructive:
+          "border-transparent bg-destructive text-destructive-foreground shadow hover:bg-destructive/80",
+        outline: "text-foreground",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+    },
+  },
+);
 
-export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
-  variant?: BadgeVariant;
-  size?: BadgeSize;
-  dot?: boolean;
-  className?: string;
-  children?: React.ReactNode;
+export interface BadgeProps
+  extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof badgeVariants> {}
+
+function Badge({ className, variant, ...props }: BadgeProps) {
+  return <div className={cn(badgeVariants({ variant }), className)} {...props} />;
 }
 
-const variantStyles: Record<BadgeVariant, string> = {
-  primary: 'bg-brand-primary/10 text-brand-primary border-brand-primary/20',
-  secondary: 'bg-surface-elevated text-foreground-muted border-border',
-  success: 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20',
-  warning: 'bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/20',
-  error: 'bg-rose-500/10 text-rose-600 dark:text-rose-400 border-rose-500/20',
-  destructive: 'bg-rose-500/10 text-rose-600 dark:text-rose-400 border-rose-500/20',
-  info: 'bg-sky-500/10 text-sky-600 dark:text-sky-400 border-sky-500/20',
-  neutral: 'bg-slate-500/10 text-slate-600 dark:text-slate-400 border-slate-500/20',
-  orange: 'bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/20',
-  default: 'bg-brand-primary/10 text-brand-primary border-brand-primary/20',
-  outline: 'bg-transparent text-foreground border-border',
-};
-
-const sizeStyles: Record<BadgeSize, string> = {
-  sm: 'px-2 py-0.5 text-[11px] font-mono font-medium',
-  md: 'px-2.5 py-1 text-body-xs font-mono font-semibold',
-  lg: 'px-3 py-1.5 text-body-sm font-mono font-bold',
-};
-
-export function Badge({
-  variant = 'primary',
-  size = 'md',
-  dot = false,
-  className,
-  children,
-  ...props
-}: BadgeProps) {
-  return (
-    <span
-      className={cn(
-        'inline-flex items-center gap-1.5 rounded-full border transition-colors select-none',
-        variantStyles[variant] || variantStyles.primary,
-        sizeStyles[size] || sizeStyles.md,
-        className
-      )}
-      {...props}
-    >
-      {dot && (
-        <span
-          className={cn(
-            'h-1.5 w-1.5 rounded-full shrink-0 animate-pulse',
-            variant === 'success' && 'bg-emerald-500',
-            variant === 'warning' && 'bg-amber-500',
-            variant === 'error' && 'bg-rose-500',
-            variant === 'info' && 'bg-sky-500',
-            (!variant || variant === 'primary' || variant === 'default') && 'bg-brand-primary'
-          )}
-          aria-hidden="true"
-        />
-      )}
-      {children}
-    </span>
-  );
-}
+export { Badge, badgeVariants };

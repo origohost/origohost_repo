@@ -9,68 +9,296 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as IndexRouteImport } from './routes/index'
-import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
-import { Route as AboutRouteImport } from './routes/about'
-import { Route as AuthRouteImport } from './routes/auth'
-import { Route as CommunityRouteImport } from './routes/community'
-import { Route as ContactRouteImport } from './routes/contact'
-import { Route as OrganizeAnEventRouteImport } from './routes/organize-an-event'
-import { Route as PartnershipsRouteImport } from './routes/partnerships'
-import { Route as ProgramsRouteImport } from './routes/programs'
+import { Route as TrustCenterRouteImport } from './routes/trust-center'
+import { Route as TransparencyReportRouteImport } from './routes/transparency-report'
+import { Route as TermsRouteImport } from './routes/terms'
+import { Route as SponsorRouteImport } from './routes/sponsor'
+import { Route as SecurityRouteImport } from './routes/security'
+import { Route as ScheduleCallRouteImport } from './routes/schedule-call'
+import { Route as RoadmapRouteImport } from './routes/roadmap'
 import { Route as ResourcesRouteImport } from './routes/resources'
-import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
-import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
-import { Route as AuthenticatedProfileRouteImport } from './routes/_authenticated/profile'
-import { Route as BlogIndexRouteImport } from './routes/blog/index'
-import { Route as BlogSlugRouteImport } from './routes/blog/$slug'
-import { Route as EventsIndexRouteImport } from './routes/events/index'
-import { Route as EventsSlugRouteImport } from './routes/events/$slug'
-import { Route as MembersIndexRouteImport } from './routes/members/index'
-import { Route as MembersIdRouteImport } from './routes/members/$id'
+import { Route as ResetPasswordRouteImport } from './routes/reset-password'
+import { Route as ResearchMethodologyRouteImport } from './routes/research-methodology'
+import { Route as RegisterRouteImport } from './routes/register'
+import { Route as RefundRouteImport } from './routes/refund'
+import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as PressRouteImport } from './routes/press'
+import { Route as PartnersRouteImport } from './routes/partners'
+import { Route as OpenSourceRouteImport } from './routes/open-source'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as LeadershipRouteImport } from './routes/leadership'
+import { Route as HostRouteImport } from './routes/host'
+import { Route as GlossaryRouteImport } from './routes/glossary'
+import { Route as GalleryRouteImport } from './routes/gallery'
+import { Route as ForgotPasswordRouteImport } from './routes/forgot-password'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as FactCheckingRouteImport } from './routes/fact-checking'
+import { Route as EditorialPolicyRouteImport } from './routes/editorial-policy'
+import { Route as EcosystemRouteImport } from './routes/ecosystem'
+import { Route as DevopsRouteImport } from './routes/devops'
+import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as CookiesRouteImport } from './routes/cookies'
+import { Route as ContributorsRouteImport } from './routes/contributors'
+import { Route as ContentPolicyRouteImport } from './routes/content-policy'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CommunityRouteImport } from './routes/community'
+import { Route as CodeOfConductRouteImport } from './routes/code-of-conduct'
+import { Route as CloudRouteImport } from './routes/cloud'
+import { Route as BlogRouteImport } from './routes/blog'
+import { Route as BecomeASponsorRouteImport } from './routes/become-a-sponsor'
+import { Route as AmbassadorRouteImport } from './routes/ambassador'
+import { Route as AcademyRouteImport } from './routes/academy'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as IndexRouteImport } from './routes/index'
+import { Route as CertificatesIndexRouteImport } from './routes/certificates.index'
+import { Route as AmbassadorIndexRouteImport } from './routes/ambassador.index'
+import { Route as AdminIndexRouteImport } from './routes/admin.index'
+import { Route as TopicsProgrammingRouteImport } from './routes/topics_.programming'
+import { Route as TopicsHackathonsRouteImport } from './routes/topics_.hackathons'
+import { Route as TopicsCyberSecurityRouteImport } from './routes/topics_.cyber-security'
+import { Route as TopicsCareerRouteImport } from './routes/topics_.career'
+import { Route as TopicsAiRouteImport } from './routes/topics_.ai'
+import { Route as TechnologiesTechRouteImport } from './routes/technologies.$tech'
+import { Route as SponsorSuccessRouteImport } from './routes/sponsor.success'
+import { Route as SponsorDashboardRouteImport } from './routes/sponsor.dashboard'
+import { Route as JobsJobIdRouteImport } from './routes/jobs.$jobId'
+import { Route as HostSuccessRouteImport } from './routes/host.success'
+import { Route as HostApplyRouteImport } from './routes/host.apply'
+import { Route as GlossaryTermRouteImport } from './routes/glossary.$term'
+import { Route as FoundersSlugRouteImport } from './routes/founders.$slug'
+import { Route as DashboardProposalsRouteImport } from './routes/dashboard.proposals'
+import { Route as CompareCompetitorRouteImport } from './routes/compare.$competitor'
+import { Route as CommunityChaptersRouteImport } from './routes/community_.chapters'
+import { Route as CommunityAmbassadorsRouteImport } from './routes/community_.ambassadors'
+import { Route as CloudVpsRouteImport } from './routes/cloud_.vps'
+import { Route as CloudKubernetesRouteImport } from './routes/cloud_.kubernetes'
+import { Route as CloudDedicatedRouteImport } from './routes/cloud_.dedicated'
+import { Route as CertificatesCertificateIdRouteImport } from './routes/certificates.$certificateId'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
+import { Route as AmbassadorDashboardRouteImport } from './routes/ambassador.dashboard'
+import { Route as AmbassadorApplyRouteImport } from './routes/ambassador.apply'
+import { Route as AdminUsersRouteImport } from './routes/admin.users'
+import { Route as AdminTestimonialsRouteImport } from './routes/admin.testimonials'
+import { Route as AdminSponsorsRouteImport } from './routes/admin.sponsors'
+import { Route as AdminSettingsRouteImport } from './routes/admin.settings'
+import { Route as AdminSeoRouteImport } from './routes/admin.seo'
+import { Route as AdminScheduleCallsRouteImport } from './routes/admin.schedule-calls'
+import { Route as AdminPartnersRouteImport } from './routes/admin.partners'
+import { Route as AdminPagesRouteImport } from './routes/admin.pages'
+import { Route as AdminPageBlocksRouteImport } from './routes/admin.page-blocks'
+import { Route as AdminNewsletterRouteImport } from './routes/admin.newsletter'
+import { Route as AdminNavigationRouteImport } from './routes/admin.navigation'
+import { Route as AdminMessagesRouteImport } from './routes/admin.messages'
+import { Route as AdminJobApplicationsRouteImport } from './routes/admin.job-applications'
+import { Route as AdminGalleryRouteImport } from './routes/admin.gallery'
+import { Route as AdminFaqRouteImport } from './routes/admin.faq'
+import { Route as AdminEventRegistrationsRouteImport } from './routes/admin.event-registrations'
+import { Route as AdminCertificatesRouteImport } from './routes/admin.certificates'
+import { Route as AdminBlogRouteImport } from './routes/admin.blog'
+import { Route as AdminAuditRouteImport } from './routes/admin.audit'
+import { Route as AboutVisionRouteImport } from './routes/about_.vision'
+import { Route as AboutResearchRouteImport } from './routes/about_.research'
+import { Route as AboutOrigohostRouteImport } from './routes/about_.origohost'
+import { Route as AboutMissionRouteImport } from './routes/about_.mission'
+import { Route as AboutHistoryRouteImport } from './routes/about_.history'
+import { Route as AboutFaqRouteImport } from './routes/about_.faq'
+import { Route as AboutCommunityRouteImport } from './routes/about_.community'
+import { Route as AboutBrandRouteImport } from './routes/about_.brand'
+import { Route as CommunityEventsIndexRouteImport } from './routes/community_.events.index'
+import { Route as CommunityAmbassadorsIndexRouteImport } from './routes/community_.ambassadors.index'
+import { Route as AdminEventsIndexRouteImport } from './routes/admin.events.index'
+import { Route as CommunityEventsEventIdRouteImport } from './routes/community_.events.$eventId'
+import { Route as CommunityAmbassadorsApplyRouteImport } from './routes/community_.ambassadors_.apply'
+import { Route as AdminSystemTimezoneRouteImport } from './routes/admin.system.timezone'
+import { Route as AdminSystemThemeRouteImport } from './routes/admin.system.theme'
+import { Route as AdminSystemSystemHealthRouteImport } from './routes/admin.system.system-health'
+import { Route as AdminSystemStorageRouteImport } from './routes/admin.system.storage'
+import { Route as AdminSystemSmtpRouteImport } from './routes/admin.system.smtp'
+import { Route as AdminSystemSecurityRouteImport } from './routes/admin.system.security'
+import { Route as AdminSystemRestoreRouteImport } from './routes/admin.system.restore'
+import { Route as AdminSystemMaintenanceRouteImport } from './routes/admin.system.maintenance'
+import { Route as AdminSystemLogoRouteImport } from './routes/admin.system.logo'
+import { Route as AdminSystemLocalizationRouteImport } from './routes/admin.system.localization'
+import { Route as AdminSystemIntegrationsRouteImport } from './routes/admin.system.integrations'
+import { Route as AdminSystemFeatureFlagsRouteImport } from './routes/admin.system.feature-flags'
+import { Route as AdminSystemEmailRouteImport } from './routes/admin.system.email'
+import { Route as AdminSystemDomainsRouteImport } from './routes/admin.system.domains'
+import { Route as AdminSystemBrandingRouteImport } from './routes/admin.system.branding'
+import { Route as AdminSystemBackupsRouteImport } from './routes/admin.system.backups'
+import { Route as AdminRecruitmentResumeScreeningRouteImport } from './routes/admin.recruitment.resume-screening'
+import { Route as AdminRecruitmentResumeDatabaseRouteImport } from './routes/admin.recruitment.resume-database'
+import { Route as AdminRecruitmentReportsRouteImport } from './routes/admin.recruitment.reports'
+import { Route as AdminRecruitmentRejectedRouteImport } from './routes/admin.recruitment.rejected'
+import { Route as AdminRecruitmentOfferLettersRouteImport } from './routes/admin.recruitment.offer-letters'
+import { Route as AdminRecruitmentInterviewPipelineRouteImport } from './routes/admin.recruitment.interview-pipeline'
+import { Route as AdminRecruitmentCompaniesRouteImport } from './routes/admin.recruitment.companies'
+import { Route as AdminRecruitmentApplicationsRouteImport } from './routes/admin.recruitment.applications'
+import { Route as AdminRecruitmentAnalyticsRouteImport } from './routes/admin.recruitment.analytics'
+import { Route as AdminPersonalSessionsRouteImport } from './routes/admin.personal.sessions'
+import { Route as AdminPersonalSecurityRouteImport } from './routes/admin.personal.security'
+import { Route as AdminPersonalPreferencesRouteImport } from './routes/admin.personal.preferences'
+import { Route as AdminPersonalNotificationsRouteImport } from './routes/admin.personal.notifications'
+import { Route as AdminPersonalMyProfileRouteImport } from './routes/admin.personal.my-profile'
+import { Route as AdminPersonalHelpRouteImport } from './routes/admin.personal.help'
+import { Route as AdminPersonalFeedbackRouteImport } from './routes/admin.personal.feedback'
+import { Route as AdminPersonalConnectedAccountsRouteImport } from './routes/admin.personal.connected-accounts'
+import { Route as AdminPersonalAppearanceRouteImport } from './routes/admin.personal.appearance'
+import { Route as AdminPersonalApiTokensRouteImport } from './routes/admin.personal.api-tokens'
+import { Route as AdminOperationsVolunteersRouteImport } from './routes/admin.operations.volunteers'
+import { Route as AdminOperationsVerificationCenterRouteImport } from './routes/admin.operations.verification-center'
+import { Route as AdminOperationsStudentsRouteImport } from './routes/admin.operations.students'
+import { Route as AdminOperationsSpeakersRouteImport } from './routes/admin.operations.speakers'
+import { Route as AdminOperationsSessionsRouteImport } from './routes/admin.operations.sessions'
+import { Route as AdminOperationsRolesRouteImport } from './routes/admin.operations.roles'
+import { Route as AdminOperationsRegistrationManagementRouteImport } from './routes/admin.operations.registration-management'
+import { Route as AdminOperationsRecycleBinRouteImport } from './routes/admin.operations.recycle-bin'
+import { Route as AdminOperationsRecruitersRouteImport } from './routes/admin.operations.recruiters'
+import { Route as AdminOperationsPermissionsRouteImport } from './routes/admin.operations.permissions'
+import { Route as AdminOperationsOrganizationsRouteImport } from './routes/admin.operations.organizations'
+import { Route as AdminOperationsMentorsRouteImport } from './routes/admin.operations.mentors'
+import { Route as AdminOperationsHostRequestsRouteImport } from './routes/admin.operations.host-requests'
+import { Route as AdminOperationsDeviceManagerRouteImport } from './routes/admin.operations.device-manager'
+import { Route as AdminOperationsAuditLogsRouteImport } from './routes/admin.operations.audit-logs'
+import { Route as AdminOperationsAdminsRouteImport } from './routes/admin.operations.admins'
+import { Route as AdminOperationsActivityTimelineRouteImport } from './routes/admin.operations.activity-timeline'
+import { Route as AdminMarketingSubscribersRouteImport } from './routes/admin.marketing.subscribers'
+import { Route as AdminMarketingSocialPostsRouteImport } from './routes/admin.marketing.social-posts'
+import { Route as AdminMarketingSeoManagerRouteImport } from './routes/admin.marketing.seo-manager'
+import { Route as AdminMarketingReferralProgramRouteImport } from './routes/admin.marketing.referral-program'
+import { Route as AdminMarketingPopupCampaignsRouteImport } from './routes/admin.marketing.popup-campaigns'
+import { Route as AdminMarketingNotificationsRouteImport } from './routes/admin.marketing.notifications'
+import { Route as AdminMarketingEmailTemplatesRouteImport } from './routes/admin.marketing.email-templates'
+import { Route as AdminMarketingCouponManagerRouteImport } from './routes/admin.marketing.coupon-manager'
+import { Route as AdminMarketingCampaignsRouteImport } from './routes/admin.marketing.campaigns'
+import { Route as AdminMarketingAnnouncementCenterRouteImport } from './routes/admin.marketing.announcement-center'
+import { Route as AdminFinanceTransactionsRouteImport } from './routes/admin.finance.transactions'
+import { Route as AdminFinanceTaxesRouteImport } from './routes/admin.finance.taxes'
+import { Route as AdminFinanceSubscriptionsRouteImport } from './routes/admin.finance.subscriptions'
+import { Route as AdminFinanceSponsorsRouteImport } from './routes/admin.finance.sponsors'
+import { Route as AdminFinanceRevenueRouteImport } from './routes/admin.finance.revenue'
+import { Route as AdminFinanceReportsRouteImport } from './routes/admin.finance.reports'
+import { Route as AdminFinanceRefundsRouteImport } from './routes/admin.finance.refunds'
+import { Route as AdminFinancePaymentsRouteImport } from './routes/admin.finance.payments'
+import { Route as AdminFinanceInvoicesRouteImport } from './routes/admin.finance.invoices'
+import { Route as AdminFinanceDonationsRouteImport } from './routes/admin.finance.donations'
+import { Route as AdminEventsVenuesRouteImport } from './routes/admin.events.venues'
+import { Route as AdminEventsSponsorsRouteImport } from './routes/admin.events.sponsors'
+import { Route as AdminEventsSpeakersRouteImport } from './routes/admin.events.speakers'
+import { Route as AdminEventsSchedulesRouteImport } from './routes/admin.events.schedules'
+import { Route as AdminEventsReviewsRouteImport } from './routes/admin.events.reviews'
+import { Route as AdminEventsReportsRouteImport } from './routes/admin.events.reports'
+import { Route as AdminEventsRegistrationRouteImport } from './routes/admin.events.registration'
+import { Route as AdminEventsQrTicketsRouteImport } from './routes/admin.events.qr-tickets'
+import { Route as AdminEventsQrCheckInRouteImport } from './routes/admin.events.qr-check-in'
+import { Route as AdminEventsLivestreamRouteImport } from './routes/admin.events.livestream'
+import { Route as AdminEventsFeedbackRouteImport } from './routes/admin.events.feedback'
+import { Route as AdminEventsEventGalleryRouteImport } from './routes/admin.events.event-gallery'
+import { Route as AdminEventsCategoriesRouteImport } from './routes/admin.events.categories'
+import { Route as AdminEventsCalendarRouteImport } from './routes/admin.events.calendar'
+import { Route as AdminEventsAttendanceRouteImport } from './routes/admin.events.attendance'
+import { Route as AdminDeveloperWebhookManagerRouteImport } from './routes/admin.developer.webhook-manager'
+import { Route as AdminDeveloperWebhookLogsRouteImport } from './routes/admin.developer.webhook-logs'
+import { Route as AdminDeveloperStorageBrowserRouteImport } from './routes/admin.developer.storage-browser'
+import { Route as AdminDeveloperSqlExplorerRouteImport } from './routes/admin.developer.sql-explorer'
+import { Route as AdminDeveloperQueueManagerRouteImport } from './routes/admin.developer.queue-manager'
+import { Route as AdminDeveloperFeatureFlagsRouteImport } from './routes/admin.developer.feature-flags'
+import { Route as AdminDeveloperErrorLogsRouteImport } from './routes/admin.developer.error-logs'
+import { Route as AdminDeveloperEnvironmentVariablesRouteImport } from './routes/admin.developer.environment-variables'
+import { Route as AdminDeveloperDeveloperToolsRouteImport } from './routes/admin.developer.developer-tools'
+import { Route as AdminDeveloperDeploymentLogsRouteImport } from './routes/admin.developer.deployment-logs'
+import { Route as AdminDeveloperDatabaseBrowserRouteImport } from './routes/admin.developer.database-browser'
+import { Route as AdminDeveloperCronJobsRouteImport } from './routes/admin.developer.cron-jobs'
+import { Route as AdminDeveloperApiKeysRouteImport } from './routes/admin.developer.api-keys'
+import { Route as AdminDeveloperApiExplorerRouteImport } from './routes/admin.developer.api-explorer'
+import { Route as AdminDeveloperActivityLogsRouteImport } from './routes/admin.developer.activity-logs'
+import { Route as AdminContentVideosRouteImport } from './routes/admin.content.videos'
+import { Route as AdminContentResourcesRouteImport } from './routes/admin.content.resources'
+import { Route as AdminContentPopupBuilderRouteImport } from './routes/admin.content.popup-builder'
+import { Route as AdminContentPageBuilderRouteImport } from './routes/admin.content.page-builder'
+import { Route as AdminContentMenusRouteImport } from './routes/admin.content.menus'
+import { Route as AdminContentMediaLibraryRouteImport } from './routes/admin.content.media-library'
+import { Route as AdminContentLandingPagesRouteImport } from './routes/admin.content.landing-pages'
+import { Route as AdminContentHomepageRouteImport } from './routes/admin.content.homepage'
+import { Route as AdminContentFormsBuilderRouteImport } from './routes/admin.content.forms-builder'
+import { Route as AdminContentFooterRouteImport } from './routes/admin.content.footer'
+import { Route as AdminContentCmsRouteImport } from './routes/admin.content.cms'
+import { Route as AdminContentCategoriesRouteImport } from './routes/admin.content.categories'
+import { Route as AdminContentBannerManagerRouteImport } from './routes/admin.content.banner-manager'
+import { Route as AdminContentAuthorsRouteImport } from './routes/admin.content.authors'
+import { Route as AdminCommunityVolunteerManagementRouteImport } from './routes/admin.community.volunteer-management'
+import { Route as AdminCommunityMentorshipRouteImport } from './routes/admin.community.mentorship'
+import { Route as AdminCommunityLeaderboardRouteImport } from './routes/admin.community.leaderboard'
+import { Route as AdminCommunityGroupsRouteImport } from './routes/admin.community.groups'
+import { Route as AdminCommunityForumsRouteImport } from './routes/admin.community.forums'
+import { Route as AdminCommunityDiscussionsRouteImport } from './routes/admin.community.discussions'
+import { Route as AdminCommunityCommunityMembersRouteImport } from './routes/admin.community.community-members'
+import { Route as AdminCommunityCommunityAnalyticsRouteImport } from './routes/admin.community.community-analytics'
+import { Route as AdminCommunityCommunitiesRouteImport } from './routes/admin.community.communities'
+import { Route as AdminCommunityCampusAmbassadorRouteImport } from './routes/admin.community.campus-ambassador'
+import { Route as AdminCommunityBadgesRouteImport } from './routes/admin.community.badges'
+import { Route as AdminCommunityAnnouncementsRouteImport } from './routes/admin.community.announcements'
+import { Route as AdminCommunityAchievementsRouteImport } from './routes/admin.community.achievements'
+import { Route as AdminAnalyticsTrafficRouteImport } from './routes/admin.analytics.traffic'
+import { Route as AdminAnalyticsRetentionRouteImport } from './routes/admin.analytics.retention'
+import { Route as AdminAnalyticsReportsRouteImport } from './routes/admin.analytics.reports'
+import { Route as AdminAnalyticsRealtimeRouteImport } from './routes/admin.analytics.realtime'
+import { Route as AdminAnalyticsOrganizationsRouteImport } from './routes/admin.analytics.organizations'
+import { Route as AdminAnalyticsHeatmapsRouteImport } from './routes/admin.analytics.heatmaps'
+import { Route as AdminAnalyticsFunnelsRouteImport } from './routes/admin.analytics.funnels'
+import { Route as AdminAnalyticsExportsRouteImport } from './routes/admin.analytics.exports'
+import { Route as AdminAnalyticsDevicesRouteImport } from './routes/admin.analytics.devices'
+import { Route as AdminAnalyticsDashboardRouteImport } from './routes/admin.analytics.dashboard'
+import { Route as AdminAnalyticsCountriesRouteImport } from './routes/admin.analytics.countries'
+import { Route as AdminAnalyticsConversionsRouteImport } from './routes/admin.analytics.conversions'
+import { Route as AdminAnalyticsCitiesRouteImport } from './routes/admin.analytics.cities'
+import { Route as AdminAnalyticsBrowsersRouteImport } from './routes/admin.analytics.browsers'
+import { Route as AdminAiCenterTokenUsageRouteImport } from './routes/admin.ai-center.token-usage'
+import { Route as AdminAiCenterPromptTemplatesRouteImport } from './routes/admin.ai-center.prompt-templates'
+import { Route as AdminAiCenterPromptLibraryRouteImport } from './routes/admin.ai-center.prompt-library'
+import { Route as AdminAiCenterAiSettingsRouteImport } from './routes/admin.ai-center.ai-settings'
+import { Route as AdminAiCenterAiSearchRouteImport } from './routes/admin.ai-center.ai-search'
+import { Route as AdminAiCenterAiResumeReviewRouteImport } from './routes/admin.ai-center.ai-resume-review'
+import { Route as AdminAiCenterAiModerationRouteImport } from './routes/admin.ai-center.ai-moderation'
+import { Route as AdminAiCenterAiLogsRouteImport } from './routes/admin.ai-center.ai-logs'
+import { Route as AdminAiCenterAiDashboardRouteImport } from './routes/admin.ai-center.ai-dashboard'
+import { Route as AdminAiCenterAiContentGeneratorRouteImport } from './routes/admin.ai-center.ai-content-generator'
+import { Route as AdminAiCenterAiChatbotRouteImport } from './routes/admin.ai-center.ai-chatbot'
+import { Route as AdminAiCenterAiCareerAdvisorRouteImport } from './routes/admin.ai-center.ai-career-advisor'
+import { Route as AdminAiCenterAiAnalyticsRouteImport } from './routes/admin.ai-center.ai-analytics'
 
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const TrustCenterRoute = TrustCenterRouteImport.update({
+  id: '/trust-center',
+  path: '/trust-center',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
-  id: '/_authenticated',
+const TransparencyReportRoute = TransparencyReportRouteImport.update({
+  id: '/transparency-report',
+  path: '/transparency-report',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AboutRoute = AboutRouteImport.update({
-  id: '/about',
-  path: '/about',
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AuthRoute = AuthRouteImport.update({
-  id: '/auth',
-  path: '/auth',
+const SponsorRoute = SponsorRouteImport.update({
+  id: '/sponsor',
+  path: '/sponsor',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CommunityRoute = CommunityRouteImport.update({
-  id: '/community',
-  path: '/community',
+const SecurityRoute = SecurityRouteImport.update({
+  id: '/security',
+  path: '/security',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ContactRoute = ContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
+const ScheduleCallRoute = ScheduleCallRouteImport.update({
+  id: '/schedule-call',
+  path: '/schedule-call',
   getParentRoute: () => rootRouteImport,
 } as any)
-const OrganizeAnEventRoute = OrganizeAnEventRouteImport.update({
-  id: '/organize-an-event',
-  path: '/organize-an-event',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PartnershipsRoute = PartnershipsRouteImport.update({
-  id: '/partnerships',
-  path: '/partnerships',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProgramsRoute = ProgramsRouteImport.update({
-  id: '/programs',
-  path: '/programs',
+const RoadmapRoute = RoadmapRouteImport.update({
+  id: '/roadmap',
+  path: '/roadmap',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ResourcesRoute = ResourcesRouteImport.update({
@@ -78,260 +306,3165 @@ const ResourcesRoute = ResourcesRouteImport.update({
   path: '/resources',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AuthenticatedAdminRoute = AuthenticatedAdminRouteImport.update({
-  id: '/admin',
-  path: '/admin',
-  getParentRoute: () => AuthenticatedRouteRoute,
+const ResetPasswordRoute = ResetPasswordRouteImport.update({
+  id: '/reset-password',
+  path: '/reset-password',
+  getParentRoute: () => rootRouteImport,
 } as any)
-const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
+const ResearchMethodologyRoute = ResearchMethodologyRouteImport.update({
+  id: '/research-methodology',
+  path: '/research-methodology',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RegisterRoute = RegisterRouteImport.update({
+  id: '/register',
+  path: '/register',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RefundRoute = RefundRouteImport.update({
+  id: '/refund',
+  path: '/refund',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PressRoute = PressRouteImport.update({
+  id: '/press',
+  path: '/press',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PartnersRoute = PartnersRouteImport.update({
+  id: '/partners',
+  path: '/partners',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OpenSourceRoute = OpenSourceRouteImport.update({
+  id: '/open-source',
+  path: '/open-source',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LeadershipRoute = LeadershipRouteImport.update({
+  id: '/leadership',
+  path: '/leadership',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HostRoute = HostRouteImport.update({
+  id: '/host',
+  path: '/host',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GlossaryRoute = GlossaryRouteImport.update({
+  id: '/glossary',
+  path: '/glossary',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GalleryRoute = GalleryRouteImport.update({
+  id: '/gallery',
+  path: '/gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ForgotPasswordRoute = ForgotPasswordRouteImport.update({
+  id: '/forgot-password',
+  path: '/forgot-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FactCheckingRoute = FactCheckingRouteImport.update({
+  id: '/fact-checking',
+  path: '/fact-checking',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EditorialPolicyRoute = EditorialPolicyRouteImport.update({
+  id: '/editorial-policy',
+  path: '/editorial-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EcosystemRoute = EcosystemRouteImport.update({
+  id: '/ecosystem',
+  path: '/ecosystem',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DevopsRoute = DevopsRouteImport.update({
+  id: '/devops',
+  path: '/devops',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardRoute = DashboardRouteImport.update({
   id: '/dashboard',
   path: '/dashboard',
-  getParentRoute: () => AuthenticatedRouteRoute,
-} as any)
-const AuthenticatedProfileRoute = AuthenticatedProfileRouteImport.update({
-  id: '/profile',
-  path: '/profile',
-  getParentRoute: () => AuthenticatedRouteRoute,
-} as any)
-const BlogIndexRoute = BlogIndexRouteImport.update({
-  id: '/blog/',
-  path: '/blog/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CookiesRoute = CookiesRouteImport.update({
+  id: '/cookies',
+  path: '/cookies',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContributorsRoute = ContributorsRouteImport.update({
+  id: '/contributors',
+  path: '/contributors',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContentPolicyRoute = ContentPolicyRouteImport.update({
+  id: '/content-policy',
+  path: '/content-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CommunityRoute = CommunityRouteImport.update({
+  id: '/community',
+  path: '/community',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CodeOfConductRoute = CodeOfConductRouteImport.update({
+  id: '/code-of-conduct',
+  path: '/code-of-conduct',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CloudRoute = CloudRouteImport.update({
+  id: '/cloud',
+  path: '/cloud',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogRoute = BlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BecomeASponsorRoute = BecomeASponsorRouteImport.update({
+  id: '/become-a-sponsor',
+  path: '/become-a-sponsor',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AmbassadorRoute = AmbassadorRouteImport.update({
+  id: '/ambassador',
+  path: '/ambassador',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AcademyRoute = AcademyRouteImport.update({
+  id: '/academy',
+  path: '/academy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CertificatesIndexRoute = CertificatesIndexRouteImport.update({
+  id: '/certificates/',
+  path: '/certificates/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AmbassadorIndexRoute = AmbassadorIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AmbassadorRoute,
+} as any)
+const AdminIndexRoute = AdminIndexRouteImport.update({
+  id: '/admin/',
+  path: '/admin/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TopicsProgrammingRoute = TopicsProgrammingRouteImport.update({
+  id: '/topics_/programming',
+  path: '/topics/programming',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TopicsHackathonsRoute = TopicsHackathonsRouteImport.update({
+  id: '/topics_/hackathons',
+  path: '/topics/hackathons',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TopicsCyberSecurityRoute = TopicsCyberSecurityRouteImport.update({
+  id: '/topics_/cyber-security',
+  path: '/topics/cyber-security',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TopicsCareerRoute = TopicsCareerRouteImport.update({
+  id: '/topics_/career',
+  path: '/topics/career',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TopicsAiRoute = TopicsAiRouteImport.update({
+  id: '/topics_/ai',
+  path: '/topics/ai',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TechnologiesTechRoute = TechnologiesTechRouteImport.update({
+  id: '/technologies/$tech',
+  path: '/technologies/$tech',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SponsorSuccessRoute = SponsorSuccessRouteImport.update({
+  id: '/success',
+  path: '/success',
+  getParentRoute: () => SponsorRoute,
+} as any)
+const SponsorDashboardRoute = SponsorDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => SponsorRoute,
+} as any)
+const JobsJobIdRoute = JobsJobIdRouteImport.update({
+  id: '/jobs/$jobId',
+  path: '/jobs/$jobId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HostSuccessRoute = HostSuccessRouteImport.update({
+  id: '/success',
+  path: '/success',
+  getParentRoute: () => HostRoute,
+} as any)
+const HostApplyRoute = HostApplyRouteImport.update({
+  id: '/apply',
+  path: '/apply',
+  getParentRoute: () => HostRoute,
+} as any)
+const GlossaryTermRoute = GlossaryTermRouteImport.update({
+  id: '/$term',
+  path: '/$term',
+  getParentRoute: () => GlossaryRoute,
+} as any)
+const FoundersSlugRoute = FoundersSlugRouteImport.update({
+  id: '/founders/$slug',
+  path: '/founders/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardProposalsRoute = DashboardProposalsRouteImport.update({
+  id: '/proposals',
+  path: '/proposals',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const CompareCompetitorRoute = CompareCompetitorRouteImport.update({
+  id: '/compare/$competitor',
+  path: '/compare/$competitor',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CommunityChaptersRoute = CommunityChaptersRouteImport.update({
+  id: '/community_/chapters',
+  path: '/community/chapters',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CommunityAmbassadorsRoute = CommunityAmbassadorsRouteImport.update({
+  id: '/community_/ambassadors',
+  path: '/community/ambassadors',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CloudVpsRoute = CloudVpsRouteImport.update({
+  id: '/cloud_/vps',
+  path: '/cloud/vps',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CloudKubernetesRoute = CloudKubernetesRouteImport.update({
+  id: '/cloud_/kubernetes',
+  path: '/cloud/kubernetes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CloudDedicatedRoute = CloudDedicatedRouteImport.update({
+  id: '/cloud_/dedicated',
+  path: '/cloud/dedicated',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CertificatesCertificateIdRoute =
+  CertificatesCertificateIdRouteImport.update({
+    id: '/certificates/$certificateId',
+    path: '/certificates/$certificateId',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const BlogSlugRoute = BlogSlugRouteImport.update({
-  id: '/blog/$slug',
-  path: '/blog/$slug',
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => BlogRoute,
+} as any)
+const AmbassadorDashboardRoute = AmbassadorDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => AmbassadorRoute,
+} as any)
+const AmbassadorApplyRoute = AmbassadorApplyRouteImport.update({
+  id: '/apply',
+  path: '/apply',
+  getParentRoute: () => AmbassadorRoute,
+} as any)
+const AdminUsersRoute = AdminUsersRouteImport.update({
+  id: '/admin/users',
+  path: '/admin/users',
   getParentRoute: () => rootRouteImport,
 } as any)
-const EventsIndexRoute = EventsIndexRouteImport.update({
-  id: '/events/',
-  path: '/events/',
+const AdminTestimonialsRoute = AdminTestimonialsRouteImport.update({
+  id: '/admin/testimonials',
+  path: '/admin/testimonials',
   getParentRoute: () => rootRouteImport,
 } as any)
-const EventsSlugRoute = EventsSlugRouteImport.update({
-  id: '/events/$slug',
-  path: '/events/$slug',
+const AdminSponsorsRoute = AdminSponsorsRouteImport.update({
+  id: '/admin/sponsors',
+  path: '/admin/sponsors',
   getParentRoute: () => rootRouteImport,
 } as any)
-const MembersIndexRoute = MembersIndexRouteImport.update({
-  id: '/members/',
-  path: '/members/',
+const AdminSettingsRoute = AdminSettingsRouteImport.update({
+  id: '/admin/settings',
+  path: '/admin/settings',
   getParentRoute: () => rootRouteImport,
 } as any)
-const MembersIdRoute = MembersIdRouteImport.update({
-  id: '/members/$id',
-  path: '/members/$id',
+const AdminSeoRoute = AdminSeoRouteImport.update({
+  id: '/admin/seo',
+  path: '/admin/seo',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminScheduleCallsRoute = AdminScheduleCallsRouteImport.update({
+  id: '/admin/schedule-calls',
+  path: '/admin/schedule-calls',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminPartnersRoute = AdminPartnersRouteImport.update({
+  id: '/admin/partners',
+  path: '/admin/partners',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminPagesRoute = AdminPagesRouteImport.update({
+  id: '/admin/pages',
+  path: '/admin/pages',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminPageBlocksRoute = AdminPageBlocksRouteImport.update({
+  id: '/admin/page-blocks',
+  path: '/admin/page-blocks',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminNewsletterRoute = AdminNewsletterRouteImport.update({
+  id: '/admin/newsletter',
+  path: '/admin/newsletter',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminNavigationRoute = AdminNavigationRouteImport.update({
+  id: '/admin/navigation',
+  path: '/admin/navigation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminMessagesRoute = AdminMessagesRouteImport.update({
+  id: '/admin/messages',
+  path: '/admin/messages',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminJobApplicationsRoute = AdminJobApplicationsRouteImport.update({
+  id: '/admin/job-applications',
+  path: '/admin/job-applications',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminGalleryRoute = AdminGalleryRouteImport.update({
+  id: '/admin/gallery',
+  path: '/admin/gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminFaqRoute = AdminFaqRouteImport.update({
+  id: '/admin/faq',
+  path: '/admin/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminEventRegistrationsRoute = AdminEventRegistrationsRouteImport.update({
+  id: '/admin/event-registrations',
+  path: '/admin/event-registrations',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminCertificatesRoute = AdminCertificatesRouteImport.update({
+  id: '/admin/certificates',
+  path: '/admin/certificates',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminBlogRoute = AdminBlogRouteImport.update({
+  id: '/admin/blog',
+  path: '/admin/blog',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminAuditRoute = AdminAuditRouteImport.update({
+  id: '/admin/audit',
+  path: '/admin/audit',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutVisionRoute = AboutVisionRouteImport.update({
+  id: '/about_/vision',
+  path: '/about/vision',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutResearchRoute = AboutResearchRouteImport.update({
+  id: '/about_/research',
+  path: '/about/research',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutOrigohostRoute = AboutOrigohostRouteImport.update({
+  id: '/about_/origohost',
+  path: '/about/origohost',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutMissionRoute = AboutMissionRouteImport.update({
+  id: '/about_/mission',
+  path: '/about/mission',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutHistoryRoute = AboutHistoryRouteImport.update({
+  id: '/about_/history',
+  path: '/about/history',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutFaqRoute = AboutFaqRouteImport.update({
+  id: '/about_/faq',
+  path: '/about/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutCommunityRoute = AboutCommunityRouteImport.update({
+  id: '/about_/community',
+  path: '/about/community',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutBrandRoute = AboutBrandRouteImport.update({
+  id: '/about_/brand',
+  path: '/about/brand',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CommunityEventsIndexRoute = CommunityEventsIndexRouteImport.update({
+  id: '/community_/events/',
+  path: '/community/events/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CommunityAmbassadorsIndexRoute =
+  CommunityAmbassadorsIndexRouteImport.update({
+    id: '/',
+    path: '/',
+    getParentRoute: () => CommunityAmbassadorsRoute,
+  } as any)
+const AdminEventsIndexRoute = AdminEventsIndexRouteImport.update({
+  id: '/admin/events/',
+  path: '/admin/events/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CommunityEventsEventIdRoute = CommunityEventsEventIdRouteImport.update({
+  id: '/community_/events/$eventId',
+  path: '/community/events/$eventId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CommunityAmbassadorsApplyRoute =
+  CommunityAmbassadorsApplyRouteImport.update({
+    id: '/community_/ambassadors_/apply',
+    path: '/community/ambassadors/apply',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminSystemTimezoneRoute = AdminSystemTimezoneRouteImport.update({
+  id: '/admin/system/timezone',
+  path: '/admin/system/timezone',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminSystemThemeRoute = AdminSystemThemeRouteImport.update({
+  id: '/admin/system/theme',
+  path: '/admin/system/theme',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminSystemSystemHealthRoute = AdminSystemSystemHealthRouteImport.update({
+  id: '/admin/system/system-health',
+  path: '/admin/system/system-health',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminSystemStorageRoute = AdminSystemStorageRouteImport.update({
+  id: '/admin/system/storage',
+  path: '/admin/system/storage',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminSystemSmtpRoute = AdminSystemSmtpRouteImport.update({
+  id: '/admin/system/smtp',
+  path: '/admin/system/smtp',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminSystemSecurityRoute = AdminSystemSecurityRouteImport.update({
+  id: '/admin/system/security',
+  path: '/admin/system/security',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminSystemRestoreRoute = AdminSystemRestoreRouteImport.update({
+  id: '/admin/system/restore',
+  path: '/admin/system/restore',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminSystemMaintenanceRoute = AdminSystemMaintenanceRouteImport.update({
+  id: '/admin/system/maintenance',
+  path: '/admin/system/maintenance',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminSystemLogoRoute = AdminSystemLogoRouteImport.update({
+  id: '/admin/system/logo',
+  path: '/admin/system/logo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminSystemLocalizationRoute = AdminSystemLocalizationRouteImport.update({
+  id: '/admin/system/localization',
+  path: '/admin/system/localization',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminSystemIntegrationsRoute = AdminSystemIntegrationsRouteImport.update({
+  id: '/admin/system/integrations',
+  path: '/admin/system/integrations',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminSystemFeatureFlagsRoute = AdminSystemFeatureFlagsRouteImport.update({
+  id: '/admin/system/feature-flags',
+  path: '/admin/system/feature-flags',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminSystemEmailRoute = AdminSystemEmailRouteImport.update({
+  id: '/admin/system/email',
+  path: '/admin/system/email',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminSystemDomainsRoute = AdminSystemDomainsRouteImport.update({
+  id: '/admin/system/domains',
+  path: '/admin/system/domains',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminSystemBrandingRoute = AdminSystemBrandingRouteImport.update({
+  id: '/admin/system/branding',
+  path: '/admin/system/branding',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminSystemBackupsRoute = AdminSystemBackupsRouteImport.update({
+  id: '/admin/system/backups',
+  path: '/admin/system/backups',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRecruitmentResumeScreeningRoute =
+  AdminRecruitmentResumeScreeningRouteImport.update({
+    id: '/admin/recruitment/resume-screening',
+    path: '/admin/recruitment/resume-screening',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminRecruitmentResumeDatabaseRoute =
+  AdminRecruitmentResumeDatabaseRouteImport.update({
+    id: '/admin/recruitment/resume-database',
+    path: '/admin/recruitment/resume-database',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminRecruitmentReportsRoute = AdminRecruitmentReportsRouteImport.update({
+  id: '/admin/recruitment/reports',
+  path: '/admin/recruitment/reports',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRecruitmentRejectedRoute =
+  AdminRecruitmentRejectedRouteImport.update({
+    id: '/admin/recruitment/rejected',
+    path: '/admin/recruitment/rejected',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminRecruitmentOfferLettersRoute =
+  AdminRecruitmentOfferLettersRouteImport.update({
+    id: '/admin/recruitment/offer-letters',
+    path: '/admin/recruitment/offer-letters',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminRecruitmentInterviewPipelineRoute =
+  AdminRecruitmentInterviewPipelineRouteImport.update({
+    id: '/admin/recruitment/interview-pipeline',
+    path: '/admin/recruitment/interview-pipeline',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminRecruitmentCompaniesRoute =
+  AdminRecruitmentCompaniesRouteImport.update({
+    id: '/admin/recruitment/companies',
+    path: '/admin/recruitment/companies',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminRecruitmentApplicationsRoute =
+  AdminRecruitmentApplicationsRouteImport.update({
+    id: '/admin/recruitment/applications',
+    path: '/admin/recruitment/applications',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminRecruitmentAnalyticsRoute =
+  AdminRecruitmentAnalyticsRouteImport.update({
+    id: '/admin/recruitment/analytics',
+    path: '/admin/recruitment/analytics',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminPersonalSessionsRoute = AdminPersonalSessionsRouteImport.update({
+  id: '/admin/personal/sessions',
+  path: '/admin/personal/sessions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminPersonalSecurityRoute = AdminPersonalSecurityRouteImport.update({
+  id: '/admin/personal/security',
+  path: '/admin/personal/security',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminPersonalPreferencesRoute =
+  AdminPersonalPreferencesRouteImport.update({
+    id: '/admin/personal/preferences',
+    path: '/admin/personal/preferences',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminPersonalNotificationsRoute =
+  AdminPersonalNotificationsRouteImport.update({
+    id: '/admin/personal/notifications',
+    path: '/admin/personal/notifications',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminPersonalMyProfileRoute = AdminPersonalMyProfileRouteImport.update({
+  id: '/admin/personal/my-profile',
+  path: '/admin/personal/my-profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminPersonalHelpRoute = AdminPersonalHelpRouteImport.update({
+  id: '/admin/personal/help',
+  path: '/admin/personal/help',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminPersonalFeedbackRoute = AdminPersonalFeedbackRouteImport.update({
+  id: '/admin/personal/feedback',
+  path: '/admin/personal/feedback',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminPersonalConnectedAccountsRoute =
+  AdminPersonalConnectedAccountsRouteImport.update({
+    id: '/admin/personal/connected-accounts',
+    path: '/admin/personal/connected-accounts',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminPersonalAppearanceRoute = AdminPersonalAppearanceRouteImport.update({
+  id: '/admin/personal/appearance',
+  path: '/admin/personal/appearance',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminPersonalApiTokensRoute = AdminPersonalApiTokensRouteImport.update({
+  id: '/admin/personal/api-tokens',
+  path: '/admin/personal/api-tokens',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminOperationsVolunteersRoute =
+  AdminOperationsVolunteersRouteImport.update({
+    id: '/admin/operations/volunteers',
+    path: '/admin/operations/volunteers',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminOperationsVerificationCenterRoute =
+  AdminOperationsVerificationCenterRouteImport.update({
+    id: '/admin/operations/verification-center',
+    path: '/admin/operations/verification-center',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminOperationsStudentsRoute = AdminOperationsStudentsRouteImport.update({
+  id: '/admin/operations/students',
+  path: '/admin/operations/students',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminOperationsSpeakersRoute = AdminOperationsSpeakersRouteImport.update({
+  id: '/admin/operations/speakers',
+  path: '/admin/operations/speakers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminOperationsSessionsRoute = AdminOperationsSessionsRouteImport.update({
+  id: '/admin/operations/sessions',
+  path: '/admin/operations/sessions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminOperationsRolesRoute = AdminOperationsRolesRouteImport.update({
+  id: '/admin/operations/roles',
+  path: '/admin/operations/roles',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminOperationsRegistrationManagementRoute =
+  AdminOperationsRegistrationManagementRouteImport.update({
+    id: '/admin/operations/registration-management',
+    path: '/admin/operations/registration-management',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminOperationsRecycleBinRoute =
+  AdminOperationsRecycleBinRouteImport.update({
+    id: '/admin/operations/recycle-bin',
+    path: '/admin/operations/recycle-bin',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminOperationsRecruitersRoute =
+  AdminOperationsRecruitersRouteImport.update({
+    id: '/admin/operations/recruiters',
+    path: '/admin/operations/recruiters',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminOperationsPermissionsRoute =
+  AdminOperationsPermissionsRouteImport.update({
+    id: '/admin/operations/permissions',
+    path: '/admin/operations/permissions',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminOperationsOrganizationsRoute =
+  AdminOperationsOrganizationsRouteImport.update({
+    id: '/admin/operations/organizations',
+    path: '/admin/operations/organizations',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminOperationsMentorsRoute = AdminOperationsMentorsRouteImport.update({
+  id: '/admin/operations/mentors',
+  path: '/admin/operations/mentors',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminOperationsHostRequestsRoute =
+  AdminOperationsHostRequestsRouteImport.update({
+    id: '/admin/operations/host-requests',
+    path: '/admin/operations/host-requests',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminOperationsDeviceManagerRoute =
+  AdminOperationsDeviceManagerRouteImport.update({
+    id: '/admin/operations/device-manager',
+    path: '/admin/operations/device-manager',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminOperationsAuditLogsRoute =
+  AdminOperationsAuditLogsRouteImport.update({
+    id: '/admin/operations/audit-logs',
+    path: '/admin/operations/audit-logs',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminOperationsAdminsRoute = AdminOperationsAdminsRouteImport.update({
+  id: '/admin/operations/admins',
+  path: '/admin/operations/admins',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminOperationsActivityTimelineRoute =
+  AdminOperationsActivityTimelineRouteImport.update({
+    id: '/admin/operations/activity-timeline',
+    path: '/admin/operations/activity-timeline',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminMarketingSubscribersRoute =
+  AdminMarketingSubscribersRouteImport.update({
+    id: '/admin/marketing/subscribers',
+    path: '/admin/marketing/subscribers',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminMarketingSocialPostsRoute =
+  AdminMarketingSocialPostsRouteImport.update({
+    id: '/admin/marketing/social-posts',
+    path: '/admin/marketing/social-posts',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminMarketingSeoManagerRoute =
+  AdminMarketingSeoManagerRouteImport.update({
+    id: '/admin/marketing/seo-manager',
+    path: '/admin/marketing/seo-manager',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminMarketingReferralProgramRoute =
+  AdminMarketingReferralProgramRouteImport.update({
+    id: '/admin/marketing/referral-program',
+    path: '/admin/marketing/referral-program',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminMarketingPopupCampaignsRoute =
+  AdminMarketingPopupCampaignsRouteImport.update({
+    id: '/admin/marketing/popup-campaigns',
+    path: '/admin/marketing/popup-campaigns',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminMarketingNotificationsRoute =
+  AdminMarketingNotificationsRouteImport.update({
+    id: '/admin/marketing/notifications',
+    path: '/admin/marketing/notifications',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminMarketingEmailTemplatesRoute =
+  AdminMarketingEmailTemplatesRouteImport.update({
+    id: '/admin/marketing/email-templates',
+    path: '/admin/marketing/email-templates',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminMarketingCouponManagerRoute =
+  AdminMarketingCouponManagerRouteImport.update({
+    id: '/admin/marketing/coupon-manager',
+    path: '/admin/marketing/coupon-manager',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminMarketingCampaignsRoute = AdminMarketingCampaignsRouteImport.update({
+  id: '/admin/marketing/campaigns',
+  path: '/admin/marketing/campaigns',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminMarketingAnnouncementCenterRoute =
+  AdminMarketingAnnouncementCenterRouteImport.update({
+    id: '/admin/marketing/announcement-center',
+    path: '/admin/marketing/announcement-center',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminFinanceTransactionsRoute =
+  AdminFinanceTransactionsRouteImport.update({
+    id: '/admin/finance/transactions',
+    path: '/admin/finance/transactions',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminFinanceTaxesRoute = AdminFinanceTaxesRouteImport.update({
+  id: '/admin/finance/taxes',
+  path: '/admin/finance/taxes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminFinanceSubscriptionsRoute =
+  AdminFinanceSubscriptionsRouteImport.update({
+    id: '/admin/finance/subscriptions',
+    path: '/admin/finance/subscriptions',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminFinanceSponsorsRoute = AdminFinanceSponsorsRouteImport.update({
+  id: '/admin/finance/sponsors',
+  path: '/admin/finance/sponsors',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminFinanceRevenueRoute = AdminFinanceRevenueRouteImport.update({
+  id: '/admin/finance/revenue',
+  path: '/admin/finance/revenue',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminFinanceReportsRoute = AdminFinanceReportsRouteImport.update({
+  id: '/admin/finance/reports',
+  path: '/admin/finance/reports',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminFinanceRefundsRoute = AdminFinanceRefundsRouteImport.update({
+  id: '/admin/finance/refunds',
+  path: '/admin/finance/refunds',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminFinancePaymentsRoute = AdminFinancePaymentsRouteImport.update({
+  id: '/admin/finance/payments',
+  path: '/admin/finance/payments',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminFinanceInvoicesRoute = AdminFinanceInvoicesRouteImport.update({
+  id: '/admin/finance/invoices',
+  path: '/admin/finance/invoices',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminFinanceDonationsRoute = AdminFinanceDonationsRouteImport.update({
+  id: '/admin/finance/donations',
+  path: '/admin/finance/donations',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminEventsVenuesRoute = AdminEventsVenuesRouteImport.update({
+  id: '/admin/events/venues',
+  path: '/admin/events/venues',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminEventsSponsorsRoute = AdminEventsSponsorsRouteImport.update({
+  id: '/admin/events/sponsors',
+  path: '/admin/events/sponsors',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminEventsSpeakersRoute = AdminEventsSpeakersRouteImport.update({
+  id: '/admin/events/speakers',
+  path: '/admin/events/speakers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminEventsSchedulesRoute = AdminEventsSchedulesRouteImport.update({
+  id: '/admin/events/schedules',
+  path: '/admin/events/schedules',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminEventsReviewsRoute = AdminEventsReviewsRouteImport.update({
+  id: '/admin/events/reviews',
+  path: '/admin/events/reviews',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminEventsReportsRoute = AdminEventsReportsRouteImport.update({
+  id: '/admin/events/reports',
+  path: '/admin/events/reports',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminEventsRegistrationRoute = AdminEventsRegistrationRouteImport.update({
+  id: '/admin/events/registration',
+  path: '/admin/events/registration',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminEventsQrTicketsRoute = AdminEventsQrTicketsRouteImport.update({
+  id: '/admin/events/qr-tickets',
+  path: '/admin/events/qr-tickets',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminEventsQrCheckInRoute = AdminEventsQrCheckInRouteImport.update({
+  id: '/admin/events/qr-check-in',
+  path: '/admin/events/qr-check-in',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminEventsLivestreamRoute = AdminEventsLivestreamRouteImport.update({
+  id: '/admin/events/livestream',
+  path: '/admin/events/livestream',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminEventsFeedbackRoute = AdminEventsFeedbackRouteImport.update({
+  id: '/admin/events/feedback',
+  path: '/admin/events/feedback',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminEventsEventGalleryRoute = AdminEventsEventGalleryRouteImport.update({
+  id: '/admin/events/event-gallery',
+  path: '/admin/events/event-gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminEventsCategoriesRoute = AdminEventsCategoriesRouteImport.update({
+  id: '/admin/events/categories',
+  path: '/admin/events/categories',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminEventsCalendarRoute = AdminEventsCalendarRouteImport.update({
+  id: '/admin/events/calendar',
+  path: '/admin/events/calendar',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminEventsAttendanceRoute = AdminEventsAttendanceRouteImport.update({
+  id: '/admin/events/attendance',
+  path: '/admin/events/attendance',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminDeveloperWebhookManagerRoute =
+  AdminDeveloperWebhookManagerRouteImport.update({
+    id: '/admin/developer/webhook-manager',
+    path: '/admin/developer/webhook-manager',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminDeveloperWebhookLogsRoute =
+  AdminDeveloperWebhookLogsRouteImport.update({
+    id: '/admin/developer/webhook-logs',
+    path: '/admin/developer/webhook-logs',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminDeveloperStorageBrowserRoute =
+  AdminDeveloperStorageBrowserRouteImport.update({
+    id: '/admin/developer/storage-browser',
+    path: '/admin/developer/storage-browser',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminDeveloperSqlExplorerRoute =
+  AdminDeveloperSqlExplorerRouteImport.update({
+    id: '/admin/developer/sql-explorer',
+    path: '/admin/developer/sql-explorer',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminDeveloperQueueManagerRoute =
+  AdminDeveloperQueueManagerRouteImport.update({
+    id: '/admin/developer/queue-manager',
+    path: '/admin/developer/queue-manager',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminDeveloperFeatureFlagsRoute =
+  AdminDeveloperFeatureFlagsRouteImport.update({
+    id: '/admin/developer/feature-flags',
+    path: '/admin/developer/feature-flags',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminDeveloperErrorLogsRoute = AdminDeveloperErrorLogsRouteImport.update({
+  id: '/admin/developer/error-logs',
+  path: '/admin/developer/error-logs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminDeveloperEnvironmentVariablesRoute =
+  AdminDeveloperEnvironmentVariablesRouteImport.update({
+    id: '/admin/developer/environment-variables',
+    path: '/admin/developer/environment-variables',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminDeveloperDeveloperToolsRoute =
+  AdminDeveloperDeveloperToolsRouteImport.update({
+    id: '/admin/developer/developer-tools',
+    path: '/admin/developer/developer-tools',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminDeveloperDeploymentLogsRoute =
+  AdminDeveloperDeploymentLogsRouteImport.update({
+    id: '/admin/developer/deployment-logs',
+    path: '/admin/developer/deployment-logs',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminDeveloperDatabaseBrowserRoute =
+  AdminDeveloperDatabaseBrowserRouteImport.update({
+    id: '/admin/developer/database-browser',
+    path: '/admin/developer/database-browser',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminDeveloperCronJobsRoute = AdminDeveloperCronJobsRouteImport.update({
+  id: '/admin/developer/cron-jobs',
+  path: '/admin/developer/cron-jobs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminDeveloperApiKeysRoute = AdminDeveloperApiKeysRouteImport.update({
+  id: '/admin/developer/api-keys',
+  path: '/admin/developer/api-keys',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminDeveloperApiExplorerRoute =
+  AdminDeveloperApiExplorerRouteImport.update({
+    id: '/admin/developer/api-explorer',
+    path: '/admin/developer/api-explorer',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminDeveloperActivityLogsRoute =
+  AdminDeveloperActivityLogsRouteImport.update({
+    id: '/admin/developer/activity-logs',
+    path: '/admin/developer/activity-logs',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminContentVideosRoute = AdminContentVideosRouteImport.update({
+  id: '/admin/content/videos',
+  path: '/admin/content/videos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminContentResourcesRoute = AdminContentResourcesRouteImport.update({
+  id: '/admin/content/resources',
+  path: '/admin/content/resources',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminContentPopupBuilderRoute =
+  AdminContentPopupBuilderRouteImport.update({
+    id: '/admin/content/popup-builder',
+    path: '/admin/content/popup-builder',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminContentPageBuilderRoute = AdminContentPageBuilderRouteImport.update({
+  id: '/admin/content/page-builder',
+  path: '/admin/content/page-builder',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminContentMenusRoute = AdminContentMenusRouteImport.update({
+  id: '/admin/content/menus',
+  path: '/admin/content/menus',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminContentMediaLibraryRoute =
+  AdminContentMediaLibraryRouteImport.update({
+    id: '/admin/content/media-library',
+    path: '/admin/content/media-library',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminContentLandingPagesRoute =
+  AdminContentLandingPagesRouteImport.update({
+    id: '/admin/content/landing-pages',
+    path: '/admin/content/landing-pages',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminContentHomepageRoute = AdminContentHomepageRouteImport.update({
+  id: '/admin/content/homepage',
+  path: '/admin/content/homepage',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminContentFormsBuilderRoute =
+  AdminContentFormsBuilderRouteImport.update({
+    id: '/admin/content/forms-builder',
+    path: '/admin/content/forms-builder',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminContentFooterRoute = AdminContentFooterRouteImport.update({
+  id: '/admin/content/footer',
+  path: '/admin/content/footer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminContentCmsRoute = AdminContentCmsRouteImport.update({
+  id: '/admin/content/cms',
+  path: '/admin/content/cms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminContentCategoriesRoute = AdminContentCategoriesRouteImport.update({
+  id: '/admin/content/categories',
+  path: '/admin/content/categories',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminContentBannerManagerRoute =
+  AdminContentBannerManagerRouteImport.update({
+    id: '/admin/content/banner-manager',
+    path: '/admin/content/banner-manager',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminContentAuthorsRoute = AdminContentAuthorsRouteImport.update({
+  id: '/admin/content/authors',
+  path: '/admin/content/authors',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminCommunityVolunteerManagementRoute =
+  AdminCommunityVolunteerManagementRouteImport.update({
+    id: '/admin/community/volunteer-management',
+    path: '/admin/community/volunteer-management',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminCommunityMentorshipRoute =
+  AdminCommunityMentorshipRouteImport.update({
+    id: '/admin/community/mentorship',
+    path: '/admin/community/mentorship',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminCommunityLeaderboardRoute =
+  AdminCommunityLeaderboardRouteImport.update({
+    id: '/admin/community/leaderboard',
+    path: '/admin/community/leaderboard',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminCommunityGroupsRoute = AdminCommunityGroupsRouteImport.update({
+  id: '/admin/community/groups',
+  path: '/admin/community/groups',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminCommunityForumsRoute = AdminCommunityForumsRouteImport.update({
+  id: '/admin/community/forums',
+  path: '/admin/community/forums',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminCommunityDiscussionsRoute =
+  AdminCommunityDiscussionsRouteImport.update({
+    id: '/admin/community/discussions',
+    path: '/admin/community/discussions',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminCommunityCommunityMembersRoute =
+  AdminCommunityCommunityMembersRouteImport.update({
+    id: '/admin/community/community-members',
+    path: '/admin/community/community-members',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminCommunityCommunityAnalyticsRoute =
+  AdminCommunityCommunityAnalyticsRouteImport.update({
+    id: '/admin/community/community-analytics',
+    path: '/admin/community/community-analytics',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminCommunityCommunitiesRoute =
+  AdminCommunityCommunitiesRouteImport.update({
+    id: '/admin/community/communities',
+    path: '/admin/community/communities',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminCommunityCampusAmbassadorRoute =
+  AdminCommunityCampusAmbassadorRouteImport.update({
+    id: '/admin/community/campus-ambassador',
+    path: '/admin/community/campus-ambassador',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminCommunityBadgesRoute = AdminCommunityBadgesRouteImport.update({
+  id: '/admin/community/badges',
+  path: '/admin/community/badges',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminCommunityAnnouncementsRoute =
+  AdminCommunityAnnouncementsRouteImport.update({
+    id: '/admin/community/announcements',
+    path: '/admin/community/announcements',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminCommunityAchievementsRoute =
+  AdminCommunityAchievementsRouteImport.update({
+    id: '/admin/community/achievements',
+    path: '/admin/community/achievements',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminAnalyticsTrafficRoute = AdminAnalyticsTrafficRouteImport.update({
+  id: '/admin/analytics/traffic',
+  path: '/admin/analytics/traffic',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminAnalyticsRetentionRoute = AdminAnalyticsRetentionRouteImport.update({
+  id: '/admin/analytics/retention',
+  path: '/admin/analytics/retention',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminAnalyticsReportsRoute = AdminAnalyticsReportsRouteImport.update({
+  id: '/admin/analytics/reports',
+  path: '/admin/analytics/reports',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminAnalyticsRealtimeRoute = AdminAnalyticsRealtimeRouteImport.update({
+  id: '/admin/analytics/realtime',
+  path: '/admin/analytics/realtime',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminAnalyticsOrganizationsRoute =
+  AdminAnalyticsOrganizationsRouteImport.update({
+    id: '/admin/analytics/organizations',
+    path: '/admin/analytics/organizations',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminAnalyticsHeatmapsRoute = AdminAnalyticsHeatmapsRouteImport.update({
+  id: '/admin/analytics/heatmaps',
+  path: '/admin/analytics/heatmaps',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminAnalyticsFunnelsRoute = AdminAnalyticsFunnelsRouteImport.update({
+  id: '/admin/analytics/funnels',
+  path: '/admin/analytics/funnels',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminAnalyticsExportsRoute = AdminAnalyticsExportsRouteImport.update({
+  id: '/admin/analytics/exports',
+  path: '/admin/analytics/exports',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminAnalyticsDevicesRoute = AdminAnalyticsDevicesRouteImport.update({
+  id: '/admin/analytics/devices',
+  path: '/admin/analytics/devices',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminAnalyticsDashboardRoute = AdminAnalyticsDashboardRouteImport.update({
+  id: '/admin/analytics/dashboard',
+  path: '/admin/analytics/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminAnalyticsCountriesRoute = AdminAnalyticsCountriesRouteImport.update({
+  id: '/admin/analytics/countries',
+  path: '/admin/analytics/countries',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminAnalyticsConversionsRoute =
+  AdminAnalyticsConversionsRouteImport.update({
+    id: '/admin/analytics/conversions',
+    path: '/admin/analytics/conversions',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminAnalyticsCitiesRoute = AdminAnalyticsCitiesRouteImport.update({
+  id: '/admin/analytics/cities',
+  path: '/admin/analytics/cities',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminAnalyticsBrowsersRoute = AdminAnalyticsBrowsersRouteImport.update({
+  id: '/admin/analytics/browsers',
+  path: '/admin/analytics/browsers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminAiCenterTokenUsageRoute = AdminAiCenterTokenUsageRouteImport.update({
+  id: '/admin/ai-center/token-usage',
+  path: '/admin/ai-center/token-usage',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminAiCenterPromptTemplatesRoute =
+  AdminAiCenterPromptTemplatesRouteImport.update({
+    id: '/admin/ai-center/prompt-templates',
+    path: '/admin/ai-center/prompt-templates',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminAiCenterPromptLibraryRoute =
+  AdminAiCenterPromptLibraryRouteImport.update({
+    id: '/admin/ai-center/prompt-library',
+    path: '/admin/ai-center/prompt-library',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminAiCenterAiSettingsRoute = AdminAiCenterAiSettingsRouteImport.update({
+  id: '/admin/ai-center/ai-settings',
+  path: '/admin/ai-center/ai-settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminAiCenterAiSearchRoute = AdminAiCenterAiSearchRouteImport.update({
+  id: '/admin/ai-center/ai-search',
+  path: '/admin/ai-center/ai-search',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminAiCenterAiResumeReviewRoute =
+  AdminAiCenterAiResumeReviewRouteImport.update({
+    id: '/admin/ai-center/ai-resume-review',
+    path: '/admin/ai-center/ai-resume-review',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminAiCenterAiModerationRoute =
+  AdminAiCenterAiModerationRouteImport.update({
+    id: '/admin/ai-center/ai-moderation',
+    path: '/admin/ai-center/ai-moderation',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminAiCenterAiLogsRoute = AdminAiCenterAiLogsRouteImport.update({
+  id: '/admin/ai-center/ai-logs',
+  path: '/admin/ai-center/ai-logs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminAiCenterAiDashboardRoute =
+  AdminAiCenterAiDashboardRouteImport.update({
+    id: '/admin/ai-center/ai-dashboard',
+    path: '/admin/ai-center/ai-dashboard',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminAiCenterAiContentGeneratorRoute =
+  AdminAiCenterAiContentGeneratorRouteImport.update({
+    id: '/admin/ai-center/ai-content-generator',
+    path: '/admin/ai-center/ai-content-generator',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminAiCenterAiChatbotRoute = AdminAiCenterAiChatbotRouteImport.update({
+  id: '/admin/ai-center/ai-chatbot',
+  path: '/admin/ai-center/ai-chatbot',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminAiCenterAiCareerAdvisorRoute =
+  AdminAiCenterAiCareerAdvisorRouteImport.update({
+    id: '/admin/ai-center/ai-career-advisor',
+    path: '/admin/ai-center/ai-career-advisor',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminAiCenterAiAnalyticsRoute =
+  AdminAiCenterAiAnalyticsRouteImport.update({
+    id: '/admin/ai-center/ai-analytics',
+    path: '/admin/ai-center/ai-analytics',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/auth': typeof AuthRoute
+  '/academy': typeof AcademyRoute
+  '/ambassador': typeof AmbassadorRouteWithChildren
+  '/become-a-sponsor': typeof BecomeASponsorRoute
+  '/blog': typeof BlogRouteWithChildren
+  '/cloud': typeof CloudRoute
+  '/code-of-conduct': typeof CodeOfConductRoute
   '/community': typeof CommunityRoute
   '/contact': typeof ContactRoute
-  '/organize-an-event': typeof OrganizeAnEventRoute
-  '/partnerships': typeof PartnershipsRoute
-  '/programs': typeof ProgramsRoute
+  '/content-policy': typeof ContentPolicyRoute
+  '/contributors': typeof ContributorsRoute
+  '/cookies': typeof CookiesRoute
+  '/dashboard': typeof DashboardRouteWithChildren
+  '/devops': typeof DevopsRoute
+  '/ecosystem': typeof EcosystemRoute
+  '/editorial-policy': typeof EditorialPolicyRoute
+  '/fact-checking': typeof FactCheckingRoute
+  '/faq': typeof FaqRoute
+  '/forgot-password': typeof ForgotPasswordRoute
+  '/gallery': typeof GalleryRoute
+  '/glossary': typeof GlossaryRouteWithChildren
+  '/host': typeof HostRouteWithChildren
+  '/leadership': typeof LeadershipRoute
+  '/login': typeof LoginRoute
+  '/open-source': typeof OpenSourceRoute
+  '/partners': typeof PartnersRoute
+  '/press': typeof PressRoute
+  '/privacy': typeof PrivacyRoute
+  '/refund': typeof RefundRoute
+  '/register': typeof RegisterRoute
+  '/research-methodology': typeof ResearchMethodologyRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/resources': typeof ResourcesRoute
-  '/admin': typeof AuthenticatedAdminRoute
-  '/dashboard': typeof AuthenticatedDashboardRoute
-  '/profile': typeof AuthenticatedProfileRoute
+  '/roadmap': typeof RoadmapRoute
+  '/schedule-call': typeof ScheduleCallRoute
+  '/security': typeof SecurityRoute
+  '/sponsor': typeof SponsorRouteWithChildren
+  '/terms': typeof TermsRoute
+  '/transparency-report': typeof TransparencyReportRoute
+  '/trust-center': typeof TrustCenterRoute
+  '/about/brand': typeof AboutBrandRoute
+  '/about/community': typeof AboutCommunityRoute
+  '/about/faq': typeof AboutFaqRoute
+  '/about/history': typeof AboutHistoryRoute
+  '/about/mission': typeof AboutMissionRoute
+  '/about/origohost': typeof AboutOrigohostRoute
+  '/about/research': typeof AboutResearchRoute
+  '/about/vision': typeof AboutVisionRoute
+  '/admin/audit': typeof AdminAuditRoute
+  '/admin/blog': typeof AdminBlogRoute
+  '/admin/certificates': typeof AdminCertificatesRoute
+  '/admin/event-registrations': typeof AdminEventRegistrationsRoute
+  '/admin/faq': typeof AdminFaqRoute
+  '/admin/gallery': typeof AdminGalleryRoute
+  '/admin/job-applications': typeof AdminJobApplicationsRoute
+  '/admin/messages': typeof AdminMessagesRoute
+  '/admin/navigation': typeof AdminNavigationRoute
+  '/admin/newsletter': typeof AdminNewsletterRoute
+  '/admin/page-blocks': typeof AdminPageBlocksRoute
+  '/admin/pages': typeof AdminPagesRoute
+  '/admin/partners': typeof AdminPartnersRoute
+  '/admin/schedule-calls': typeof AdminScheduleCallsRoute
+  '/admin/seo': typeof AdminSeoRoute
+  '/admin/settings': typeof AdminSettingsRoute
+  '/admin/sponsors': typeof AdminSponsorsRoute
+  '/admin/testimonials': typeof AdminTestimonialsRoute
+  '/admin/users': typeof AdminUsersRoute
+  '/ambassador/apply': typeof AmbassadorApplyRoute
+  '/ambassador/dashboard': typeof AmbassadorDashboardRoute
   '/blog/$slug': typeof BlogSlugRoute
-  '/events/$slug': typeof EventsSlugRoute
-  '/members/$id': typeof MembersIdRoute
-  '/blog/': typeof BlogIndexRoute
-  '/events/': typeof EventsIndexRoute
-  '/members/': typeof MembersIndexRoute
+  '/certificates/$certificateId': typeof CertificatesCertificateIdRoute
+  '/cloud/dedicated': typeof CloudDedicatedRoute
+  '/cloud/kubernetes': typeof CloudKubernetesRoute
+  '/cloud/vps': typeof CloudVpsRoute
+  '/community/ambassadors': typeof CommunityAmbassadorsRouteWithChildren
+  '/community/chapters': typeof CommunityChaptersRoute
+  '/compare/$competitor': typeof CompareCompetitorRoute
+  '/dashboard/proposals': typeof DashboardProposalsRoute
+  '/founders/$slug': typeof FoundersSlugRoute
+  '/glossary/$term': typeof GlossaryTermRoute
+  '/host/apply': typeof HostApplyRoute
+  '/host/success': typeof HostSuccessRoute
+  '/jobs/$jobId': typeof JobsJobIdRoute
+  '/sponsor/dashboard': typeof SponsorDashboardRoute
+  '/sponsor/success': typeof SponsorSuccessRoute
+  '/technologies/$tech': typeof TechnologiesTechRoute
+  '/topics/ai': typeof TopicsAiRoute
+  '/topics/career': typeof TopicsCareerRoute
+  '/topics/cyber-security': typeof TopicsCyberSecurityRoute
+  '/topics/hackathons': typeof TopicsHackathonsRoute
+  '/topics/programming': typeof TopicsProgrammingRoute
+  '/admin/': typeof AdminIndexRoute
+  '/ambassador/': typeof AmbassadorIndexRoute
+  '/certificates/': typeof CertificatesIndexRoute
+  '/admin/ai-center/ai-analytics': typeof AdminAiCenterAiAnalyticsRoute
+  '/admin/ai-center/ai-career-advisor': typeof AdminAiCenterAiCareerAdvisorRoute
+  '/admin/ai-center/ai-chatbot': typeof AdminAiCenterAiChatbotRoute
+  '/admin/ai-center/ai-content-generator': typeof AdminAiCenterAiContentGeneratorRoute
+  '/admin/ai-center/ai-dashboard': typeof AdminAiCenterAiDashboardRoute
+  '/admin/ai-center/ai-logs': typeof AdminAiCenterAiLogsRoute
+  '/admin/ai-center/ai-moderation': typeof AdminAiCenterAiModerationRoute
+  '/admin/ai-center/ai-resume-review': typeof AdminAiCenterAiResumeReviewRoute
+  '/admin/ai-center/ai-search': typeof AdminAiCenterAiSearchRoute
+  '/admin/ai-center/ai-settings': typeof AdminAiCenterAiSettingsRoute
+  '/admin/ai-center/prompt-library': typeof AdminAiCenterPromptLibraryRoute
+  '/admin/ai-center/prompt-templates': typeof AdminAiCenterPromptTemplatesRoute
+  '/admin/ai-center/token-usage': typeof AdminAiCenterTokenUsageRoute
+  '/admin/analytics/browsers': typeof AdminAnalyticsBrowsersRoute
+  '/admin/analytics/cities': typeof AdminAnalyticsCitiesRoute
+  '/admin/analytics/conversions': typeof AdminAnalyticsConversionsRoute
+  '/admin/analytics/countries': typeof AdminAnalyticsCountriesRoute
+  '/admin/analytics/dashboard': typeof AdminAnalyticsDashboardRoute
+  '/admin/analytics/devices': typeof AdminAnalyticsDevicesRoute
+  '/admin/analytics/exports': typeof AdminAnalyticsExportsRoute
+  '/admin/analytics/funnels': typeof AdminAnalyticsFunnelsRoute
+  '/admin/analytics/heatmaps': typeof AdminAnalyticsHeatmapsRoute
+  '/admin/analytics/organizations': typeof AdminAnalyticsOrganizationsRoute
+  '/admin/analytics/realtime': typeof AdminAnalyticsRealtimeRoute
+  '/admin/analytics/reports': typeof AdminAnalyticsReportsRoute
+  '/admin/analytics/retention': typeof AdminAnalyticsRetentionRoute
+  '/admin/analytics/traffic': typeof AdminAnalyticsTrafficRoute
+  '/admin/community/achievements': typeof AdminCommunityAchievementsRoute
+  '/admin/community/announcements': typeof AdminCommunityAnnouncementsRoute
+  '/admin/community/badges': typeof AdminCommunityBadgesRoute
+  '/admin/community/campus-ambassador': typeof AdminCommunityCampusAmbassadorRoute
+  '/admin/community/communities': typeof AdminCommunityCommunitiesRoute
+  '/admin/community/community-analytics': typeof AdminCommunityCommunityAnalyticsRoute
+  '/admin/community/community-members': typeof AdminCommunityCommunityMembersRoute
+  '/admin/community/discussions': typeof AdminCommunityDiscussionsRoute
+  '/admin/community/forums': typeof AdminCommunityForumsRoute
+  '/admin/community/groups': typeof AdminCommunityGroupsRoute
+  '/admin/community/leaderboard': typeof AdminCommunityLeaderboardRoute
+  '/admin/community/mentorship': typeof AdminCommunityMentorshipRoute
+  '/admin/community/volunteer-management': typeof AdminCommunityVolunteerManagementRoute
+  '/admin/content/authors': typeof AdminContentAuthorsRoute
+  '/admin/content/banner-manager': typeof AdminContentBannerManagerRoute
+  '/admin/content/categories': typeof AdminContentCategoriesRoute
+  '/admin/content/cms': typeof AdminContentCmsRoute
+  '/admin/content/footer': typeof AdminContentFooterRoute
+  '/admin/content/forms-builder': typeof AdminContentFormsBuilderRoute
+  '/admin/content/homepage': typeof AdminContentHomepageRoute
+  '/admin/content/landing-pages': typeof AdminContentLandingPagesRoute
+  '/admin/content/media-library': typeof AdminContentMediaLibraryRoute
+  '/admin/content/menus': typeof AdminContentMenusRoute
+  '/admin/content/page-builder': typeof AdminContentPageBuilderRoute
+  '/admin/content/popup-builder': typeof AdminContentPopupBuilderRoute
+  '/admin/content/resources': typeof AdminContentResourcesRoute
+  '/admin/content/videos': typeof AdminContentVideosRoute
+  '/admin/developer/activity-logs': typeof AdminDeveloperActivityLogsRoute
+  '/admin/developer/api-explorer': typeof AdminDeveloperApiExplorerRoute
+  '/admin/developer/api-keys': typeof AdminDeveloperApiKeysRoute
+  '/admin/developer/cron-jobs': typeof AdminDeveloperCronJobsRoute
+  '/admin/developer/database-browser': typeof AdminDeveloperDatabaseBrowserRoute
+  '/admin/developer/deployment-logs': typeof AdminDeveloperDeploymentLogsRoute
+  '/admin/developer/developer-tools': typeof AdminDeveloperDeveloperToolsRoute
+  '/admin/developer/environment-variables': typeof AdminDeveloperEnvironmentVariablesRoute
+  '/admin/developer/error-logs': typeof AdminDeveloperErrorLogsRoute
+  '/admin/developer/feature-flags': typeof AdminDeveloperFeatureFlagsRoute
+  '/admin/developer/queue-manager': typeof AdminDeveloperQueueManagerRoute
+  '/admin/developer/sql-explorer': typeof AdminDeveloperSqlExplorerRoute
+  '/admin/developer/storage-browser': typeof AdminDeveloperStorageBrowserRoute
+  '/admin/developer/webhook-logs': typeof AdminDeveloperWebhookLogsRoute
+  '/admin/developer/webhook-manager': typeof AdminDeveloperWebhookManagerRoute
+  '/admin/events/attendance': typeof AdminEventsAttendanceRoute
+  '/admin/events/calendar': typeof AdminEventsCalendarRoute
+  '/admin/events/categories': typeof AdminEventsCategoriesRoute
+  '/admin/events/event-gallery': typeof AdminEventsEventGalleryRoute
+  '/admin/events/feedback': typeof AdminEventsFeedbackRoute
+  '/admin/events/livestream': typeof AdminEventsLivestreamRoute
+  '/admin/events/qr-check-in': typeof AdminEventsQrCheckInRoute
+  '/admin/events/qr-tickets': typeof AdminEventsQrTicketsRoute
+  '/admin/events/registration': typeof AdminEventsRegistrationRoute
+  '/admin/events/reports': typeof AdminEventsReportsRoute
+  '/admin/events/reviews': typeof AdminEventsReviewsRoute
+  '/admin/events/schedules': typeof AdminEventsSchedulesRoute
+  '/admin/events/speakers': typeof AdminEventsSpeakersRoute
+  '/admin/events/sponsors': typeof AdminEventsSponsorsRoute
+  '/admin/events/venues': typeof AdminEventsVenuesRoute
+  '/admin/finance/donations': typeof AdminFinanceDonationsRoute
+  '/admin/finance/invoices': typeof AdminFinanceInvoicesRoute
+  '/admin/finance/payments': typeof AdminFinancePaymentsRoute
+  '/admin/finance/refunds': typeof AdminFinanceRefundsRoute
+  '/admin/finance/reports': typeof AdminFinanceReportsRoute
+  '/admin/finance/revenue': typeof AdminFinanceRevenueRoute
+  '/admin/finance/sponsors': typeof AdminFinanceSponsorsRoute
+  '/admin/finance/subscriptions': typeof AdminFinanceSubscriptionsRoute
+  '/admin/finance/taxes': typeof AdminFinanceTaxesRoute
+  '/admin/finance/transactions': typeof AdminFinanceTransactionsRoute
+  '/admin/marketing/announcement-center': typeof AdminMarketingAnnouncementCenterRoute
+  '/admin/marketing/campaigns': typeof AdminMarketingCampaignsRoute
+  '/admin/marketing/coupon-manager': typeof AdminMarketingCouponManagerRoute
+  '/admin/marketing/email-templates': typeof AdminMarketingEmailTemplatesRoute
+  '/admin/marketing/notifications': typeof AdminMarketingNotificationsRoute
+  '/admin/marketing/popup-campaigns': typeof AdminMarketingPopupCampaignsRoute
+  '/admin/marketing/referral-program': typeof AdminMarketingReferralProgramRoute
+  '/admin/marketing/seo-manager': typeof AdminMarketingSeoManagerRoute
+  '/admin/marketing/social-posts': typeof AdminMarketingSocialPostsRoute
+  '/admin/marketing/subscribers': typeof AdminMarketingSubscribersRoute
+  '/admin/operations/activity-timeline': typeof AdminOperationsActivityTimelineRoute
+  '/admin/operations/admins': typeof AdminOperationsAdminsRoute
+  '/admin/operations/audit-logs': typeof AdminOperationsAuditLogsRoute
+  '/admin/operations/device-manager': typeof AdminOperationsDeviceManagerRoute
+  '/admin/operations/host-requests': typeof AdminOperationsHostRequestsRoute
+  '/admin/operations/mentors': typeof AdminOperationsMentorsRoute
+  '/admin/operations/organizations': typeof AdminOperationsOrganizationsRoute
+  '/admin/operations/permissions': typeof AdminOperationsPermissionsRoute
+  '/admin/operations/recruiters': typeof AdminOperationsRecruitersRoute
+  '/admin/operations/recycle-bin': typeof AdminOperationsRecycleBinRoute
+  '/admin/operations/registration-management': typeof AdminOperationsRegistrationManagementRoute
+  '/admin/operations/roles': typeof AdminOperationsRolesRoute
+  '/admin/operations/sessions': typeof AdminOperationsSessionsRoute
+  '/admin/operations/speakers': typeof AdminOperationsSpeakersRoute
+  '/admin/operations/students': typeof AdminOperationsStudentsRoute
+  '/admin/operations/verification-center': typeof AdminOperationsVerificationCenterRoute
+  '/admin/operations/volunteers': typeof AdminOperationsVolunteersRoute
+  '/admin/personal/api-tokens': typeof AdminPersonalApiTokensRoute
+  '/admin/personal/appearance': typeof AdminPersonalAppearanceRoute
+  '/admin/personal/connected-accounts': typeof AdminPersonalConnectedAccountsRoute
+  '/admin/personal/feedback': typeof AdminPersonalFeedbackRoute
+  '/admin/personal/help': typeof AdminPersonalHelpRoute
+  '/admin/personal/my-profile': typeof AdminPersonalMyProfileRoute
+  '/admin/personal/notifications': typeof AdminPersonalNotificationsRoute
+  '/admin/personal/preferences': typeof AdminPersonalPreferencesRoute
+  '/admin/personal/security': typeof AdminPersonalSecurityRoute
+  '/admin/personal/sessions': typeof AdminPersonalSessionsRoute
+  '/admin/recruitment/analytics': typeof AdminRecruitmentAnalyticsRoute
+  '/admin/recruitment/applications': typeof AdminRecruitmentApplicationsRoute
+  '/admin/recruitment/companies': typeof AdminRecruitmentCompaniesRoute
+  '/admin/recruitment/interview-pipeline': typeof AdminRecruitmentInterviewPipelineRoute
+  '/admin/recruitment/offer-letters': typeof AdminRecruitmentOfferLettersRoute
+  '/admin/recruitment/rejected': typeof AdminRecruitmentRejectedRoute
+  '/admin/recruitment/reports': typeof AdminRecruitmentReportsRoute
+  '/admin/recruitment/resume-database': typeof AdminRecruitmentResumeDatabaseRoute
+  '/admin/recruitment/resume-screening': typeof AdminRecruitmentResumeScreeningRoute
+  '/admin/system/backups': typeof AdminSystemBackupsRoute
+  '/admin/system/branding': typeof AdminSystemBrandingRoute
+  '/admin/system/domains': typeof AdminSystemDomainsRoute
+  '/admin/system/email': typeof AdminSystemEmailRoute
+  '/admin/system/feature-flags': typeof AdminSystemFeatureFlagsRoute
+  '/admin/system/integrations': typeof AdminSystemIntegrationsRoute
+  '/admin/system/localization': typeof AdminSystemLocalizationRoute
+  '/admin/system/logo': typeof AdminSystemLogoRoute
+  '/admin/system/maintenance': typeof AdminSystemMaintenanceRoute
+  '/admin/system/restore': typeof AdminSystemRestoreRoute
+  '/admin/system/security': typeof AdminSystemSecurityRoute
+  '/admin/system/smtp': typeof AdminSystemSmtpRoute
+  '/admin/system/storage': typeof AdminSystemStorageRoute
+  '/admin/system/system-health': typeof AdminSystemSystemHealthRoute
+  '/admin/system/theme': typeof AdminSystemThemeRoute
+  '/admin/system/timezone': typeof AdminSystemTimezoneRoute
+  '/community/ambassadors/apply': typeof CommunityAmbassadorsApplyRoute
+  '/community/events/$eventId': typeof CommunityEventsEventIdRoute
+  '/admin/events/': typeof AdminEventsIndexRoute
+  '/community/ambassadors/': typeof CommunityAmbassadorsIndexRoute
+  '/community/events/': typeof CommunityEventsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/auth': typeof AuthRoute
+  '/academy': typeof AcademyRoute
+  '/become-a-sponsor': typeof BecomeASponsorRoute
+  '/blog': typeof BlogRouteWithChildren
+  '/cloud': typeof CloudRoute
+  '/code-of-conduct': typeof CodeOfConductRoute
   '/community': typeof CommunityRoute
   '/contact': typeof ContactRoute
-  '/organize-an-event': typeof OrganizeAnEventRoute
-  '/partnerships': typeof PartnershipsRoute
-  '/programs': typeof ProgramsRoute
+  '/content-policy': typeof ContentPolicyRoute
+  '/contributors': typeof ContributorsRoute
+  '/cookies': typeof CookiesRoute
+  '/dashboard': typeof DashboardRouteWithChildren
+  '/devops': typeof DevopsRoute
+  '/ecosystem': typeof EcosystemRoute
+  '/editorial-policy': typeof EditorialPolicyRoute
+  '/fact-checking': typeof FactCheckingRoute
+  '/faq': typeof FaqRoute
+  '/forgot-password': typeof ForgotPasswordRoute
+  '/gallery': typeof GalleryRoute
+  '/glossary': typeof GlossaryRouteWithChildren
+  '/host': typeof HostRouteWithChildren
+  '/leadership': typeof LeadershipRoute
+  '/login': typeof LoginRoute
+  '/open-source': typeof OpenSourceRoute
+  '/partners': typeof PartnersRoute
+  '/press': typeof PressRoute
+  '/privacy': typeof PrivacyRoute
+  '/refund': typeof RefundRoute
+  '/register': typeof RegisterRoute
+  '/research-methodology': typeof ResearchMethodologyRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/resources': typeof ResourcesRoute
-  '/admin': typeof AuthenticatedAdminRoute
-  '/dashboard': typeof AuthenticatedDashboardRoute
-  '/profile': typeof AuthenticatedProfileRoute
+  '/roadmap': typeof RoadmapRoute
+  '/schedule-call': typeof ScheduleCallRoute
+  '/security': typeof SecurityRoute
+  '/sponsor': typeof SponsorRouteWithChildren
+  '/terms': typeof TermsRoute
+  '/transparency-report': typeof TransparencyReportRoute
+  '/trust-center': typeof TrustCenterRoute
+  '/about/brand': typeof AboutBrandRoute
+  '/about/community': typeof AboutCommunityRoute
+  '/about/faq': typeof AboutFaqRoute
+  '/about/history': typeof AboutHistoryRoute
+  '/about/mission': typeof AboutMissionRoute
+  '/about/origohost': typeof AboutOrigohostRoute
+  '/about/research': typeof AboutResearchRoute
+  '/about/vision': typeof AboutVisionRoute
+  '/admin/audit': typeof AdminAuditRoute
+  '/admin/blog': typeof AdminBlogRoute
+  '/admin/certificates': typeof AdminCertificatesRoute
+  '/admin/event-registrations': typeof AdminEventRegistrationsRoute
+  '/admin/faq': typeof AdminFaqRoute
+  '/admin/gallery': typeof AdminGalleryRoute
+  '/admin/job-applications': typeof AdminJobApplicationsRoute
+  '/admin/messages': typeof AdminMessagesRoute
+  '/admin/navigation': typeof AdminNavigationRoute
+  '/admin/newsletter': typeof AdminNewsletterRoute
+  '/admin/page-blocks': typeof AdminPageBlocksRoute
+  '/admin/pages': typeof AdminPagesRoute
+  '/admin/partners': typeof AdminPartnersRoute
+  '/admin/schedule-calls': typeof AdminScheduleCallsRoute
+  '/admin/seo': typeof AdminSeoRoute
+  '/admin/settings': typeof AdminSettingsRoute
+  '/admin/sponsors': typeof AdminSponsorsRoute
+  '/admin/testimonials': typeof AdminTestimonialsRoute
+  '/admin/users': typeof AdminUsersRoute
+  '/ambassador/apply': typeof AmbassadorApplyRoute
+  '/ambassador/dashboard': typeof AmbassadorDashboardRoute
   '/blog/$slug': typeof BlogSlugRoute
-  '/events/$slug': typeof EventsSlugRoute
-  '/members/$id': typeof MembersIdRoute
-  '/blog': typeof BlogIndexRoute
-  '/events': typeof EventsIndexRoute
-  '/members': typeof MembersIndexRoute
+  '/certificates/$certificateId': typeof CertificatesCertificateIdRoute
+  '/cloud/dedicated': typeof CloudDedicatedRoute
+  '/cloud/kubernetes': typeof CloudKubernetesRoute
+  '/cloud/vps': typeof CloudVpsRoute
+  '/community/chapters': typeof CommunityChaptersRoute
+  '/compare/$competitor': typeof CompareCompetitorRoute
+  '/dashboard/proposals': typeof DashboardProposalsRoute
+  '/founders/$slug': typeof FoundersSlugRoute
+  '/glossary/$term': typeof GlossaryTermRoute
+  '/host/apply': typeof HostApplyRoute
+  '/host/success': typeof HostSuccessRoute
+  '/jobs/$jobId': typeof JobsJobIdRoute
+  '/sponsor/dashboard': typeof SponsorDashboardRoute
+  '/sponsor/success': typeof SponsorSuccessRoute
+  '/technologies/$tech': typeof TechnologiesTechRoute
+  '/topics/ai': typeof TopicsAiRoute
+  '/topics/career': typeof TopicsCareerRoute
+  '/topics/cyber-security': typeof TopicsCyberSecurityRoute
+  '/topics/hackathons': typeof TopicsHackathonsRoute
+  '/topics/programming': typeof TopicsProgrammingRoute
+  '/admin': typeof AdminIndexRoute
+  '/ambassador': typeof AmbassadorIndexRoute
+  '/certificates': typeof CertificatesIndexRoute
+  '/admin/ai-center/ai-analytics': typeof AdminAiCenterAiAnalyticsRoute
+  '/admin/ai-center/ai-career-advisor': typeof AdminAiCenterAiCareerAdvisorRoute
+  '/admin/ai-center/ai-chatbot': typeof AdminAiCenterAiChatbotRoute
+  '/admin/ai-center/ai-content-generator': typeof AdminAiCenterAiContentGeneratorRoute
+  '/admin/ai-center/ai-dashboard': typeof AdminAiCenterAiDashboardRoute
+  '/admin/ai-center/ai-logs': typeof AdminAiCenterAiLogsRoute
+  '/admin/ai-center/ai-moderation': typeof AdminAiCenterAiModerationRoute
+  '/admin/ai-center/ai-resume-review': typeof AdminAiCenterAiResumeReviewRoute
+  '/admin/ai-center/ai-search': typeof AdminAiCenterAiSearchRoute
+  '/admin/ai-center/ai-settings': typeof AdminAiCenterAiSettingsRoute
+  '/admin/ai-center/prompt-library': typeof AdminAiCenterPromptLibraryRoute
+  '/admin/ai-center/prompt-templates': typeof AdminAiCenterPromptTemplatesRoute
+  '/admin/ai-center/token-usage': typeof AdminAiCenterTokenUsageRoute
+  '/admin/analytics/browsers': typeof AdminAnalyticsBrowsersRoute
+  '/admin/analytics/cities': typeof AdminAnalyticsCitiesRoute
+  '/admin/analytics/conversions': typeof AdminAnalyticsConversionsRoute
+  '/admin/analytics/countries': typeof AdminAnalyticsCountriesRoute
+  '/admin/analytics/dashboard': typeof AdminAnalyticsDashboardRoute
+  '/admin/analytics/devices': typeof AdminAnalyticsDevicesRoute
+  '/admin/analytics/exports': typeof AdminAnalyticsExportsRoute
+  '/admin/analytics/funnels': typeof AdminAnalyticsFunnelsRoute
+  '/admin/analytics/heatmaps': typeof AdminAnalyticsHeatmapsRoute
+  '/admin/analytics/organizations': typeof AdminAnalyticsOrganizationsRoute
+  '/admin/analytics/realtime': typeof AdminAnalyticsRealtimeRoute
+  '/admin/analytics/reports': typeof AdminAnalyticsReportsRoute
+  '/admin/analytics/retention': typeof AdminAnalyticsRetentionRoute
+  '/admin/analytics/traffic': typeof AdminAnalyticsTrafficRoute
+  '/admin/community/achievements': typeof AdminCommunityAchievementsRoute
+  '/admin/community/announcements': typeof AdminCommunityAnnouncementsRoute
+  '/admin/community/badges': typeof AdminCommunityBadgesRoute
+  '/admin/community/campus-ambassador': typeof AdminCommunityCampusAmbassadorRoute
+  '/admin/community/communities': typeof AdminCommunityCommunitiesRoute
+  '/admin/community/community-analytics': typeof AdminCommunityCommunityAnalyticsRoute
+  '/admin/community/community-members': typeof AdminCommunityCommunityMembersRoute
+  '/admin/community/discussions': typeof AdminCommunityDiscussionsRoute
+  '/admin/community/forums': typeof AdminCommunityForumsRoute
+  '/admin/community/groups': typeof AdminCommunityGroupsRoute
+  '/admin/community/leaderboard': typeof AdminCommunityLeaderboardRoute
+  '/admin/community/mentorship': typeof AdminCommunityMentorshipRoute
+  '/admin/community/volunteer-management': typeof AdminCommunityVolunteerManagementRoute
+  '/admin/content/authors': typeof AdminContentAuthorsRoute
+  '/admin/content/banner-manager': typeof AdminContentBannerManagerRoute
+  '/admin/content/categories': typeof AdminContentCategoriesRoute
+  '/admin/content/cms': typeof AdminContentCmsRoute
+  '/admin/content/footer': typeof AdminContentFooterRoute
+  '/admin/content/forms-builder': typeof AdminContentFormsBuilderRoute
+  '/admin/content/homepage': typeof AdminContentHomepageRoute
+  '/admin/content/landing-pages': typeof AdminContentLandingPagesRoute
+  '/admin/content/media-library': typeof AdminContentMediaLibraryRoute
+  '/admin/content/menus': typeof AdminContentMenusRoute
+  '/admin/content/page-builder': typeof AdminContentPageBuilderRoute
+  '/admin/content/popup-builder': typeof AdminContentPopupBuilderRoute
+  '/admin/content/resources': typeof AdminContentResourcesRoute
+  '/admin/content/videos': typeof AdminContentVideosRoute
+  '/admin/developer/activity-logs': typeof AdminDeveloperActivityLogsRoute
+  '/admin/developer/api-explorer': typeof AdminDeveloperApiExplorerRoute
+  '/admin/developer/api-keys': typeof AdminDeveloperApiKeysRoute
+  '/admin/developer/cron-jobs': typeof AdminDeveloperCronJobsRoute
+  '/admin/developer/database-browser': typeof AdminDeveloperDatabaseBrowserRoute
+  '/admin/developer/deployment-logs': typeof AdminDeveloperDeploymentLogsRoute
+  '/admin/developer/developer-tools': typeof AdminDeveloperDeveloperToolsRoute
+  '/admin/developer/environment-variables': typeof AdminDeveloperEnvironmentVariablesRoute
+  '/admin/developer/error-logs': typeof AdminDeveloperErrorLogsRoute
+  '/admin/developer/feature-flags': typeof AdminDeveloperFeatureFlagsRoute
+  '/admin/developer/queue-manager': typeof AdminDeveloperQueueManagerRoute
+  '/admin/developer/sql-explorer': typeof AdminDeveloperSqlExplorerRoute
+  '/admin/developer/storage-browser': typeof AdminDeveloperStorageBrowserRoute
+  '/admin/developer/webhook-logs': typeof AdminDeveloperWebhookLogsRoute
+  '/admin/developer/webhook-manager': typeof AdminDeveloperWebhookManagerRoute
+  '/admin/events/attendance': typeof AdminEventsAttendanceRoute
+  '/admin/events/calendar': typeof AdminEventsCalendarRoute
+  '/admin/events/categories': typeof AdminEventsCategoriesRoute
+  '/admin/events/event-gallery': typeof AdminEventsEventGalleryRoute
+  '/admin/events/feedback': typeof AdminEventsFeedbackRoute
+  '/admin/events/livestream': typeof AdminEventsLivestreamRoute
+  '/admin/events/qr-check-in': typeof AdminEventsQrCheckInRoute
+  '/admin/events/qr-tickets': typeof AdminEventsQrTicketsRoute
+  '/admin/events/registration': typeof AdminEventsRegistrationRoute
+  '/admin/events/reports': typeof AdminEventsReportsRoute
+  '/admin/events/reviews': typeof AdminEventsReviewsRoute
+  '/admin/events/schedules': typeof AdminEventsSchedulesRoute
+  '/admin/events/speakers': typeof AdminEventsSpeakersRoute
+  '/admin/events/sponsors': typeof AdminEventsSponsorsRoute
+  '/admin/events/venues': typeof AdminEventsVenuesRoute
+  '/admin/finance/donations': typeof AdminFinanceDonationsRoute
+  '/admin/finance/invoices': typeof AdminFinanceInvoicesRoute
+  '/admin/finance/payments': typeof AdminFinancePaymentsRoute
+  '/admin/finance/refunds': typeof AdminFinanceRefundsRoute
+  '/admin/finance/reports': typeof AdminFinanceReportsRoute
+  '/admin/finance/revenue': typeof AdminFinanceRevenueRoute
+  '/admin/finance/sponsors': typeof AdminFinanceSponsorsRoute
+  '/admin/finance/subscriptions': typeof AdminFinanceSubscriptionsRoute
+  '/admin/finance/taxes': typeof AdminFinanceTaxesRoute
+  '/admin/finance/transactions': typeof AdminFinanceTransactionsRoute
+  '/admin/marketing/announcement-center': typeof AdminMarketingAnnouncementCenterRoute
+  '/admin/marketing/campaigns': typeof AdminMarketingCampaignsRoute
+  '/admin/marketing/coupon-manager': typeof AdminMarketingCouponManagerRoute
+  '/admin/marketing/email-templates': typeof AdminMarketingEmailTemplatesRoute
+  '/admin/marketing/notifications': typeof AdminMarketingNotificationsRoute
+  '/admin/marketing/popup-campaigns': typeof AdminMarketingPopupCampaignsRoute
+  '/admin/marketing/referral-program': typeof AdminMarketingReferralProgramRoute
+  '/admin/marketing/seo-manager': typeof AdminMarketingSeoManagerRoute
+  '/admin/marketing/social-posts': typeof AdminMarketingSocialPostsRoute
+  '/admin/marketing/subscribers': typeof AdminMarketingSubscribersRoute
+  '/admin/operations/activity-timeline': typeof AdminOperationsActivityTimelineRoute
+  '/admin/operations/admins': typeof AdminOperationsAdminsRoute
+  '/admin/operations/audit-logs': typeof AdminOperationsAuditLogsRoute
+  '/admin/operations/device-manager': typeof AdminOperationsDeviceManagerRoute
+  '/admin/operations/host-requests': typeof AdminOperationsHostRequestsRoute
+  '/admin/operations/mentors': typeof AdminOperationsMentorsRoute
+  '/admin/operations/organizations': typeof AdminOperationsOrganizationsRoute
+  '/admin/operations/permissions': typeof AdminOperationsPermissionsRoute
+  '/admin/operations/recruiters': typeof AdminOperationsRecruitersRoute
+  '/admin/operations/recycle-bin': typeof AdminOperationsRecycleBinRoute
+  '/admin/operations/registration-management': typeof AdminOperationsRegistrationManagementRoute
+  '/admin/operations/roles': typeof AdminOperationsRolesRoute
+  '/admin/operations/sessions': typeof AdminOperationsSessionsRoute
+  '/admin/operations/speakers': typeof AdminOperationsSpeakersRoute
+  '/admin/operations/students': typeof AdminOperationsStudentsRoute
+  '/admin/operations/verification-center': typeof AdminOperationsVerificationCenterRoute
+  '/admin/operations/volunteers': typeof AdminOperationsVolunteersRoute
+  '/admin/personal/api-tokens': typeof AdminPersonalApiTokensRoute
+  '/admin/personal/appearance': typeof AdminPersonalAppearanceRoute
+  '/admin/personal/connected-accounts': typeof AdminPersonalConnectedAccountsRoute
+  '/admin/personal/feedback': typeof AdminPersonalFeedbackRoute
+  '/admin/personal/help': typeof AdminPersonalHelpRoute
+  '/admin/personal/my-profile': typeof AdminPersonalMyProfileRoute
+  '/admin/personal/notifications': typeof AdminPersonalNotificationsRoute
+  '/admin/personal/preferences': typeof AdminPersonalPreferencesRoute
+  '/admin/personal/security': typeof AdminPersonalSecurityRoute
+  '/admin/personal/sessions': typeof AdminPersonalSessionsRoute
+  '/admin/recruitment/analytics': typeof AdminRecruitmentAnalyticsRoute
+  '/admin/recruitment/applications': typeof AdminRecruitmentApplicationsRoute
+  '/admin/recruitment/companies': typeof AdminRecruitmentCompaniesRoute
+  '/admin/recruitment/interview-pipeline': typeof AdminRecruitmentInterviewPipelineRoute
+  '/admin/recruitment/offer-letters': typeof AdminRecruitmentOfferLettersRoute
+  '/admin/recruitment/rejected': typeof AdminRecruitmentRejectedRoute
+  '/admin/recruitment/reports': typeof AdminRecruitmentReportsRoute
+  '/admin/recruitment/resume-database': typeof AdminRecruitmentResumeDatabaseRoute
+  '/admin/recruitment/resume-screening': typeof AdminRecruitmentResumeScreeningRoute
+  '/admin/system/backups': typeof AdminSystemBackupsRoute
+  '/admin/system/branding': typeof AdminSystemBrandingRoute
+  '/admin/system/domains': typeof AdminSystemDomainsRoute
+  '/admin/system/email': typeof AdminSystemEmailRoute
+  '/admin/system/feature-flags': typeof AdminSystemFeatureFlagsRoute
+  '/admin/system/integrations': typeof AdminSystemIntegrationsRoute
+  '/admin/system/localization': typeof AdminSystemLocalizationRoute
+  '/admin/system/logo': typeof AdminSystemLogoRoute
+  '/admin/system/maintenance': typeof AdminSystemMaintenanceRoute
+  '/admin/system/restore': typeof AdminSystemRestoreRoute
+  '/admin/system/security': typeof AdminSystemSecurityRoute
+  '/admin/system/smtp': typeof AdminSystemSmtpRoute
+  '/admin/system/storage': typeof AdminSystemStorageRoute
+  '/admin/system/system-health': typeof AdminSystemSystemHealthRoute
+  '/admin/system/theme': typeof AdminSystemThemeRoute
+  '/admin/system/timezone': typeof AdminSystemTimezoneRoute
+  '/community/ambassadors/apply': typeof CommunityAmbassadorsApplyRoute
+  '/community/events/$eventId': typeof CommunityEventsEventIdRoute
+  '/admin/events': typeof AdminEventsIndexRoute
+  '/community/ambassadors': typeof CommunityAmbassadorsIndexRoute
+  '/community/events': typeof CommunityEventsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/about': typeof AboutRoute
-  '/auth': typeof AuthRoute
+  '/academy': typeof AcademyRoute
+  '/ambassador': typeof AmbassadorRouteWithChildren
+  '/become-a-sponsor': typeof BecomeASponsorRoute
+  '/blog': typeof BlogRouteWithChildren
+  '/cloud': typeof CloudRoute
+  '/code-of-conduct': typeof CodeOfConductRoute
   '/community': typeof CommunityRoute
   '/contact': typeof ContactRoute
-  '/organize-an-event': typeof OrganizeAnEventRoute
-  '/partnerships': typeof PartnershipsRoute
-  '/programs': typeof ProgramsRoute
+  '/content-policy': typeof ContentPolicyRoute
+  '/contributors': typeof ContributorsRoute
+  '/cookies': typeof CookiesRoute
+  '/dashboard': typeof DashboardRouteWithChildren
+  '/devops': typeof DevopsRoute
+  '/ecosystem': typeof EcosystemRoute
+  '/editorial-policy': typeof EditorialPolicyRoute
+  '/fact-checking': typeof FactCheckingRoute
+  '/faq': typeof FaqRoute
+  '/forgot-password': typeof ForgotPasswordRoute
+  '/gallery': typeof GalleryRoute
+  '/glossary': typeof GlossaryRouteWithChildren
+  '/host': typeof HostRouteWithChildren
+  '/leadership': typeof LeadershipRoute
+  '/login': typeof LoginRoute
+  '/open-source': typeof OpenSourceRoute
+  '/partners': typeof PartnersRoute
+  '/press': typeof PressRoute
+  '/privacy': typeof PrivacyRoute
+  '/refund': typeof RefundRoute
+  '/register': typeof RegisterRoute
+  '/research-methodology': typeof ResearchMethodologyRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/resources': typeof ResourcesRoute
-  '/_authenticated/admin': typeof AuthenticatedAdminRoute
-  '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
-  '/_authenticated/profile': typeof AuthenticatedProfileRoute
+  '/roadmap': typeof RoadmapRoute
+  '/schedule-call': typeof ScheduleCallRoute
+  '/security': typeof SecurityRoute
+  '/sponsor': typeof SponsorRouteWithChildren
+  '/terms': typeof TermsRoute
+  '/transparency-report': typeof TransparencyReportRoute
+  '/trust-center': typeof TrustCenterRoute
+  '/about_/brand': typeof AboutBrandRoute
+  '/about_/community': typeof AboutCommunityRoute
+  '/about_/faq': typeof AboutFaqRoute
+  '/about_/history': typeof AboutHistoryRoute
+  '/about_/mission': typeof AboutMissionRoute
+  '/about_/origohost': typeof AboutOrigohostRoute
+  '/about_/research': typeof AboutResearchRoute
+  '/about_/vision': typeof AboutVisionRoute
+  '/admin/audit': typeof AdminAuditRoute
+  '/admin/blog': typeof AdminBlogRoute
+  '/admin/certificates': typeof AdminCertificatesRoute
+  '/admin/event-registrations': typeof AdminEventRegistrationsRoute
+  '/admin/faq': typeof AdminFaqRoute
+  '/admin/gallery': typeof AdminGalleryRoute
+  '/admin/job-applications': typeof AdminJobApplicationsRoute
+  '/admin/messages': typeof AdminMessagesRoute
+  '/admin/navigation': typeof AdminNavigationRoute
+  '/admin/newsletter': typeof AdminNewsletterRoute
+  '/admin/page-blocks': typeof AdminPageBlocksRoute
+  '/admin/pages': typeof AdminPagesRoute
+  '/admin/partners': typeof AdminPartnersRoute
+  '/admin/schedule-calls': typeof AdminScheduleCallsRoute
+  '/admin/seo': typeof AdminSeoRoute
+  '/admin/settings': typeof AdminSettingsRoute
+  '/admin/sponsors': typeof AdminSponsorsRoute
+  '/admin/testimonials': typeof AdminTestimonialsRoute
+  '/admin/users': typeof AdminUsersRoute
+  '/ambassador/apply': typeof AmbassadorApplyRoute
+  '/ambassador/dashboard': typeof AmbassadorDashboardRoute
   '/blog/$slug': typeof BlogSlugRoute
-  '/events/$slug': typeof EventsSlugRoute
-  '/members/$id': typeof MembersIdRoute
-  '/blog/': typeof BlogIndexRoute
-  '/events/': typeof EventsIndexRoute
-  '/members/': typeof MembersIndexRoute
+  '/certificates/$certificateId': typeof CertificatesCertificateIdRoute
+  '/cloud_/dedicated': typeof CloudDedicatedRoute
+  '/cloud_/kubernetes': typeof CloudKubernetesRoute
+  '/cloud_/vps': typeof CloudVpsRoute
+  '/community_/ambassadors': typeof CommunityAmbassadorsRouteWithChildren
+  '/community_/chapters': typeof CommunityChaptersRoute
+  '/compare/$competitor': typeof CompareCompetitorRoute
+  '/dashboard/proposals': typeof DashboardProposalsRoute
+  '/founders/$slug': typeof FoundersSlugRoute
+  '/glossary/$term': typeof GlossaryTermRoute
+  '/host/apply': typeof HostApplyRoute
+  '/host/success': typeof HostSuccessRoute
+  '/jobs/$jobId': typeof JobsJobIdRoute
+  '/sponsor/dashboard': typeof SponsorDashboardRoute
+  '/sponsor/success': typeof SponsorSuccessRoute
+  '/technologies/$tech': typeof TechnologiesTechRoute
+  '/topics_/ai': typeof TopicsAiRoute
+  '/topics_/career': typeof TopicsCareerRoute
+  '/topics_/cyber-security': typeof TopicsCyberSecurityRoute
+  '/topics_/hackathons': typeof TopicsHackathonsRoute
+  '/topics_/programming': typeof TopicsProgrammingRoute
+  '/admin/': typeof AdminIndexRoute
+  '/ambassador/': typeof AmbassadorIndexRoute
+  '/certificates/': typeof CertificatesIndexRoute
+  '/admin/ai-center/ai-analytics': typeof AdminAiCenterAiAnalyticsRoute
+  '/admin/ai-center/ai-career-advisor': typeof AdminAiCenterAiCareerAdvisorRoute
+  '/admin/ai-center/ai-chatbot': typeof AdminAiCenterAiChatbotRoute
+  '/admin/ai-center/ai-content-generator': typeof AdminAiCenterAiContentGeneratorRoute
+  '/admin/ai-center/ai-dashboard': typeof AdminAiCenterAiDashboardRoute
+  '/admin/ai-center/ai-logs': typeof AdminAiCenterAiLogsRoute
+  '/admin/ai-center/ai-moderation': typeof AdminAiCenterAiModerationRoute
+  '/admin/ai-center/ai-resume-review': typeof AdminAiCenterAiResumeReviewRoute
+  '/admin/ai-center/ai-search': typeof AdminAiCenterAiSearchRoute
+  '/admin/ai-center/ai-settings': typeof AdminAiCenterAiSettingsRoute
+  '/admin/ai-center/prompt-library': typeof AdminAiCenterPromptLibraryRoute
+  '/admin/ai-center/prompt-templates': typeof AdminAiCenterPromptTemplatesRoute
+  '/admin/ai-center/token-usage': typeof AdminAiCenterTokenUsageRoute
+  '/admin/analytics/browsers': typeof AdminAnalyticsBrowsersRoute
+  '/admin/analytics/cities': typeof AdminAnalyticsCitiesRoute
+  '/admin/analytics/conversions': typeof AdminAnalyticsConversionsRoute
+  '/admin/analytics/countries': typeof AdminAnalyticsCountriesRoute
+  '/admin/analytics/dashboard': typeof AdminAnalyticsDashboardRoute
+  '/admin/analytics/devices': typeof AdminAnalyticsDevicesRoute
+  '/admin/analytics/exports': typeof AdminAnalyticsExportsRoute
+  '/admin/analytics/funnels': typeof AdminAnalyticsFunnelsRoute
+  '/admin/analytics/heatmaps': typeof AdminAnalyticsHeatmapsRoute
+  '/admin/analytics/organizations': typeof AdminAnalyticsOrganizationsRoute
+  '/admin/analytics/realtime': typeof AdminAnalyticsRealtimeRoute
+  '/admin/analytics/reports': typeof AdminAnalyticsReportsRoute
+  '/admin/analytics/retention': typeof AdminAnalyticsRetentionRoute
+  '/admin/analytics/traffic': typeof AdminAnalyticsTrafficRoute
+  '/admin/community/achievements': typeof AdminCommunityAchievementsRoute
+  '/admin/community/announcements': typeof AdminCommunityAnnouncementsRoute
+  '/admin/community/badges': typeof AdminCommunityBadgesRoute
+  '/admin/community/campus-ambassador': typeof AdminCommunityCampusAmbassadorRoute
+  '/admin/community/communities': typeof AdminCommunityCommunitiesRoute
+  '/admin/community/community-analytics': typeof AdminCommunityCommunityAnalyticsRoute
+  '/admin/community/community-members': typeof AdminCommunityCommunityMembersRoute
+  '/admin/community/discussions': typeof AdminCommunityDiscussionsRoute
+  '/admin/community/forums': typeof AdminCommunityForumsRoute
+  '/admin/community/groups': typeof AdminCommunityGroupsRoute
+  '/admin/community/leaderboard': typeof AdminCommunityLeaderboardRoute
+  '/admin/community/mentorship': typeof AdminCommunityMentorshipRoute
+  '/admin/community/volunteer-management': typeof AdminCommunityVolunteerManagementRoute
+  '/admin/content/authors': typeof AdminContentAuthorsRoute
+  '/admin/content/banner-manager': typeof AdminContentBannerManagerRoute
+  '/admin/content/categories': typeof AdminContentCategoriesRoute
+  '/admin/content/cms': typeof AdminContentCmsRoute
+  '/admin/content/footer': typeof AdminContentFooterRoute
+  '/admin/content/forms-builder': typeof AdminContentFormsBuilderRoute
+  '/admin/content/homepage': typeof AdminContentHomepageRoute
+  '/admin/content/landing-pages': typeof AdminContentLandingPagesRoute
+  '/admin/content/media-library': typeof AdminContentMediaLibraryRoute
+  '/admin/content/menus': typeof AdminContentMenusRoute
+  '/admin/content/page-builder': typeof AdminContentPageBuilderRoute
+  '/admin/content/popup-builder': typeof AdminContentPopupBuilderRoute
+  '/admin/content/resources': typeof AdminContentResourcesRoute
+  '/admin/content/videos': typeof AdminContentVideosRoute
+  '/admin/developer/activity-logs': typeof AdminDeveloperActivityLogsRoute
+  '/admin/developer/api-explorer': typeof AdminDeveloperApiExplorerRoute
+  '/admin/developer/api-keys': typeof AdminDeveloperApiKeysRoute
+  '/admin/developer/cron-jobs': typeof AdminDeveloperCronJobsRoute
+  '/admin/developer/database-browser': typeof AdminDeveloperDatabaseBrowserRoute
+  '/admin/developer/deployment-logs': typeof AdminDeveloperDeploymentLogsRoute
+  '/admin/developer/developer-tools': typeof AdminDeveloperDeveloperToolsRoute
+  '/admin/developer/environment-variables': typeof AdminDeveloperEnvironmentVariablesRoute
+  '/admin/developer/error-logs': typeof AdminDeveloperErrorLogsRoute
+  '/admin/developer/feature-flags': typeof AdminDeveloperFeatureFlagsRoute
+  '/admin/developer/queue-manager': typeof AdminDeveloperQueueManagerRoute
+  '/admin/developer/sql-explorer': typeof AdminDeveloperSqlExplorerRoute
+  '/admin/developer/storage-browser': typeof AdminDeveloperStorageBrowserRoute
+  '/admin/developer/webhook-logs': typeof AdminDeveloperWebhookLogsRoute
+  '/admin/developer/webhook-manager': typeof AdminDeveloperWebhookManagerRoute
+  '/admin/events/attendance': typeof AdminEventsAttendanceRoute
+  '/admin/events/calendar': typeof AdminEventsCalendarRoute
+  '/admin/events/categories': typeof AdminEventsCategoriesRoute
+  '/admin/events/event-gallery': typeof AdminEventsEventGalleryRoute
+  '/admin/events/feedback': typeof AdminEventsFeedbackRoute
+  '/admin/events/livestream': typeof AdminEventsLivestreamRoute
+  '/admin/events/qr-check-in': typeof AdminEventsQrCheckInRoute
+  '/admin/events/qr-tickets': typeof AdminEventsQrTicketsRoute
+  '/admin/events/registration': typeof AdminEventsRegistrationRoute
+  '/admin/events/reports': typeof AdminEventsReportsRoute
+  '/admin/events/reviews': typeof AdminEventsReviewsRoute
+  '/admin/events/schedules': typeof AdminEventsSchedulesRoute
+  '/admin/events/speakers': typeof AdminEventsSpeakersRoute
+  '/admin/events/sponsors': typeof AdminEventsSponsorsRoute
+  '/admin/events/venues': typeof AdminEventsVenuesRoute
+  '/admin/finance/donations': typeof AdminFinanceDonationsRoute
+  '/admin/finance/invoices': typeof AdminFinanceInvoicesRoute
+  '/admin/finance/payments': typeof AdminFinancePaymentsRoute
+  '/admin/finance/refunds': typeof AdminFinanceRefundsRoute
+  '/admin/finance/reports': typeof AdminFinanceReportsRoute
+  '/admin/finance/revenue': typeof AdminFinanceRevenueRoute
+  '/admin/finance/sponsors': typeof AdminFinanceSponsorsRoute
+  '/admin/finance/subscriptions': typeof AdminFinanceSubscriptionsRoute
+  '/admin/finance/taxes': typeof AdminFinanceTaxesRoute
+  '/admin/finance/transactions': typeof AdminFinanceTransactionsRoute
+  '/admin/marketing/announcement-center': typeof AdminMarketingAnnouncementCenterRoute
+  '/admin/marketing/campaigns': typeof AdminMarketingCampaignsRoute
+  '/admin/marketing/coupon-manager': typeof AdminMarketingCouponManagerRoute
+  '/admin/marketing/email-templates': typeof AdminMarketingEmailTemplatesRoute
+  '/admin/marketing/notifications': typeof AdminMarketingNotificationsRoute
+  '/admin/marketing/popup-campaigns': typeof AdminMarketingPopupCampaignsRoute
+  '/admin/marketing/referral-program': typeof AdminMarketingReferralProgramRoute
+  '/admin/marketing/seo-manager': typeof AdminMarketingSeoManagerRoute
+  '/admin/marketing/social-posts': typeof AdminMarketingSocialPostsRoute
+  '/admin/marketing/subscribers': typeof AdminMarketingSubscribersRoute
+  '/admin/operations/activity-timeline': typeof AdminOperationsActivityTimelineRoute
+  '/admin/operations/admins': typeof AdminOperationsAdminsRoute
+  '/admin/operations/audit-logs': typeof AdminOperationsAuditLogsRoute
+  '/admin/operations/device-manager': typeof AdminOperationsDeviceManagerRoute
+  '/admin/operations/host-requests': typeof AdminOperationsHostRequestsRoute
+  '/admin/operations/mentors': typeof AdminOperationsMentorsRoute
+  '/admin/operations/organizations': typeof AdminOperationsOrganizationsRoute
+  '/admin/operations/permissions': typeof AdminOperationsPermissionsRoute
+  '/admin/operations/recruiters': typeof AdminOperationsRecruitersRoute
+  '/admin/operations/recycle-bin': typeof AdminOperationsRecycleBinRoute
+  '/admin/operations/registration-management': typeof AdminOperationsRegistrationManagementRoute
+  '/admin/operations/roles': typeof AdminOperationsRolesRoute
+  '/admin/operations/sessions': typeof AdminOperationsSessionsRoute
+  '/admin/operations/speakers': typeof AdminOperationsSpeakersRoute
+  '/admin/operations/students': typeof AdminOperationsStudentsRoute
+  '/admin/operations/verification-center': typeof AdminOperationsVerificationCenterRoute
+  '/admin/operations/volunteers': typeof AdminOperationsVolunteersRoute
+  '/admin/personal/api-tokens': typeof AdminPersonalApiTokensRoute
+  '/admin/personal/appearance': typeof AdminPersonalAppearanceRoute
+  '/admin/personal/connected-accounts': typeof AdminPersonalConnectedAccountsRoute
+  '/admin/personal/feedback': typeof AdminPersonalFeedbackRoute
+  '/admin/personal/help': typeof AdminPersonalHelpRoute
+  '/admin/personal/my-profile': typeof AdminPersonalMyProfileRoute
+  '/admin/personal/notifications': typeof AdminPersonalNotificationsRoute
+  '/admin/personal/preferences': typeof AdminPersonalPreferencesRoute
+  '/admin/personal/security': typeof AdminPersonalSecurityRoute
+  '/admin/personal/sessions': typeof AdminPersonalSessionsRoute
+  '/admin/recruitment/analytics': typeof AdminRecruitmentAnalyticsRoute
+  '/admin/recruitment/applications': typeof AdminRecruitmentApplicationsRoute
+  '/admin/recruitment/companies': typeof AdminRecruitmentCompaniesRoute
+  '/admin/recruitment/interview-pipeline': typeof AdminRecruitmentInterviewPipelineRoute
+  '/admin/recruitment/offer-letters': typeof AdminRecruitmentOfferLettersRoute
+  '/admin/recruitment/rejected': typeof AdminRecruitmentRejectedRoute
+  '/admin/recruitment/reports': typeof AdminRecruitmentReportsRoute
+  '/admin/recruitment/resume-database': typeof AdminRecruitmentResumeDatabaseRoute
+  '/admin/recruitment/resume-screening': typeof AdminRecruitmentResumeScreeningRoute
+  '/admin/system/backups': typeof AdminSystemBackupsRoute
+  '/admin/system/branding': typeof AdminSystemBrandingRoute
+  '/admin/system/domains': typeof AdminSystemDomainsRoute
+  '/admin/system/email': typeof AdminSystemEmailRoute
+  '/admin/system/feature-flags': typeof AdminSystemFeatureFlagsRoute
+  '/admin/system/integrations': typeof AdminSystemIntegrationsRoute
+  '/admin/system/localization': typeof AdminSystemLocalizationRoute
+  '/admin/system/logo': typeof AdminSystemLogoRoute
+  '/admin/system/maintenance': typeof AdminSystemMaintenanceRoute
+  '/admin/system/restore': typeof AdminSystemRestoreRoute
+  '/admin/system/security': typeof AdminSystemSecurityRoute
+  '/admin/system/smtp': typeof AdminSystemSmtpRoute
+  '/admin/system/storage': typeof AdminSystemStorageRoute
+  '/admin/system/system-health': typeof AdminSystemSystemHealthRoute
+  '/admin/system/theme': typeof AdminSystemThemeRoute
+  '/admin/system/timezone': typeof AdminSystemTimezoneRoute
+  '/community_/ambassadors_/apply': typeof CommunityAmbassadorsApplyRoute
+  '/community_/events/$eventId': typeof CommunityEventsEventIdRoute
+  '/admin/events/': typeof AdminEventsIndexRoute
+  '/community_/ambassadors/': typeof CommunityAmbassadorsIndexRoute
+  '/community_/events/': typeof CommunityEventsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/about'
-    | '/auth'
+    | '/academy'
+    | '/ambassador'
+    | '/become-a-sponsor'
+    | '/blog'
+    | '/cloud'
+    | '/code-of-conduct'
     | '/community'
     | '/contact'
-    | '/organize-an-event'
-    | '/partnerships'
-    | '/programs'
-    | '/resources'
-    | '/admin'
+    | '/content-policy'
+    | '/contributors'
+    | '/cookies'
     | '/dashboard'
-    | '/profile'
+    | '/devops'
+    | '/ecosystem'
+    | '/editorial-policy'
+    | '/fact-checking'
+    | '/faq'
+    | '/forgot-password'
+    | '/gallery'
+    | '/glossary'
+    | '/host'
+    | '/leadership'
+    | '/login'
+    | '/open-source'
+    | '/partners'
+    | '/press'
+    | '/privacy'
+    | '/refund'
+    | '/register'
+    | '/research-methodology'
+    | '/reset-password'
+    | '/resources'
+    | '/roadmap'
+    | '/schedule-call'
+    | '/security'
+    | '/sponsor'
+    | '/terms'
+    | '/transparency-report'
+    | '/trust-center'
+    | '/about/brand'
+    | '/about/community'
+    | '/about/faq'
+    | '/about/history'
+    | '/about/mission'
+    | '/about/origohost'
+    | '/about/research'
+    | '/about/vision'
+    | '/admin/audit'
+    | '/admin/blog'
+    | '/admin/certificates'
+    | '/admin/event-registrations'
+    | '/admin/faq'
+    | '/admin/gallery'
+    | '/admin/job-applications'
+    | '/admin/messages'
+    | '/admin/navigation'
+    | '/admin/newsletter'
+    | '/admin/page-blocks'
+    | '/admin/pages'
+    | '/admin/partners'
+    | '/admin/schedule-calls'
+    | '/admin/seo'
+    | '/admin/settings'
+    | '/admin/sponsors'
+    | '/admin/testimonials'
+    | '/admin/users'
+    | '/ambassador/apply'
+    | '/ambassador/dashboard'
     | '/blog/$slug'
-    | '/events/$slug'
-    | '/members/$id'
-    | '/blog/'
-    | '/events/'
-    | '/members/'
+    | '/certificates/$certificateId'
+    | '/cloud/dedicated'
+    | '/cloud/kubernetes'
+    | '/cloud/vps'
+    | '/community/ambassadors'
+    | '/community/chapters'
+    | '/compare/$competitor'
+    | '/dashboard/proposals'
+    | '/founders/$slug'
+    | '/glossary/$term'
+    | '/host/apply'
+    | '/host/success'
+    | '/jobs/$jobId'
+    | '/sponsor/dashboard'
+    | '/sponsor/success'
+    | '/technologies/$tech'
+    | '/topics/ai'
+    | '/topics/career'
+    | '/topics/cyber-security'
+    | '/topics/hackathons'
+    | '/topics/programming'
+    | '/admin/'
+    | '/ambassador/'
+    | '/certificates/'
+    | '/admin/ai-center/ai-analytics'
+    | '/admin/ai-center/ai-career-advisor'
+    | '/admin/ai-center/ai-chatbot'
+    | '/admin/ai-center/ai-content-generator'
+    | '/admin/ai-center/ai-dashboard'
+    | '/admin/ai-center/ai-logs'
+    | '/admin/ai-center/ai-moderation'
+    | '/admin/ai-center/ai-resume-review'
+    | '/admin/ai-center/ai-search'
+    | '/admin/ai-center/ai-settings'
+    | '/admin/ai-center/prompt-library'
+    | '/admin/ai-center/prompt-templates'
+    | '/admin/ai-center/token-usage'
+    | '/admin/analytics/browsers'
+    | '/admin/analytics/cities'
+    | '/admin/analytics/conversions'
+    | '/admin/analytics/countries'
+    | '/admin/analytics/dashboard'
+    | '/admin/analytics/devices'
+    | '/admin/analytics/exports'
+    | '/admin/analytics/funnels'
+    | '/admin/analytics/heatmaps'
+    | '/admin/analytics/organizations'
+    | '/admin/analytics/realtime'
+    | '/admin/analytics/reports'
+    | '/admin/analytics/retention'
+    | '/admin/analytics/traffic'
+    | '/admin/community/achievements'
+    | '/admin/community/announcements'
+    | '/admin/community/badges'
+    | '/admin/community/campus-ambassador'
+    | '/admin/community/communities'
+    | '/admin/community/community-analytics'
+    | '/admin/community/community-members'
+    | '/admin/community/discussions'
+    | '/admin/community/forums'
+    | '/admin/community/groups'
+    | '/admin/community/leaderboard'
+    | '/admin/community/mentorship'
+    | '/admin/community/volunteer-management'
+    | '/admin/content/authors'
+    | '/admin/content/banner-manager'
+    | '/admin/content/categories'
+    | '/admin/content/cms'
+    | '/admin/content/footer'
+    | '/admin/content/forms-builder'
+    | '/admin/content/homepage'
+    | '/admin/content/landing-pages'
+    | '/admin/content/media-library'
+    | '/admin/content/menus'
+    | '/admin/content/page-builder'
+    | '/admin/content/popup-builder'
+    | '/admin/content/resources'
+    | '/admin/content/videos'
+    | '/admin/developer/activity-logs'
+    | '/admin/developer/api-explorer'
+    | '/admin/developer/api-keys'
+    | '/admin/developer/cron-jobs'
+    | '/admin/developer/database-browser'
+    | '/admin/developer/deployment-logs'
+    | '/admin/developer/developer-tools'
+    | '/admin/developer/environment-variables'
+    | '/admin/developer/error-logs'
+    | '/admin/developer/feature-flags'
+    | '/admin/developer/queue-manager'
+    | '/admin/developer/sql-explorer'
+    | '/admin/developer/storage-browser'
+    | '/admin/developer/webhook-logs'
+    | '/admin/developer/webhook-manager'
+    | '/admin/events/attendance'
+    | '/admin/events/calendar'
+    | '/admin/events/categories'
+    | '/admin/events/event-gallery'
+    | '/admin/events/feedback'
+    | '/admin/events/livestream'
+    | '/admin/events/qr-check-in'
+    | '/admin/events/qr-tickets'
+    | '/admin/events/registration'
+    | '/admin/events/reports'
+    | '/admin/events/reviews'
+    | '/admin/events/schedules'
+    | '/admin/events/speakers'
+    | '/admin/events/sponsors'
+    | '/admin/events/venues'
+    | '/admin/finance/donations'
+    | '/admin/finance/invoices'
+    | '/admin/finance/payments'
+    | '/admin/finance/refunds'
+    | '/admin/finance/reports'
+    | '/admin/finance/revenue'
+    | '/admin/finance/sponsors'
+    | '/admin/finance/subscriptions'
+    | '/admin/finance/taxes'
+    | '/admin/finance/transactions'
+    | '/admin/marketing/announcement-center'
+    | '/admin/marketing/campaigns'
+    | '/admin/marketing/coupon-manager'
+    | '/admin/marketing/email-templates'
+    | '/admin/marketing/notifications'
+    | '/admin/marketing/popup-campaigns'
+    | '/admin/marketing/referral-program'
+    | '/admin/marketing/seo-manager'
+    | '/admin/marketing/social-posts'
+    | '/admin/marketing/subscribers'
+    | '/admin/operations/activity-timeline'
+    | '/admin/operations/admins'
+    | '/admin/operations/audit-logs'
+    | '/admin/operations/device-manager'
+    | '/admin/operations/host-requests'
+    | '/admin/operations/mentors'
+    | '/admin/operations/organizations'
+    | '/admin/operations/permissions'
+    | '/admin/operations/recruiters'
+    | '/admin/operations/recycle-bin'
+    | '/admin/operations/registration-management'
+    | '/admin/operations/roles'
+    | '/admin/operations/sessions'
+    | '/admin/operations/speakers'
+    | '/admin/operations/students'
+    | '/admin/operations/verification-center'
+    | '/admin/operations/volunteers'
+    | '/admin/personal/api-tokens'
+    | '/admin/personal/appearance'
+    | '/admin/personal/connected-accounts'
+    | '/admin/personal/feedback'
+    | '/admin/personal/help'
+    | '/admin/personal/my-profile'
+    | '/admin/personal/notifications'
+    | '/admin/personal/preferences'
+    | '/admin/personal/security'
+    | '/admin/personal/sessions'
+    | '/admin/recruitment/analytics'
+    | '/admin/recruitment/applications'
+    | '/admin/recruitment/companies'
+    | '/admin/recruitment/interview-pipeline'
+    | '/admin/recruitment/offer-letters'
+    | '/admin/recruitment/rejected'
+    | '/admin/recruitment/reports'
+    | '/admin/recruitment/resume-database'
+    | '/admin/recruitment/resume-screening'
+    | '/admin/system/backups'
+    | '/admin/system/branding'
+    | '/admin/system/domains'
+    | '/admin/system/email'
+    | '/admin/system/feature-flags'
+    | '/admin/system/integrations'
+    | '/admin/system/localization'
+    | '/admin/system/logo'
+    | '/admin/system/maintenance'
+    | '/admin/system/restore'
+    | '/admin/system/security'
+    | '/admin/system/smtp'
+    | '/admin/system/storage'
+    | '/admin/system/system-health'
+    | '/admin/system/theme'
+    | '/admin/system/timezone'
+    | '/community/ambassadors/apply'
+    | '/community/events/$eventId'
+    | '/admin/events/'
+    | '/community/ambassadors/'
+    | '/community/events/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
-    | '/auth'
+    | '/academy'
+    | '/become-a-sponsor'
+    | '/blog'
+    | '/cloud'
+    | '/code-of-conduct'
     | '/community'
     | '/contact'
-    | '/organize-an-event'
-    | '/partnerships'
-    | '/programs'
-    | '/resources'
-    | '/admin'
+    | '/content-policy'
+    | '/contributors'
+    | '/cookies'
     | '/dashboard'
-    | '/profile'
+    | '/devops'
+    | '/ecosystem'
+    | '/editorial-policy'
+    | '/fact-checking'
+    | '/faq'
+    | '/forgot-password'
+    | '/gallery'
+    | '/glossary'
+    | '/host'
+    | '/leadership'
+    | '/login'
+    | '/open-source'
+    | '/partners'
+    | '/press'
+    | '/privacy'
+    | '/refund'
+    | '/register'
+    | '/research-methodology'
+    | '/reset-password'
+    | '/resources'
+    | '/roadmap'
+    | '/schedule-call'
+    | '/security'
+    | '/sponsor'
+    | '/terms'
+    | '/transparency-report'
+    | '/trust-center'
+    | '/about/brand'
+    | '/about/community'
+    | '/about/faq'
+    | '/about/history'
+    | '/about/mission'
+    | '/about/origohost'
+    | '/about/research'
+    | '/about/vision'
+    | '/admin/audit'
+    | '/admin/blog'
+    | '/admin/certificates'
+    | '/admin/event-registrations'
+    | '/admin/faq'
+    | '/admin/gallery'
+    | '/admin/job-applications'
+    | '/admin/messages'
+    | '/admin/navigation'
+    | '/admin/newsletter'
+    | '/admin/page-blocks'
+    | '/admin/pages'
+    | '/admin/partners'
+    | '/admin/schedule-calls'
+    | '/admin/seo'
+    | '/admin/settings'
+    | '/admin/sponsors'
+    | '/admin/testimonials'
+    | '/admin/users'
+    | '/ambassador/apply'
+    | '/ambassador/dashboard'
     | '/blog/$slug'
-    | '/events/$slug'
-    | '/members/$id'
-    | '/blog'
-    | '/events'
-    | '/members'
+    | '/certificates/$certificateId'
+    | '/cloud/dedicated'
+    | '/cloud/kubernetes'
+    | '/cloud/vps'
+    | '/community/chapters'
+    | '/compare/$competitor'
+    | '/dashboard/proposals'
+    | '/founders/$slug'
+    | '/glossary/$term'
+    | '/host/apply'
+    | '/host/success'
+    | '/jobs/$jobId'
+    | '/sponsor/dashboard'
+    | '/sponsor/success'
+    | '/technologies/$tech'
+    | '/topics/ai'
+    | '/topics/career'
+    | '/topics/cyber-security'
+    | '/topics/hackathons'
+    | '/topics/programming'
+    | '/admin'
+    | '/ambassador'
+    | '/certificates'
+    | '/admin/ai-center/ai-analytics'
+    | '/admin/ai-center/ai-career-advisor'
+    | '/admin/ai-center/ai-chatbot'
+    | '/admin/ai-center/ai-content-generator'
+    | '/admin/ai-center/ai-dashboard'
+    | '/admin/ai-center/ai-logs'
+    | '/admin/ai-center/ai-moderation'
+    | '/admin/ai-center/ai-resume-review'
+    | '/admin/ai-center/ai-search'
+    | '/admin/ai-center/ai-settings'
+    | '/admin/ai-center/prompt-library'
+    | '/admin/ai-center/prompt-templates'
+    | '/admin/ai-center/token-usage'
+    | '/admin/analytics/browsers'
+    | '/admin/analytics/cities'
+    | '/admin/analytics/conversions'
+    | '/admin/analytics/countries'
+    | '/admin/analytics/dashboard'
+    | '/admin/analytics/devices'
+    | '/admin/analytics/exports'
+    | '/admin/analytics/funnels'
+    | '/admin/analytics/heatmaps'
+    | '/admin/analytics/organizations'
+    | '/admin/analytics/realtime'
+    | '/admin/analytics/reports'
+    | '/admin/analytics/retention'
+    | '/admin/analytics/traffic'
+    | '/admin/community/achievements'
+    | '/admin/community/announcements'
+    | '/admin/community/badges'
+    | '/admin/community/campus-ambassador'
+    | '/admin/community/communities'
+    | '/admin/community/community-analytics'
+    | '/admin/community/community-members'
+    | '/admin/community/discussions'
+    | '/admin/community/forums'
+    | '/admin/community/groups'
+    | '/admin/community/leaderboard'
+    | '/admin/community/mentorship'
+    | '/admin/community/volunteer-management'
+    | '/admin/content/authors'
+    | '/admin/content/banner-manager'
+    | '/admin/content/categories'
+    | '/admin/content/cms'
+    | '/admin/content/footer'
+    | '/admin/content/forms-builder'
+    | '/admin/content/homepage'
+    | '/admin/content/landing-pages'
+    | '/admin/content/media-library'
+    | '/admin/content/menus'
+    | '/admin/content/page-builder'
+    | '/admin/content/popup-builder'
+    | '/admin/content/resources'
+    | '/admin/content/videos'
+    | '/admin/developer/activity-logs'
+    | '/admin/developer/api-explorer'
+    | '/admin/developer/api-keys'
+    | '/admin/developer/cron-jobs'
+    | '/admin/developer/database-browser'
+    | '/admin/developer/deployment-logs'
+    | '/admin/developer/developer-tools'
+    | '/admin/developer/environment-variables'
+    | '/admin/developer/error-logs'
+    | '/admin/developer/feature-flags'
+    | '/admin/developer/queue-manager'
+    | '/admin/developer/sql-explorer'
+    | '/admin/developer/storage-browser'
+    | '/admin/developer/webhook-logs'
+    | '/admin/developer/webhook-manager'
+    | '/admin/events/attendance'
+    | '/admin/events/calendar'
+    | '/admin/events/categories'
+    | '/admin/events/event-gallery'
+    | '/admin/events/feedback'
+    | '/admin/events/livestream'
+    | '/admin/events/qr-check-in'
+    | '/admin/events/qr-tickets'
+    | '/admin/events/registration'
+    | '/admin/events/reports'
+    | '/admin/events/reviews'
+    | '/admin/events/schedules'
+    | '/admin/events/speakers'
+    | '/admin/events/sponsors'
+    | '/admin/events/venues'
+    | '/admin/finance/donations'
+    | '/admin/finance/invoices'
+    | '/admin/finance/payments'
+    | '/admin/finance/refunds'
+    | '/admin/finance/reports'
+    | '/admin/finance/revenue'
+    | '/admin/finance/sponsors'
+    | '/admin/finance/subscriptions'
+    | '/admin/finance/taxes'
+    | '/admin/finance/transactions'
+    | '/admin/marketing/announcement-center'
+    | '/admin/marketing/campaigns'
+    | '/admin/marketing/coupon-manager'
+    | '/admin/marketing/email-templates'
+    | '/admin/marketing/notifications'
+    | '/admin/marketing/popup-campaigns'
+    | '/admin/marketing/referral-program'
+    | '/admin/marketing/seo-manager'
+    | '/admin/marketing/social-posts'
+    | '/admin/marketing/subscribers'
+    | '/admin/operations/activity-timeline'
+    | '/admin/operations/admins'
+    | '/admin/operations/audit-logs'
+    | '/admin/operations/device-manager'
+    | '/admin/operations/host-requests'
+    | '/admin/operations/mentors'
+    | '/admin/operations/organizations'
+    | '/admin/operations/permissions'
+    | '/admin/operations/recruiters'
+    | '/admin/operations/recycle-bin'
+    | '/admin/operations/registration-management'
+    | '/admin/operations/roles'
+    | '/admin/operations/sessions'
+    | '/admin/operations/speakers'
+    | '/admin/operations/students'
+    | '/admin/operations/verification-center'
+    | '/admin/operations/volunteers'
+    | '/admin/personal/api-tokens'
+    | '/admin/personal/appearance'
+    | '/admin/personal/connected-accounts'
+    | '/admin/personal/feedback'
+    | '/admin/personal/help'
+    | '/admin/personal/my-profile'
+    | '/admin/personal/notifications'
+    | '/admin/personal/preferences'
+    | '/admin/personal/security'
+    | '/admin/personal/sessions'
+    | '/admin/recruitment/analytics'
+    | '/admin/recruitment/applications'
+    | '/admin/recruitment/companies'
+    | '/admin/recruitment/interview-pipeline'
+    | '/admin/recruitment/offer-letters'
+    | '/admin/recruitment/rejected'
+    | '/admin/recruitment/reports'
+    | '/admin/recruitment/resume-database'
+    | '/admin/recruitment/resume-screening'
+    | '/admin/system/backups'
+    | '/admin/system/branding'
+    | '/admin/system/domains'
+    | '/admin/system/email'
+    | '/admin/system/feature-flags'
+    | '/admin/system/integrations'
+    | '/admin/system/localization'
+    | '/admin/system/logo'
+    | '/admin/system/maintenance'
+    | '/admin/system/restore'
+    | '/admin/system/security'
+    | '/admin/system/smtp'
+    | '/admin/system/storage'
+    | '/admin/system/system-health'
+    | '/admin/system/theme'
+    | '/admin/system/timezone'
+    | '/community/ambassadors/apply'
+    | '/community/events/$eventId'
+    | '/admin/events'
+    | '/community/ambassadors'
+    | '/community/events'
   id:
     | '__root__'
     | '/'
-    | '/_authenticated'
     | '/about'
-    | '/auth'
+    | '/academy'
+    | '/ambassador'
+    | '/become-a-sponsor'
+    | '/blog'
+    | '/cloud'
+    | '/code-of-conduct'
     | '/community'
     | '/contact'
-    | '/organize-an-event'
-    | '/partnerships'
-    | '/programs'
+    | '/content-policy'
+    | '/contributors'
+    | '/cookies'
+    | '/dashboard'
+    | '/devops'
+    | '/ecosystem'
+    | '/editorial-policy'
+    | '/fact-checking'
+    | '/faq'
+    | '/forgot-password'
+    | '/gallery'
+    | '/glossary'
+    | '/host'
+    | '/leadership'
+    | '/login'
+    | '/open-source'
+    | '/partners'
+    | '/press'
+    | '/privacy'
+    | '/refund'
+    | '/register'
+    | '/research-methodology'
+    | '/reset-password'
     | '/resources'
-    | '/_authenticated/admin'
-    | '/_authenticated/dashboard'
-    | '/_authenticated/profile'
+    | '/roadmap'
+    | '/schedule-call'
+    | '/security'
+    | '/sponsor'
+    | '/terms'
+    | '/transparency-report'
+    | '/trust-center'
+    | '/about_/brand'
+    | '/about_/community'
+    | '/about_/faq'
+    | '/about_/history'
+    | '/about_/mission'
+    | '/about_/origohost'
+    | '/about_/research'
+    | '/about_/vision'
+    | '/admin/audit'
+    | '/admin/blog'
+    | '/admin/certificates'
+    | '/admin/event-registrations'
+    | '/admin/faq'
+    | '/admin/gallery'
+    | '/admin/job-applications'
+    | '/admin/messages'
+    | '/admin/navigation'
+    | '/admin/newsletter'
+    | '/admin/page-blocks'
+    | '/admin/pages'
+    | '/admin/partners'
+    | '/admin/schedule-calls'
+    | '/admin/seo'
+    | '/admin/settings'
+    | '/admin/sponsors'
+    | '/admin/testimonials'
+    | '/admin/users'
+    | '/ambassador/apply'
+    | '/ambassador/dashboard'
     | '/blog/$slug'
-    | '/events/$slug'
-    | '/members/$id'
-    | '/blog/'
-    | '/events/'
-    | '/members/'
+    | '/certificates/$certificateId'
+    | '/cloud_/dedicated'
+    | '/cloud_/kubernetes'
+    | '/cloud_/vps'
+    | '/community_/ambassadors'
+    | '/community_/chapters'
+    | '/compare/$competitor'
+    | '/dashboard/proposals'
+    | '/founders/$slug'
+    | '/glossary/$term'
+    | '/host/apply'
+    | '/host/success'
+    | '/jobs/$jobId'
+    | '/sponsor/dashboard'
+    | '/sponsor/success'
+    | '/technologies/$tech'
+    | '/topics_/ai'
+    | '/topics_/career'
+    | '/topics_/cyber-security'
+    | '/topics_/hackathons'
+    | '/topics_/programming'
+    | '/admin/'
+    | '/ambassador/'
+    | '/certificates/'
+    | '/admin/ai-center/ai-analytics'
+    | '/admin/ai-center/ai-career-advisor'
+    | '/admin/ai-center/ai-chatbot'
+    | '/admin/ai-center/ai-content-generator'
+    | '/admin/ai-center/ai-dashboard'
+    | '/admin/ai-center/ai-logs'
+    | '/admin/ai-center/ai-moderation'
+    | '/admin/ai-center/ai-resume-review'
+    | '/admin/ai-center/ai-search'
+    | '/admin/ai-center/ai-settings'
+    | '/admin/ai-center/prompt-library'
+    | '/admin/ai-center/prompt-templates'
+    | '/admin/ai-center/token-usage'
+    | '/admin/analytics/browsers'
+    | '/admin/analytics/cities'
+    | '/admin/analytics/conversions'
+    | '/admin/analytics/countries'
+    | '/admin/analytics/dashboard'
+    | '/admin/analytics/devices'
+    | '/admin/analytics/exports'
+    | '/admin/analytics/funnels'
+    | '/admin/analytics/heatmaps'
+    | '/admin/analytics/organizations'
+    | '/admin/analytics/realtime'
+    | '/admin/analytics/reports'
+    | '/admin/analytics/retention'
+    | '/admin/analytics/traffic'
+    | '/admin/community/achievements'
+    | '/admin/community/announcements'
+    | '/admin/community/badges'
+    | '/admin/community/campus-ambassador'
+    | '/admin/community/communities'
+    | '/admin/community/community-analytics'
+    | '/admin/community/community-members'
+    | '/admin/community/discussions'
+    | '/admin/community/forums'
+    | '/admin/community/groups'
+    | '/admin/community/leaderboard'
+    | '/admin/community/mentorship'
+    | '/admin/community/volunteer-management'
+    | '/admin/content/authors'
+    | '/admin/content/banner-manager'
+    | '/admin/content/categories'
+    | '/admin/content/cms'
+    | '/admin/content/footer'
+    | '/admin/content/forms-builder'
+    | '/admin/content/homepage'
+    | '/admin/content/landing-pages'
+    | '/admin/content/media-library'
+    | '/admin/content/menus'
+    | '/admin/content/page-builder'
+    | '/admin/content/popup-builder'
+    | '/admin/content/resources'
+    | '/admin/content/videos'
+    | '/admin/developer/activity-logs'
+    | '/admin/developer/api-explorer'
+    | '/admin/developer/api-keys'
+    | '/admin/developer/cron-jobs'
+    | '/admin/developer/database-browser'
+    | '/admin/developer/deployment-logs'
+    | '/admin/developer/developer-tools'
+    | '/admin/developer/environment-variables'
+    | '/admin/developer/error-logs'
+    | '/admin/developer/feature-flags'
+    | '/admin/developer/queue-manager'
+    | '/admin/developer/sql-explorer'
+    | '/admin/developer/storage-browser'
+    | '/admin/developer/webhook-logs'
+    | '/admin/developer/webhook-manager'
+    | '/admin/events/attendance'
+    | '/admin/events/calendar'
+    | '/admin/events/categories'
+    | '/admin/events/event-gallery'
+    | '/admin/events/feedback'
+    | '/admin/events/livestream'
+    | '/admin/events/qr-check-in'
+    | '/admin/events/qr-tickets'
+    | '/admin/events/registration'
+    | '/admin/events/reports'
+    | '/admin/events/reviews'
+    | '/admin/events/schedules'
+    | '/admin/events/speakers'
+    | '/admin/events/sponsors'
+    | '/admin/events/venues'
+    | '/admin/finance/donations'
+    | '/admin/finance/invoices'
+    | '/admin/finance/payments'
+    | '/admin/finance/refunds'
+    | '/admin/finance/reports'
+    | '/admin/finance/revenue'
+    | '/admin/finance/sponsors'
+    | '/admin/finance/subscriptions'
+    | '/admin/finance/taxes'
+    | '/admin/finance/transactions'
+    | '/admin/marketing/announcement-center'
+    | '/admin/marketing/campaigns'
+    | '/admin/marketing/coupon-manager'
+    | '/admin/marketing/email-templates'
+    | '/admin/marketing/notifications'
+    | '/admin/marketing/popup-campaigns'
+    | '/admin/marketing/referral-program'
+    | '/admin/marketing/seo-manager'
+    | '/admin/marketing/social-posts'
+    | '/admin/marketing/subscribers'
+    | '/admin/operations/activity-timeline'
+    | '/admin/operations/admins'
+    | '/admin/operations/audit-logs'
+    | '/admin/operations/device-manager'
+    | '/admin/operations/host-requests'
+    | '/admin/operations/mentors'
+    | '/admin/operations/organizations'
+    | '/admin/operations/permissions'
+    | '/admin/operations/recruiters'
+    | '/admin/operations/recycle-bin'
+    | '/admin/operations/registration-management'
+    | '/admin/operations/roles'
+    | '/admin/operations/sessions'
+    | '/admin/operations/speakers'
+    | '/admin/operations/students'
+    | '/admin/operations/verification-center'
+    | '/admin/operations/volunteers'
+    | '/admin/personal/api-tokens'
+    | '/admin/personal/appearance'
+    | '/admin/personal/connected-accounts'
+    | '/admin/personal/feedback'
+    | '/admin/personal/help'
+    | '/admin/personal/my-profile'
+    | '/admin/personal/notifications'
+    | '/admin/personal/preferences'
+    | '/admin/personal/security'
+    | '/admin/personal/sessions'
+    | '/admin/recruitment/analytics'
+    | '/admin/recruitment/applications'
+    | '/admin/recruitment/companies'
+    | '/admin/recruitment/interview-pipeline'
+    | '/admin/recruitment/offer-letters'
+    | '/admin/recruitment/rejected'
+    | '/admin/recruitment/reports'
+    | '/admin/recruitment/resume-database'
+    | '/admin/recruitment/resume-screening'
+    | '/admin/system/backups'
+    | '/admin/system/branding'
+    | '/admin/system/domains'
+    | '/admin/system/email'
+    | '/admin/system/feature-flags'
+    | '/admin/system/integrations'
+    | '/admin/system/localization'
+    | '/admin/system/logo'
+    | '/admin/system/maintenance'
+    | '/admin/system/restore'
+    | '/admin/system/security'
+    | '/admin/system/smtp'
+    | '/admin/system/storage'
+    | '/admin/system/system-health'
+    | '/admin/system/theme'
+    | '/admin/system/timezone'
+    | '/community_/ambassadors_/apply'
+    | '/community_/events/$eventId'
+    | '/admin/events/'
+    | '/community_/ambassadors/'
+    | '/community_/events/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
   AboutRoute: typeof AboutRoute
-  AuthRoute: typeof AuthRoute
+  AcademyRoute: typeof AcademyRoute
+  AmbassadorRoute: typeof AmbassadorRouteWithChildren
+  BecomeASponsorRoute: typeof BecomeASponsorRoute
+  BlogRoute: typeof BlogRouteWithChildren
+  CloudRoute: typeof CloudRoute
+  CodeOfConductRoute: typeof CodeOfConductRoute
   CommunityRoute: typeof CommunityRoute
   ContactRoute: typeof ContactRoute
-  OrganizeAnEventRoute: typeof OrganizeAnEventRoute
-  PartnershipsRoute: typeof PartnershipsRoute
-  ProgramsRoute: typeof ProgramsRoute
+  ContentPolicyRoute: typeof ContentPolicyRoute
+  ContributorsRoute: typeof ContributorsRoute
+  CookiesRoute: typeof CookiesRoute
+  DashboardRoute: typeof DashboardRouteWithChildren
+  DevopsRoute: typeof DevopsRoute
+  EcosystemRoute: typeof EcosystemRoute
+  EditorialPolicyRoute: typeof EditorialPolicyRoute
+  FactCheckingRoute: typeof FactCheckingRoute
+  FaqRoute: typeof FaqRoute
+  ForgotPasswordRoute: typeof ForgotPasswordRoute
+  GalleryRoute: typeof GalleryRoute
+  GlossaryRoute: typeof GlossaryRouteWithChildren
+  HostRoute: typeof HostRouteWithChildren
+  LeadershipRoute: typeof LeadershipRoute
+  LoginRoute: typeof LoginRoute
+  OpenSourceRoute: typeof OpenSourceRoute
+  PartnersRoute: typeof PartnersRoute
+  PressRoute: typeof PressRoute
+  PrivacyRoute: typeof PrivacyRoute
+  RefundRoute: typeof RefundRoute
+  RegisterRoute: typeof RegisterRoute
+  ResearchMethodologyRoute: typeof ResearchMethodologyRoute
+  ResetPasswordRoute: typeof ResetPasswordRoute
   ResourcesRoute: typeof ResourcesRoute
-  BlogSlugRoute: typeof BlogSlugRoute
-  EventsSlugRoute: typeof EventsSlugRoute
-  MembersIdRoute: typeof MembersIdRoute
-  BlogIndexRoute: typeof BlogIndexRoute
-  EventsIndexRoute: typeof EventsIndexRoute
-  MembersIndexRoute: typeof MembersIndexRoute
+  RoadmapRoute: typeof RoadmapRoute
+  ScheduleCallRoute: typeof ScheduleCallRoute
+  SecurityRoute: typeof SecurityRoute
+  SponsorRoute: typeof SponsorRouteWithChildren
+  TermsRoute: typeof TermsRoute
+  TransparencyReportRoute: typeof TransparencyReportRoute
+  TrustCenterRoute: typeof TrustCenterRoute
+  AboutBrandRoute: typeof AboutBrandRoute
+  AboutCommunityRoute: typeof AboutCommunityRoute
+  AboutFaqRoute: typeof AboutFaqRoute
+  AboutHistoryRoute: typeof AboutHistoryRoute
+  AboutMissionRoute: typeof AboutMissionRoute
+  AboutOrigohostRoute: typeof AboutOrigohostRoute
+  AboutResearchRoute: typeof AboutResearchRoute
+  AboutVisionRoute: typeof AboutVisionRoute
+  AdminAuditRoute: typeof AdminAuditRoute
+  AdminBlogRoute: typeof AdminBlogRoute
+  AdminCertificatesRoute: typeof AdminCertificatesRoute
+  AdminEventRegistrationsRoute: typeof AdminEventRegistrationsRoute
+  AdminFaqRoute: typeof AdminFaqRoute
+  AdminGalleryRoute: typeof AdminGalleryRoute
+  AdminJobApplicationsRoute: typeof AdminJobApplicationsRoute
+  AdminMessagesRoute: typeof AdminMessagesRoute
+  AdminNavigationRoute: typeof AdminNavigationRoute
+  AdminNewsletterRoute: typeof AdminNewsletterRoute
+  AdminPageBlocksRoute: typeof AdminPageBlocksRoute
+  AdminPagesRoute: typeof AdminPagesRoute
+  AdminPartnersRoute: typeof AdminPartnersRoute
+  AdminScheduleCallsRoute: typeof AdminScheduleCallsRoute
+  AdminSeoRoute: typeof AdminSeoRoute
+  AdminSettingsRoute: typeof AdminSettingsRoute
+  AdminSponsorsRoute: typeof AdminSponsorsRoute
+  AdminTestimonialsRoute: typeof AdminTestimonialsRoute
+  AdminUsersRoute: typeof AdminUsersRoute
+  CertificatesCertificateIdRoute: typeof CertificatesCertificateIdRoute
+  CloudDedicatedRoute: typeof CloudDedicatedRoute
+  CloudKubernetesRoute: typeof CloudKubernetesRoute
+  CloudVpsRoute: typeof CloudVpsRoute
+  CommunityAmbassadorsRoute: typeof CommunityAmbassadorsRouteWithChildren
+  CommunityChaptersRoute: typeof CommunityChaptersRoute
+  CompareCompetitorRoute: typeof CompareCompetitorRoute
+  FoundersSlugRoute: typeof FoundersSlugRoute
+  JobsJobIdRoute: typeof JobsJobIdRoute
+  TechnologiesTechRoute: typeof TechnologiesTechRoute
+  TopicsAiRoute: typeof TopicsAiRoute
+  TopicsCareerRoute: typeof TopicsCareerRoute
+  TopicsCyberSecurityRoute: typeof TopicsCyberSecurityRoute
+  TopicsHackathonsRoute: typeof TopicsHackathonsRoute
+  TopicsProgrammingRoute: typeof TopicsProgrammingRoute
+  AdminIndexRoute: typeof AdminIndexRoute
+  CertificatesIndexRoute: typeof CertificatesIndexRoute
+  AdminAiCenterAiAnalyticsRoute: typeof AdminAiCenterAiAnalyticsRoute
+  AdminAiCenterAiCareerAdvisorRoute: typeof AdminAiCenterAiCareerAdvisorRoute
+  AdminAiCenterAiChatbotRoute: typeof AdminAiCenterAiChatbotRoute
+  AdminAiCenterAiContentGeneratorRoute: typeof AdminAiCenterAiContentGeneratorRoute
+  AdminAiCenterAiDashboardRoute: typeof AdminAiCenterAiDashboardRoute
+  AdminAiCenterAiLogsRoute: typeof AdminAiCenterAiLogsRoute
+  AdminAiCenterAiModerationRoute: typeof AdminAiCenterAiModerationRoute
+  AdminAiCenterAiResumeReviewRoute: typeof AdminAiCenterAiResumeReviewRoute
+  AdminAiCenterAiSearchRoute: typeof AdminAiCenterAiSearchRoute
+  AdminAiCenterAiSettingsRoute: typeof AdminAiCenterAiSettingsRoute
+  AdminAiCenterPromptLibraryRoute: typeof AdminAiCenterPromptLibraryRoute
+  AdminAiCenterPromptTemplatesRoute: typeof AdminAiCenterPromptTemplatesRoute
+  AdminAiCenterTokenUsageRoute: typeof AdminAiCenterTokenUsageRoute
+  AdminAnalyticsBrowsersRoute: typeof AdminAnalyticsBrowsersRoute
+  AdminAnalyticsCitiesRoute: typeof AdminAnalyticsCitiesRoute
+  AdminAnalyticsConversionsRoute: typeof AdminAnalyticsConversionsRoute
+  AdminAnalyticsCountriesRoute: typeof AdminAnalyticsCountriesRoute
+  AdminAnalyticsDashboardRoute: typeof AdminAnalyticsDashboardRoute
+  AdminAnalyticsDevicesRoute: typeof AdminAnalyticsDevicesRoute
+  AdminAnalyticsExportsRoute: typeof AdminAnalyticsExportsRoute
+  AdminAnalyticsFunnelsRoute: typeof AdminAnalyticsFunnelsRoute
+  AdminAnalyticsHeatmapsRoute: typeof AdminAnalyticsHeatmapsRoute
+  AdminAnalyticsOrganizationsRoute: typeof AdminAnalyticsOrganizationsRoute
+  AdminAnalyticsRealtimeRoute: typeof AdminAnalyticsRealtimeRoute
+  AdminAnalyticsReportsRoute: typeof AdminAnalyticsReportsRoute
+  AdminAnalyticsRetentionRoute: typeof AdminAnalyticsRetentionRoute
+  AdminAnalyticsTrafficRoute: typeof AdminAnalyticsTrafficRoute
+  AdminCommunityAchievementsRoute: typeof AdminCommunityAchievementsRoute
+  AdminCommunityAnnouncementsRoute: typeof AdminCommunityAnnouncementsRoute
+  AdminCommunityBadgesRoute: typeof AdminCommunityBadgesRoute
+  AdminCommunityCampusAmbassadorRoute: typeof AdminCommunityCampusAmbassadorRoute
+  AdminCommunityCommunitiesRoute: typeof AdminCommunityCommunitiesRoute
+  AdminCommunityCommunityAnalyticsRoute: typeof AdminCommunityCommunityAnalyticsRoute
+  AdminCommunityCommunityMembersRoute: typeof AdminCommunityCommunityMembersRoute
+  AdminCommunityDiscussionsRoute: typeof AdminCommunityDiscussionsRoute
+  AdminCommunityForumsRoute: typeof AdminCommunityForumsRoute
+  AdminCommunityGroupsRoute: typeof AdminCommunityGroupsRoute
+  AdminCommunityLeaderboardRoute: typeof AdminCommunityLeaderboardRoute
+  AdminCommunityMentorshipRoute: typeof AdminCommunityMentorshipRoute
+  AdminCommunityVolunteerManagementRoute: typeof AdminCommunityVolunteerManagementRoute
+  AdminContentAuthorsRoute: typeof AdminContentAuthorsRoute
+  AdminContentBannerManagerRoute: typeof AdminContentBannerManagerRoute
+  AdminContentCategoriesRoute: typeof AdminContentCategoriesRoute
+  AdminContentCmsRoute: typeof AdminContentCmsRoute
+  AdminContentFooterRoute: typeof AdminContentFooterRoute
+  AdminContentFormsBuilderRoute: typeof AdminContentFormsBuilderRoute
+  AdminContentHomepageRoute: typeof AdminContentHomepageRoute
+  AdminContentLandingPagesRoute: typeof AdminContentLandingPagesRoute
+  AdminContentMediaLibraryRoute: typeof AdminContentMediaLibraryRoute
+  AdminContentMenusRoute: typeof AdminContentMenusRoute
+  AdminContentPageBuilderRoute: typeof AdminContentPageBuilderRoute
+  AdminContentPopupBuilderRoute: typeof AdminContentPopupBuilderRoute
+  AdminContentResourcesRoute: typeof AdminContentResourcesRoute
+  AdminContentVideosRoute: typeof AdminContentVideosRoute
+  AdminDeveloperActivityLogsRoute: typeof AdminDeveloperActivityLogsRoute
+  AdminDeveloperApiExplorerRoute: typeof AdminDeveloperApiExplorerRoute
+  AdminDeveloperApiKeysRoute: typeof AdminDeveloperApiKeysRoute
+  AdminDeveloperCronJobsRoute: typeof AdminDeveloperCronJobsRoute
+  AdminDeveloperDatabaseBrowserRoute: typeof AdminDeveloperDatabaseBrowserRoute
+  AdminDeveloperDeploymentLogsRoute: typeof AdminDeveloperDeploymentLogsRoute
+  AdminDeveloperDeveloperToolsRoute: typeof AdminDeveloperDeveloperToolsRoute
+  AdminDeveloperEnvironmentVariablesRoute: typeof AdminDeveloperEnvironmentVariablesRoute
+  AdminDeveloperErrorLogsRoute: typeof AdminDeveloperErrorLogsRoute
+  AdminDeveloperFeatureFlagsRoute: typeof AdminDeveloperFeatureFlagsRoute
+  AdminDeveloperQueueManagerRoute: typeof AdminDeveloperQueueManagerRoute
+  AdminDeveloperSqlExplorerRoute: typeof AdminDeveloperSqlExplorerRoute
+  AdminDeveloperStorageBrowserRoute: typeof AdminDeveloperStorageBrowserRoute
+  AdminDeveloperWebhookLogsRoute: typeof AdminDeveloperWebhookLogsRoute
+  AdminDeveloperWebhookManagerRoute: typeof AdminDeveloperWebhookManagerRoute
+  AdminEventsAttendanceRoute: typeof AdminEventsAttendanceRoute
+  AdminEventsCalendarRoute: typeof AdminEventsCalendarRoute
+  AdminEventsCategoriesRoute: typeof AdminEventsCategoriesRoute
+  AdminEventsEventGalleryRoute: typeof AdminEventsEventGalleryRoute
+  AdminEventsFeedbackRoute: typeof AdminEventsFeedbackRoute
+  AdminEventsLivestreamRoute: typeof AdminEventsLivestreamRoute
+  AdminEventsQrCheckInRoute: typeof AdminEventsQrCheckInRoute
+  AdminEventsQrTicketsRoute: typeof AdminEventsQrTicketsRoute
+  AdminEventsRegistrationRoute: typeof AdminEventsRegistrationRoute
+  AdminEventsReportsRoute: typeof AdminEventsReportsRoute
+  AdminEventsReviewsRoute: typeof AdminEventsReviewsRoute
+  AdminEventsSchedulesRoute: typeof AdminEventsSchedulesRoute
+  AdminEventsSpeakersRoute: typeof AdminEventsSpeakersRoute
+  AdminEventsSponsorsRoute: typeof AdminEventsSponsorsRoute
+  AdminEventsVenuesRoute: typeof AdminEventsVenuesRoute
+  AdminFinanceDonationsRoute: typeof AdminFinanceDonationsRoute
+  AdminFinanceInvoicesRoute: typeof AdminFinanceInvoicesRoute
+  AdminFinancePaymentsRoute: typeof AdminFinancePaymentsRoute
+  AdminFinanceRefundsRoute: typeof AdminFinanceRefundsRoute
+  AdminFinanceReportsRoute: typeof AdminFinanceReportsRoute
+  AdminFinanceRevenueRoute: typeof AdminFinanceRevenueRoute
+  AdminFinanceSponsorsRoute: typeof AdminFinanceSponsorsRoute
+  AdminFinanceSubscriptionsRoute: typeof AdminFinanceSubscriptionsRoute
+  AdminFinanceTaxesRoute: typeof AdminFinanceTaxesRoute
+  AdminFinanceTransactionsRoute: typeof AdminFinanceTransactionsRoute
+  AdminMarketingAnnouncementCenterRoute: typeof AdminMarketingAnnouncementCenterRoute
+  AdminMarketingCampaignsRoute: typeof AdminMarketingCampaignsRoute
+  AdminMarketingCouponManagerRoute: typeof AdminMarketingCouponManagerRoute
+  AdminMarketingEmailTemplatesRoute: typeof AdminMarketingEmailTemplatesRoute
+  AdminMarketingNotificationsRoute: typeof AdminMarketingNotificationsRoute
+  AdminMarketingPopupCampaignsRoute: typeof AdminMarketingPopupCampaignsRoute
+  AdminMarketingReferralProgramRoute: typeof AdminMarketingReferralProgramRoute
+  AdminMarketingSeoManagerRoute: typeof AdminMarketingSeoManagerRoute
+  AdminMarketingSocialPostsRoute: typeof AdminMarketingSocialPostsRoute
+  AdminMarketingSubscribersRoute: typeof AdminMarketingSubscribersRoute
+  AdminOperationsActivityTimelineRoute: typeof AdminOperationsActivityTimelineRoute
+  AdminOperationsAdminsRoute: typeof AdminOperationsAdminsRoute
+  AdminOperationsAuditLogsRoute: typeof AdminOperationsAuditLogsRoute
+  AdminOperationsDeviceManagerRoute: typeof AdminOperationsDeviceManagerRoute
+  AdminOperationsHostRequestsRoute: typeof AdminOperationsHostRequestsRoute
+  AdminOperationsMentorsRoute: typeof AdminOperationsMentorsRoute
+  AdminOperationsOrganizationsRoute: typeof AdminOperationsOrganizationsRoute
+  AdminOperationsPermissionsRoute: typeof AdminOperationsPermissionsRoute
+  AdminOperationsRecruitersRoute: typeof AdminOperationsRecruitersRoute
+  AdminOperationsRecycleBinRoute: typeof AdminOperationsRecycleBinRoute
+  AdminOperationsRegistrationManagementRoute: typeof AdminOperationsRegistrationManagementRoute
+  AdminOperationsRolesRoute: typeof AdminOperationsRolesRoute
+  AdminOperationsSessionsRoute: typeof AdminOperationsSessionsRoute
+  AdminOperationsSpeakersRoute: typeof AdminOperationsSpeakersRoute
+  AdminOperationsStudentsRoute: typeof AdminOperationsStudentsRoute
+  AdminOperationsVerificationCenterRoute: typeof AdminOperationsVerificationCenterRoute
+  AdminOperationsVolunteersRoute: typeof AdminOperationsVolunteersRoute
+  AdminPersonalApiTokensRoute: typeof AdminPersonalApiTokensRoute
+  AdminPersonalAppearanceRoute: typeof AdminPersonalAppearanceRoute
+  AdminPersonalConnectedAccountsRoute: typeof AdminPersonalConnectedAccountsRoute
+  AdminPersonalFeedbackRoute: typeof AdminPersonalFeedbackRoute
+  AdminPersonalHelpRoute: typeof AdminPersonalHelpRoute
+  AdminPersonalMyProfileRoute: typeof AdminPersonalMyProfileRoute
+  AdminPersonalNotificationsRoute: typeof AdminPersonalNotificationsRoute
+  AdminPersonalPreferencesRoute: typeof AdminPersonalPreferencesRoute
+  AdminPersonalSecurityRoute: typeof AdminPersonalSecurityRoute
+  AdminPersonalSessionsRoute: typeof AdminPersonalSessionsRoute
+  AdminRecruitmentAnalyticsRoute: typeof AdminRecruitmentAnalyticsRoute
+  AdminRecruitmentApplicationsRoute: typeof AdminRecruitmentApplicationsRoute
+  AdminRecruitmentCompaniesRoute: typeof AdminRecruitmentCompaniesRoute
+  AdminRecruitmentInterviewPipelineRoute: typeof AdminRecruitmentInterviewPipelineRoute
+  AdminRecruitmentOfferLettersRoute: typeof AdminRecruitmentOfferLettersRoute
+  AdminRecruitmentRejectedRoute: typeof AdminRecruitmentRejectedRoute
+  AdminRecruitmentReportsRoute: typeof AdminRecruitmentReportsRoute
+  AdminRecruitmentResumeDatabaseRoute: typeof AdminRecruitmentResumeDatabaseRoute
+  AdminRecruitmentResumeScreeningRoute: typeof AdminRecruitmentResumeScreeningRoute
+  AdminSystemBackupsRoute: typeof AdminSystemBackupsRoute
+  AdminSystemBrandingRoute: typeof AdminSystemBrandingRoute
+  AdminSystemDomainsRoute: typeof AdminSystemDomainsRoute
+  AdminSystemEmailRoute: typeof AdminSystemEmailRoute
+  AdminSystemFeatureFlagsRoute: typeof AdminSystemFeatureFlagsRoute
+  AdminSystemIntegrationsRoute: typeof AdminSystemIntegrationsRoute
+  AdminSystemLocalizationRoute: typeof AdminSystemLocalizationRoute
+  AdminSystemLogoRoute: typeof AdminSystemLogoRoute
+  AdminSystemMaintenanceRoute: typeof AdminSystemMaintenanceRoute
+  AdminSystemRestoreRoute: typeof AdminSystemRestoreRoute
+  AdminSystemSecurityRoute: typeof AdminSystemSecurityRoute
+  AdminSystemSmtpRoute: typeof AdminSystemSmtpRoute
+  AdminSystemStorageRoute: typeof AdminSystemStorageRoute
+  AdminSystemSystemHealthRoute: typeof AdminSystemSystemHealthRoute
+  AdminSystemThemeRoute: typeof AdminSystemThemeRoute
+  AdminSystemTimezoneRoute: typeof AdminSystemTimezoneRoute
+  CommunityAmbassadorsApplyRoute: typeof CommunityAmbassadorsApplyRoute
+  CommunityEventsEventIdRoute: typeof CommunityEventsEventIdRoute
+  AdminEventsIndexRoute: typeof AdminEventsIndexRoute
+  CommunityEventsIndexRoute: typeof CommunityEventsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/trust-center': {
+      id: '/trust-center'
+      path: '/trust-center'
+      fullPath: '/trust-center'
+      preLoaderRoute: typeof TrustCenterRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/_authenticated': {
-      id: '/_authenticated'
-      path: ''
-      fullPath: '/'
-      preLoaderRoute: typeof AuthenticatedRouteRouteImport
+    '/transparency-report': {
+      id: '/transparency-report'
+      path: '/transparency-report'
+      fullPath: '/transparency-report'
+      preLoaderRoute: typeof TransparencyReportRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/about': {
-      id: '/about'
-      path: '/about'
-      fullPath: '/about'
-      preLoaderRoute: typeof AboutRouteImport
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/auth': {
-      id: '/auth'
-      path: '/auth'
-      fullPath: '/auth'
-      preLoaderRoute: typeof AuthRouteImport
+    '/sponsor': {
+      id: '/sponsor'
+      path: '/sponsor'
+      fullPath: '/sponsor'
+      preLoaderRoute: typeof SponsorRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/community': {
-      id: '/community'
-      path: '/community'
-      fullPath: '/community'
-      preLoaderRoute: typeof CommunityRouteImport
+    '/security': {
+      id: '/security'
+      path: '/security'
+      fullPath: '/security'
+      preLoaderRoute: typeof SecurityRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/contact': {
-      id: '/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof ContactRouteImport
+    '/schedule-call': {
+      id: '/schedule-call'
+      path: '/schedule-call'
+      fullPath: '/schedule-call'
+      preLoaderRoute: typeof ScheduleCallRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/organize-an-event': {
-      id: '/organize-an-event'
-      path: '/organize-an-event'
-      fullPath: '/organize-an-event'
-      preLoaderRoute: typeof OrganizeAnEventRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/partnerships': {
-      id: '/partnerships'
-      path: '/partnerships'
-      fullPath: '/partnerships'
-      preLoaderRoute: typeof PartnershipsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/programs': {
-      id: '/programs'
-      path: '/programs'
-      fullPath: '/programs'
-      preLoaderRoute: typeof ProgramsRouteImport
+    '/roadmap': {
+      id: '/roadmap'
+      path: '/roadmap'
+      fullPath: '/roadmap'
+      preLoaderRoute: typeof RoadmapRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/resources': {
@@ -341,104 +3474,2082 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ResourcesRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/_authenticated/admin': {
-      id: '/_authenticated/admin'
-      path: '/admin'
-      fullPath: '/admin'
-      preLoaderRoute: typeof AuthenticatedAdminRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
+    '/reset-password': {
+      id: '/reset-password'
+      path: '/reset-password'
+      fullPath: '/reset-password'
+      preLoaderRoute: typeof ResetPasswordRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/_authenticated/dashboard': {
-      id: '/_authenticated/dashboard'
+    '/research-methodology': {
+      id: '/research-methodology'
+      path: '/research-methodology'
+      fullPath: '/research-methodology'
+      preLoaderRoute: typeof ResearchMethodologyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/register': {
+      id: '/register'
+      path: '/register'
+      fullPath: '/register'
+      preLoaderRoute: typeof RegisterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/refund': {
+      id: '/refund'
+      path: '/refund'
+      fullPath: '/refund'
+      preLoaderRoute: typeof RefundRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/press': {
+      id: '/press'
+      path: '/press'
+      fullPath: '/press'
+      preLoaderRoute: typeof PressRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/partners': {
+      id: '/partners'
+      path: '/partners'
+      fullPath: '/partners'
+      preLoaderRoute: typeof PartnersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/open-source': {
+      id: '/open-source'
+      path: '/open-source'
+      fullPath: '/open-source'
+      preLoaderRoute: typeof OpenSourceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/leadership': {
+      id: '/leadership'
+      path: '/leadership'
+      fullPath: '/leadership'
+      preLoaderRoute: typeof LeadershipRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/host': {
+      id: '/host'
+      path: '/host'
+      fullPath: '/host'
+      preLoaderRoute: typeof HostRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/glossary': {
+      id: '/glossary'
+      path: '/glossary'
+      fullPath: '/glossary'
+      preLoaderRoute: typeof GlossaryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gallery': {
+      id: '/gallery'
+      path: '/gallery'
+      fullPath: '/gallery'
+      preLoaderRoute: typeof GalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/forgot-password': {
+      id: '/forgot-password'
+      path: '/forgot-password'
+      fullPath: '/forgot-password'
+      preLoaderRoute: typeof ForgotPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/fact-checking': {
+      id: '/fact-checking'
+      path: '/fact-checking'
+      fullPath: '/fact-checking'
+      preLoaderRoute: typeof FactCheckingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/editorial-policy': {
+      id: '/editorial-policy'
+      path: '/editorial-policy'
+      fullPath: '/editorial-policy'
+      preLoaderRoute: typeof EditorialPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ecosystem': {
+      id: '/ecosystem'
+      path: '/ecosystem'
+      fullPath: '/ecosystem'
+      preLoaderRoute: typeof EcosystemRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/devops': {
+      id: '/devops'
+      path: '/devops'
+      fullPath: '/devops'
+      preLoaderRoute: typeof DevopsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard': {
+      id: '/dashboard'
       path: '/dashboard'
       fullPath: '/dashboard'
-      preLoaderRoute: typeof AuthenticatedDashboardRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
+      preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/_authenticated/profile': {
-      id: '/_authenticated/profile'
-      path: '/profile'
-      fullPath: '/profile'
-      preLoaderRoute: typeof AuthenticatedProfileRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
+    '/cookies': {
+      id: '/cookies'
+      path: '/cookies'
+      fullPath: '/cookies'
+      preLoaderRoute: typeof CookiesRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/blog/': {
-      id: '/blog/'
+    '/contributors': {
+      id: '/contributors'
+      path: '/contributors'
+      fullPath: '/contributors'
+      preLoaderRoute: typeof ContributorsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/content-policy': {
+      id: '/content-policy'
+      path: '/content-policy'
+      fullPath: '/content-policy'
+      preLoaderRoute: typeof ContentPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/community': {
+      id: '/community'
+      path: '/community'
+      fullPath: '/community'
+      preLoaderRoute: typeof CommunityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/code-of-conduct': {
+      id: '/code-of-conduct'
+      path: '/code-of-conduct'
+      fullPath: '/code-of-conduct'
+      preLoaderRoute: typeof CodeOfConductRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cloud': {
+      id: '/cloud'
+      path: '/cloud'
+      fullPath: '/cloud'
+      preLoaderRoute: typeof CloudRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog': {
+      id: '/blog'
       path: '/blog'
-      fullPath: '/blog/'
-      preLoaderRoute: typeof BlogIndexRouteImport
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/become-a-sponsor': {
+      id: '/become-a-sponsor'
+      path: '/become-a-sponsor'
+      fullPath: '/become-a-sponsor'
+      preLoaderRoute: typeof BecomeASponsorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ambassador': {
+      id: '/ambassador'
+      path: '/ambassador'
+      fullPath: '/ambassador'
+      preLoaderRoute: typeof AmbassadorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/academy': {
+      id: '/academy'
+      path: '/academy'
+      fullPath: '/academy'
+      preLoaderRoute: typeof AcademyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/certificates/': {
+      id: '/certificates/'
+      path: '/certificates'
+      fullPath: '/certificates/'
+      preLoaderRoute: typeof CertificatesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ambassador/': {
+      id: '/ambassador/'
+      path: '/'
+      fullPath: '/ambassador/'
+      preLoaderRoute: typeof AmbassadorIndexRouteImport
+      parentRoute: typeof AmbassadorRoute
+    }
+    '/admin/': {
+      id: '/admin/'
+      path: '/admin'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/topics_/programming': {
+      id: '/topics_/programming'
+      path: '/topics/programming'
+      fullPath: '/topics/programming'
+      preLoaderRoute: typeof TopicsProgrammingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/topics_/hackathons': {
+      id: '/topics_/hackathons'
+      path: '/topics/hackathons'
+      fullPath: '/topics/hackathons'
+      preLoaderRoute: typeof TopicsHackathonsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/topics_/cyber-security': {
+      id: '/topics_/cyber-security'
+      path: '/topics/cyber-security'
+      fullPath: '/topics/cyber-security'
+      preLoaderRoute: typeof TopicsCyberSecurityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/topics_/career': {
+      id: '/topics_/career'
+      path: '/topics/career'
+      fullPath: '/topics/career'
+      preLoaderRoute: typeof TopicsCareerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/topics_/ai': {
+      id: '/topics_/ai'
+      path: '/topics/ai'
+      fullPath: '/topics/ai'
+      preLoaderRoute: typeof TopicsAiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/technologies/$tech': {
+      id: '/technologies/$tech'
+      path: '/technologies/$tech'
+      fullPath: '/technologies/$tech'
+      preLoaderRoute: typeof TechnologiesTechRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sponsor/success': {
+      id: '/sponsor/success'
+      path: '/success'
+      fullPath: '/sponsor/success'
+      preLoaderRoute: typeof SponsorSuccessRouteImport
+      parentRoute: typeof SponsorRoute
+    }
+    '/sponsor/dashboard': {
+      id: '/sponsor/dashboard'
+      path: '/dashboard'
+      fullPath: '/sponsor/dashboard'
+      preLoaderRoute: typeof SponsorDashboardRouteImport
+      parentRoute: typeof SponsorRoute
+    }
+    '/jobs/$jobId': {
+      id: '/jobs/$jobId'
+      path: '/jobs/$jobId'
+      fullPath: '/jobs/$jobId'
+      preLoaderRoute: typeof JobsJobIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/host/success': {
+      id: '/host/success'
+      path: '/success'
+      fullPath: '/host/success'
+      preLoaderRoute: typeof HostSuccessRouteImport
+      parentRoute: typeof HostRoute
+    }
+    '/host/apply': {
+      id: '/host/apply'
+      path: '/apply'
+      fullPath: '/host/apply'
+      preLoaderRoute: typeof HostApplyRouteImport
+      parentRoute: typeof HostRoute
+    }
+    '/glossary/$term': {
+      id: '/glossary/$term'
+      path: '/$term'
+      fullPath: '/glossary/$term'
+      preLoaderRoute: typeof GlossaryTermRouteImport
+      parentRoute: typeof GlossaryRoute
+    }
+    '/founders/$slug': {
+      id: '/founders/$slug'
+      path: '/founders/$slug'
+      fullPath: '/founders/$slug'
+      preLoaderRoute: typeof FoundersSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/proposals': {
+      id: '/dashboard/proposals'
+      path: '/proposals'
+      fullPath: '/dashboard/proposals'
+      preLoaderRoute: typeof DashboardProposalsRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/compare/$competitor': {
+      id: '/compare/$competitor'
+      path: '/compare/$competitor'
+      fullPath: '/compare/$competitor'
+      preLoaderRoute: typeof CompareCompetitorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/community_/chapters': {
+      id: '/community_/chapters'
+      path: '/community/chapters'
+      fullPath: '/community/chapters'
+      preLoaderRoute: typeof CommunityChaptersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/community_/ambassadors': {
+      id: '/community_/ambassadors'
+      path: '/community/ambassadors'
+      fullPath: '/community/ambassadors'
+      preLoaderRoute: typeof CommunityAmbassadorsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cloud_/vps': {
+      id: '/cloud_/vps'
+      path: '/cloud/vps'
+      fullPath: '/cloud/vps'
+      preLoaderRoute: typeof CloudVpsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cloud_/kubernetes': {
+      id: '/cloud_/kubernetes'
+      path: '/cloud/kubernetes'
+      fullPath: '/cloud/kubernetes'
+      preLoaderRoute: typeof CloudKubernetesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cloud_/dedicated': {
+      id: '/cloud_/dedicated'
+      path: '/cloud/dedicated'
+      fullPath: '/cloud/dedicated'
+      preLoaderRoute: typeof CloudDedicatedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/certificates/$certificateId': {
+      id: '/certificates/$certificateId'
+      path: '/certificates/$certificateId'
+      fullPath: '/certificates/$certificateId'
+      preLoaderRoute: typeof CertificatesCertificateIdRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/blog/$slug': {
       id: '/blog/$slug'
-      path: '/blog/$slug'
+      path: '/$slug'
       fullPath: '/blog/$slug'
       preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof BlogRoute
+    }
+    '/ambassador/dashboard': {
+      id: '/ambassador/dashboard'
+      path: '/dashboard'
+      fullPath: '/ambassador/dashboard'
+      preLoaderRoute: typeof AmbassadorDashboardRouteImport
+      parentRoute: typeof AmbassadorRoute
+    }
+    '/ambassador/apply': {
+      id: '/ambassador/apply'
+      path: '/apply'
+      fullPath: '/ambassador/apply'
+      preLoaderRoute: typeof AmbassadorApplyRouteImport
+      parentRoute: typeof AmbassadorRoute
+    }
+    '/admin/users': {
+      id: '/admin/users'
+      path: '/admin/users'
+      fullPath: '/admin/users'
+      preLoaderRoute: typeof AdminUsersRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/events/': {
-      id: '/events/'
-      path: '/events'
-      fullPath: '/events/'
-      preLoaderRoute: typeof EventsIndexRouteImport
+    '/admin/testimonials': {
+      id: '/admin/testimonials'
+      path: '/admin/testimonials'
+      fullPath: '/admin/testimonials'
+      preLoaderRoute: typeof AdminTestimonialsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/events/$slug': {
-      id: '/events/$slug'
-      path: '/events/$slug'
-      fullPath: '/events/$slug'
-      preLoaderRoute: typeof EventsSlugRouteImport
+    '/admin/sponsors': {
+      id: '/admin/sponsors'
+      path: '/admin/sponsors'
+      fullPath: '/admin/sponsors'
+      preLoaderRoute: typeof AdminSponsorsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/members/': {
-      id: '/members/'
-      path: '/members'
-      fullPath: '/members/'
-      preLoaderRoute: typeof MembersIndexRouteImport
+    '/admin/settings': {
+      id: '/admin/settings'
+      path: '/admin/settings'
+      fullPath: '/admin/settings'
+      preLoaderRoute: typeof AdminSettingsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/members/$id': {
-      id: '/members/$id'
-      path: '/members/$id'
-      fullPath: '/members/$id'
-      preLoaderRoute: typeof MembersIdRouteImport
+    '/admin/seo': {
+      id: '/admin/seo'
+      path: '/admin/seo'
+      fullPath: '/admin/seo'
+      preLoaderRoute: typeof AdminSeoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/schedule-calls': {
+      id: '/admin/schedule-calls'
+      path: '/admin/schedule-calls'
+      fullPath: '/admin/schedule-calls'
+      preLoaderRoute: typeof AdminScheduleCallsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/partners': {
+      id: '/admin/partners'
+      path: '/admin/partners'
+      fullPath: '/admin/partners'
+      preLoaderRoute: typeof AdminPartnersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/pages': {
+      id: '/admin/pages'
+      path: '/admin/pages'
+      fullPath: '/admin/pages'
+      preLoaderRoute: typeof AdminPagesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/page-blocks': {
+      id: '/admin/page-blocks'
+      path: '/admin/page-blocks'
+      fullPath: '/admin/page-blocks'
+      preLoaderRoute: typeof AdminPageBlocksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/newsletter': {
+      id: '/admin/newsletter'
+      path: '/admin/newsletter'
+      fullPath: '/admin/newsletter'
+      preLoaderRoute: typeof AdminNewsletterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/navigation': {
+      id: '/admin/navigation'
+      path: '/admin/navigation'
+      fullPath: '/admin/navigation'
+      preLoaderRoute: typeof AdminNavigationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/messages': {
+      id: '/admin/messages'
+      path: '/admin/messages'
+      fullPath: '/admin/messages'
+      preLoaderRoute: typeof AdminMessagesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/job-applications': {
+      id: '/admin/job-applications'
+      path: '/admin/job-applications'
+      fullPath: '/admin/job-applications'
+      preLoaderRoute: typeof AdminJobApplicationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/gallery': {
+      id: '/admin/gallery'
+      path: '/admin/gallery'
+      fullPath: '/admin/gallery'
+      preLoaderRoute: typeof AdminGalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/faq': {
+      id: '/admin/faq'
+      path: '/admin/faq'
+      fullPath: '/admin/faq'
+      preLoaderRoute: typeof AdminFaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/event-registrations': {
+      id: '/admin/event-registrations'
+      path: '/admin/event-registrations'
+      fullPath: '/admin/event-registrations'
+      preLoaderRoute: typeof AdminEventRegistrationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/certificates': {
+      id: '/admin/certificates'
+      path: '/admin/certificates'
+      fullPath: '/admin/certificates'
+      preLoaderRoute: typeof AdminCertificatesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/blog': {
+      id: '/admin/blog'
+      path: '/admin/blog'
+      fullPath: '/admin/blog'
+      preLoaderRoute: typeof AdminBlogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/audit': {
+      id: '/admin/audit'
+      path: '/admin/audit'
+      fullPath: '/admin/audit'
+      preLoaderRoute: typeof AdminAuditRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about_/vision': {
+      id: '/about_/vision'
+      path: '/about/vision'
+      fullPath: '/about/vision'
+      preLoaderRoute: typeof AboutVisionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about_/research': {
+      id: '/about_/research'
+      path: '/about/research'
+      fullPath: '/about/research'
+      preLoaderRoute: typeof AboutResearchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about_/origohost': {
+      id: '/about_/origohost'
+      path: '/about/origohost'
+      fullPath: '/about/origohost'
+      preLoaderRoute: typeof AboutOrigohostRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about_/mission': {
+      id: '/about_/mission'
+      path: '/about/mission'
+      fullPath: '/about/mission'
+      preLoaderRoute: typeof AboutMissionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about_/history': {
+      id: '/about_/history'
+      path: '/about/history'
+      fullPath: '/about/history'
+      preLoaderRoute: typeof AboutHistoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about_/faq': {
+      id: '/about_/faq'
+      path: '/about/faq'
+      fullPath: '/about/faq'
+      preLoaderRoute: typeof AboutFaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about_/community': {
+      id: '/about_/community'
+      path: '/about/community'
+      fullPath: '/about/community'
+      preLoaderRoute: typeof AboutCommunityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about_/brand': {
+      id: '/about_/brand'
+      path: '/about/brand'
+      fullPath: '/about/brand'
+      preLoaderRoute: typeof AboutBrandRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/community_/events/': {
+      id: '/community_/events/'
+      path: '/community/events'
+      fullPath: '/community/events/'
+      preLoaderRoute: typeof CommunityEventsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/community_/ambassadors/': {
+      id: '/community_/ambassadors/'
+      path: '/'
+      fullPath: '/community/ambassadors/'
+      preLoaderRoute: typeof CommunityAmbassadorsIndexRouteImport
+      parentRoute: typeof CommunityAmbassadorsRoute
+    }
+    '/admin/events/': {
+      id: '/admin/events/'
+      path: '/admin/events'
+      fullPath: '/admin/events/'
+      preLoaderRoute: typeof AdminEventsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/community_/events/$eventId': {
+      id: '/community_/events/$eventId'
+      path: '/community/events/$eventId'
+      fullPath: '/community/events/$eventId'
+      preLoaderRoute: typeof CommunityEventsEventIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/community_/ambassadors_/apply': {
+      id: '/community_/ambassadors_/apply'
+      path: '/community/ambassadors/apply'
+      fullPath: '/community/ambassadors/apply'
+      preLoaderRoute: typeof CommunityAmbassadorsApplyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/system/timezone': {
+      id: '/admin/system/timezone'
+      path: '/admin/system/timezone'
+      fullPath: '/admin/system/timezone'
+      preLoaderRoute: typeof AdminSystemTimezoneRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/system/theme': {
+      id: '/admin/system/theme'
+      path: '/admin/system/theme'
+      fullPath: '/admin/system/theme'
+      preLoaderRoute: typeof AdminSystemThemeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/system/system-health': {
+      id: '/admin/system/system-health'
+      path: '/admin/system/system-health'
+      fullPath: '/admin/system/system-health'
+      preLoaderRoute: typeof AdminSystemSystemHealthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/system/storage': {
+      id: '/admin/system/storage'
+      path: '/admin/system/storage'
+      fullPath: '/admin/system/storage'
+      preLoaderRoute: typeof AdminSystemStorageRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/system/smtp': {
+      id: '/admin/system/smtp'
+      path: '/admin/system/smtp'
+      fullPath: '/admin/system/smtp'
+      preLoaderRoute: typeof AdminSystemSmtpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/system/security': {
+      id: '/admin/system/security'
+      path: '/admin/system/security'
+      fullPath: '/admin/system/security'
+      preLoaderRoute: typeof AdminSystemSecurityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/system/restore': {
+      id: '/admin/system/restore'
+      path: '/admin/system/restore'
+      fullPath: '/admin/system/restore'
+      preLoaderRoute: typeof AdminSystemRestoreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/system/maintenance': {
+      id: '/admin/system/maintenance'
+      path: '/admin/system/maintenance'
+      fullPath: '/admin/system/maintenance'
+      preLoaderRoute: typeof AdminSystemMaintenanceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/system/logo': {
+      id: '/admin/system/logo'
+      path: '/admin/system/logo'
+      fullPath: '/admin/system/logo'
+      preLoaderRoute: typeof AdminSystemLogoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/system/localization': {
+      id: '/admin/system/localization'
+      path: '/admin/system/localization'
+      fullPath: '/admin/system/localization'
+      preLoaderRoute: typeof AdminSystemLocalizationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/system/integrations': {
+      id: '/admin/system/integrations'
+      path: '/admin/system/integrations'
+      fullPath: '/admin/system/integrations'
+      preLoaderRoute: typeof AdminSystemIntegrationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/system/feature-flags': {
+      id: '/admin/system/feature-flags'
+      path: '/admin/system/feature-flags'
+      fullPath: '/admin/system/feature-flags'
+      preLoaderRoute: typeof AdminSystemFeatureFlagsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/system/email': {
+      id: '/admin/system/email'
+      path: '/admin/system/email'
+      fullPath: '/admin/system/email'
+      preLoaderRoute: typeof AdminSystemEmailRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/system/domains': {
+      id: '/admin/system/domains'
+      path: '/admin/system/domains'
+      fullPath: '/admin/system/domains'
+      preLoaderRoute: typeof AdminSystemDomainsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/system/branding': {
+      id: '/admin/system/branding'
+      path: '/admin/system/branding'
+      fullPath: '/admin/system/branding'
+      preLoaderRoute: typeof AdminSystemBrandingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/system/backups': {
+      id: '/admin/system/backups'
+      path: '/admin/system/backups'
+      fullPath: '/admin/system/backups'
+      preLoaderRoute: typeof AdminSystemBackupsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/recruitment/resume-screening': {
+      id: '/admin/recruitment/resume-screening'
+      path: '/admin/recruitment/resume-screening'
+      fullPath: '/admin/recruitment/resume-screening'
+      preLoaderRoute: typeof AdminRecruitmentResumeScreeningRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/recruitment/resume-database': {
+      id: '/admin/recruitment/resume-database'
+      path: '/admin/recruitment/resume-database'
+      fullPath: '/admin/recruitment/resume-database'
+      preLoaderRoute: typeof AdminRecruitmentResumeDatabaseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/recruitment/reports': {
+      id: '/admin/recruitment/reports'
+      path: '/admin/recruitment/reports'
+      fullPath: '/admin/recruitment/reports'
+      preLoaderRoute: typeof AdminRecruitmentReportsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/recruitment/rejected': {
+      id: '/admin/recruitment/rejected'
+      path: '/admin/recruitment/rejected'
+      fullPath: '/admin/recruitment/rejected'
+      preLoaderRoute: typeof AdminRecruitmentRejectedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/recruitment/offer-letters': {
+      id: '/admin/recruitment/offer-letters'
+      path: '/admin/recruitment/offer-letters'
+      fullPath: '/admin/recruitment/offer-letters'
+      preLoaderRoute: typeof AdminRecruitmentOfferLettersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/recruitment/interview-pipeline': {
+      id: '/admin/recruitment/interview-pipeline'
+      path: '/admin/recruitment/interview-pipeline'
+      fullPath: '/admin/recruitment/interview-pipeline'
+      preLoaderRoute: typeof AdminRecruitmentInterviewPipelineRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/recruitment/companies': {
+      id: '/admin/recruitment/companies'
+      path: '/admin/recruitment/companies'
+      fullPath: '/admin/recruitment/companies'
+      preLoaderRoute: typeof AdminRecruitmentCompaniesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/recruitment/applications': {
+      id: '/admin/recruitment/applications'
+      path: '/admin/recruitment/applications'
+      fullPath: '/admin/recruitment/applications'
+      preLoaderRoute: typeof AdminRecruitmentApplicationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/recruitment/analytics': {
+      id: '/admin/recruitment/analytics'
+      path: '/admin/recruitment/analytics'
+      fullPath: '/admin/recruitment/analytics'
+      preLoaderRoute: typeof AdminRecruitmentAnalyticsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/personal/sessions': {
+      id: '/admin/personal/sessions'
+      path: '/admin/personal/sessions'
+      fullPath: '/admin/personal/sessions'
+      preLoaderRoute: typeof AdminPersonalSessionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/personal/security': {
+      id: '/admin/personal/security'
+      path: '/admin/personal/security'
+      fullPath: '/admin/personal/security'
+      preLoaderRoute: typeof AdminPersonalSecurityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/personal/preferences': {
+      id: '/admin/personal/preferences'
+      path: '/admin/personal/preferences'
+      fullPath: '/admin/personal/preferences'
+      preLoaderRoute: typeof AdminPersonalPreferencesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/personal/notifications': {
+      id: '/admin/personal/notifications'
+      path: '/admin/personal/notifications'
+      fullPath: '/admin/personal/notifications'
+      preLoaderRoute: typeof AdminPersonalNotificationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/personal/my-profile': {
+      id: '/admin/personal/my-profile'
+      path: '/admin/personal/my-profile'
+      fullPath: '/admin/personal/my-profile'
+      preLoaderRoute: typeof AdminPersonalMyProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/personal/help': {
+      id: '/admin/personal/help'
+      path: '/admin/personal/help'
+      fullPath: '/admin/personal/help'
+      preLoaderRoute: typeof AdminPersonalHelpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/personal/feedback': {
+      id: '/admin/personal/feedback'
+      path: '/admin/personal/feedback'
+      fullPath: '/admin/personal/feedback'
+      preLoaderRoute: typeof AdminPersonalFeedbackRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/personal/connected-accounts': {
+      id: '/admin/personal/connected-accounts'
+      path: '/admin/personal/connected-accounts'
+      fullPath: '/admin/personal/connected-accounts'
+      preLoaderRoute: typeof AdminPersonalConnectedAccountsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/personal/appearance': {
+      id: '/admin/personal/appearance'
+      path: '/admin/personal/appearance'
+      fullPath: '/admin/personal/appearance'
+      preLoaderRoute: typeof AdminPersonalAppearanceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/personal/api-tokens': {
+      id: '/admin/personal/api-tokens'
+      path: '/admin/personal/api-tokens'
+      fullPath: '/admin/personal/api-tokens'
+      preLoaderRoute: typeof AdminPersonalApiTokensRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/operations/volunteers': {
+      id: '/admin/operations/volunteers'
+      path: '/admin/operations/volunteers'
+      fullPath: '/admin/operations/volunteers'
+      preLoaderRoute: typeof AdminOperationsVolunteersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/operations/verification-center': {
+      id: '/admin/operations/verification-center'
+      path: '/admin/operations/verification-center'
+      fullPath: '/admin/operations/verification-center'
+      preLoaderRoute: typeof AdminOperationsVerificationCenterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/operations/students': {
+      id: '/admin/operations/students'
+      path: '/admin/operations/students'
+      fullPath: '/admin/operations/students'
+      preLoaderRoute: typeof AdminOperationsStudentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/operations/speakers': {
+      id: '/admin/operations/speakers'
+      path: '/admin/operations/speakers'
+      fullPath: '/admin/operations/speakers'
+      preLoaderRoute: typeof AdminOperationsSpeakersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/operations/sessions': {
+      id: '/admin/operations/sessions'
+      path: '/admin/operations/sessions'
+      fullPath: '/admin/operations/sessions'
+      preLoaderRoute: typeof AdminOperationsSessionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/operations/roles': {
+      id: '/admin/operations/roles'
+      path: '/admin/operations/roles'
+      fullPath: '/admin/operations/roles'
+      preLoaderRoute: typeof AdminOperationsRolesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/operations/registration-management': {
+      id: '/admin/operations/registration-management'
+      path: '/admin/operations/registration-management'
+      fullPath: '/admin/operations/registration-management'
+      preLoaderRoute: typeof AdminOperationsRegistrationManagementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/operations/recycle-bin': {
+      id: '/admin/operations/recycle-bin'
+      path: '/admin/operations/recycle-bin'
+      fullPath: '/admin/operations/recycle-bin'
+      preLoaderRoute: typeof AdminOperationsRecycleBinRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/operations/recruiters': {
+      id: '/admin/operations/recruiters'
+      path: '/admin/operations/recruiters'
+      fullPath: '/admin/operations/recruiters'
+      preLoaderRoute: typeof AdminOperationsRecruitersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/operations/permissions': {
+      id: '/admin/operations/permissions'
+      path: '/admin/operations/permissions'
+      fullPath: '/admin/operations/permissions'
+      preLoaderRoute: typeof AdminOperationsPermissionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/operations/organizations': {
+      id: '/admin/operations/organizations'
+      path: '/admin/operations/organizations'
+      fullPath: '/admin/operations/organizations'
+      preLoaderRoute: typeof AdminOperationsOrganizationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/operations/mentors': {
+      id: '/admin/operations/mentors'
+      path: '/admin/operations/mentors'
+      fullPath: '/admin/operations/mentors'
+      preLoaderRoute: typeof AdminOperationsMentorsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/operations/host-requests': {
+      id: '/admin/operations/host-requests'
+      path: '/admin/operations/host-requests'
+      fullPath: '/admin/operations/host-requests'
+      preLoaderRoute: typeof AdminOperationsHostRequestsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/operations/device-manager': {
+      id: '/admin/operations/device-manager'
+      path: '/admin/operations/device-manager'
+      fullPath: '/admin/operations/device-manager'
+      preLoaderRoute: typeof AdminOperationsDeviceManagerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/operations/audit-logs': {
+      id: '/admin/operations/audit-logs'
+      path: '/admin/operations/audit-logs'
+      fullPath: '/admin/operations/audit-logs'
+      preLoaderRoute: typeof AdminOperationsAuditLogsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/operations/admins': {
+      id: '/admin/operations/admins'
+      path: '/admin/operations/admins'
+      fullPath: '/admin/operations/admins'
+      preLoaderRoute: typeof AdminOperationsAdminsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/operations/activity-timeline': {
+      id: '/admin/operations/activity-timeline'
+      path: '/admin/operations/activity-timeline'
+      fullPath: '/admin/operations/activity-timeline'
+      preLoaderRoute: typeof AdminOperationsActivityTimelineRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/marketing/subscribers': {
+      id: '/admin/marketing/subscribers'
+      path: '/admin/marketing/subscribers'
+      fullPath: '/admin/marketing/subscribers'
+      preLoaderRoute: typeof AdminMarketingSubscribersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/marketing/social-posts': {
+      id: '/admin/marketing/social-posts'
+      path: '/admin/marketing/social-posts'
+      fullPath: '/admin/marketing/social-posts'
+      preLoaderRoute: typeof AdminMarketingSocialPostsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/marketing/seo-manager': {
+      id: '/admin/marketing/seo-manager'
+      path: '/admin/marketing/seo-manager'
+      fullPath: '/admin/marketing/seo-manager'
+      preLoaderRoute: typeof AdminMarketingSeoManagerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/marketing/referral-program': {
+      id: '/admin/marketing/referral-program'
+      path: '/admin/marketing/referral-program'
+      fullPath: '/admin/marketing/referral-program'
+      preLoaderRoute: typeof AdminMarketingReferralProgramRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/marketing/popup-campaigns': {
+      id: '/admin/marketing/popup-campaigns'
+      path: '/admin/marketing/popup-campaigns'
+      fullPath: '/admin/marketing/popup-campaigns'
+      preLoaderRoute: typeof AdminMarketingPopupCampaignsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/marketing/notifications': {
+      id: '/admin/marketing/notifications'
+      path: '/admin/marketing/notifications'
+      fullPath: '/admin/marketing/notifications'
+      preLoaderRoute: typeof AdminMarketingNotificationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/marketing/email-templates': {
+      id: '/admin/marketing/email-templates'
+      path: '/admin/marketing/email-templates'
+      fullPath: '/admin/marketing/email-templates'
+      preLoaderRoute: typeof AdminMarketingEmailTemplatesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/marketing/coupon-manager': {
+      id: '/admin/marketing/coupon-manager'
+      path: '/admin/marketing/coupon-manager'
+      fullPath: '/admin/marketing/coupon-manager'
+      preLoaderRoute: typeof AdminMarketingCouponManagerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/marketing/campaigns': {
+      id: '/admin/marketing/campaigns'
+      path: '/admin/marketing/campaigns'
+      fullPath: '/admin/marketing/campaigns'
+      preLoaderRoute: typeof AdminMarketingCampaignsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/marketing/announcement-center': {
+      id: '/admin/marketing/announcement-center'
+      path: '/admin/marketing/announcement-center'
+      fullPath: '/admin/marketing/announcement-center'
+      preLoaderRoute: typeof AdminMarketingAnnouncementCenterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/finance/transactions': {
+      id: '/admin/finance/transactions'
+      path: '/admin/finance/transactions'
+      fullPath: '/admin/finance/transactions'
+      preLoaderRoute: typeof AdminFinanceTransactionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/finance/taxes': {
+      id: '/admin/finance/taxes'
+      path: '/admin/finance/taxes'
+      fullPath: '/admin/finance/taxes'
+      preLoaderRoute: typeof AdminFinanceTaxesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/finance/subscriptions': {
+      id: '/admin/finance/subscriptions'
+      path: '/admin/finance/subscriptions'
+      fullPath: '/admin/finance/subscriptions'
+      preLoaderRoute: typeof AdminFinanceSubscriptionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/finance/sponsors': {
+      id: '/admin/finance/sponsors'
+      path: '/admin/finance/sponsors'
+      fullPath: '/admin/finance/sponsors'
+      preLoaderRoute: typeof AdminFinanceSponsorsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/finance/revenue': {
+      id: '/admin/finance/revenue'
+      path: '/admin/finance/revenue'
+      fullPath: '/admin/finance/revenue'
+      preLoaderRoute: typeof AdminFinanceRevenueRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/finance/reports': {
+      id: '/admin/finance/reports'
+      path: '/admin/finance/reports'
+      fullPath: '/admin/finance/reports'
+      preLoaderRoute: typeof AdminFinanceReportsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/finance/refunds': {
+      id: '/admin/finance/refunds'
+      path: '/admin/finance/refunds'
+      fullPath: '/admin/finance/refunds'
+      preLoaderRoute: typeof AdminFinanceRefundsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/finance/payments': {
+      id: '/admin/finance/payments'
+      path: '/admin/finance/payments'
+      fullPath: '/admin/finance/payments'
+      preLoaderRoute: typeof AdminFinancePaymentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/finance/invoices': {
+      id: '/admin/finance/invoices'
+      path: '/admin/finance/invoices'
+      fullPath: '/admin/finance/invoices'
+      preLoaderRoute: typeof AdminFinanceInvoicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/finance/donations': {
+      id: '/admin/finance/donations'
+      path: '/admin/finance/donations'
+      fullPath: '/admin/finance/donations'
+      preLoaderRoute: typeof AdminFinanceDonationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/events/venues': {
+      id: '/admin/events/venues'
+      path: '/admin/events/venues'
+      fullPath: '/admin/events/venues'
+      preLoaderRoute: typeof AdminEventsVenuesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/events/sponsors': {
+      id: '/admin/events/sponsors'
+      path: '/admin/events/sponsors'
+      fullPath: '/admin/events/sponsors'
+      preLoaderRoute: typeof AdminEventsSponsorsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/events/speakers': {
+      id: '/admin/events/speakers'
+      path: '/admin/events/speakers'
+      fullPath: '/admin/events/speakers'
+      preLoaderRoute: typeof AdminEventsSpeakersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/events/schedules': {
+      id: '/admin/events/schedules'
+      path: '/admin/events/schedules'
+      fullPath: '/admin/events/schedules'
+      preLoaderRoute: typeof AdminEventsSchedulesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/events/reviews': {
+      id: '/admin/events/reviews'
+      path: '/admin/events/reviews'
+      fullPath: '/admin/events/reviews'
+      preLoaderRoute: typeof AdminEventsReviewsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/events/reports': {
+      id: '/admin/events/reports'
+      path: '/admin/events/reports'
+      fullPath: '/admin/events/reports'
+      preLoaderRoute: typeof AdminEventsReportsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/events/registration': {
+      id: '/admin/events/registration'
+      path: '/admin/events/registration'
+      fullPath: '/admin/events/registration'
+      preLoaderRoute: typeof AdminEventsRegistrationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/events/qr-tickets': {
+      id: '/admin/events/qr-tickets'
+      path: '/admin/events/qr-tickets'
+      fullPath: '/admin/events/qr-tickets'
+      preLoaderRoute: typeof AdminEventsQrTicketsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/events/qr-check-in': {
+      id: '/admin/events/qr-check-in'
+      path: '/admin/events/qr-check-in'
+      fullPath: '/admin/events/qr-check-in'
+      preLoaderRoute: typeof AdminEventsQrCheckInRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/events/livestream': {
+      id: '/admin/events/livestream'
+      path: '/admin/events/livestream'
+      fullPath: '/admin/events/livestream'
+      preLoaderRoute: typeof AdminEventsLivestreamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/events/feedback': {
+      id: '/admin/events/feedback'
+      path: '/admin/events/feedback'
+      fullPath: '/admin/events/feedback'
+      preLoaderRoute: typeof AdminEventsFeedbackRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/events/event-gallery': {
+      id: '/admin/events/event-gallery'
+      path: '/admin/events/event-gallery'
+      fullPath: '/admin/events/event-gallery'
+      preLoaderRoute: typeof AdminEventsEventGalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/events/categories': {
+      id: '/admin/events/categories'
+      path: '/admin/events/categories'
+      fullPath: '/admin/events/categories'
+      preLoaderRoute: typeof AdminEventsCategoriesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/events/calendar': {
+      id: '/admin/events/calendar'
+      path: '/admin/events/calendar'
+      fullPath: '/admin/events/calendar'
+      preLoaderRoute: typeof AdminEventsCalendarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/events/attendance': {
+      id: '/admin/events/attendance'
+      path: '/admin/events/attendance'
+      fullPath: '/admin/events/attendance'
+      preLoaderRoute: typeof AdminEventsAttendanceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/developer/webhook-manager': {
+      id: '/admin/developer/webhook-manager'
+      path: '/admin/developer/webhook-manager'
+      fullPath: '/admin/developer/webhook-manager'
+      preLoaderRoute: typeof AdminDeveloperWebhookManagerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/developer/webhook-logs': {
+      id: '/admin/developer/webhook-logs'
+      path: '/admin/developer/webhook-logs'
+      fullPath: '/admin/developer/webhook-logs'
+      preLoaderRoute: typeof AdminDeveloperWebhookLogsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/developer/storage-browser': {
+      id: '/admin/developer/storage-browser'
+      path: '/admin/developer/storage-browser'
+      fullPath: '/admin/developer/storage-browser'
+      preLoaderRoute: typeof AdminDeveloperStorageBrowserRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/developer/sql-explorer': {
+      id: '/admin/developer/sql-explorer'
+      path: '/admin/developer/sql-explorer'
+      fullPath: '/admin/developer/sql-explorer'
+      preLoaderRoute: typeof AdminDeveloperSqlExplorerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/developer/queue-manager': {
+      id: '/admin/developer/queue-manager'
+      path: '/admin/developer/queue-manager'
+      fullPath: '/admin/developer/queue-manager'
+      preLoaderRoute: typeof AdminDeveloperQueueManagerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/developer/feature-flags': {
+      id: '/admin/developer/feature-flags'
+      path: '/admin/developer/feature-flags'
+      fullPath: '/admin/developer/feature-flags'
+      preLoaderRoute: typeof AdminDeveloperFeatureFlagsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/developer/error-logs': {
+      id: '/admin/developer/error-logs'
+      path: '/admin/developer/error-logs'
+      fullPath: '/admin/developer/error-logs'
+      preLoaderRoute: typeof AdminDeveloperErrorLogsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/developer/environment-variables': {
+      id: '/admin/developer/environment-variables'
+      path: '/admin/developer/environment-variables'
+      fullPath: '/admin/developer/environment-variables'
+      preLoaderRoute: typeof AdminDeveloperEnvironmentVariablesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/developer/developer-tools': {
+      id: '/admin/developer/developer-tools'
+      path: '/admin/developer/developer-tools'
+      fullPath: '/admin/developer/developer-tools'
+      preLoaderRoute: typeof AdminDeveloperDeveloperToolsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/developer/deployment-logs': {
+      id: '/admin/developer/deployment-logs'
+      path: '/admin/developer/deployment-logs'
+      fullPath: '/admin/developer/deployment-logs'
+      preLoaderRoute: typeof AdminDeveloperDeploymentLogsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/developer/database-browser': {
+      id: '/admin/developer/database-browser'
+      path: '/admin/developer/database-browser'
+      fullPath: '/admin/developer/database-browser'
+      preLoaderRoute: typeof AdminDeveloperDatabaseBrowserRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/developer/cron-jobs': {
+      id: '/admin/developer/cron-jobs'
+      path: '/admin/developer/cron-jobs'
+      fullPath: '/admin/developer/cron-jobs'
+      preLoaderRoute: typeof AdminDeveloperCronJobsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/developer/api-keys': {
+      id: '/admin/developer/api-keys'
+      path: '/admin/developer/api-keys'
+      fullPath: '/admin/developer/api-keys'
+      preLoaderRoute: typeof AdminDeveloperApiKeysRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/developer/api-explorer': {
+      id: '/admin/developer/api-explorer'
+      path: '/admin/developer/api-explorer'
+      fullPath: '/admin/developer/api-explorer'
+      preLoaderRoute: typeof AdminDeveloperApiExplorerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/developer/activity-logs': {
+      id: '/admin/developer/activity-logs'
+      path: '/admin/developer/activity-logs'
+      fullPath: '/admin/developer/activity-logs'
+      preLoaderRoute: typeof AdminDeveloperActivityLogsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/content/videos': {
+      id: '/admin/content/videos'
+      path: '/admin/content/videos'
+      fullPath: '/admin/content/videos'
+      preLoaderRoute: typeof AdminContentVideosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/content/resources': {
+      id: '/admin/content/resources'
+      path: '/admin/content/resources'
+      fullPath: '/admin/content/resources'
+      preLoaderRoute: typeof AdminContentResourcesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/content/popup-builder': {
+      id: '/admin/content/popup-builder'
+      path: '/admin/content/popup-builder'
+      fullPath: '/admin/content/popup-builder'
+      preLoaderRoute: typeof AdminContentPopupBuilderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/content/page-builder': {
+      id: '/admin/content/page-builder'
+      path: '/admin/content/page-builder'
+      fullPath: '/admin/content/page-builder'
+      preLoaderRoute: typeof AdminContentPageBuilderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/content/menus': {
+      id: '/admin/content/menus'
+      path: '/admin/content/menus'
+      fullPath: '/admin/content/menus'
+      preLoaderRoute: typeof AdminContentMenusRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/content/media-library': {
+      id: '/admin/content/media-library'
+      path: '/admin/content/media-library'
+      fullPath: '/admin/content/media-library'
+      preLoaderRoute: typeof AdminContentMediaLibraryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/content/landing-pages': {
+      id: '/admin/content/landing-pages'
+      path: '/admin/content/landing-pages'
+      fullPath: '/admin/content/landing-pages'
+      preLoaderRoute: typeof AdminContentLandingPagesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/content/homepage': {
+      id: '/admin/content/homepage'
+      path: '/admin/content/homepage'
+      fullPath: '/admin/content/homepage'
+      preLoaderRoute: typeof AdminContentHomepageRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/content/forms-builder': {
+      id: '/admin/content/forms-builder'
+      path: '/admin/content/forms-builder'
+      fullPath: '/admin/content/forms-builder'
+      preLoaderRoute: typeof AdminContentFormsBuilderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/content/footer': {
+      id: '/admin/content/footer'
+      path: '/admin/content/footer'
+      fullPath: '/admin/content/footer'
+      preLoaderRoute: typeof AdminContentFooterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/content/cms': {
+      id: '/admin/content/cms'
+      path: '/admin/content/cms'
+      fullPath: '/admin/content/cms'
+      preLoaderRoute: typeof AdminContentCmsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/content/categories': {
+      id: '/admin/content/categories'
+      path: '/admin/content/categories'
+      fullPath: '/admin/content/categories'
+      preLoaderRoute: typeof AdminContentCategoriesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/content/banner-manager': {
+      id: '/admin/content/banner-manager'
+      path: '/admin/content/banner-manager'
+      fullPath: '/admin/content/banner-manager'
+      preLoaderRoute: typeof AdminContentBannerManagerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/content/authors': {
+      id: '/admin/content/authors'
+      path: '/admin/content/authors'
+      fullPath: '/admin/content/authors'
+      preLoaderRoute: typeof AdminContentAuthorsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/community/volunteer-management': {
+      id: '/admin/community/volunteer-management'
+      path: '/admin/community/volunteer-management'
+      fullPath: '/admin/community/volunteer-management'
+      preLoaderRoute: typeof AdminCommunityVolunteerManagementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/community/mentorship': {
+      id: '/admin/community/mentorship'
+      path: '/admin/community/mentorship'
+      fullPath: '/admin/community/mentorship'
+      preLoaderRoute: typeof AdminCommunityMentorshipRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/community/leaderboard': {
+      id: '/admin/community/leaderboard'
+      path: '/admin/community/leaderboard'
+      fullPath: '/admin/community/leaderboard'
+      preLoaderRoute: typeof AdminCommunityLeaderboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/community/groups': {
+      id: '/admin/community/groups'
+      path: '/admin/community/groups'
+      fullPath: '/admin/community/groups'
+      preLoaderRoute: typeof AdminCommunityGroupsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/community/forums': {
+      id: '/admin/community/forums'
+      path: '/admin/community/forums'
+      fullPath: '/admin/community/forums'
+      preLoaderRoute: typeof AdminCommunityForumsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/community/discussions': {
+      id: '/admin/community/discussions'
+      path: '/admin/community/discussions'
+      fullPath: '/admin/community/discussions'
+      preLoaderRoute: typeof AdminCommunityDiscussionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/community/community-members': {
+      id: '/admin/community/community-members'
+      path: '/admin/community/community-members'
+      fullPath: '/admin/community/community-members'
+      preLoaderRoute: typeof AdminCommunityCommunityMembersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/community/community-analytics': {
+      id: '/admin/community/community-analytics'
+      path: '/admin/community/community-analytics'
+      fullPath: '/admin/community/community-analytics'
+      preLoaderRoute: typeof AdminCommunityCommunityAnalyticsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/community/communities': {
+      id: '/admin/community/communities'
+      path: '/admin/community/communities'
+      fullPath: '/admin/community/communities'
+      preLoaderRoute: typeof AdminCommunityCommunitiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/community/campus-ambassador': {
+      id: '/admin/community/campus-ambassador'
+      path: '/admin/community/campus-ambassador'
+      fullPath: '/admin/community/campus-ambassador'
+      preLoaderRoute: typeof AdminCommunityCampusAmbassadorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/community/badges': {
+      id: '/admin/community/badges'
+      path: '/admin/community/badges'
+      fullPath: '/admin/community/badges'
+      preLoaderRoute: typeof AdminCommunityBadgesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/community/announcements': {
+      id: '/admin/community/announcements'
+      path: '/admin/community/announcements'
+      fullPath: '/admin/community/announcements'
+      preLoaderRoute: typeof AdminCommunityAnnouncementsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/community/achievements': {
+      id: '/admin/community/achievements'
+      path: '/admin/community/achievements'
+      fullPath: '/admin/community/achievements'
+      preLoaderRoute: typeof AdminCommunityAchievementsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/analytics/traffic': {
+      id: '/admin/analytics/traffic'
+      path: '/admin/analytics/traffic'
+      fullPath: '/admin/analytics/traffic'
+      preLoaderRoute: typeof AdminAnalyticsTrafficRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/analytics/retention': {
+      id: '/admin/analytics/retention'
+      path: '/admin/analytics/retention'
+      fullPath: '/admin/analytics/retention'
+      preLoaderRoute: typeof AdminAnalyticsRetentionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/analytics/reports': {
+      id: '/admin/analytics/reports'
+      path: '/admin/analytics/reports'
+      fullPath: '/admin/analytics/reports'
+      preLoaderRoute: typeof AdminAnalyticsReportsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/analytics/realtime': {
+      id: '/admin/analytics/realtime'
+      path: '/admin/analytics/realtime'
+      fullPath: '/admin/analytics/realtime'
+      preLoaderRoute: typeof AdminAnalyticsRealtimeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/analytics/organizations': {
+      id: '/admin/analytics/organizations'
+      path: '/admin/analytics/organizations'
+      fullPath: '/admin/analytics/organizations'
+      preLoaderRoute: typeof AdminAnalyticsOrganizationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/analytics/heatmaps': {
+      id: '/admin/analytics/heatmaps'
+      path: '/admin/analytics/heatmaps'
+      fullPath: '/admin/analytics/heatmaps'
+      preLoaderRoute: typeof AdminAnalyticsHeatmapsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/analytics/funnels': {
+      id: '/admin/analytics/funnels'
+      path: '/admin/analytics/funnels'
+      fullPath: '/admin/analytics/funnels'
+      preLoaderRoute: typeof AdminAnalyticsFunnelsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/analytics/exports': {
+      id: '/admin/analytics/exports'
+      path: '/admin/analytics/exports'
+      fullPath: '/admin/analytics/exports'
+      preLoaderRoute: typeof AdminAnalyticsExportsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/analytics/devices': {
+      id: '/admin/analytics/devices'
+      path: '/admin/analytics/devices'
+      fullPath: '/admin/analytics/devices'
+      preLoaderRoute: typeof AdminAnalyticsDevicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/analytics/dashboard': {
+      id: '/admin/analytics/dashboard'
+      path: '/admin/analytics/dashboard'
+      fullPath: '/admin/analytics/dashboard'
+      preLoaderRoute: typeof AdminAnalyticsDashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/analytics/countries': {
+      id: '/admin/analytics/countries'
+      path: '/admin/analytics/countries'
+      fullPath: '/admin/analytics/countries'
+      preLoaderRoute: typeof AdminAnalyticsCountriesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/analytics/conversions': {
+      id: '/admin/analytics/conversions'
+      path: '/admin/analytics/conversions'
+      fullPath: '/admin/analytics/conversions'
+      preLoaderRoute: typeof AdminAnalyticsConversionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/analytics/cities': {
+      id: '/admin/analytics/cities'
+      path: '/admin/analytics/cities'
+      fullPath: '/admin/analytics/cities'
+      preLoaderRoute: typeof AdminAnalyticsCitiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/analytics/browsers': {
+      id: '/admin/analytics/browsers'
+      path: '/admin/analytics/browsers'
+      fullPath: '/admin/analytics/browsers'
+      preLoaderRoute: typeof AdminAnalyticsBrowsersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/ai-center/token-usage': {
+      id: '/admin/ai-center/token-usage'
+      path: '/admin/ai-center/token-usage'
+      fullPath: '/admin/ai-center/token-usage'
+      preLoaderRoute: typeof AdminAiCenterTokenUsageRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/ai-center/prompt-templates': {
+      id: '/admin/ai-center/prompt-templates'
+      path: '/admin/ai-center/prompt-templates'
+      fullPath: '/admin/ai-center/prompt-templates'
+      preLoaderRoute: typeof AdminAiCenterPromptTemplatesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/ai-center/prompt-library': {
+      id: '/admin/ai-center/prompt-library'
+      path: '/admin/ai-center/prompt-library'
+      fullPath: '/admin/ai-center/prompt-library'
+      preLoaderRoute: typeof AdminAiCenterPromptLibraryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/ai-center/ai-settings': {
+      id: '/admin/ai-center/ai-settings'
+      path: '/admin/ai-center/ai-settings'
+      fullPath: '/admin/ai-center/ai-settings'
+      preLoaderRoute: typeof AdminAiCenterAiSettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/ai-center/ai-search': {
+      id: '/admin/ai-center/ai-search'
+      path: '/admin/ai-center/ai-search'
+      fullPath: '/admin/ai-center/ai-search'
+      preLoaderRoute: typeof AdminAiCenterAiSearchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/ai-center/ai-resume-review': {
+      id: '/admin/ai-center/ai-resume-review'
+      path: '/admin/ai-center/ai-resume-review'
+      fullPath: '/admin/ai-center/ai-resume-review'
+      preLoaderRoute: typeof AdminAiCenterAiResumeReviewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/ai-center/ai-moderation': {
+      id: '/admin/ai-center/ai-moderation'
+      path: '/admin/ai-center/ai-moderation'
+      fullPath: '/admin/ai-center/ai-moderation'
+      preLoaderRoute: typeof AdminAiCenterAiModerationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/ai-center/ai-logs': {
+      id: '/admin/ai-center/ai-logs'
+      path: '/admin/ai-center/ai-logs'
+      fullPath: '/admin/ai-center/ai-logs'
+      preLoaderRoute: typeof AdminAiCenterAiLogsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/ai-center/ai-dashboard': {
+      id: '/admin/ai-center/ai-dashboard'
+      path: '/admin/ai-center/ai-dashboard'
+      fullPath: '/admin/ai-center/ai-dashboard'
+      preLoaderRoute: typeof AdminAiCenterAiDashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/ai-center/ai-content-generator': {
+      id: '/admin/ai-center/ai-content-generator'
+      path: '/admin/ai-center/ai-content-generator'
+      fullPath: '/admin/ai-center/ai-content-generator'
+      preLoaderRoute: typeof AdminAiCenterAiContentGeneratorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/ai-center/ai-chatbot': {
+      id: '/admin/ai-center/ai-chatbot'
+      path: '/admin/ai-center/ai-chatbot'
+      fullPath: '/admin/ai-center/ai-chatbot'
+      preLoaderRoute: typeof AdminAiCenterAiChatbotRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/ai-center/ai-career-advisor': {
+      id: '/admin/ai-center/ai-career-advisor'
+      path: '/admin/ai-center/ai-career-advisor'
+      fullPath: '/admin/ai-center/ai-career-advisor'
+      preLoaderRoute: typeof AdminAiCenterAiCareerAdvisorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/ai-center/ai-analytics': {
+      id: '/admin/ai-center/ai-analytics'
+      path: '/admin/ai-center/ai-analytics'
+      fullPath: '/admin/ai-center/ai-analytics'
+      preLoaderRoute: typeof AdminAiCenterAiAnalyticsRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
 }
 
-interface AuthenticatedRouteRouteChildren {
-  AuthenticatedAdminRoute: typeof AuthenticatedAdminRoute
-  AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
-  AuthenticatedProfileRoute: typeof AuthenticatedProfileRoute
+interface AmbassadorRouteChildren {
+  AmbassadorApplyRoute: typeof AmbassadorApplyRoute
+  AmbassadorDashboardRoute: typeof AmbassadorDashboardRoute
+  AmbassadorIndexRoute: typeof AmbassadorIndexRoute
 }
 
-const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
-  AuthenticatedAdminRoute: AuthenticatedAdminRoute,
-  AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
-  AuthenticatedProfileRoute: AuthenticatedProfileRoute,
+const AmbassadorRouteChildren: AmbassadorRouteChildren = {
+  AmbassadorApplyRoute: AmbassadorApplyRoute,
+  AmbassadorDashboardRoute: AmbassadorDashboardRoute,
+  AmbassadorIndexRoute: AmbassadorIndexRoute,
 }
 
-const AuthenticatedRouteRouteWithChildren =
-  AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
+const AmbassadorRouteWithChildren = AmbassadorRoute._addFileChildren(
+  AmbassadorRouteChildren,
+)
+
+interface BlogRouteChildren {
+  BlogSlugRoute: typeof BlogSlugRoute
+}
+
+const BlogRouteChildren: BlogRouteChildren = {
+  BlogSlugRoute: BlogSlugRoute,
+}
+
+const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
+
+interface DashboardRouteChildren {
+  DashboardProposalsRoute: typeof DashboardProposalsRoute
+}
+
+const DashboardRouteChildren: DashboardRouteChildren = {
+  DashboardProposalsRoute: DashboardProposalsRoute,
+}
+
+const DashboardRouteWithChildren = DashboardRoute._addFileChildren(
+  DashboardRouteChildren,
+)
+
+interface GlossaryRouteChildren {
+  GlossaryTermRoute: typeof GlossaryTermRoute
+}
+
+const GlossaryRouteChildren: GlossaryRouteChildren = {
+  GlossaryTermRoute: GlossaryTermRoute,
+}
+
+const GlossaryRouteWithChildren = GlossaryRoute._addFileChildren(
+  GlossaryRouteChildren,
+)
+
+interface HostRouteChildren {
+  HostApplyRoute: typeof HostApplyRoute
+  HostSuccessRoute: typeof HostSuccessRoute
+}
+
+const HostRouteChildren: HostRouteChildren = {
+  HostApplyRoute: HostApplyRoute,
+  HostSuccessRoute: HostSuccessRoute,
+}
+
+const HostRouteWithChildren = HostRoute._addFileChildren(HostRouteChildren)
+
+interface SponsorRouteChildren {
+  SponsorDashboardRoute: typeof SponsorDashboardRoute
+  SponsorSuccessRoute: typeof SponsorSuccessRoute
+}
+
+const SponsorRouteChildren: SponsorRouteChildren = {
+  SponsorDashboardRoute: SponsorDashboardRoute,
+  SponsorSuccessRoute: SponsorSuccessRoute,
+}
+
+const SponsorRouteWithChildren =
+  SponsorRoute._addFileChildren(SponsorRouteChildren)
+
+interface CommunityAmbassadorsRouteChildren {
+  CommunityAmbassadorsIndexRoute: typeof CommunityAmbassadorsIndexRoute
+}
+
+const CommunityAmbassadorsRouteChildren: CommunityAmbassadorsRouteChildren = {
+  CommunityAmbassadorsIndexRoute: CommunityAmbassadorsIndexRoute,
+}
+
+const CommunityAmbassadorsRouteWithChildren =
+  CommunityAmbassadorsRoute._addFileChildren(CommunityAmbassadorsRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
   AboutRoute: AboutRoute,
-  AuthRoute: AuthRoute,
+  AcademyRoute: AcademyRoute,
+  AmbassadorRoute: AmbassadorRouteWithChildren,
+  BecomeASponsorRoute: BecomeASponsorRoute,
+  BlogRoute: BlogRouteWithChildren,
+  CloudRoute: CloudRoute,
+  CodeOfConductRoute: CodeOfConductRoute,
   CommunityRoute: CommunityRoute,
   ContactRoute: ContactRoute,
-  OrganizeAnEventRoute: OrganizeAnEventRoute,
-  PartnershipsRoute: PartnershipsRoute,
-  ProgramsRoute: ProgramsRoute,
+  ContentPolicyRoute: ContentPolicyRoute,
+  ContributorsRoute: ContributorsRoute,
+  CookiesRoute: CookiesRoute,
+  DashboardRoute: DashboardRouteWithChildren,
+  DevopsRoute: DevopsRoute,
+  EcosystemRoute: EcosystemRoute,
+  EditorialPolicyRoute: EditorialPolicyRoute,
+  FactCheckingRoute: FactCheckingRoute,
+  FaqRoute: FaqRoute,
+  ForgotPasswordRoute: ForgotPasswordRoute,
+  GalleryRoute: GalleryRoute,
+  GlossaryRoute: GlossaryRouteWithChildren,
+  HostRoute: HostRouteWithChildren,
+  LeadershipRoute: LeadershipRoute,
+  LoginRoute: LoginRoute,
+  OpenSourceRoute: OpenSourceRoute,
+  PartnersRoute: PartnersRoute,
+  PressRoute: PressRoute,
+  PrivacyRoute: PrivacyRoute,
+  RefundRoute: RefundRoute,
+  RegisterRoute: RegisterRoute,
+  ResearchMethodologyRoute: ResearchMethodologyRoute,
+  ResetPasswordRoute: ResetPasswordRoute,
   ResourcesRoute: ResourcesRoute,
-  BlogSlugRoute: BlogSlugRoute,
-  EventsSlugRoute: EventsSlugRoute,
-  MembersIdRoute: MembersIdRoute,
-  BlogIndexRoute: BlogIndexRoute,
-  EventsIndexRoute: EventsIndexRoute,
-  MembersIndexRoute: MembersIndexRoute,
+  RoadmapRoute: RoadmapRoute,
+  ScheduleCallRoute: ScheduleCallRoute,
+  SecurityRoute: SecurityRoute,
+  SponsorRoute: SponsorRouteWithChildren,
+  TermsRoute: TermsRoute,
+  TransparencyReportRoute: TransparencyReportRoute,
+  TrustCenterRoute: TrustCenterRoute,
+  AboutBrandRoute: AboutBrandRoute,
+  AboutCommunityRoute: AboutCommunityRoute,
+  AboutFaqRoute: AboutFaqRoute,
+  AboutHistoryRoute: AboutHistoryRoute,
+  AboutMissionRoute: AboutMissionRoute,
+  AboutOrigohostRoute: AboutOrigohostRoute,
+  AboutResearchRoute: AboutResearchRoute,
+  AboutVisionRoute: AboutVisionRoute,
+  AdminAuditRoute: AdminAuditRoute,
+  AdminBlogRoute: AdminBlogRoute,
+  AdminCertificatesRoute: AdminCertificatesRoute,
+  AdminEventRegistrationsRoute: AdminEventRegistrationsRoute,
+  AdminFaqRoute: AdminFaqRoute,
+  AdminGalleryRoute: AdminGalleryRoute,
+  AdminJobApplicationsRoute: AdminJobApplicationsRoute,
+  AdminMessagesRoute: AdminMessagesRoute,
+  AdminNavigationRoute: AdminNavigationRoute,
+  AdminNewsletterRoute: AdminNewsletterRoute,
+  AdminPageBlocksRoute: AdminPageBlocksRoute,
+  AdminPagesRoute: AdminPagesRoute,
+  AdminPartnersRoute: AdminPartnersRoute,
+  AdminScheduleCallsRoute: AdminScheduleCallsRoute,
+  AdminSeoRoute: AdminSeoRoute,
+  AdminSettingsRoute: AdminSettingsRoute,
+  AdminSponsorsRoute: AdminSponsorsRoute,
+  AdminTestimonialsRoute: AdminTestimonialsRoute,
+  AdminUsersRoute: AdminUsersRoute,
+  CertificatesCertificateIdRoute: CertificatesCertificateIdRoute,
+  CloudDedicatedRoute: CloudDedicatedRoute,
+  CloudKubernetesRoute: CloudKubernetesRoute,
+  CloudVpsRoute: CloudVpsRoute,
+  CommunityAmbassadorsRoute: CommunityAmbassadorsRouteWithChildren,
+  CommunityChaptersRoute: CommunityChaptersRoute,
+  CompareCompetitorRoute: CompareCompetitorRoute,
+  FoundersSlugRoute: FoundersSlugRoute,
+  JobsJobIdRoute: JobsJobIdRoute,
+  TechnologiesTechRoute: TechnologiesTechRoute,
+  TopicsAiRoute: TopicsAiRoute,
+  TopicsCareerRoute: TopicsCareerRoute,
+  TopicsCyberSecurityRoute: TopicsCyberSecurityRoute,
+  TopicsHackathonsRoute: TopicsHackathonsRoute,
+  TopicsProgrammingRoute: TopicsProgrammingRoute,
+  AdminIndexRoute: AdminIndexRoute,
+  CertificatesIndexRoute: CertificatesIndexRoute,
+  AdminAiCenterAiAnalyticsRoute: AdminAiCenterAiAnalyticsRoute,
+  AdminAiCenterAiCareerAdvisorRoute: AdminAiCenterAiCareerAdvisorRoute,
+  AdminAiCenterAiChatbotRoute: AdminAiCenterAiChatbotRoute,
+  AdminAiCenterAiContentGeneratorRoute: AdminAiCenterAiContentGeneratorRoute,
+  AdminAiCenterAiDashboardRoute: AdminAiCenterAiDashboardRoute,
+  AdminAiCenterAiLogsRoute: AdminAiCenterAiLogsRoute,
+  AdminAiCenterAiModerationRoute: AdminAiCenterAiModerationRoute,
+  AdminAiCenterAiResumeReviewRoute: AdminAiCenterAiResumeReviewRoute,
+  AdminAiCenterAiSearchRoute: AdminAiCenterAiSearchRoute,
+  AdminAiCenterAiSettingsRoute: AdminAiCenterAiSettingsRoute,
+  AdminAiCenterPromptLibraryRoute: AdminAiCenterPromptLibraryRoute,
+  AdminAiCenterPromptTemplatesRoute: AdminAiCenterPromptTemplatesRoute,
+  AdminAiCenterTokenUsageRoute: AdminAiCenterTokenUsageRoute,
+  AdminAnalyticsBrowsersRoute: AdminAnalyticsBrowsersRoute,
+  AdminAnalyticsCitiesRoute: AdminAnalyticsCitiesRoute,
+  AdminAnalyticsConversionsRoute: AdminAnalyticsConversionsRoute,
+  AdminAnalyticsCountriesRoute: AdminAnalyticsCountriesRoute,
+  AdminAnalyticsDashboardRoute: AdminAnalyticsDashboardRoute,
+  AdminAnalyticsDevicesRoute: AdminAnalyticsDevicesRoute,
+  AdminAnalyticsExportsRoute: AdminAnalyticsExportsRoute,
+  AdminAnalyticsFunnelsRoute: AdminAnalyticsFunnelsRoute,
+  AdminAnalyticsHeatmapsRoute: AdminAnalyticsHeatmapsRoute,
+  AdminAnalyticsOrganizationsRoute: AdminAnalyticsOrganizationsRoute,
+  AdminAnalyticsRealtimeRoute: AdminAnalyticsRealtimeRoute,
+  AdminAnalyticsReportsRoute: AdminAnalyticsReportsRoute,
+  AdminAnalyticsRetentionRoute: AdminAnalyticsRetentionRoute,
+  AdminAnalyticsTrafficRoute: AdminAnalyticsTrafficRoute,
+  AdminCommunityAchievementsRoute: AdminCommunityAchievementsRoute,
+  AdminCommunityAnnouncementsRoute: AdminCommunityAnnouncementsRoute,
+  AdminCommunityBadgesRoute: AdminCommunityBadgesRoute,
+  AdminCommunityCampusAmbassadorRoute: AdminCommunityCampusAmbassadorRoute,
+  AdminCommunityCommunitiesRoute: AdminCommunityCommunitiesRoute,
+  AdminCommunityCommunityAnalyticsRoute: AdminCommunityCommunityAnalyticsRoute,
+  AdminCommunityCommunityMembersRoute: AdminCommunityCommunityMembersRoute,
+  AdminCommunityDiscussionsRoute: AdminCommunityDiscussionsRoute,
+  AdminCommunityForumsRoute: AdminCommunityForumsRoute,
+  AdminCommunityGroupsRoute: AdminCommunityGroupsRoute,
+  AdminCommunityLeaderboardRoute: AdminCommunityLeaderboardRoute,
+  AdminCommunityMentorshipRoute: AdminCommunityMentorshipRoute,
+  AdminCommunityVolunteerManagementRoute:
+    AdminCommunityVolunteerManagementRoute,
+  AdminContentAuthorsRoute: AdminContentAuthorsRoute,
+  AdminContentBannerManagerRoute: AdminContentBannerManagerRoute,
+  AdminContentCategoriesRoute: AdminContentCategoriesRoute,
+  AdminContentCmsRoute: AdminContentCmsRoute,
+  AdminContentFooterRoute: AdminContentFooterRoute,
+  AdminContentFormsBuilderRoute: AdminContentFormsBuilderRoute,
+  AdminContentHomepageRoute: AdminContentHomepageRoute,
+  AdminContentLandingPagesRoute: AdminContentLandingPagesRoute,
+  AdminContentMediaLibraryRoute: AdminContentMediaLibraryRoute,
+  AdminContentMenusRoute: AdminContentMenusRoute,
+  AdminContentPageBuilderRoute: AdminContentPageBuilderRoute,
+  AdminContentPopupBuilderRoute: AdminContentPopupBuilderRoute,
+  AdminContentResourcesRoute: AdminContentResourcesRoute,
+  AdminContentVideosRoute: AdminContentVideosRoute,
+  AdminDeveloperActivityLogsRoute: AdminDeveloperActivityLogsRoute,
+  AdminDeveloperApiExplorerRoute: AdminDeveloperApiExplorerRoute,
+  AdminDeveloperApiKeysRoute: AdminDeveloperApiKeysRoute,
+  AdminDeveloperCronJobsRoute: AdminDeveloperCronJobsRoute,
+  AdminDeveloperDatabaseBrowserRoute: AdminDeveloperDatabaseBrowserRoute,
+  AdminDeveloperDeploymentLogsRoute: AdminDeveloperDeploymentLogsRoute,
+  AdminDeveloperDeveloperToolsRoute: AdminDeveloperDeveloperToolsRoute,
+  AdminDeveloperEnvironmentVariablesRoute:
+    AdminDeveloperEnvironmentVariablesRoute,
+  AdminDeveloperErrorLogsRoute: AdminDeveloperErrorLogsRoute,
+  AdminDeveloperFeatureFlagsRoute: AdminDeveloperFeatureFlagsRoute,
+  AdminDeveloperQueueManagerRoute: AdminDeveloperQueueManagerRoute,
+  AdminDeveloperSqlExplorerRoute: AdminDeveloperSqlExplorerRoute,
+  AdminDeveloperStorageBrowserRoute: AdminDeveloperStorageBrowserRoute,
+  AdminDeveloperWebhookLogsRoute: AdminDeveloperWebhookLogsRoute,
+  AdminDeveloperWebhookManagerRoute: AdminDeveloperWebhookManagerRoute,
+  AdminEventsAttendanceRoute: AdminEventsAttendanceRoute,
+  AdminEventsCalendarRoute: AdminEventsCalendarRoute,
+  AdminEventsCategoriesRoute: AdminEventsCategoriesRoute,
+  AdminEventsEventGalleryRoute: AdminEventsEventGalleryRoute,
+  AdminEventsFeedbackRoute: AdminEventsFeedbackRoute,
+  AdminEventsLivestreamRoute: AdminEventsLivestreamRoute,
+  AdminEventsQrCheckInRoute: AdminEventsQrCheckInRoute,
+  AdminEventsQrTicketsRoute: AdminEventsQrTicketsRoute,
+  AdminEventsRegistrationRoute: AdminEventsRegistrationRoute,
+  AdminEventsReportsRoute: AdminEventsReportsRoute,
+  AdminEventsReviewsRoute: AdminEventsReviewsRoute,
+  AdminEventsSchedulesRoute: AdminEventsSchedulesRoute,
+  AdminEventsSpeakersRoute: AdminEventsSpeakersRoute,
+  AdminEventsSponsorsRoute: AdminEventsSponsorsRoute,
+  AdminEventsVenuesRoute: AdminEventsVenuesRoute,
+  AdminFinanceDonationsRoute: AdminFinanceDonationsRoute,
+  AdminFinanceInvoicesRoute: AdminFinanceInvoicesRoute,
+  AdminFinancePaymentsRoute: AdminFinancePaymentsRoute,
+  AdminFinanceRefundsRoute: AdminFinanceRefundsRoute,
+  AdminFinanceReportsRoute: AdminFinanceReportsRoute,
+  AdminFinanceRevenueRoute: AdminFinanceRevenueRoute,
+  AdminFinanceSponsorsRoute: AdminFinanceSponsorsRoute,
+  AdminFinanceSubscriptionsRoute: AdminFinanceSubscriptionsRoute,
+  AdminFinanceTaxesRoute: AdminFinanceTaxesRoute,
+  AdminFinanceTransactionsRoute: AdminFinanceTransactionsRoute,
+  AdminMarketingAnnouncementCenterRoute: AdminMarketingAnnouncementCenterRoute,
+  AdminMarketingCampaignsRoute: AdminMarketingCampaignsRoute,
+  AdminMarketingCouponManagerRoute: AdminMarketingCouponManagerRoute,
+  AdminMarketingEmailTemplatesRoute: AdminMarketingEmailTemplatesRoute,
+  AdminMarketingNotificationsRoute: AdminMarketingNotificationsRoute,
+  AdminMarketingPopupCampaignsRoute: AdminMarketingPopupCampaignsRoute,
+  AdminMarketingReferralProgramRoute: AdminMarketingReferralProgramRoute,
+  AdminMarketingSeoManagerRoute: AdminMarketingSeoManagerRoute,
+  AdminMarketingSocialPostsRoute: AdminMarketingSocialPostsRoute,
+  AdminMarketingSubscribersRoute: AdminMarketingSubscribersRoute,
+  AdminOperationsActivityTimelineRoute: AdminOperationsActivityTimelineRoute,
+  AdminOperationsAdminsRoute: AdminOperationsAdminsRoute,
+  AdminOperationsAuditLogsRoute: AdminOperationsAuditLogsRoute,
+  AdminOperationsDeviceManagerRoute: AdminOperationsDeviceManagerRoute,
+  AdminOperationsHostRequestsRoute: AdminOperationsHostRequestsRoute,
+  AdminOperationsMentorsRoute: AdminOperationsMentorsRoute,
+  AdminOperationsOrganizationsRoute: AdminOperationsOrganizationsRoute,
+  AdminOperationsPermissionsRoute: AdminOperationsPermissionsRoute,
+  AdminOperationsRecruitersRoute: AdminOperationsRecruitersRoute,
+  AdminOperationsRecycleBinRoute: AdminOperationsRecycleBinRoute,
+  AdminOperationsRegistrationManagementRoute:
+    AdminOperationsRegistrationManagementRoute,
+  AdminOperationsRolesRoute: AdminOperationsRolesRoute,
+  AdminOperationsSessionsRoute: AdminOperationsSessionsRoute,
+  AdminOperationsSpeakersRoute: AdminOperationsSpeakersRoute,
+  AdminOperationsStudentsRoute: AdminOperationsStudentsRoute,
+  AdminOperationsVerificationCenterRoute:
+    AdminOperationsVerificationCenterRoute,
+  AdminOperationsVolunteersRoute: AdminOperationsVolunteersRoute,
+  AdminPersonalApiTokensRoute: AdminPersonalApiTokensRoute,
+  AdminPersonalAppearanceRoute: AdminPersonalAppearanceRoute,
+  AdminPersonalConnectedAccountsRoute: AdminPersonalConnectedAccountsRoute,
+  AdminPersonalFeedbackRoute: AdminPersonalFeedbackRoute,
+  AdminPersonalHelpRoute: AdminPersonalHelpRoute,
+  AdminPersonalMyProfileRoute: AdminPersonalMyProfileRoute,
+  AdminPersonalNotificationsRoute: AdminPersonalNotificationsRoute,
+  AdminPersonalPreferencesRoute: AdminPersonalPreferencesRoute,
+  AdminPersonalSecurityRoute: AdminPersonalSecurityRoute,
+  AdminPersonalSessionsRoute: AdminPersonalSessionsRoute,
+  AdminRecruitmentAnalyticsRoute: AdminRecruitmentAnalyticsRoute,
+  AdminRecruitmentApplicationsRoute: AdminRecruitmentApplicationsRoute,
+  AdminRecruitmentCompaniesRoute: AdminRecruitmentCompaniesRoute,
+  AdminRecruitmentInterviewPipelineRoute:
+    AdminRecruitmentInterviewPipelineRoute,
+  AdminRecruitmentOfferLettersRoute: AdminRecruitmentOfferLettersRoute,
+  AdminRecruitmentRejectedRoute: AdminRecruitmentRejectedRoute,
+  AdminRecruitmentReportsRoute: AdminRecruitmentReportsRoute,
+  AdminRecruitmentResumeDatabaseRoute: AdminRecruitmentResumeDatabaseRoute,
+  AdminRecruitmentResumeScreeningRoute: AdminRecruitmentResumeScreeningRoute,
+  AdminSystemBackupsRoute: AdminSystemBackupsRoute,
+  AdminSystemBrandingRoute: AdminSystemBrandingRoute,
+  AdminSystemDomainsRoute: AdminSystemDomainsRoute,
+  AdminSystemEmailRoute: AdminSystemEmailRoute,
+  AdminSystemFeatureFlagsRoute: AdminSystemFeatureFlagsRoute,
+  AdminSystemIntegrationsRoute: AdminSystemIntegrationsRoute,
+  AdminSystemLocalizationRoute: AdminSystemLocalizationRoute,
+  AdminSystemLogoRoute: AdminSystemLogoRoute,
+  AdminSystemMaintenanceRoute: AdminSystemMaintenanceRoute,
+  AdminSystemRestoreRoute: AdminSystemRestoreRoute,
+  AdminSystemSecurityRoute: AdminSystemSecurityRoute,
+  AdminSystemSmtpRoute: AdminSystemSmtpRoute,
+  AdminSystemStorageRoute: AdminSystemStorageRoute,
+  AdminSystemSystemHealthRoute: AdminSystemSystemHealthRoute,
+  AdminSystemThemeRoute: AdminSystemThemeRoute,
+  AdminSystemTimezoneRoute: AdminSystemTimezoneRoute,
+  CommunityAmbassadorsApplyRoute: CommunityAmbassadorsApplyRoute,
+  CommunityEventsEventIdRoute: CommunityEventsEventIdRoute,
+  AdminEventsIndexRoute: AdminEventsIndexRoute,
+  CommunityEventsIndexRoute: CommunityEventsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
