@@ -30,6 +30,8 @@ import {
   BarChart3,
   Layers,
   Sparkles,
+  ChevronRight,
+  ExternalLink,
 } from "lucide-react";
 import { m as motion } from "framer-motion";
 import {
@@ -141,160 +143,252 @@ export default function AdminDashboard() {
         <MetricCard title="Active Jobs" value={metrics?.jobs} icon={Briefcase} trend="3 new applications" />
       </div>
 
-      {/* VISUAL ARCHITECTURE MAP COMPONENT */}
-      <div className="mb-10 rounded-3xl border border-[var(--brand-ink)]/10 bg-slate-900 text-white p-8 shadow-xl relative overflow-hidden">
+      {/* FULL TREE INTERACTIVE ARCHITECTURE MAP */}
+      <div className="mb-10 rounded-3xl border border-[var(--brand-ink)]/10 bg-slate-950 text-white p-6 sm:p-8 shadow-2xl relative overflow-hidden font-sans">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between border-b border-slate-800 pb-6 mb-8 gap-4">
           <div>
             <span className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest text-blue-400 bg-blue-500/20 px-3 py-1 rounded-full border border-blue-500/30">
-              <Sparkles className="w-3 h-3 text-blue-400" /> ENTERPRISE ARCHITECTURE MAP
+              <Sparkles className="w-3 h-3 text-blue-400" /> INTERACTIVE PLATFORM TREE MAP
             </span>
-            <h2 className="text-2xl md:text-3xl font-black mt-2 font-mono tracking-tight">ORIGOHOST ADMIN ARCHITECTURE</h2>
+            <h2 className="text-2xl md:text-3xl font-black mt-2 font-mono tracking-tight text-white">ORIGOHOST ADMIN PLATFORM</h2>
             <p className="text-xs text-slate-400 mt-1">
-              4 Primary Domain Pillars • 13 Integrated Workspaces • Permission-Aware Boundaries
+              Click any node or sub-module to jump directly to its workspace
             </p>
           </div>
           <div className="text-right hidden sm:block">
             <span className="text-xs font-mono text-emerald-400 bg-emerald-500/10 px-3 py-1.5 rounded-lg border border-emerald-500/20">
-              ● Active Platform (v2.6)
+              ● System Active (13 Workspaces)
             </span>
           </div>
         </div>
 
-        {/* 4 Pillars Tree Diagram */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {/* 1. BUSINESS */}
-          <div className="rounded-2xl bg-slate-800/80 border border-slate-700/80 p-5 flex flex-col justify-between">
-            <div>
-              <div className="flex items-center justify-between mb-4 text-blue-400 font-black text-sm uppercase tracking-wider border-b border-slate-700 pb-2">
-                <span className="flex items-center gap-2">
-                  <Briefcase className="w-4 h-4" /> BUSINESS
-                </span>
-                <span className="text-[10px] bg-blue-500/20 px-2 py-0.5 rounded text-blue-300">6 Modules</span>
+        {/* 4 Pillar Sections */}
+        <div className="space-y-8 font-mono text-xs">
+          {/* 1. BUSINESS PILLAR */}
+          <div className="rounded-2xl bg-slate-900/90 border border-slate-800 p-5">
+            <div className="flex items-center justify-between text-blue-400 font-bold text-sm mb-4 border-b border-slate-800 pb-3">
+              <span className="flex items-center gap-2">
+                <Briefcase className="w-4 h-4" /> 💼 BUSINESS PILLAR
+              </span>
+              <span className="text-[10px] bg-blue-500/10 text-blue-300 px-2 py-0.5 rounded border border-blue-500/20">6 Workspaces</span>
+            </div>
+
+            <div className="space-y-4 text-slate-300">
+              {/* Operations */}
+              <div>
+                <Link to="/admin/users" className="font-bold text-white hover:text-blue-300 transition-colors inline-flex items-center gap-1.5">
+                  <Settings className="w-3.5 h-3.5 text-blue-400" /> ⚙️ Operations (/admin/operations/*)
+                  <ExternalLink className="w-3 h-3 text-slate-500" />
+                </Link>
+                <div className="mt-2 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 text-[11px]">
+                  <TreeLink to="/admin/users" label="Users (/admin/users)" />
+                  <TreeLink to="/admin/operations/students" label="Students" />
+                  <TreeLink to="/admin/operations/organizations" label="Organizations" />
+                  <TreeLink to="/admin/operations/host-requests" label="Host Requests" />
+                  <TreeLink to="/admin/schedule-calls" label="Schedule Calls" />
+                  <TreeLink to="/admin/sponsors" label="Sponsors" />
+                  <TreeLink to="/admin/operations/recruiters" label="Recruiters" />
+                  <TreeLink to="/admin/operations/mentors" label="Mentors" />
+                  <TreeLink to="/admin/operations/volunteers" label="Volunteers" />
+                  <TreeLink to="/admin/operations/speakers" label="Speakers" />
+                  <TreeLink to="/admin/operations/admins" label="Admins" />
+                  <TreeLink to="/admin/operations/roles" label="Roles" />
+                  <TreeLink to="/admin/operations/permissions" label="Permissions" />
+                  <TreeLink to="/admin/event-registrations" label="Registration Management" />
+                  <TreeLink to="/admin/operations/verification-center" label="Verification Center" />
+                  <TreeLink to="/admin/operations/activity-timeline" label="Activity Timeline" />
+                  <TreeLink to="/admin/operations/sessions" label="Sessions" />
+                  <TreeLink to="/admin/operations/device-manager" label="Device Manager" />
+                  <TreeLink to="/admin/audit" label="Audit Logs" />
+                  <TreeLink to="/admin/operations/recycle-bin" label="Recycle Bin" />
+                </div>
               </div>
-              <ul className="space-y-2 text-xs text-slate-300 font-medium">
-                <li className="flex items-center justify-between bg-slate-900/60 p-2.5 rounded-xl border border-slate-700/50">
-                  <span className="font-bold text-white flex items-center gap-2"><Settings className="w-3.5 h-3.5 text-blue-400" /> Operations</span>
-                  <span className="text-[10px] text-slate-400 font-mono">Users / Roles</span>
-                </li>
-                <li className="flex items-center justify-between bg-slate-900/60 p-2.5 rounded-xl border border-slate-700/50">
-                  <span className="font-bold text-white flex items-center gap-2"><Users className="w-3.5 h-3.5 text-blue-400" /> Community</span>
-                  <span className="text-[10px] text-slate-400 font-mono">Groups / Forums</span>
-                </li>
-                <li className="flex items-center justify-between bg-slate-900/60 p-2.5 rounded-xl border border-slate-700/50">
-                  <span className="font-bold text-white flex items-center gap-2"><Calendar className="w-3.5 h-3.5 text-blue-400" /> Events</span>
-                  <span className="text-[10px] text-slate-400 font-mono">Format × Domain × Industry</span>
-                </li>
-                <li className="flex items-center justify-between bg-slate-900/60 p-2.5 rounded-xl border border-slate-700/50">
-                  <span className="font-bold text-white flex items-center gap-2"><Briefcase className="w-3.5 h-3.5 text-blue-400" /> Recruitment</span>
-                  <span className="text-[10px] text-slate-400 font-mono">Pipeline / Resumes</span>
-                </li>
-                <li className="flex items-center justify-between bg-slate-900/60 p-2.5 rounded-xl border border-slate-700/50">
-                  <span className="font-bold text-white flex items-center gap-2"><Megaphone className="w-3.5 h-3.5 text-blue-400" /> Marketing</span>
-                  <span className="text-[10px] text-slate-400 font-mono">Campaigns / SEO</span>
-                </li>
-                <li className="flex items-center justify-between bg-slate-900/60 p-2.5 rounded-xl border border-slate-700/50">
-                  <span className="font-bold text-white flex items-center gap-2"><CreditCard className="w-3.5 h-3.5 text-blue-400" /> Finance</span>
-                  <span className="text-[10px] text-slate-400 font-mono">Payments / Invoices</span>
-                </li>
-              </ul>
+
+              {/* Community */}
+              <div className="border-t border-slate-800/80 pt-3">
+                <Link to="/admin/community/community-members" className="font-bold text-white hover:text-blue-300 transition-colors inline-flex items-center gap-1.5">
+                  <Users className="w-3.5 h-3.5 text-blue-400" /> 👥 Community (/admin/community/*)
+                </Link>
+                <div className="mt-2 flex flex-wrap gap-2 text-[11px]">
+                  <TreeLink to="/admin/community/community-members" label="Members" />
+                  <TreeLink to="/admin/community/groups" label="Groups" />
+                  <TreeLink to="/admin/community/communities" label="Communities" />
+                  <TreeLink to="/admin/community/forums" label="Forums" />
+                  <TreeLink to="/admin/community/discussions" label="Discussions" />
+                  <TreeLink to="/admin/community/mentorship" label="Mentorship" />
+                  <TreeLink to="/admin/community/campus-ambassador" label="Ambassadors" />
+                  <TreeLink to="/admin/community/leaderboard" label="Leaderboard" />
+                  <TreeLink to="/admin/community/badges" label="Badges" />
+                  <TreeLink to="/admin/certificates" label="Certificates" />
+                </div>
+              </div>
+
+              {/* Events */}
+              <div className="border-t border-slate-800/80 pt-3">
+                <Link to="/admin/events" className="font-bold text-white hover:text-blue-300 transition-colors inline-flex items-center gap-1.5">
+                  <Calendar className="w-3.5 h-3.5 text-blue-400" /> 📅 Events (/admin/events/*)
+                </Link>
+                <div className="mt-2 flex flex-wrap gap-2 text-[11px]">
+                  <TreeLink to="/admin/events" label="Events" />
+                  <TreeLink to="/admin/events/schedules" label="Schedules" />
+                  <TreeLink to="/admin/events/venues" label="Venues" />
+                  <TreeLink to="/admin/events/speakers" label="Speakers" />
+                  <TreeLink to="/admin/events/sponsors" label="Sponsors" />
+                  <TreeLink to="/admin/partners" label="Partners" />
+                  <TreeLink to="/admin/event-registrations" label="Registrations" />
+                  <TreeLink to="/admin/events/attendance" label="Attendance" />
+                  <TreeLink to="/admin/events/qr-check-in" label="QR Check-in" />
+                  <TreeLink to="/admin/events/qr-tickets" label="QR Tickets" />
+                  <TreeLink to="/admin/events/reports" label="Reports" />
+                </div>
+              </div>
+
+              {/* Recruitment, Marketing, Finance Row */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 border-t border-slate-800/80 pt-3">
+                <div>
+                  <Link to="/admin/recruitment/companies" className="font-bold text-white hover:text-blue-300 transition-colors flex items-center gap-1.5 mb-1.5">
+                    <Briefcase className="w-3.5 h-3.5 text-blue-400" /> 💼 Recruitment
+                  </Link>
+                  <div className="flex flex-wrap gap-1.5 text-[10px]">
+                    <TreeLink to="/admin/recruitment/companies" label="Companies" />
+                    <TreeLink to="/admin/recruitment/interview-pipeline" label="Pipeline" />
+                    <TreeLink to="/admin/recruitment/resume-database" label="Resumes" />
+                    <TreeLink to="/admin/recruitment/offer-letters" label="Offers" />
+                  </div>
+                </div>
+
+                <div>
+                  <Link to="/admin/marketing/newsletter" className="font-bold text-white hover:text-blue-300 transition-colors flex items-center gap-1.5 mb-1.5">
+                    <Megaphone className="w-3.5 h-3.5 text-blue-400" /> 📣 Marketing
+                  </Link>
+                  <div className="flex flex-wrap gap-1.5 text-[10px]">
+                    <TreeLink to="/admin/newsletter" label="Newsletter" />
+                    <TreeLink to="/admin/marketing/subscribers" label="Subscribers" />
+                    <TreeLink to="/admin/seo" label="SEO Manager" />
+                    <TreeLink to="/admin/marketing/campaigns" label="Campaigns" />
+                  </div>
+                </div>
+
+                <div>
+                  <Link to="/admin/finance/payments" className="font-bold text-white hover:text-blue-300 transition-colors flex items-center gap-1.5 mb-1.5">
+                    <CreditCard className="w-3.5 h-3.5 text-blue-400" /> 💳 Finance
+                  </Link>
+                  <div className="flex flex-wrap gap-1.5 text-[10px]">
+                    <TreeLink to="/admin/finance/payments" label="Payments" />
+                    <TreeLink to="/admin/finance/invoices" label="Invoices" />
+                    <TreeLink to="/admin/finance/transactions" label="Transactions" />
+                    <TreeLink to="/admin/finance/revenue" label="Revenue" />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* 2. CONTENT */}
-          <div className="rounded-2xl bg-slate-800/80 border border-slate-700/80 p-5 flex flex-col justify-between">
-            <div>
-              <div className="flex items-center justify-between mb-4 text-emerald-400 font-black text-sm uppercase tracking-wider border-b border-slate-700 pb-2">
-                <span className="flex items-center gap-2">
-                  <FileText className="w-4 h-4" /> CONTENT
-                </span>
-                <span className="text-[10px] bg-emerald-500/20 px-2 py-0.5 rounded text-emerald-300">CMS Engine</span>
+          {/* 2. CONTENT PILLAR */}
+          <div className="rounded-2xl bg-slate-900/90 border border-slate-800 p-5">
+            <div className="flex items-center justify-between text-emerald-400 font-bold text-sm mb-4 border-b border-slate-800 pb-3">
+              <span className="flex items-center gap-2">
+                <FileText className="w-4 h-4" /> 📝 CONTENT PILLAR
+              </span>
+              <span className="text-[10px] bg-emerald-500/10 text-emerald-300 px-2 py-0.5 rounded border border-emerald-500/20">CMS & Content Operations</span>
+            </div>
+
+            <div className="space-y-3 text-slate-300">
+              <Link to="/admin/content/cms" className="font-bold text-white hover:text-emerald-300 transition-colors flex items-center gap-1.5">
+                <Layers className="w-3.5 h-3.5 text-emerald-400" /> 📝 CMS & Content Operations (/admin/content/*)
+              </Link>
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 text-[11px]">
+                <TreeLink to="/admin/content/cms" label="CMS Engine (Payload)" color="emerald" />
+                <TreeLink to="/admin/pages" label="Homepage & Page Builder" color="emerald" />
+                <TreeLink to="/admin/content/landing-pages" label="Landing Pages" color="emerald" />
+                <TreeLink to="/admin/blog" label="Blog & Categories" color="emerald" />
+                <TreeLink to="/admin/gallery" label="Gallery & Media Library" color="emerald" />
+                <TreeLink to="/admin/faq" label="Resources & FAQs" color="emerald" />
+                <TreeLink to="/admin/navigation" label="Navigation & Footer" color="emerald" />
+                <TreeLink to="/admin/content/forms-builder" label="Forms Builder & Popups" color="emerald" />
               </div>
-              <ul className="space-y-2 text-xs text-slate-300 font-medium">
-                <li className="flex items-center justify-between bg-slate-900/60 p-2.5 rounded-xl border border-slate-700/50">
-                  <span className="font-bold text-white flex items-center gap-2"><Layers className="w-3.5 h-3.5 text-emerald-400" /> CMS</span>
-                  <span className="text-[10px] text-slate-400 font-mono">Payload CMS</span>
-                </li>
-                <li className="flex items-center justify-between bg-slate-900/60 p-2.5 rounded-xl border border-slate-700/50">
-                  <span className="font-bold text-white flex items-center gap-2"><Layout className="w-3.5 h-3.5 text-emerald-400" /> Pages</span>
-                  <span className="text-[10px] text-slate-400 font-mono">Landing Pages</span>
-                </li>
-                <li className="flex items-center justify-between bg-slate-900/60 p-2.5 rounded-xl border border-slate-700/50">
-                  <span className="font-bold text-white flex items-center gap-2"><BookOpen className="w-3.5 h-3.5 text-emerald-400" /> Blog</span>
-                  <span className="text-[10px] text-slate-400 font-mono">Articles / Editorial</span>
-                </li>
-                <li className="flex items-center justify-between bg-slate-900/60 p-2.5 rounded-xl border border-slate-700/50">
-                  <span className="font-bold text-white flex items-center gap-2"><ImageIcon className="w-3.5 h-3.5 text-emerald-400" /> Media</span>
-                  <span className="text-[10px] text-slate-400 font-mono">Assets & Photos</span>
-                </li>
-                <li className="flex items-center justify-between bg-slate-900/60 p-2.5 rounded-xl border border-slate-700/50">
-                  <span className="font-bold text-white flex items-center gap-2"><HelpCircle className="w-3.5 h-3.5 text-emerald-400" /> Resources</span>
-                  <span className="text-[10px] text-slate-400 font-mono">Downloads / FAQs</span>
-                </li>
-                <li className="flex items-center justify-between bg-slate-900/60 p-2.5 rounded-xl border border-slate-700/50">
-                  <span className="font-bold text-white flex items-center gap-2"><MessageSquare className="w-3.5 h-3.5 text-emerald-400" /> Forms</span>
-                  <span className="text-[10px] text-slate-400 font-mono">Forms & Popups</span>
-                </li>
-              </ul>
             </div>
           </div>
 
-          {/* 3. PLATFORM */}
-          <div className="rounded-2xl bg-slate-800/80 border border-slate-700/80 p-5 flex flex-col justify-between">
-            <div>
-              <div className="flex items-center justify-between mb-4 text-purple-400 font-black text-sm uppercase tracking-wider border-b border-slate-700 pb-2">
-                <span className="flex items-center gap-2">
-                  <Cpu className="w-4 h-4" /> PLATFORM
-                </span>
-                <span className="text-[10px] bg-purple-500/20 px-2 py-0.5 rounded text-purple-300">4 Core Systems</span>
+          {/* 3. PLATFORM PILLAR */}
+          <div className="rounded-2xl bg-slate-900/90 border border-slate-800 p-5">
+            <div className="flex items-center justify-between text-purple-400 font-bold text-sm mb-4 border-b border-slate-800 pb-3">
+              <span className="flex items-center gap-2">
+                <Cpu className="w-4 h-4" /> 🖥️ PLATFORM PILLAR
+              </span>
+              <span className="text-[10px] bg-purple-500/10 text-purple-300 px-2 py-0.5 rounded border border-purple-500/20">4 Platform Systems</span>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-slate-300">
+              <div>
+                <Link to="/admin/settings" className="font-bold text-white hover:text-purple-300 transition-colors flex items-center gap-1.5 mb-1.5">
+                  <Cpu className="w-3.5 h-3.5 text-purple-400" /> 🖥️ System (/admin/system/*)
+                </Link>
+                <div className="flex flex-wrap gap-1.5 text-[10px]">
+                  <TreeLink to="/admin/settings" label="Settings" color="purple" />
+                  <TreeLink to="/admin/system/branding" label="Branding" color="purple" />
+                  <TreeLink to="/admin/system/email" label="Email/SMTP" color="purple" />
+                  <TreeLink to="/admin/system/system-health" label="Health" color="purple" />
+                </div>
               </div>
-              <ul className="space-y-2 text-xs text-slate-300 font-medium">
-                <li className="flex items-center justify-between bg-slate-900/60 p-2.5 rounded-xl border border-slate-700/50">
-                  <span className="font-bold text-white flex items-center gap-2"><Cpu className="w-3.5 h-3.5 text-purple-400" /> System</span>
-                  <span className="text-[10px] text-slate-400 font-mono">Settings & SMTP</span>
-                </li>
-                <li className="flex items-center justify-between bg-slate-900/60 p-2.5 rounded-xl border border-slate-700/50">
-                  <span className="font-bold text-white flex items-center gap-2"><Terminal className="w-3.5 h-3.5 text-purple-400" /> Developer</span>
-                  <span className="text-[10px] text-slate-400 font-mono">APIs / Cron / SQL</span>
-                </li>
-                <li className="flex items-center justify-between bg-slate-900/60 p-2.5 rounded-xl border border-slate-700/50">
-                  <span className="font-bold text-white flex items-center gap-2"><Bot className="w-3.5 h-3.5 text-purple-400" /> AI Center</span>
-                  <span className="text-[10px] text-slate-400 font-mono">Chatbot / Prompts</span>
-                </li>
-                <li className="flex items-center justify-between bg-slate-900/60 p-2.5 rounded-xl border border-slate-700/50">
-                  <span className="font-bold text-white flex items-center gap-2"><BarChart3 className="w-3.5 h-3.5 text-purple-400" /> Analytics</span>
-                  <span className="text-[10px] text-slate-400 font-mono">Funnels / Heatmaps</span>
-                </li>
-              </ul>
+
+              <div>
+                <Link to="/admin/developer/api-explorer" className="font-bold text-white hover:text-purple-300 transition-colors flex items-center gap-1.5 mb-1.5">
+                  <Terminal className="w-3.5 h-3.5 text-purple-400" /> 🧑💻 Developer (/admin/developer/*)
+                </Link>
+                <div className="flex flex-wrap gap-1.5 text-[10px]">
+                  <TreeLink to="/admin/developer/api-explorer" label="API Explorer" color="purple" />
+                  <TreeLink to="/admin/developer/webhook-manager" label="Webhooks" color="purple" />
+                  <TreeLink to="/admin/developer/sql-explorer" label="SQL Explorer" color="purple" />
+                  <TreeLink to="/admin/developer/cron-jobs" label="Cron Jobs" color="purple" />
+                </div>
+              </div>
+
+              <div>
+                <Link to="/admin/ai-center/ai-dashboard" className="font-bold text-white hover:text-purple-300 transition-colors flex items-center gap-1.5 mb-1.5">
+                  <Bot className="w-3.5 h-3.5 text-purple-400" /> 🤖 AI Center (/admin/ai-center/*)
+                </Link>
+                <div className="flex flex-wrap gap-1.5 text-[10px]">
+                  <TreeLink to="/admin/ai-center/ai-search" label="AI Search" color="purple" />
+                  <TreeLink to="/admin/ai-center/ai-chatbot" label="Chatbot" color="purple" />
+                  <TreeLink to="/admin/ai-center/ai-moderation" label="Moderation" color="purple" />
+                  <TreeLink to="/admin/ai-center/prompt-library" label="Prompts" color="purple" />
+                </div>
+              </div>
+
+              <div>
+                <Link to="/admin/analytics/dashboard" className="font-bold text-white hover:text-purple-300 transition-colors flex items-center gap-1.5 mb-1.5">
+                  <BarChart3 className="w-3.5 h-3.5 text-purple-400" /> 📊 Analytics (/admin/analytics/*)
+                </Link>
+                <div className="flex flex-wrap gap-1.5 text-[10px]">
+                  <TreeLink to="/admin/analytics/traffic" label="Traffic" color="purple" />
+                  <TreeLink to="/admin/analytics/conversions" label="Conversions" color="purple" />
+                  <TreeLink to="/admin/analytics/funnels" label="Funnels" color="purple" />
+                  <TreeLink to="/admin/analytics/realtime" label="Realtime" color="purple" />
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* 4. PERSONAL */}
-          <div className="rounded-2xl bg-slate-800/80 border border-slate-700/80 p-5 flex flex-col justify-between">
-            <div>
-              <div className="flex items-center justify-between mb-4 text-amber-400 font-black text-sm uppercase tracking-wider border-b border-slate-700 pb-2">
-                <span className="flex items-center gap-2">
-                  <UserCircle className="w-4 h-4" /> PERSONAL
-                </span>
-                <span className="text-[10px] bg-amber-500/20 px-2 py-0.5 rounded text-amber-300">Account</span>
+          {/* 4. PERSONAL PILLAR */}
+          <div className="rounded-2xl bg-slate-900/90 border border-slate-800 p-5">
+            <div className="flex items-center justify-between text-amber-400 font-bold text-sm mb-4 border-b border-slate-800 pb-3">
+              <span className="flex items-center gap-2">
+                <UserCircle className="w-4 h-4" /> 👤 PERSONAL PILLAR
+              </span>
+              <span className="text-[10px] bg-amber-500/10 text-amber-300 px-2 py-0.5 rounded border border-amber-500/20">Personal Account Settings</span>
+            </div>
+
+            <div className="space-y-3 text-slate-300">
+              <Link to="/admin/personal/my-profile" className="font-bold text-white hover:text-amber-300 transition-colors flex items-center gap-1.5">
+                <UserCircle className="w-3.5 h-3.5 text-amber-400" /> 👤 Personal Account (/admin/personal/*)
+              </Link>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-[11px]">
+                <TreeLink to="/admin/personal/my-profile" label="My Profile (/admin/personal/my-profile)" color="amber" />
+                <TreeLink to="/admin/personal/appearance" label="Appearance & Preferences" color="amber" />
+                <TreeLink to="/admin/personal/security" label="Security & 2FA" color="amber" />
+                <TreeLink to="/admin/personal/sessions" label="Active Sessions & Connected Accounts" color="amber" />
               </div>
-              <ul className="space-y-2 text-xs text-slate-300 font-medium">
-                <li className="flex items-center justify-between bg-slate-900/60 p-2.5 rounded-xl border border-slate-700/50">
-                  <span className="font-bold text-white flex items-center gap-2"><UserCircle className="w-3.5 h-3.5 text-amber-400" /> Profile</span>
-                  <span className="text-[10px] text-slate-400 font-mono">Admin Info</span>
-                </li>
-                <li className="flex items-center justify-between bg-slate-900/60 p-2.5 rounded-xl border border-slate-700/50">
-                  <span className="font-bold text-white flex items-center gap-2"><Settings className="w-3.5 h-3.5 text-amber-400" /> Preferences</span>
-                  <span className="text-[10px] text-slate-400 font-mono">Notifications</span>
-                </li>
-                <li className="flex items-center justify-between bg-slate-900/60 p-2.5 rounded-xl border border-slate-700/50">
-                  <span className="font-bold text-white flex items-center gap-2"><Award className="w-3.5 h-3.5 text-amber-400" /> Security</span>
-                  <span className="text-[10px] text-slate-400 font-mono">2FA / Keys</span>
-                </li>
-                <li className="flex items-center justify-between bg-slate-900/60 p-2.5 rounded-xl border border-slate-700/50">
-                  <span className="font-bold text-white flex items-center gap-2"><Monitor className="w-3.5 h-3.5 text-amber-400" /> Sessions</span>
-                  <span className="text-[10px] text-slate-400 font-mono">Connected Devices</span>
-                </li>
-              </ul>
             </div>
           </div>
         </div>
@@ -420,6 +514,27 @@ export default function AdminDashboard() {
         </div>
       </div>
     </AdminShell>
+  );
+}
+
+function TreeLink({ to, label, color = "blue" }: { to: string; label: string; color?: string }) {
+  const colorMap: Record<string, string> = {
+    blue: "hover:bg-blue-500/20 text-slate-300 hover:text-blue-300 border-slate-800",
+    emerald: "hover:bg-emerald-500/20 text-slate-300 hover:text-emerald-300 border-slate-800",
+    purple: "hover:bg-purple-500/20 text-slate-300 hover:text-purple-300 border-slate-800",
+    amber: "hover:bg-amber-500/20 text-slate-300 hover:text-amber-300 border-slate-800",
+  };
+
+  return (
+    <Link
+      to={to}
+      className={`px-2.5 py-1.5 rounded-lg bg-slate-950/70 border transition-all inline-flex items-center justify-between group ${
+        colorMap[color] || colorMap.blue
+      }`}
+    >
+      <span>{label}</span>
+      <ChevronRight className="w-3 h-3 opacity-30 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all ml-1" />
+    </Link>
   );
 }
 
