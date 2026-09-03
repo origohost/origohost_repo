@@ -16,20 +16,16 @@ import {
   Download,
   GraduationCap,
   ChevronRight,
-  CheckCircle2,
   FileText,
   HelpCircle,
+  Brain,
+  Globe,
+  CheckCircle,
+  ExternalLink,
 } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
-import {
-  Counter,
-  FadeIn,
-  ScaleIn,
-  Tilt,
-  SpotlightCard,
-  Stagger,
-} from "@/components/motion/primitives";
+import { Counter, FadeIn, ScaleIn, Tilt, SpotlightCard } from "@/components/motion/primitives";
 import HeroSection from "@/frontend/pages/hero";
 
 const PartnersMarqueeSection = React.lazy(() =>
@@ -38,498 +34,276 @@ const PartnersMarqueeSection = React.lazy(() =>
   })),
 );
 
-// --- DATA DEFINITIONS FOR FRONTEND CONTENT ---
-
-// Section 2: Why OrigoHOST
-const WHY_ORIGOHOST = [
+// ECOSYSTEM PILLARS
+const ECOSYSTEM_PILLARS = [
   {
+    title: "Origo Cloud",
+    desc: "Infrastructure and cloud technologies for modern builders.",
     icon: Cloud,
-    title: "Cloud Compute Infrastructure",
-    body: "Access real compute sandboxes, database instances, and automated deployment pipelines engineered for practical learning.",
+    color: "blue",
+    link: "/cloud",
   },
   {
+    title: "Origo Academy",
+    desc: "Learning experiences designed to develop practical technology skills.",
+    icon: GraduationCap,
+    color: "emerald",
+    link: "/academy",
+  },
+  {
+    title: "Origo Community",
+    desc: "A network of developers, students, educators, and technology enthusiasts.",
     icon: Users,
-    title: "Peer Developer Network",
-    body: "Connect with thousands of student developers, open-source contributors, and co-builders across university campuses.",
-  },
-  {
-    icon: Zap,
-    title: "Industry-Aligned Cohorts",
-    body: "Master full-stack architecture, cloud systems, and AI fundamentals through structured, expert-guided programs.",
-  },
-  {
-    icon: Trophy,
-    title: "Career & Venture Launchpad",
-    body: "Transform hackathon prototypes into production software and gain direct visibility with top technology hiring partners.",
-  },
-];
-
-// Section 3: Audience Sections
-const AUDIENCES = [
-  {
-    label: "// FOR DEVELOPERS",
-    title: "Students & Engineers",
-    body: "Gain hands-on software engineering experience, access cloud development environments, and collaborate with peers on real-world projects.",
-    cta: "Explore Developer Hub",
+    color: "purple",
     link: "/community",
   },
   {
-    label: "// FOR COMMUNITY LEADERS",
-    title: "Campus Leads & Mentors",
-    body: "Establish an official OrigoHOST chapter at your institution, host practical technical workshops, and empower emerging tech talent.",
-    cta: "Join Community Network",
-    link: "/community/ambassadors",
-  },
-  {
-    label: "// FOR INSTITUTIONS",
-    title: "Partners & Enterprise Sponsors",
-    body: "Engage high-caliber student developers, support flagship hackathons, and collaborate on technical education initiatives.",
-    cta: "Partner With Us",
-    link: "/become-a-sponsor",
-  },
-];
-
-// Section 4: Ecosystem Reach
-const REACH_METRICS = [
-  {
-    value: 3000,
-    suffix: "+",
-    label: "Active Community Members",
-    desc: "Students, software engineers, and technology builders across India",
-  },
-  {
-    value: 20,
-    suffix: "+",
-    label: "Workshops & Hackathons",
-    desc: "Hands-on learning sessions, webinars, and build competitions",
-  },
-  {
-    value: 10,
-    suffix: "+",
-    label: "University Chapters",
-    desc: "Chartered student communities empowering local developer ecosystems",
-  },
-  {
-    value: 2,
-    suffix: "",
-    label: "Flagship Initiatives",
-    desc: "Knowledge Sharing Series (KSS) & AI Foundation Program",
-  },
-];
-
-// Section 5: Learning & Growth Pathways
-const PATHWAYS = [
-  {
-    step: "01",
-    title: "Aspiring Software Engineers",
-    desc: "Build practical expertise in cloud computing and software design while building a standout portfolio of real-world applications.",
-  },
-  {
-    step: "02",
-    title: "Campus Chapter Leaders & Volunteers",
-    desc: "Lead tech initiatives at your university with dedicated resources, workshop toolkits, and ongoing support from the OrigoHOST team.",
-  },
-  {
-    step: "03",
-    title: "Industry Partners & Sponsors",
-    desc: "Connect with talented student engineers, sponsor CyberForge hackathons, and contribute to industry-aligned learning programs.",
-  },
-];
-
-// Section 6: Featured Initiatives
-const FEATURED_PROGRAMS = [
-  {
-    title: "Knowledge Sharing Series 2026 — KSS2026",
-    status: "Active",
-    type: "Episode-based webinar series — multiple episodes per year",
-    desc: "A structured, episode-based webinar series where technology practitioners share verified knowledge, practical insights and real-world experience with the OrigoHOST community.",
-    topics: ["Cybersecurity", "Cloud Computing", "DevOps", "Artificial Intelligence", "+1"],
-    cta: "Explore Program",
+    title: "Origo Events",
+    desc: "Hackathons, meetups, workshops, masterclasses, and technology experiences.",
+    icon: Calendar,
+    color: "amber",
     link: "/community/events",
   },
   {
-    title: "OrigoHOST AI Foundation Program",
-    status: "Upcoming",
-    type: "Foundational AI Cohort",
-    desc: "An introductory program exploring artificial intelligence, machine learning and generative AI — designed to make AI accessible to builders at all levels.",
-    topics: ["Artificial Intelligence", "Machine Learning", "Generative AI"],
-    cta: "Explore Program",
-    link: "/community/events",
+    title: "Origo AI",
+    desc: "Exploration and experimentation across artificial intelligence and emerging technologies.",
+    icon: Brain,
+    color: "indigo",
+    link: "/topics/ai",
+  },
+  {
+    title: "Origo Dev",
+    desc: "Open-source projects, engineering initiatives, and developer collaboration.",
+    icon: Code2,
+    color: "rose",
+    link: "/open-source",
   },
 ];
 
-// Section 7: Upcoming Events & Workshops
-const UPCOMING_SESSIONS = [
+// PROGRAM CARDS
+const PROGRAM_CARDS = [
+  {
+    title: "Cloud & Infrastructure",
+    category: "Infrastructure",
+    desc: "Master container orchestration, VPS management, and cloud architecture.",
+  },
+  {
+    title: "DevOps & Platform Engineering",
+    category: "Engineering",
+    desc: "Automated deployment pipelines, CI/CD, and site reliability engineering.",
+  },
+  {
+    title: "AI & Machine Learning",
+    category: "AI",
+    desc: "Practical workshops in generative AI, neural networks, and model deployment.",
+  },
+  {
+    title: "Cybersecurity",
+    category: "Security",
+    desc: "Threat modeling, vulnerability assessment, and defense strategies.",
+  },
+  {
+    title: "Web & Application Development",
+    category: "Full-Stack",
+    desc: "Modern frontend frameworks, API design, and distributed backends.",
+  },
+  {
+    title: "Open Source",
+    category: "Community",
+    desc: "Collaborate on real open-source tools and infrastructure projects.",
+  },
+];
+
+// EVENT SECTIONS
+const UPCOMING_EVENTS = [
   {
     title: "Cybersecurity & Ethical Hacking Essentials",
     type: "Webinar",
-    status: "Registration Open",
-    audience: "Open Community",
     date: "7 September 2026",
     desc: "Deep dive into penetration testing, threat modeling, and modern defense strategies.",
-    format: "Online Webinar",
     link: "/community/events",
   },
   {
     title: "CyberForge 2026 Hackathon",
     type: "Hackathon",
-    status: "Registration Open",
-    audience: "Open Community",
     date: "21 September 2026",
     desc: "48-hour intensive hackathon building next-generation secure cloud applications.",
-    format: "Tech Hub Center & Virtual",
     link: "/community/events",
   },
 ];
 
-// Section 8: Opportunities
-const OPPORTUNITIES = [
+// COMMUNITY BENEFITS
+const COMMUNITY_BENEFITS = [
+  "Learn with peers",
+  "Find collaborators",
+  "Meet mentors",
+  "Participate in events",
+  "Build projects",
+  "Share knowledge",
+  "Discover opportunities",
+];
+
+// RESEARCH AREAS
+const RESEARCH_FOCUS = [
   {
-    title: "Campus Chapter Leadership",
-    category: "Chapters",
-    desc: "Establish an official student chapter at your university, receive mentorship and event support, and cultivate a thriving developer community on campus.",
-    cta: "Apply for Chapter Leadership",
-    link: "/community/ambassadors",
+    title: "Cloud Infrastructure",
+    desc: "Exploring scalable, reliable, and efficient infrastructure.",
+  },
+  { title: "Distributed Systems", desc: "Understanding how modern systems scale and operate." },
+  {
+    title: "Artificial Intelligence",
+    desc: "Research and experimentation across modern AI systems.",
   },
   {
-    title: "Community Volunteering",
-    category: "Volunteering",
-    desc: "Help organize interactive masterclasses, assist with hackathon operations, and contribute to open-source developer tools.",
-    cta: "Join as Volunteer",
-    link: "/joincommunity",
-  },
-  {
-    title: "Technical Mentorship",
-    category: "Mentorship",
-    desc: "Share your professional insights, review student projects, and guide aspiring software engineers toward industry success.",
-    cta: "Become a Mentor",
-    link: "/contact",
+    title: "Security",
+    desc: "Exploring security challenges across infrastructure and applications.",
   },
 ];
 
-// Section 9: Community Knowledge
-const ARTICLES = [
+// BLOG ARTICLES
+const BLOG_ARTICLES = [
   {
-    category: "News",
+    title: "Launching KSS2026: Knowledge Sharing Series for Builders",
+    category: "Community",
     date: "2026-08-20",
-    title: "Launching KSS2026: Knowledge Sharing webinar Series for Builders",
-    desc: "We are officially launching the Knowledge Sharing Series (KSS2026) webinar, designed to connect developers directly with technical experts and practitioners.",
-    author: "Ritik Kumar",
-    role: "Community Director",
-    topics: ["CLOUD", "AI/ML", "OPEN SOURCE", "DEVOPS", "CYBERSECURITY", "TUTORIALS"],
+    desc: "Episode-based webinar series connecting developers directly with technical experts and practitioners.",
     link: "/blog",
   },
   {
+    title: "CyberForge 2026 Hackathon: Concluded with Success at GL Bajaj",
     category: "Events",
     date: "2026-06-15",
-    title: "CyberForge 2026 Hackathon: Concluded with Success at GL Bajaj",
-    desc: "Highlights and winning projects from our 48-hour buildathon empowering 500+ builders to build scalable cloud solutions.",
-    author: "OrigoHOST Team",
-    role: "Editorial",
-    topics: ["HACKATHON", "COMMUNITY", "CLOUD"],
+    desc: "Highlights and winning projects from our national buildathon empowering 500+ builders.",
     link: "/blog",
-  },
-];
-
-// Section 10: Learning Resources
-const RESOURCES = [
-  {
-    title: "Git & GitHub Version Control Guide",
-    type: "Guide",
-    access: "Internal",
-    desc: "A practical, step-by-step documentation guide covering git flow, pull requests, commit guidelines and repository management for community projects.",
-    topics: ["Open Source", "DevOps"],
-    format: "PDF Document",
-    cta: "Download Guide",
-    link: "/resources",
-  },
-  {
-    title: "Deploying to VPS & Bare-Metal Basics",
-    type: "Documentation",
-    access: "Internal",
-    desc: "Practical guides from OrigoHOST Cloud on provisioning virtual private servers, configuring firewalls, setting reverse proxies and managing secure SSH access.",
-    topics: ["Cloud Computing", "Infrastructure & Hosting"],
-    format: "PDF Document",
-    cta: "Download Guide",
-    link: "/resources",
-  },
-];
-
-// Section 11: Collaborators
-const COLLABORATORS = [
-  {
-    category: "Technology Partners",
-    items: [
-      { name: "Supabase", detail: "Database" },
-      { name: "Vercel", detail: "Host Platforms" },
-      { name: "GitHub Campus Program", detail: "Developer Tools" },
-    ],
-  },
-  {
-    category: "Academic Institutions",
-    items: [
-      { name: "Leading Technology Institutes", detail: "Academic Network" },
-      { name: "Delhi Technological University", detail: "Campus Partner" },
-      { name: "NIET Chapter Alliance", detail: "Student Hub" },
-    ],
-  },
-  {
-    category: "Industry Sponsors",
-    items: [
-      { name: "CyberForge Industry Sponsors", detail: "Hackathon Partners" },
-      { name: "OrigoHOST Cloud Compute Hubs", detail: "Infrastructure" },
-      { name: "National Hackathon Panels", detail: "Jury Alliance" },
-    ],
-  },
-];
-
-// Section 12: Developer Journey
-const JOURNEY_STAGES = [
-  {
-    step: "Stage 01",
-    title: "Learn",
-    desc: "Master practical systems engineering and modern software development standards.",
-  },
-  {
-    step: "Stage 02",
-    title: "Explore",
-    desc: "Discover emerging technologies through interactive, expert-led technical sessions.",
-  },
-  {
-    step: "Stage 03",
-    title: "Connect",
-    desc: "Engage with motivated developer peers, industry mentors, and project collaborators.",
-  },
-  {
-    step: "Stage 04",
-    title: "Collaborate",
-    desc: "Work alongside peer developers to contribute to active open-source initiatives.",
-  },
-  {
-    step: "Stage 05",
-    title: "Build",
-    desc: "Develop and deploy functional software applications using modern cloud environments.",
-  },
-  {
-    step: "Stage 06",
-    title: "Solve",
-    desc: "Participate in CyberForge hackathons to address real-world engineering challenges.",
-  },
-  {
-    step: "Stage 07",
-    title: "Lead",
-    desc: "Establish and guide an official OrigoHOST Student Chapter at your university.",
-  },
-  {
-    step: "Stage 08",
-    title: "Innovate",
-    desc: "Transform validated software prototypes into impactful, scalable projects.",
-  },
-  {
-    step: "Stage 09",
-    title: "Guide",
-    desc: "Share your knowledge as a technical mentor or speaker for upcoming cohorts.",
-  },
-];
-
-// Section 13: Community Testimonials
-const TESTIMONIALS = [
-  {
-    name: "Aarav Mehta",
-    role: "Builder",
-    quote:
-      "Participating in CyberForge 2026 was my turning point. I went from reading articles about ethical hacking to collaborating on a team of four to build a real-time vulnerability scanner.",
-  },
-  {
-    name: "Diya Sharma",
-    role: "Chapter Lead · Noida Chapter",
-    quote:
-      "Directing our campus chapter under the OrigoHOST master brand allowed us to host local workshops on DevOps practices. Watching peers deploy their first Linux VPS was incredibly fulfilling.",
-  },
-];
-
-// Section 14: FAQ
-const FAQS = [
-  {
-    q: "What is OrigoHOST and who can join?",
-    a: "OrigoHOST is an enterprise-grade developer ecosystem and infrastructure platform in India. It is open to engineering students, software developers, campus community leaders, and industry professionals eager to learn, build, and deploy production-ready systems.",
-  },
-  {
-    q: "How do campus chapters work and how can I charter one at my college?",
-    a: "Campus chapters are student-led developer hubs operating under an official OrigoHOST charter. Chapter leads receive complete event toolkits, workshop curricula, cloud resources, and guidance from the OrigoHOST team to run technical activities on campus.",
-  },
-  {
-    q: "Are OrigoHOST learning programs and masterclasses free for students?",
-    a: "Yes, our flagship educational cohorts (such as the Knowledge Sharing Series) and open webinars are completely free for verified community members and university students.",
-  },
-  {
-    q: "What is CyberForge and how do hackathons work on OrigoHOST?",
-    a: "CyberForge is our national hackathon and buildathon series. Developers team up to solve real-world problem statements provided by industry partners, using OrigoHOST cloud infrastructure to build and present working software.",
-  },
-  {
-    q: "How can companies and technology organizations partner with OrigoHOST?",
-    a: "Enterprise partners can sponsor hackathons, provide API credentials/cloud credits, host guest technical masterclasses, and recruit pre-vetted developer talent directly through our ecosystem pipelines.",
-  },
-  {
-    q: "How do I access developer sandboxes and deployment tools?",
-    a: "Once registered on the OrigoHOST platform, active community members receive sandbox access keys and deployment guides within their developer dashboard.",
   },
 ];
 
 export default function HomePage() {
-  const [activeFaq, setActiveFaq] = React.useState<number | null>(0);
-
   return (
     <div className="relative min-h-screen bg-white text-[#0a0a0a] selection:bg-blue-600 selection:text-white">
       {/* 1. HERO SECTION */}
       <HeroSection />
 
-      {/* PARTNERS / SPONSORS MARQUEE */}
-      <React.Suspense fallback={<div className="h-32 bg-slate-50" />}>
+      {/* TRUST / PARTNERS MARQUEE */}
+      <React.Suspense fallback={<div className="h-28 bg-slate-50" />}>
         <PartnersMarqueeSection />
       </React.Suspense>
 
-      {/* 2. WHY ORIGOHOST */}
-      <section
-        id="why"
-        className="relative bg-white py-24 overflow-hidden border-b border-slate-100"
-      >
+      {/* 2. WHAT IS ORIGOHOST? */}
+      <section id="about-intro" className="relative bg-white py-24 border-b border-slate-100">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
             <span className="text-xs font-bold uppercase tracking-widest text-blue-600 bg-blue-50 px-3 py-1 rounded-full">
-              WHY ORIGOHOST
+              ABOUT ORIGOHOST
             </span>
             <h2 className="mt-4 text-4xl font-black tracking-tight sm:text-5xl">
-              Everything You Need to Build & Scale
+              More Than a Community.
             </h2>
-            <p className="mt-4 text-lg text-slate-600">
-              Designed from the ground up to empower software builders with real tools,
-              collaborative networks, and institutional backing.
+            <p className="mt-6 text-lg leading-relaxed text-slate-600">
+              OrigoHOST is a technology ecosystem built around people who want to learn, build,
+              experiment, and grow together.
             </p>
-          </div>
-
-          <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {WHY_ORIGOHOST.map((item, i) => (
-              <ScaleIn key={item.title} delay={i * 0.08}>
-                <Tilt className="h-full">
-                  <SpotlightCard
-                    color="37, 99, 235"
-                    className="h-full rounded-3xl border border-slate-200/80 bg-slate-50/50 p-8 shadow-sm transition-all hover:shadow-md hover:border-blue-300"
-                  >
-                    <div className="grid h-12 w-12 place-items-center rounded-2xl bg-blue-100 text-blue-600">
-                      <item.icon className="h-6 w-6" />
-                    </div>
-                    <h3 className="mt-6 text-xl font-bold tracking-tight text-slate-900">
-                      {item.title}
-                    </h3>
-                    <p className="mt-3 text-sm leading-relaxed text-slate-600">{item.body}</p>
-                  </SpotlightCard>
-                </Tilt>
-              </ScaleIn>
-            ))}
+            <p className="mt-4 text-base leading-relaxed text-slate-500">
+              From technical workshops and community meetups to hackathons, research, open-source
+              initiatives, and industry collaborations, we create spaces where knowledge turns into
+              action.
+            </p>
+            <div className="mt-8">
+              <Button
+                asChild
+                size="lg"
+                className="rounded-full bg-blue-600 hover:bg-blue-700 font-bold px-8"
+              >
+                <Link to="/about">
+                  Discover OrigoHOST <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* 3. AUDIENCE SECTIONS */}
-      <section id="audiences" className="bg-slate-900 py-24 text-white">
+      {/* 3. ECOSYSTEM */}
+      <section id="ecosystem" className="bg-slate-900 py-24 text-white">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center mb-16">
             <span className="text-xs font-bold uppercase tracking-widest text-blue-400">
-              TAILORED EXPERIENCE
+              ECOSYSTEM
             </span>
             <h2 className="mt-4 text-4xl font-black tracking-tight sm:text-5xl">
-              Built for Every Builder in the Ecosystem
+              One Ecosystem. Many Ways to Build.
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {AUDIENCES.map((aud, i) => (
-              <FadeIn key={aud.title} delay={i * 0.1}>
-                <div className="h-full flex flex-col justify-between rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm hover:border-blue-500/50 transition-colors">
-                  <div>
-                    <span className="text-xs font-mono font-bold text-blue-400 block mb-4">
-                      {aud.label}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {ECOSYSTEM_PILLARS.map((p, i) => (
+              <FadeIn key={p.title} delay={i * 0.08}>
+                <Link to={p.link} className="block h-full">
+                  <div className="h-full rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm hover:border-blue-500/50 transition-all hover:-translate-y-1">
+                    <div className="grid h-12 w-12 place-items-center rounded-2xl bg-blue-500/20 text-blue-400 mb-6">
+                      <p.icon className="h-6 w-6" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-white mb-3">{p.title}</h3>
+                    <p className="text-sm text-slate-300 leading-relaxed mb-6">{p.desc}</p>
+                    <span className="text-xs font-bold text-blue-400 inline-flex items-center gap-1">
+                      Learn More <ArrowRight className="h-3.5 w-3.5" />
                     </span>
-                    <h3 className="text-2xl font-bold text-white mb-4">{aud.title}</h3>
-                    <p className="text-sm text-slate-300 leading-relaxed mb-8">{aud.body}</p>
+                  </div>
+                </Link>
+              </FadeIn>
+            ))}
+          </div>
+
+          <div className="mt-16 text-center">
+            <Button
+              asChild
+              variant="outline"
+              className="rounded-full border-white/20 text-white hover:bg-white/10 px-8"
+            >
+              <Link to="/ecosystem">Explore the Ecosystem</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. PROGRAMS */}
+      <section id="programs" className="bg-slate-50 py-24 border-b border-slate-200">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl text-center mb-16">
+            <span className="text-xs font-bold uppercase tracking-widest text-blue-600 bg-blue-100 px-3 py-1 rounded-full">
+              PRACTICAL LEARNING
+            </span>
+            <h2 className="mt-4 text-4xl font-black tracking-tight sm:text-5xl">
+              Learn by Building.
+            </h2>
+            <p className="mt-4 text-lg text-slate-600">
+              Practical programs designed to help learners and builders move from concepts to
+              real-world experience.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            {PROGRAM_CARDS.map((prog, i) => (
+              <ScaleIn key={prog.title} delay={i * 0.08}>
+                <div className="h-full rounded-3xl bg-white p-8 shadow-sm border border-slate-200 flex flex-col justify-between hover:shadow-md transition-shadow">
+                  <div>
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-blue-600 bg-blue-50 px-2.5 py-1 rounded-full inline-block mb-4">
+                      {prog.category}
+                    </span>
+                    <h3 className="text-xl font-bold text-slate-900 mb-3">{prog.title}</h3>
+                    <p className="text-sm text-slate-600 leading-relaxed mb-6">{prog.desc}</p>
                   </div>
                   <Button
                     asChild
                     variant="outline"
-                    className="w-full rounded-full border-white/20 bg-white/10 text-white hover:bg-blue-600 hover:border-blue-600 transition-all"
+                    className="w-full rounded-full border-slate-300"
                   >
-                    <Link to={aud.link}>
-                      {aud.cta} <ArrowRight className="ml-2 h-4 w-4" />
+                    <Link to="/programs">
+                      View Program Details <ChevronRight className="ml-1 h-4 w-4" />
                     </Link>
                   </Button>
                 </div>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 4. ECOSYSTEM REACH */}
-      <section id="reach" className="bg-blue-600 py-20 text-white">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl text-center mb-16">
-            <span className="text-xs font-bold uppercase tracking-widest text-blue-200">
-              ECOSYSTEM REACH
-            </span>
-            <h2 className="mt-2 text-4xl font-black tracking-tight sm:text-5xl">
-              Our Impact Across the Community
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {REACH_METRICS.map((m, i) => (
-              <ScaleIn key={m.label} delay={i * 0.08}>
-                <div className="rounded-3xl bg-white/10 p-8 backdrop-blur-md border border-white/15 text-center h-full flex flex-col justify-between">
-                  <div>
-                    <div className="text-5xl font-black tracking-tight">
-                      <Counter value={m.value} suffix={m.suffix} />
-                    </div>
-                    <div className="mt-3 text-lg font-bold text-white">{m.label}</div>
-                  </div>
-                  <p className="mt-4 text-xs text-blue-100/80 leading-relaxed">{m.desc}</p>
-                </div>
               </ScaleIn>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 5. LEARNING & GROWTH PATHWAYS */}
-      <section id="pathways" className="bg-slate-50 py-24 border-b border-slate-200">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl text-center mb-16">
-            <span className="text-xs font-bold uppercase tracking-widest text-blue-600 bg-blue-100 px-3 py-1 rounded-full">
-              GROWTH PATHWAYS
-            </span>
-            <h2 className="mt-4 text-4xl font-black tracking-tight sm:text-5xl">
-              Structured Programs Designed for Every Stage of Your Journey
-            </h2>
-            <p className="mt-4 text-lg text-slate-600">
-              OrigoHOST provides clear, guided pathways tailored to your goals—whether you are
-              mastering new technologies, leading a student community, or partnering to support
-              technological innovation.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            {PATHWAYS.map((p, i) => (
-              <FadeIn key={p.step} delay={i * 0.1}>
-                <div className="h-full rounded-3xl bg-white p-8 shadow-sm border border-slate-200 flex flex-col justify-between hover:shadow-md transition-shadow">
-                  <div>
-                    <span className="text-4xl font-black text-blue-600/30 block mb-4 font-mono">
-                      {p.step}
-                    </span>
-                    <h3 className="text-xl font-bold text-slate-900 mb-3">{p.title}</h3>
-                    <p className="text-sm text-slate-600 leading-relaxed">{p.desc}</p>
-                  </div>
-                </div>
-              </FadeIn>
             ))}
           </div>
 
@@ -537,73 +311,58 @@ export default function HomePage() {
             <Button
               asChild
               size="lg"
-              className="rounded-full bg-blue-600 hover:bg-blue-700 font-bold px-8 shadow-md"
+              className="rounded-full bg-blue-600 hover:bg-blue-700 font-bold px-8"
             >
-              <Link to="/register">
-                Get Started With OrigoHOST <ArrowRight className="ml-2 h-4 w-4" />
+              <Link to="/programs">
+                Explore All Programs <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
           </div>
         </div>
       </section>
 
-      {/* 6. FEATURED INITIATIVES */}
-      <section id="initiatives" className="bg-white py-24 border-b border-slate-100">
+      {/* 5. UPCOMING EVENTS */}
+      <section id="events" className="bg-white py-24 border-b border-slate-100">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
             <div>
               <span className="text-xs font-bold uppercase tracking-widest text-blue-600">
-                FEATURED INITIATIVES
+                COMMUNITY EVENTS
               </span>
               <h2 className="mt-2 text-4xl font-black tracking-tight sm:text-5xl">
-                Our Active Programs
+                Where the Community Comes Together.
               </h2>
+              <p className="mt-3 text-slate-600 max-w-xl">
+                Join workshops, meetups, hackathons, masterclasses, and community experiences
+                designed around learning and building together.
+              </p>
             </div>
             <Button asChild variant="outline" className="rounded-full border-slate-300">
               <Link to="/community/events">
-                View All Programs <ChevronRight className="ml-1 h-4 w-4" />
+                View All Events <Calendar className="ml-2 h-4 w-4" />
               </Link>
             </Button>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {FEATURED_PROGRAMS.map((prog) => (
+            {UPCOMING_EVENTS.map((ev) => (
               <div
-                key={prog.title}
-                className="rounded-3xl border border-slate-200 bg-slate-50/50 p-8 shadow-sm flex flex-col justify-between hover:border-blue-300 transition-colors"
+                key={ev.title}
+                className="rounded-3xl border border-slate-200 bg-slate-50/50 p-8 shadow-sm flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between gap-4 mb-4">
-                    <span
-                      className={`text-xs font-bold px-3 py-1 rounded-full ${
-                        prog.status === "Active"
-                          ? "bg-emerald-100 text-emerald-700"
-                          : "bg-amber-100 text-amber-700"
-                      }`}
-                    >
-                      {prog.status}
+                    <span className="text-xs font-bold bg-blue-100 text-blue-700 px-3 py-1 rounded-full">
+                      {ev.type}
                     </span>
-                    <span className="text-xs text-slate-500 font-medium">{prog.type}</span>
+                    <span className="text-xs text-slate-500 font-mono">{ev.date}</span>
                   </div>
-
-                  <h3 className="text-2xl font-bold text-slate-900 mb-3">{prog.title}</h3>
-                  <p className="text-sm text-slate-600 leading-relaxed mb-6">{prog.desc}</p>
-
-                  <div className="flex flex-wrap gap-2 mb-8">
-                    {prog.topics.map((t) => (
-                      <span
-                        key={t}
-                        className="text-[11px] font-semibold bg-white text-slate-700 border border-slate-200 px-3 py-1 rounded-full"
-                      >
-                        {t}
-                      </span>
-                    ))}
-                  </div>
+                  <h3 className="text-2xl font-bold text-slate-900 mb-3">{ev.title}</h3>
+                  <p className="text-sm text-slate-600 leading-relaxed mb-6">{ev.desc}</p>
                 </div>
-
                 <Button asChild className="w-full rounded-full bg-blue-600 hover:bg-blue-700">
-                  <Link to={prog.link}>
-                    {prog.cta} <ArrowRight className="ml-2 h-4 w-4" />
+                  <Link to={ev.link}>
+                    Event Details <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
               </div>
@@ -612,166 +371,144 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 7. UPCOMING EVENTS & WORKSHOPS */}
-      <section id="events" className="bg-slate-900 py-24 text-white">
+      {/* 6. COMMUNITY */}
+      <section id="community" className="bg-slate-900 py-24 text-white">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
-            <div>
-              <span className="text-xs font-bold uppercase tracking-widest text-blue-400">
-                UPCOMING SESSIONS
-              </span>
-              <h2 className="mt-2 text-4xl font-black tracking-tight sm:text-5xl">
-                Participate in Our Next Technical Session
-              </h2>
-            </div>
+          <div className="mx-auto max-w-3xl text-center mb-16">
+            <span className="text-xs font-bold uppercase tracking-widest text-blue-400">
+              COMMUNITY
+            </span>
+            <h2 className="mt-4 text-4xl font-black tracking-tight sm:text-5xl">
+              Find Your People.
+            </h2>
+            <p className="mt-4 text-lg text-slate-300">
+              Connect with developers, students, mentors, educators, founders, and technology
+              enthusiasts who are learning and building alongside you.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mb-12">
+            {COMMUNITY_BENEFITS.map((ben) => (
+              <div
+                key={ben}
+                className="rounded-2xl border border-white/10 bg-white/5 p-6 text-center backdrop-blur-sm"
+              >
+                <CheckCircle className="h-6 w-6 text-blue-400 mx-auto mb-3" />
+                <span className="text-sm font-bold text-white">{ben}</span>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center">
             <Button
               asChild
-              variant="outline"
-              className="rounded-full border-white/20 text-white hover:bg-white/10"
+              size="lg"
+              className="rounded-full bg-blue-600 hover:bg-blue-700 font-bold px-8"
             >
-              <Link to="/community/events">
-                View Event Calendar <Calendar className="ml-2 h-4 w-4" />
+              <Link to="/register">
+                Join OrigoHOST <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {UPCOMING_SESSIONS.map((ev) => (
-              <div
-                key={ev.title}
-                className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-md flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex flex-wrap items-center gap-3 mb-4">
-                    <span className="text-xs font-bold bg-blue-500/20 text-blue-300 px-3 py-1 rounded-full border border-blue-500/30">
-                      {ev.type}
-                    </span>
-                    <span className="text-xs font-semibold text-emerald-400 flex items-center gap-1">
-                      <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-                      {ev.status}
-                    </span>
-                    <span className="text-xs text-slate-400 font-mono ml-auto">{ev.date}</span>
-                  </div>
-
-                  <h3 className="text-2xl font-bold text-white mb-3">{ev.title}</h3>
-                  <p className="text-sm text-slate-300 leading-relaxed mb-6">{ev.desc}</p>
-
-                  <div className="flex items-center gap-4 text-xs text-slate-400 mb-8 border-t border-white/10 pt-4">
-                    <span>
-                      Format: <strong className="text-white">{ev.format}</strong>
-                    </span>
-                    <span>
-                      Audience: <strong className="text-white">{ev.audience}</strong>
-                    </span>
-                  </div>
-                </div>
-
-                <Button
-                  asChild
-                  className="w-full rounded-full bg-blue-600 hover:bg-blue-700 text-white font-bold"
-                >
-                  <Link to={ev.link}>
-                    Details <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
-      {/* 8. OPPORTUNITIES */}
-      <section id="opportunities" className="bg-slate-50 py-24 border-b border-slate-200">
+      {/* 7. RESEARCH & RESOURCES */}
+      <section id="research" className="bg-slate-50 py-24 border-b border-slate-200">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl text-center mb-16">
-            <span className="text-xs font-bold uppercase tracking-widest text-blue-600 bg-blue-100 px-3 py-1 rounded-full">
-              OPPORTUNITIES
-            </span>
-            <h2 className="mt-4 text-4xl font-black tracking-tight sm:text-5xl">
-              Ways to Get Involved
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {OPPORTUNITIES.map((opp) => (
-              <div
-                key={opp.title}
-                className="rounded-3xl bg-white p-8 shadow-sm border border-slate-200 flex flex-col justify-between hover:shadow-md transition-shadow"
-              >
-                <div>
-                  <span className="text-xs font-mono font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full inline-block mb-4">
-                    {opp.category}
-                  </span>
-                  <h3 className="text-xl font-bold text-slate-900 mb-3">{opp.title}</h3>
-                  <p className="text-sm text-slate-600 leading-relaxed mb-8">{opp.desc}</p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* Research Column */}
+            <div className="rounded-3xl bg-white p-8 shadow-sm border border-slate-200 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-bold uppercase tracking-widest text-blue-600 bg-blue-50 px-3 py-1 rounded-full inline-block mb-4">
+                  RESEARCH (ORIGO LABS)
+                </span>
+                <h3 className="text-3xl font-black text-slate-900 mb-4">Explore What's Next.</h3>
+                <p className="text-sm text-slate-600 leading-relaxed mb-6">
+                  Origo Labs explores emerging technologies across cloud computing, distributed
+                  systems, artificial intelligence, security, and modern infrastructure.
+                </p>
+                <div className="space-y-3 mb-8">
+                  {RESEARCH_FOCUS.map((r) => (
+                    <div key={r.title} className="text-xs border-l-2 border-blue-600 pl-3">
+                      <strong className="text-slate-900 block">{r.title}</strong>
+                      <span className="text-slate-500">{r.desc}</span>
+                    </div>
+                  ))}
                 </div>
-                <Button
-                  asChild
-                  variant="outline"
-                  className="w-full rounded-full border-slate-300 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all"
-                >
-                  <Link to={opp.link}>
-                    {opp.cta} <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
               </div>
-            ))}
+              <Button asChild variant="outline" className="w-full rounded-full border-slate-300">
+                <Link to="/research">
+                  Explore Research <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+            </div>
+
+            {/* Resources Column */}
+            <div className="rounded-3xl bg-white p-8 shadow-sm border border-slate-200 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-bold uppercase tracking-widest text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full inline-block mb-4">
+                  KNOWLEDGE FOR BUILDERS
+                </span>
+                <h3 className="text-3xl font-black text-slate-900 mb-4">Curated Resources.</h3>
+                <p className="text-sm text-slate-600 leading-relaxed mb-6">
+                  Discover guides, technical resources, research, toolkits, learning materials, and
+                  community knowledge engineered for practical application.
+                </p>
+                <ul className="space-y-3 text-xs text-slate-700 font-semibold mb-8">
+                  <li className="flex items-center gap-2">✓ Git & GitHub Version Control Guide</li>
+                  <li className="flex items-center gap-2">
+                    ✓ Deploying to VPS & Bare-Metal Basics
+                  </li>
+                  <li className="flex items-center gap-2">✓ Cloud Infrastructure Playbooks</li>
+                  <li className="flex items-center gap-2">✓ AI & Machine Learning Starter Kits</li>
+                </ul>
+              </div>
+              <Button asChild className="w-full rounded-full bg-blue-600 hover:bg-blue-700">
+                <Link to="/resources">
+                  Browse Resources <BookOpen className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* 9. COMMUNITY KNOWLEDGE */}
-      <section id="articles" className="bg-white py-24 border-b border-slate-100">
+      {/* 8. BLOG & INSIGHTS */}
+      <section id="blog" className="bg-white py-24 border-b border-slate-100">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
             <div>
               <span className="text-xs font-bold uppercase tracking-widest text-blue-600">
-                COMMUNITY KNOWLEDGE
+                BLOG & INSIGHTS
               </span>
               <h2 className="mt-2 text-4xl font-black tracking-tight sm:text-5xl">
-                Technical Insights & Articles
+                Ideas, Insights & Community Stories.
               </h2>
             </div>
             <Button asChild variant="outline" className="rounded-full border-slate-300">
               <Link to="/blog">
-                Read All Articles <BookOpen className="ml-2 h-4 w-4" />
+                Read the Blog <FileText className="ml-2 h-4 w-4" />
               </Link>
             </Button>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {ARTICLES.map((art) => (
+            {BLOG_ARTICLES.map((art) => (
               <div
                 key={art.title}
-                className="rounded-3xl border border-slate-200 bg-slate-50/50 p-8 shadow-sm flex flex-col justify-between hover:border-blue-300 transition-colors"
+                className="rounded-3xl border border-slate-200 bg-slate-50/50 p-8 shadow-sm flex flex-col justify-between"
               >
                 <div>
-                  <div className="flex items-center justify-between text-xs text-slate-500 mb-4">
+                  <div className="flex items-center justify-between text-xs text-slate-500 mb-3">
                     <span className="font-bold text-blue-600 bg-blue-50 px-2.5 py-1 rounded-full">
                       {art.category}
                     </span>
                     <span>{art.date}</span>
                   </div>
-
                   <h3 className="text-xl font-bold text-slate-900 mb-3">{art.title}</h3>
                   <p className="text-sm text-slate-600 leading-relaxed mb-6">{art.desc}</p>
-
-                  <div className="text-xs text-slate-500 mb-6">
-                    By <strong className="text-slate-900">{art.author}</strong> ({art.role})
-                  </div>
-
-                  <div className="flex flex-wrap gap-1.5 mb-8">
-                    {art.topics.map((t) => (
-                      <span
-                        key={t}
-                        className="text-[10px] font-mono bg-white text-slate-600 px-2 py-0.5 rounded border border-slate-200"
-                      >
-                        {t}
-                      </span>
-                    ))}
-                  </div>
                 </div>
-
                 <Button asChild variant="outline" className="w-full rounded-full border-slate-300">
                   <Link to={art.link}>
                     Read Post <ArrowRight className="ml-2 h-4 w-4" />
@@ -783,234 +520,53 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 10. LEARNING RESOURCES */}
-      <section id="resources" className="bg-slate-900 py-24 text-white">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
-            <div>
-              <span className="text-xs font-bold uppercase tracking-widest text-blue-400">
-                LEARNING RESOURCES
-              </span>
-              <h2 className="mt-2 text-4xl font-black tracking-tight sm:text-5xl">
-                Curated Developer Guides & Tools
-              </h2>
-            </div>
+      {/* 9. PARTNERS */}
+      <section id="partners" className="bg-slate-900 py-24 text-white">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8 text-center">
+          <span className="text-xs font-bold uppercase tracking-widest text-blue-400">
+            PARTNERSHIPS
+          </span>
+          <h2 className="mt-4 text-4xl font-black tracking-tight sm:text-5xl max-w-3xl mx-auto">
+            Built With the Ecosystem.
+          </h2>
+          <p className="mt-4 text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
+            We collaborate with organizations, institutions, communities, and technology partners to
+            create meaningful learning and technology experiences.
+          </p>
+          <div className="mt-8">
             <Button
               asChild
-              variant="outline"
-              className="rounded-full border-white/20 text-white hover:bg-white/10"
+              size="lg"
+              className="rounded-full bg-blue-600 hover:bg-blue-700 font-bold px-8"
             >
-              <Link to="/resources">
-                View All Resources <FileText className="ml-2 h-4 w-4" />
+              <Link to="/partners">
+                Become a Partner <Globe className="ml-2 h-4 w-4" />
               </Link>
             </Button>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {RESOURCES.map((res) => (
-              <div
-                key={res.title}
-                className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-md flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-xs font-bold bg-blue-500/20 text-blue-300 px-3 py-1 rounded-full border border-blue-500/30">
-                      {res.type}
-                    </span>
-                    <span className="text-xs font-mono text-slate-400">{res.access}</span>
-                  </div>
-
-                  <h3 className="text-2xl font-bold text-white mb-3">{res.title}</h3>
-                  <p className="text-sm text-slate-300 leading-relaxed mb-6">{res.desc}</p>
-
-                  <div className="flex flex-wrap gap-2 mb-8">
-                    {res.topics.map((t) => (
-                      <span
-                        key={t}
-                        className="text-xs bg-white/10 text-slate-200 px-3 py-1 rounded-full"
-                      >
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                <Button
-                  asChild
-                  className="w-full rounded-full bg-blue-600 hover:bg-blue-700 text-white font-bold"
-                >
-                  <Link to={res.link}>
-                    {res.cta} <Download className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
-      {/* 11. COLLABORATORS */}
-      <section id="collaborators" className="bg-white py-24 border-b border-slate-100">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl text-center mb-16">
-            <span className="text-xs font-bold uppercase tracking-widest text-blue-600 bg-blue-50 px-3 py-1 rounded-full">
-              COLLABORATORS
-            </span>
-            <h2 className="mt-4 text-4xl font-black tracking-tight sm:text-5xl">
-              Valued Partners & Sponsors
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {COLLABORATORS.map((group) => (
-              <div
-                key={group.category}
-                className="rounded-3xl border border-slate-200 bg-slate-50/50 p-8 shadow-sm"
-              >
-                <h3 className="text-lg font-bold text-slate-900 mb-6 pb-3 border-b border-slate-200">
-                  {group.category}
-                </h3>
-                <ul className="space-y-4">
-                  {group.items.map((item) => (
-                    <li key={item.name} className="flex items-center justify-between text-sm">
-                      <span className="font-semibold text-slate-800">{item.name}</span>
-                      <span className="text-xs text-slate-500 font-mono">{item.detail}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 12. DEVELOPER JOURNEY */}
-      <section id="journey" className="bg-slate-900 py-24 text-white">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl text-center mb-16">
-            <span className="text-xs font-bold uppercase tracking-widest text-blue-400">
-              ROADMAP
-            </span>
-            <h2 className="mt-4 text-4xl font-black tracking-tight sm:text-5xl">
-              Community Learning & Growth Stages
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {JOURNEY_STAGES.map((s) => (
-              <div
-                key={s.step}
-                className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm hover:border-blue-500/50 transition-colors"
-              >
-                <span className="text-xs font-mono font-bold text-blue-400 block mb-2">
-                  {s.step}
-                </span>
-                <h3 className="text-xl font-bold text-white mb-2">{s.title}</h3>
-                <p className="text-xs text-slate-300 leading-relaxed">{s.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 13. COMMUNITY TESTIMONIALS */}
-      <section id="testimonials" className="bg-slate-50 py-24 border-b border-slate-200">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl text-center mb-16">
-            <span className="text-xs font-bold uppercase tracking-widest text-blue-600 bg-blue-100 px-3 py-1 rounded-full">
-              COMMUNITY TESTIMONIALS
-            </span>
-            <h2 className="mt-4 text-4xl font-black tracking-tight sm:text-5xl">
-              Voices From Our Community
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {TESTIMONIALS.map((t) => (
-              <div
-                key={t.name}
-                className="rounded-3xl bg-white p-8 shadow-sm border border-slate-200 flex flex-col justify-between"
-              >
-                <p className="text-slate-700 italic text-base leading-relaxed mb-6">"{t.quote}"</p>
-                <div>
-                  <div className="font-bold text-slate-900 text-lg">{t.name}</div>
-                  <div className="text-xs text-blue-600 font-semibold">{t.role}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 14. FAQ ACCORDION */}
-      <section id="faq" className="bg-white py-24 border-b border-slate-100">
-        <div className="mx-auto max-w-4xl px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <span className="text-xs font-bold uppercase tracking-widest text-blue-600 bg-blue-50 px-3 py-1 rounded-full">
-              FAQ
-            </span>
-            <h2 className="mt-4 text-4xl font-black tracking-tight sm:text-5xl">
-              Everything You Need to Know
-            </h2>
-            <p className="mt-4 text-lg text-slate-600">
-              Got questions about joining, chartering a chapter, or participating in events? We have
-              answers.
-            </p>
-          </div>
-
-          <div className="space-y-4">
-            {FAQS.map((faq, index) => {
-              const isOpen = activeFaq === index;
-              return (
-                <div
-                  key={faq.q}
-                  className="rounded-2xl border border-slate-200 bg-slate-50/50 overflow-hidden transition-all"
-                >
-                  <button
-                    onClick={() => setActiveFaq(isOpen ? null : index)}
-                    className="w-full flex items-center justify-between p-6 text-left font-bold text-slate-900 text-lg hover:text-blue-600 transition-colors"
-                  >
-                    <span>{faq.q}</span>
-                    <ChevronRight
-                      className={`h-5 w-5 text-slate-400 transition-transform ${
-                        isOpen ? "rotate-90 text-blue-600" : ""
-                      }`}
-                    />
-                  </button>
-                  {isOpen && (
-                    <div className="px-6 pb-6 text-sm text-slate-600 leading-relaxed border-t border-slate-200/60 pt-4">
-                      {faq.a}
-                    </div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* 15. FINAL CTA */}
+      {/* 10. FINAL CTA */}
       <section
-        id="join"
+        id="final-cta"
         className="bg-gradient-to-br from-blue-700 via-blue-800 to-slate-900 py-24 text-white"
       >
         <div className="mx-auto max-w-5xl px-6 lg:px-8 text-center">
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight mb-6">
-            Ready to Build the Future of Software?
+            Your Next Build Could Start Here.
           </h2>
-          <p className="text-lg sm:text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed mb-10">
-            Join thousands of passionate student developers, campus chapter leads, and industry
-            mentors collaborating across India. Access deployment resources, attend expert
-            masterclasses, and ship production-grade code.
+          <p className="text-lg sm:text-xl text-blue-100 max-w-2xl mx-auto leading-relaxed mb-10">
+            Learn something new. Meet someone new. Build something meaningful.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button
               asChild
               size="lg"
-              className="w-full sm:w-auto h-14 rounded-full bg-white text-blue-900 hover:bg-blue-50 font-bold px-8 shadow-xl hover:scale-105 transition-all"
+              className="w-full sm:w-auto h-14 rounded-full bg-white text-blue-900 hover:bg-blue-50 font-bold px-8 shadow-xl transition-all"
             >
               <Link to="/register">
-                Join OrigoHOST Today <ArrowRight className="ml-2 h-5 w-5" />
+                Join the Community <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
             <Button
@@ -1019,7 +575,7 @@ export default function HomePage() {
               variant="outline"
               className="w-full sm:w-auto h-14 rounded-full border-white/30 bg-white/10 text-white hover:bg-white/20 font-bold px-8"
             >
-              <Link to="/contact">Contact Community Team</Link>
+              <Link to="/community/events">Explore Events</Link>
             </Button>
           </div>
         </div>

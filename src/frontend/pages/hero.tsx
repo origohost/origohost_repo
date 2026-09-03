@@ -1,23 +1,14 @@
 import { m as motion } from "framer-motion";
-import {
-  ArrowRight,
-  Calendar,
-  Users,
-  GraduationCap,
-  Code,
-  Server,
-  ShieldCheck,
-  Award,
-} from "lucide-react";
+import { ArrowRight, Calendar, Users, GraduationCap, Code, Server, BookOpen } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
-import { Tilt } from "@/components/motion/primitives";
+import { Counter, ScaleIn, Tilt } from "@/components/motion/primitives";
 
-const HERO_LABELS = [
-  { icon: Server, label: "Enterprise Sandboxes" },
-  { icon: Users, label: "3,000+ Active Builders" },
-  { icon: ShieldCheck, label: "Chartered Chapters" },
-  { icon: Award, label: "CyberForge Hackathons" },
+const CANONICAL_IMPACT = [
+  { value: 90, suffix: "K+", label: "Developers & learners reached", icon: Users },
+  { value: 500, suffix: "+", label: "Colleges & institutions", icon: GraduationCap },
+  { value: 50, suffix: "+", label: "Community meetups", icon: Calendar },
+  { value: 400, suffix: "+", label: "Workshops & learning sessions", icon: BookOpen },
 ];
 
 export default function HeroSection() {
@@ -27,46 +18,41 @@ export default function HeroSection() {
       data-testid="hero"
       className="relative overflow-hidden bg-[#050505] text-white"
     >
-      {/* Background radial gradients & glow particles */}
+      {/* Glow background effects */}
       <div className="absolute inset-0 pointer-events-none z-0">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-red-600/5 rounded-full blur-[120px]" />
-        <div className="absolute right-0 top-1/4 w-[600px] h-[600px] bg-blue-600/5 rounded-full blur-[100px]" />
-
-        <div className="absolute top-1/4 left-1/4 w-1 h-1 bg-red-500 rounded-full shadow-[0_0_8px_rgba(239,68,68,0.8)]" />
-        <div className="absolute bottom-1/4 right-1/3 w-1.5 h-1.5 bg-blue-500 rounded-full shadow-[0_0_8px_rgba(59,130,246,0.8)]" />
-        <div className="absolute top-1/3 right-1/4 w-1 h-1 bg-white rounded-full shadow-[0_0_8px_rgba(255,255,255,0.8)]" />
-        <div className="absolute bottom-1/3 left-1/3 w-1 h-1 bg-red-400 rounded-full shadow-[0_0_8px_rgba(248,113,113,0.8)]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-600/10 rounded-full blur-[120px]" />
+        <div className="absolute right-0 top-1/4 w-[600px] h-[600px] bg-emerald-600/10 rounded-full blur-[100px]" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 pt-28 pb-12 sm:pt-36 sm:pb-16 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        {/* Left Side: Content */}
+        {/* Left Content */}
         <div className="max-w-2xl">
           {/* Eyebrow */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 rounded-full border border-red-500/20 bg-[#111] px-4 py-1.5 mb-6"
+            className="inline-flex items-center gap-2 rounded-full border border-blue-500/20 bg-[#111] px-4 py-1.5 mb-6"
           >
             <span className="relative flex h-2.5 w-2.5">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-500 opacity-75"></span>
-              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-red-500"></span>
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-500 opacity-75"></span>
+              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-blue-500"></span>
             </span>
-            <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-red-400">
-              EMPOWERING THE NEXT GENERATION OF SOFTWARE BUILDERS & INNOVATORS
+            <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-blue-400">
+              INDIA'S TECHNOLOGY COMMUNITY
             </span>
           </motion.div>
 
-          {/* Headline & Subheadline */}
+          {/* Headline */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-4xl font-black leading-[1.08] tracking-tight sm:text-5xl md:text-6xl lg:text-6xl mb-4"
+            className="text-4xl font-black leading-[1.08] tracking-tight sm:text-5xl md:text-6xl lg:text-6xl mb-6"
           >
-            Build Boldly. Connect Globally.
+            Build. Learn. Connect.
             <br />
             <span className="text-[#0066ff] drop-shadow-[0_0_20px_rgba(0,102,255,0.4)]">
-              Launch Production-Ready Systems.
+              Shape What's Next.
             </span>
           </motion.h1>
 
@@ -75,23 +61,11 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-base sm:text-lg text-gray-300 leading-relaxed mb-6"
+            className="text-base sm:text-lg text-gray-300 leading-relaxed mb-8"
           >
-            Welcome to OrigoHOST—India's premier developer ecosystem and cloud infrastructure
-            platform designed to bridge the gap between classroom theory and real-world software
-            engineering.
-          </motion.p>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.25 }}
-            className="text-sm sm:text-base text-gray-400 leading-relaxed mb-8 hidden sm:block"
-          >
-            Whether you are a student discovering systems design, a developer building open-source
-            tools, or a campus leader cultivating tech talent, OrigoHOST provides the hands-on
-            compute sandboxes, structured learning cohorts, and collaborative community network you
-            need to turn ambitious ideas into deployed, production-ready software.
+            OrigoHOST brings developers, students, builders, educators, and technology communities
+            together to learn modern technology, build real solutions, collaborate with peers, and
+            create meaningful impact.
           </motion.p>
 
           {/* CTAs */}
@@ -99,7 +73,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="flex flex-col sm:flex-row flex-wrap items-center gap-4 mb-10"
+            className="flex flex-col sm:flex-row flex-wrap items-center gap-4 mb-8"
           >
             <Button
               asChild
@@ -107,7 +81,7 @@ export default function HeroSection() {
               className="w-full sm:w-auto h-14 rounded-full bg-blue-600 hover:bg-blue-700 px-8 font-bold text-white shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_30px_rgba(37,99,235,0.6)] transition-all hover:scale-105"
             >
               <Link to="/register">
-                Join the Developer Community <ArrowRight className="ml-2 h-4 w-4" />
+                Join the Community <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
 
@@ -117,94 +91,40 @@ export default function HeroSection() {
               variant="outline"
               className="w-full sm:w-auto h-14 rounded-full border-white/20 bg-white/5 px-8 font-bold text-white backdrop-blur-md hover:bg-white/10 hover:border-white/30 transition-all hover:-translate-y-1 group"
             >
-              <a href="#pathways">
-                Explore Cohorts & Programs{" "}
+              <Link to="/community/events">
+                Explore Events{" "}
                 <Calendar className="ml-2 h-4 w-4 transition-transform group-hover:-rotate-12 group-hover:-translate-y-1" />
-              </a>
+              </Link>
             </Button>
           </motion.div>
 
-          {/* Feature Badges */}
+          {/* Trust Statement */}
           <motion.div
-            initial={{ opacity: 0, y: 15 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 border-t border-white/10"
+            transition={{ delay: 0.35 }}
+            className="text-xs font-semibold text-gray-400 tracking-wide"
           >
-            {HERO_LABELS.map((item) => (
-              <div
-                key={item.label}
-                className="flex items-center gap-2 text-xs font-semibold text-gray-300"
-              >
-                <item.icon className="h-4 w-4 text-blue-400 shrink-0" />
-                <span>{item.label}</span>
-              </div>
-            ))}
+            ✓ A growing ecosystem for people building the future of technology.
           </motion.div>
         </div>
 
-        {/* Right Side: Orbits & Brand Graphic */}
-        <div className="relative min-h-[380px] lg:min-h-[480px] flex items-center justify-center mt-8 lg:mt-0">
-          <div className="absolute w-[150px] h-[3px] bg-red-500/80 blur-md rotate-45 z-0" />
-          <div className="absolute w-[300px] h-[300px] bg-blue-600/10 blur-[80px] rounded-full z-0" />
-
-          {/* Orbit rings */}
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none animate-orbit">
-            <div className="w-[280px] h-[280px] sm:w-[320px] sm:h-[320px] rounded-full border border-white/10 border-dashed" />
-            <div className="absolute top-[calc(50%-140px)] sm:top-[calc(50%-160px)] w-2 h-2 bg-blue-400 rounded-full shadow-[0_0_10px_rgba(96,165,250,0.8)]" />
-          </div>
-
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none animate-orbit-reverse">
-            <div className="w-[420px] h-[420px] sm:w-[480px] sm:h-[480px] rounded-full border border-white/5" />
-            <div className="absolute right-[calc(50%-210px)] sm:right-[calc(50%-240px)] w-1.5 h-1.5 bg-red-500 rounded-full shadow-[0_0_10px_rgba(239,68,68,0.8)]" />
-          </div>
-
-          {/* Logo Graphic */}
+        {/* Right Content / Brand Graphic */}
+        <div className="relative min-h-[360px] lg:min-h-[440px] flex items-center justify-center mt-6 lg:mt-0">
           <Tilt>
-            <div className="relative z-10 w-[260px] h-[260px] sm:w-[380px] sm:h-[380px] lg:w-[420px] lg:h-[420px] flex items-center justify-center transition-transform duration-500 hover:scale-105">
+            <div className="relative z-10 w-[260px] h-[260px] sm:w-[360px] sm:h-[360px] lg:w-[400px] lg:h-[400px] flex items-center justify-center transition-transform duration-500 hover:scale-105">
               <div className="absolute inset-0 bg-blue-600/20 rounded-full blur-[80px] -z-10" />
               <img
                 src="/logo-transparent.png"
-                alt="OrigoHOST Community"
+                alt="OrigoHOST Tech Community"
                 className="relative z-10 w-full h-full object-contain drop-shadow-[0_0_25px_rgba(37,99,235,0.4)]"
               />
             </div>
           </Tilt>
-
-          {/* Floating Feature Chips */}
-          <motion.div
-            className="absolute top-4 right-0 lg:-right-4 z-20 animate-float-card"
-            style={{ animationDelay: "0s" }}
-          >
-            <div className="flex items-center gap-3 bg-[#111]/80 backdrop-blur-md border border-white/10 px-4 py-2.5 rounded-2xl shadow-[0_8px_20px_rgba(0,0,0,0.5)]">
-              <div className="bg-blue-500/10 p-2 rounded-xl">
-                <GraduationCap className="h-5 w-5 text-blue-400" />
-              </div>
-              <div>
-                <p className="text-[13px] font-bold text-white leading-tight">Learn Systems</p>
-                <p className="text-[10px] text-gray-400">Structured Cohorts</p>
-              </div>
-            </div>
-          </motion.div>
-
-          <motion.div
-            className="absolute bottom-12 right-4 lg:-right-2 z-20 animate-float-card"
-            style={{ animationDelay: "1.5s" }}
-          >
-            <div className="flex items-center gap-3 bg-[#111]/80 backdrop-blur-md border border-white/10 px-4 py-2.5 rounded-2xl shadow-[0_8px_20px_rgba(0,0,0,0.5)]">
-              <div className="bg-red-500/10 p-2 rounded-xl">
-                <Code className="h-5 w-5 text-red-400" />
-              </div>
-              <div>
-                <p className="text-[13px] font-bold text-white leading-tight">Build & Ship</p>
-                <p className="text-[10px] text-gray-400">Production Code</p>
-              </div>
-            </div>
-          </motion.div>
         </div>
       </div>
 
-      {/* Curved Bottom Divider */}
+      {/* Curved Divider */}
       <div className="relative w-full h-[80px] sm:h-[120px] lg:h-[160px] overflow-hidden leading-none z-10 mt-auto">
         <svg
           viewBox="0 0 1440 320"
@@ -218,12 +138,35 @@ export default function HeroSection() {
           ></path>
           <path
             fill="none"
-            stroke="#ef4444"
+            stroke="#2563eb"
             strokeWidth="2"
-            className="drop-shadow-[0_0_10px_rgba(239,68,68,1)]"
+            className="drop-shadow-[0_0_10px_rgba(37,99,235,1)]"
             d="M0,224L60,213.3C120,203,240,181,360,186.7C480,192,600,224,720,240C840,256,960,256,1080,240C1200,224,1320,192,1380,176L1440,160"
           ></path>
         </svg>
+      </div>
+
+      {/* Canonical Impact Counter Grid */}
+      <div className="relative bg-white z-20 pb-16">
+        <div className="mx-auto max-w-6xl px-6 lg:px-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 -mt-8 md:-mt-12">
+            {CANONICAL_IMPACT.map((s, i) => (
+              <ScaleIn key={s.label} delay={i * 0.08} from={0.85} className="h-full">
+                <Tilt className="group relative h-full flex flex-col items-center justify-center rounded-[2rem] bg-white p-6 text-center shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] border border-slate-200 transition-all duration-300 hover:shadow-lg hover:border-blue-300">
+                  <div className="mb-4 grid h-12 w-12 place-items-center rounded-2xl bg-blue-50">
+                    <s.icon className="h-6 w-6 text-blue-600" />
+                  </div>
+                  <div className="relative z-10 text-4xl font-black tracking-tight text-slate-900 sm:text-5xl">
+                    <Counter value={s.value} suffix={s.suffix} />
+                  </div>
+                  <div className="mt-2 text-xs font-bold tracking-wide text-slate-600 relative inline-block">
+                    {s.label}
+                  </div>
+                </Tilt>
+              </ScaleIn>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

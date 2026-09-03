@@ -7,43 +7,28 @@ import HomePage from "@/frontend/pages/home";
 
 const HOME_FAQS = [
   {
-    question: "What is OrigoHOST and who can join?",
+    question: "What is OrigoHOST?",
     answer:
-      "OrigoHOST is an enterprise-grade developer ecosystem and infrastructure platform in India. It is open to engineering students, software developers, campus community leaders, and industry professionals eager to learn, build, and deploy production-ready systems.",
+      "OrigoHOST is a technology ecosystem built around people who want to learn, build, experiment, and grow together across cloud computing, AI, DevOps, and software engineering.",
   },
   {
-    question: "How do campus chapters work and how can I charter one at my college?",
+    question: "Who can join OrigoHOST?",
     answer:
-      "Campus chapters are student-led developer hubs operating under an official OrigoHOST charter. Chapter leads receive complete event toolkits, workshop curricula, cloud resources, and guidance from the OrigoHOST team to run technical activities on campus.",
+      "OrigoHOST brings developers, students, builders, educators, and technology communities together across India.",
   },
   {
-    question: "Are OrigoHOST learning programs and masterclasses free for students?",
+    question: "Are OrigoHOST learning programs free for students?",
     answer:
-      "Yes, our flagship educational cohorts (such as the Knowledge Sharing Series) and open webinars are completely free for verified community members and university students.",
-  },
-  {
-    question: "What is CyberForge and how do hackathons work on OrigoHOST?",
-    answer:
-      "CyberForge is our national hackathon and buildathon series. Developers team up to solve real-world problem statements provided by industry partners, using OrigoHOST cloud infrastructure to build and present working software.",
-  },
-  {
-    question: "How can companies and technology organizations partner with OrigoHOST?",
-    answer:
-      "Enterprise partners can sponsor hackathons, provide API credentials/cloud credits, host guest technical masterclasses, and recruit pre-vetted developer talent directly through our ecosystem pipelines.",
-  },
-  {
-    question: "How do I access developer sandboxes and deployment tools?",
-    answer:
-      "Once registered on the OrigoHOST platform, active community members receive sandbox access keys and deployment guides within their developer dashboard.",
+      "Yes, our flagship educational cohorts and webinars are completely free for verified community members and university students.",
   },
 ];
 
 export const Route = createFileRoute("/")({
   head: () =>
     buildSeo({
-      title: "Build Boldly. Connect Globally — Launch Production-Ready Systems",
+      title: "OrigoHOST — Build. Learn. Connect. Shape What's Next",
       description:
-        "Welcome to OrigoHOST — India's premier developer ecosystem and cloud infrastructure platform. Hands-on compute sandboxes, structured learning cohorts, and collaborative community network.",
+        "OrigoHOST brings developers, students, builders, educators, and technology communities together to learn modern technology, build real solutions, and shape what's next.",
       path: "/",
       preloadImage:
         "https://res.cloudinary.com/dhx72dmyt/image/upload/f_auto,q_auto/v1785444373/system/hero-bg-team.jpg",
