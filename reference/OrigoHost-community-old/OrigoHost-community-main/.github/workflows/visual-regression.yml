@@ -1,0 +1,83 @@
+name: Visual regression
+
+# On PRs: run Playwright visual tests strictly — any diff vs the committed
+#   baselines fails the build (this is the guardrail).
+# On main (push): re-run with --update-snapshots and auto-commit any refreshed
+#   baselines back to main, so the next PR compares against the latest look
+#   of the app. This means baselines are seeded/updated from main only, never
+#   from a PR branch, which prevents a broken PR from silently overwriting
+#   the source of truth.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write # required for the main-only baseline auto-commit step
+
+jobs:
+  visual:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # A real ref (not the detached merge commit) is required for the
+          # auto-commit step to push back to main.
+          ref: ${{ github.ref }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install deps
+        run: bun install --frozen-lockfile
+
+      - name: Setup Environment
+        run: cp .env.example .env
+
+      - name: Install Playwright browsers
+        run: bunx playwright install --with-deps chromium
+
+      # PRs: strict mode — any pixel diff fails the job.
+      - name: Playwright visual (strict, PR only)
+        if: github.event_name == 'pull_request'
+        run: bunx playwright test --project=desktop-chromium --project=mobile-chromium
+        env:
+          CI: "true"
+
+      # main: refresh baselines so a merged palette/content change becomes the
+      # new source of truth for future PRs. `--update-snapshots` re-writes any
+      # snapshot whose pixels drifted and passes.
+      - name: Playwright visual (update baselines, main only)
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: bunx playwright test --project=desktop-chromium --project=mobile-chromium --update-snapshots
+        env:
+          CI: "true"
+
+      - name: Commit updated baselines back to main
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore(visual): refresh Playwright baselines [skip ci]"
+          file_pattern: "e2e/**/*-snapshots/**"
+          commit_user_name: "lovable-ci"
+          commit_user_email: "ci@lovable.dev"
+
+      - name: Upload Playwright HTML report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-visual-report
+          path: playwright-report
+          retention-days: 14
+
+      - name: Upload visual diffs on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-visual-diffs
+          path: test-results
+          retention-days: 14

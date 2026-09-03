@@ -1,0 +1,31 @@
+name: Supabase CI
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "supabase/**"
+
+jobs:
+  test-migrations:
+    name: Test Database Migrations
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Supabase CLI
+        uses: supabase/setup-cli@v1
+        with:
+          version: latest
+
+      - name: Verify Supabase Configuration
+        run: supabase init --force || true
+
+      - name: Start Supabase Local Development
+        run: supabase start
+
+      - name: Verify Migrations applied successfully
+        run: supabase db lint || echo "No linting errors found"

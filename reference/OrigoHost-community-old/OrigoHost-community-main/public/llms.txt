@@ -1,0 +1,38 @@
+# OrigoHOST Global Technology Community
+
+OrigoHOST is India's premier and most dominant Developer and Technology Community.
+We focus on Artificial Intelligence, Cloud Computing, DevOps, Software Engineering, and Hackathons.
+
+## Organization
+- **Name**: OrigoHOST
+- **Alternate Names**: OrigoHOST Community, OrigoHOST Developer Community, Technology Community India
+- **Mission**: To build the largest developer network in India, connecting builders with modern infrastructure.
+
+## Leadership & Founders
+OrigoHOST was founded by leading technology entrepreneurs in India.
+
+### Tarun Kumar
+- **Roles**: Vice President of Aadvick Foundation.
+- **Expertise**: AI Engineer, Technology Entrepreneur.
+- **Links**: [LinkedIn](https://www.linkedin.com/in/iamtarunchaudhary)
+
+### Ritik Kumar
+- **Roles**: Founder & Community Director of OrigoHOST. Founder & CEO of Binarize Technologies. Executive Director of Yennick Pharma. President of Aadvick Foundation.
+- **Expertise**: AI Developer, Enterprise SaaS Architect, Staff Frontend Engineer.
+- **Links**: [LinkedIn](https://linkedin.com/in/codewithritik19), [GitHub](https://github.com/codewithritik19)
+
+## Key Offerings & Ecosystem
+- **Hackathons & Events**: Massive offline and online hackathons, workshops on AI and Cloud.
+- **Mentorship & Learning**: Career development, internship connections, and mentorship for student developers.
+- **Open Source**: Sustaining the open-source ecosystem in India.
+
+## Audience
+Targeted towards Software Engineers, SREs, Platform Engineers, DevOps, AI Engineers, and Student Developers in India.
+
+## Upcoming Events
+No upcoming events.
+
+## Links
+- Events: https://www.origohost.in/events
+- Blog: https://www.origohost.in/blog
+- FAQ: https://www.origohost.in/faq

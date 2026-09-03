@@ -135,7 +135,7 @@ export default function LoginPage() {
               <BrandLogo size={28} />
               Origo
               <span className="bg-gradient-to-r from-[var(--brand-orange)] to-[var(--brand-green)] bg-clip-text text-transparent">
-                Host
+                HOST
               </span>
             </Link>
             <div>
@@ -161,7 +161,7 @@ export default function LoginPage() {
                 <BrandLogo size={26} />
                 Origo
                 <span className="bg-gradient-to-r from-[var(--brand-orange)] to-[var(--brand-green)] bg-clip-text text-transparent">
-                  Host
+                  HOST
                 </span>
               </Link>
             </div>

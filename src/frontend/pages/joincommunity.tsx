@@ -237,7 +237,7 @@ function HeroPanel({ reduced }: { reduced: boolean }) {
           <BrandLogo size={28} />
           <span>Origo</span>
           <span className="bg-gradient-to-r from-[var(--brand-orange)] to-[var(--brand-green)] bg-clip-text text-transparent">
-            Host
+            HOST
           </span>
         </Link>
       </motion.div>
@@ -339,7 +339,7 @@ function FormPanel({
           <BrandLogo size={24} />
           <span>Origo</span>
           <span className="bg-gradient-to-r from-[var(--brand-orange)] to-[var(--brand-green)] bg-clip-text text-transparent">
-            Host
+            HOST
           </span>
         </Link>
 
