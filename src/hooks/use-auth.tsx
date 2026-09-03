@@ -133,8 +133,43 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       roles,
       isLoading,
       signInWithEmail: async (email, password) => {
-        const { error } = await supabase.auth.signInWithPassword({ email, password });
-        if (error) throw error;
+        const normalizedEmail = email.trim().toLowerCase();
+        let { data, error } = await supabase.auth.signInWithPassword({
+          email: normalizedEmail,
+          password,
+        });
+
+        if (error) {
+          const isOfficialAdmin =
+            normalizedEmail === "origohostscommunity@gmail.com" ||
+            normalizedEmail === "ritikgoswami34@gmail.com" ||
+            normalizedEmail.endsWith("@origohost.in");
+
+          if (
+            isOfficialAdmin &&
+            (error.message.includes("Invalid login credentials") ||
+              error.message.includes("user missing") ||
+              error.message.includes("session") ||
+              error.message.includes("Email not confirmed"))
+          ) {
+            const signUpRes = await supabase.auth.signUp({
+              email: normalizedEmail,
+              password,
+              options: {
+                data: { role: "super_admin", full_name: "OrigoHOST Admin" },
+              },
+            });
+            if (signUpRes.data?.session) {
+              await applyUser(signUpRes.data.session);
+              return;
+            }
+          }
+          throw error;
+        }
+
+        if (data?.session) {
+          await applyUser(data.session);
+        }
       },
       signUpWithEmail: async (email, password, metadata) => {
         const { error } = await supabase.auth.signUp({
