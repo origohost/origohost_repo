@@ -1,6 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { buildSeo } from "@/lib/seo";
-import { buildOrganizationSchema, buildWebPageSchema, buildBreadcrumbSchema } from "@/lib/structured-data";
+import {
+  buildOrganizationSchema,
+  buildWebPageSchema,
+  buildBreadcrumbSchema,
+} from "@/lib/structured-data";
 import AboutPage from "@/frontend/pages/about";
 
 export const Route = createFileRoute("/about")({

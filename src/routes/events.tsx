@@ -211,9 +211,17 @@ function EventsPage() {
       const matchesMode = selectedMode === "All" || ev.mode === selectedMode.toLowerCase();
       const matchesFormat = selectedFormat === "All Formats" || ev.format === selectedFormat;
       const matchesDomain = selectedDomain === "All Domains" || ev.domain === selectedDomain;
-      const matchesIndustry = selectedIndustry === "All Industries" || ev.industry === selectedIndustry;
+      const matchesIndustry =
+        selectedIndustry === "All Industries" || ev.industry === selectedIndustry;
 
-      return matchesSearch && matchesStatus && matchesMode && matchesFormat && matchesDomain && matchesIndustry;
+      return (
+        matchesSearch &&
+        matchesStatus &&
+        matchesMode &&
+        matchesFormat &&
+        matchesDomain &&
+        matchesIndustry
+      );
     });
   }, [search, selectedStatus, selectedMode, selectedFormat, selectedDomain, selectedIndustry]);
 
@@ -231,7 +239,10 @@ function EventsPage() {
           </h1>
           <p className="mt-4 text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
             Explore technology events across India — structured by{" "}
-            <strong className="text-white font-bold">Event Format × Technology Domain × Real-World Industry</strong>.
+            <strong className="text-white font-bold">
+              Event Format × Technology Domain × Real-World Industry
+            </strong>
+            .
           </p>
         </div>
       </section>
@@ -265,7 +276,9 @@ function EventsPage() {
                         : "text-slate-600 hover:text-slate-900"
                     }`}
                   >
-                    {st === "Live" && <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse mr-1.5" />}
+                    {st === "Live" && (
+                      <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse mr-1.5" />
+                    )}
                     {st}
                   </button>
                 ))}
@@ -371,10 +384,16 @@ function EventsPage() {
       <section className="py-12 px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="flex items-center justify-between mb-8">
           <div className="text-xs font-bold text-slate-500 uppercase tracking-wider">
-            Showing <strong className="text-slate-900">{filteredEvents.length}</strong> matching events
+            Showing <strong className="text-slate-900">{filteredEvents.length}</strong> matching
+            events
           </div>
 
-          {(selectedFormat !== "All Formats" || selectedDomain !== "All Domains" || selectedIndustry !== "All Industries" || search || selectedStatus !== "All" || selectedMode !== "All") && (
+          {(selectedFormat !== "All Formats" ||
+            selectedDomain !== "All Domains" ||
+            selectedIndustry !== "All Industries" ||
+            search ||
+            selectedStatus !== "All" ||
+            selectedMode !== "All") && (
             <button
               onClick={() => {
                 setSearch("");
@@ -396,7 +415,8 @@ function EventsPage() {
             <Layers className="w-12 h-12 text-slate-400 mx-auto mb-4" />
             <h3 className="text-xl font-bold text-slate-900 mb-2">No matching events found</h3>
             <p className="text-sm text-slate-500 mb-6">
-              Try adjusting your search criteria or choosing different technology domain and industry filters.
+              Try adjusting your search criteria or choosing different technology domain and
+              industry filters.
             </p>
             <Button
               onClick={() => {
@@ -472,11 +492,15 @@ function EventsPage() {
                   <div className="flex items-center justify-between text-xs font-bold text-slate-500">
                     <span>{ev.price === 0 ? "Free Ticket" : `₹${ev.price}`}</span>
                     <span className="flex items-center gap-1 text-slate-400">
-                      <Users className="w-3.5 h-3.5 text-blue-600" /> {ev.registeredCount} / {ev.max_seats}
+                      <Users className="w-3.5 h-3.5 text-blue-600" /> {ev.registeredCount} /{" "}
+                      {ev.max_seats}
                     </span>
                   </div>
 
-                  <Button asChild className="w-full rounded-full bg-blue-600 hover:bg-blue-700 font-bold">
+                  <Button
+                    asChild
+                    className="w-full rounded-full bg-blue-600 hover:bg-blue-700 font-bold"
+                  >
                     <Link to="/community/events/$eventId" params={{ eventId: ev.slug }}>
                       Event Details <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
