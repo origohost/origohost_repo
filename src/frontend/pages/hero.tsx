@@ -125,30 +125,45 @@ export default function HeroSection() {
           </motion.div>
         </div>
 
-        {/* Right Side: Visual Story Composition (5 Columns) */}
+        {/* Right Side: Official Monogram with 3D Tilt & Glowing Radial Backdrop (5 Columns) */}
         <div className="lg:col-span-5 relative min-h-[420px] flex items-center justify-center mt-6 lg:mt-0">
-          <Tilt>
-            <div className="relative z-10 w-full max-w-[420px] aspect-4/3 rounded-3xl overflow-hidden border border-white/20 bg-slate-900/80 shadow-2xl group">
-              <img
-                src="/event-gallery-1.jpg"
-                alt="OrigoHOST Community Event"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
+          {/* Glowing Radial Backdrop */}
+          <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
+            <div className="w-[350px] sm:w-[420px] h-[350px] sm:h-[420px] bg-gradient-to-tr from-blue-600/30 via-cyan-500/20 to-emerald-500/20 rounded-full blur-3xl animate-pulse" />
+          </div>
 
-              {/* Monogram Overlay Badge */}
-              <div className="absolute top-4 left-4 flex items-center gap-2 bg-slate-950/80 backdrop-blur-md border border-white/20 px-3 py-1.5 rounded-full text-xs font-bold text-white">
-                <img src="/logo-monogram.png" alt="Monogram" className="w-5 h-5 object-contain" />
-                <span>OrigoHOST Ecosystem</span>
+          <Tilt className="w-full max-w-[420px]">
+            <div className="relative z-10 w-full rounded-3xl border border-white/20 bg-slate-900/85 backdrop-blur-xl p-10 flex flex-col items-center justify-center text-center shadow-[0_20px_50px_rgba(0,0,0,0.5)] group overflow-hidden">
+              {/* Background Grid Accent */}
+              <div className="absolute inset-0 bg-[radial-gradient(#3b82f6_1px,transparent_1px)] [background-size:16px_16px] opacity-15" />
+
+              {/* Top Ecosystem Pill */}
+              <div className="absolute top-4 right-4 bg-blue-500/20 text-blue-300 border border-blue-500/30 text-[10px] font-mono font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-md backdrop-blur-sm flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-blue-400 animate-ping" />
+                <span>Official Monogram</span>
               </div>
 
-              {/* Event Content Overlay */}
-              <div className="absolute bottom-4 left-4 right-4 text-white">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/20 px-2.5 py-0.5 rounded border border-emerald-500/30">
-                  LIVE COMMUNITY SESSION
+              {/* Official Monogram Image with Halo Glow */}
+              <div className="relative pt-6 pb-4">
+                <div className="absolute inset-0 rounded-full bg-blue-500/25 blur-2xl scale-125" />
+                <img
+                  src="/origohost-monogram.png"
+                  alt="OrigoHOST Official Monogram"
+                  className="w-44 sm:w-52 h-auto object-contain relative z-10 filter drop-shadow-[0_15px_30px_rgba(37,99,235,0.6)] group-hover:scale-105 transition-transform duration-700"
+                />
+              </div>
+
+              {/* Emblem Details */}
+              <div className="relative z-10 pt-4 border-t border-white/10 w-full space-y-1">
+                <span className="text-[11px] font-mono font-bold uppercase tracking-widest text-blue-400">
+                  ORIGOHOST TECH ECOSYSTEM
                 </span>
-                <h4 className="text-lg font-bold mt-1 leading-snug">National Tech Builders Summit</h4>
-                <p className="text-xs text-slate-300 mt-0.5 line-clamp-1">Connecting 15,000+ developers & researchers across India.</p>
+                <h3 className="text-xl font-black text-white tracking-tight">
+                  Where Builders Connect
+                </h3>
+                <p className="text-xs text-slate-400 font-medium">
+                  Event Format × Technology Domain × Industry
+                </p>
               </div>
             </div>
           </Tilt>
