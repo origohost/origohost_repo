@@ -52,8 +52,7 @@ export const HomeHero: React.FC<HomeHeroProps> = ({ data }) => {
               <Button
                 asChild
                 size="lg"
-                variant="outline"
-                className="rounded-full border-white/20 text-white hover:bg-white/10 font-bold px-8 text-base h-13"
+                className="rounded-full border border-white/30 bg-white/10 hover:bg-white/20 text-white font-bold px-8 text-base h-13 backdrop-blur-md transition-all shadow-md"
               >
                 <Link to={data.secondaryCtaLink as any}>{data.secondaryCtaText}</Link>
               </Button>

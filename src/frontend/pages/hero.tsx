@@ -28,13 +28,13 @@ export default function HeroSection() {
       className="relative overflow-hidden bg-[#050505] text-white hero-editorial-cover"
     >
       {/* Background Community Image Overlay */}
-      <div className="absolute inset-0 pointer-events-none z-0 opacity-25 mix-blend-luminosity">
+      <div className="absolute inset-0 pointer-events-none z-0 opacity-15">
         <img
           src="/team-group.webp"
           alt="OrigoHOST Community Group"
           className="w-full h-full object-cover filter blur-xs"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#050505] via-[#050505]/80 to-[#050505]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#050505] via-[#050505]/90 to-[#050505]" />
       </div>
 
       {/* Background radial glows */}
@@ -105,8 +105,7 @@ export default function HeroSection() {
             <Button
               asChild
               size="lg"
-              variant="outline"
-              className="w-full sm:w-auto h-14 rounded-full border-white/25 bg-white/10 px-8 font-bold text-base text-white backdrop-blur-md hover:bg-white/20 hover:border-white/40 transition-all hover:-translate-y-1 group"
+              className="w-full sm:w-auto h-14 rounded-full border border-white/30 bg-white/10 hover:bg-white/20 text-white font-bold text-base px-8 backdrop-blur-md transition-all shadow-md group"
             >
               <Link to="/register">
                 Join the Community{" "}
