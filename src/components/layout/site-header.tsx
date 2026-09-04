@@ -170,14 +170,18 @@ export function SiteHeader() {
         onPointerLeave={onPointerLeave}
         className={
           "group relative mx-auto flex items-center justify-between gap-3 overflow-hidden rounded-full px-4 py-2 lg:py-2.5 will-change-transform " +
-          "border border-white/20 bg-slate-900/95 text-white " +
+          "border bg-slate-900/95 text-white " +
           "backdrop-blur-xl backdrop-saturate-150 shadow-2xl " +
-          "motion-safe:transition-[max-width,box-shadow] motion-safe:duration-500 motion-safe:ease-out"
+          "motion-safe:transition-[max-width,box-shadow,border-color] motion-safe:duration-500 motion-safe:ease-out"
         }
         style={{
           maxWidth: scrolled ? "68rem" : "80rem",
           transform: "rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg))",
           transformStyle: "preserve-3d",
+          borderColor: scrolled ? "rgba(37,99,235,0.4)" : "rgba(255,255,255,0.15)",
+          boxShadow: scrolled
+            ? "0 0 0 1px rgba(37,99,235,0.2), 0 20px 60px -15px rgba(0,0,0,0.5), 0 0 30px rgba(37,99,235,0.1)"
+            : "0 20px 60px -15px rgba(0,0,0,0.4)",
         }}
       >
         <span
@@ -305,13 +309,16 @@ export function SiteHeader() {
           {/* About Link */}
           <Link
             to="/about"
-            className={`rounded-full px-3 py-1.5 text-xs xl:text-sm font-semibold transition-colors ${
+            className={`relative rounded-full px-3 py-1.5 text-xs xl:text-sm font-semibold transition-colors ${
               pathname === "/about"
                 ? "text-white bg-white/15"
                 : "text-slate-200 hover:text-white hover:bg-white/10"
             }`}
           >
             About
+            {pathname === "/about" && (
+              <span className="absolute bottom-0.5 left-1/2 -translate-x-1/2 w-3 h-0.5 rounded-full bg-gradient-to-r from-blue-400 to-emerald-400" />
+            )}
           </Link>
         </nav>
 

@@ -89,15 +89,41 @@ const LEGAL_LINKS = [
 ];
 
 const SOCIALS = [
-  { icon: InstagramIcon, href: "https://www.instagram.com/origohost", label: "Instagram" },
-  { icon: Linkedin, href: "https://www.linkedin.com/company/origohost", label: "LinkedIn" },
-  { icon: DiscordIcon, href: "https://discord.gg/origohost", label: "Discord" },
-  { icon: Youtube, href: "https://youtube.com/@origohost", label: "YouTube" },
-  { icon: Twitter, href: "https://twitter.com/origohost", label: "X (Twitter)" },
+  {
+    icon: InstagramIcon,
+    href: "https://www.instagram.com/origohost",
+    label: "Instagram",
+    hoverClass: "hover:bg-gradient-to-br hover:from-purple-600 hover:to-pink-500 hover:border-transparent hover:text-white",
+  },
+  {
+    icon: Linkedin,
+    href: "https://www.linkedin.com/company/origohost",
+    label: "LinkedIn",
+    hoverClass: "hover:bg-[#0A66C2] hover:border-transparent hover:text-white",
+  },
+  {
+    icon: DiscordIcon,
+    href: "https://discord.gg/origohost",
+    label: "Discord",
+    hoverClass: "hover:bg-[#5865F2] hover:border-transparent hover:text-white",
+  },
+  {
+    icon: Youtube,
+    href: "https://youtube.com/@origohost",
+    label: "YouTube",
+    hoverClass: "hover:bg-[#FF0000] hover:border-transparent hover:text-white",
+  },
+  {
+    icon: Twitter,
+    href: "https://twitter.com/origohost",
+    label: "X (Twitter)",
+    hoverClass: "hover:bg-slate-100 hover:text-slate-900 hover:border-transparent",
+  },
   {
     icon: WhatsAppIcon,
     href: "https://chat.whatsapp.com/BZnqAGpubNLDXLncASeOTM",
     label: "WhatsApp",
+    hoverClass: "hover:bg-[#25D366] hover:border-transparent hover:text-white",
   },
 ];
 
@@ -146,18 +172,27 @@ function FooterCol({ title, links }: { title: string; links: { to: string; label
 export function SiteFooter() {
   return (
     <motion.footer
-      className="relative bg-[#050B14] text-white overflow-hidden pt-16 pb-8 selection:bg-blue-500/30 border-t border-white/10 glow-pulse"
+      className="relative bg-[#050B14] text-white overflow-hidden pt-16 pb-8 selection:bg-blue-500/30"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "100px" }}
       variants={zoomOut}
     >
+      {/* Gradient top border */}
+      <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-blue-500 via-50% to-emerald-500 to-transparent opacity-70" />
+
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[300px] bg-blue-600/5 blur-[120px] pointer-events-none rounded-full" />
 
       <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
         {/* FOOTER CTA BANNER */}
-        <div className="mb-16 rounded-3xl bg-gradient-to-r from-blue-900/40 via-blue-800/30 to-emerald-900/30 p-8 border border-white/10 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
-          <div>
+        <div className="mb-16 rounded-3xl bg-gradient-to-r from-blue-900/50 via-blue-800/40 to-emerald-900/40 p-8 border border-white/10 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left relative overflow-hidden group">
+          {/* Shimmer sweep on hover */}
+          <div className="absolute inset-0 translate-x-[-120%] skew-x-[-20deg] bg-white/4 group-hover:translate-x-[120%] transition-transform duration-1000 ease-in-out pointer-events-none" />
+          <div className="relative">
+            <div className="flex items-center gap-2 mb-1 justify-center md:justify-start">
+              <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              <span className="text-[10px] font-bold uppercase tracking-widest text-emerald-400">Community is Live</span>
+            </div>
             <h3 className="text-2xl font-black text-white">Your Next Build Could Start Here.</h3>
             <p className="text-xs text-slate-200 mt-1">
               Learn something new. Meet someone new. Build something meaningful.
@@ -233,19 +268,20 @@ export function SiteFooter() {
 
           {/* Social Icons & Copyright */}
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4 pt-6 border-t border-white/5">
-            <div className="text-xs text-slate-300 font-medium text-center sm:text-left">
-              © 2026 OrigoHOST. All rights reserved. Learn. Connect. Compete. Build.
+            <div className="text-xs text-slate-400 font-medium text-center sm:text-left flex flex-col gap-0.5">
+              <span>© 2026 OrigoHOST. All rights reserved.</span>
+              <span className="text-slate-500">Learn. Connect. Compete. Build. — Made with ❤ by the OrigoHOST Community</span>
             </div>
 
             <motion.div variants={fadeUp} className="flex flex-wrap justify-center gap-2">
-              {SOCIALS.map(({ icon: Icon, href, label }) => (
+              {SOCIALS.map(({ icon: Icon, href, label, hoverClass }) => (
                 <a
                   key={label}
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 border border-white/10 text-slate-300 transition-all hover:bg-white/15 hover:text-white"
+                  className={`flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 border border-white/10 text-slate-300 transition-all duration-200 ${hoverClass || "hover:bg-white/15 hover:text-white"}`}
                 >
                   <Icon className="h-3.5 w-3.5" />
                 </a>
