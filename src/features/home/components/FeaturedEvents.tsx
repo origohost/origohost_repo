@@ -42,37 +42,46 @@ export const FeaturedEvents: React.FC<FeaturedEventsProps> = ({ eyebrow, title, 
               return (
                 <div
                   key={event.id}
-                  className="rounded-3xl border border-slate-200 bg-white overflow-hidden shadow-xs hover:shadow-md transition-all flex flex-col justify-between group"
+                  className="rounded-3xl border border-slate-200 bg-white overflow-hidden shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col group hover:-translate-y-1.5"
                 >
-                  <div>
-                    <div className="aspect-[16/10] overflow-hidden relative">
-                      <img
-                        src={event.banner_url || "/assets/events/kss2026ep03-poster.webp"}
-                        alt={event.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                      />
-                      <span className="absolute top-3 right-3 text-[10px] font-bold uppercase tracking-wider bg-blue-600 text-white px-2.5 py-1 rounded-full shadow-md">
-                        {event.status || "Upcoming"}
-                      </span>
-                    </div>
-                    <div className="p-6">
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-blue-600 bg-blue-50 px-2.5 py-0.5 rounded border border-blue-200">
-                        {event.domain || event.format || "Technology Event"}
-                      </span>
-                      <h3 className="text-lg font-bold text-slate-900 mt-2 mb-2 group-hover:text-blue-600 transition-colors">
-                        {event.title}
-                      </h3>
-                      <p className="text-xs text-slate-600 leading-relaxed mb-4 line-clamp-2">
-                        {event.description || "Join community builders and practitioners for an interactive technical session."}
-                      </p>
-                      <div className="text-xs text-slate-500 font-semibold space-y-1">
-                        <div>📅 Date: {formattedDate}</div>
-                        <div>📍 Mode: {event.location || event.mode || "Online"}</div>
+                  {/* Event Thumbnail — tall portrait for poster-style events */}
+                  <div className="relative overflow-hidden" style={{ height: "260px" }}>
+                    <img
+                      src={event.banner_url || "/assets/events/kss2026ep03-poster.webp"}
+                      alt={event.title}
+                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out"
+                    />
+                    {/* Gradient overlay for readability */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
+                    {/* Status badge */}
+                    <span className="absolute top-3 right-3 text-[10px] font-bold uppercase tracking-wider bg-blue-600 text-white px-2.5 py-1 rounded-full shadow-md">
+                      {event.status || "Upcoming"}
+                    </span>
+                    {/* Domain badge bottom-left */}
+                    <span className="absolute bottom-3 left-3 text-[10px] font-bold uppercase tracking-wider bg-white/90 backdrop-blur-sm text-blue-700 px-2.5 py-1 rounded-full shadow-sm border border-blue-100">
+                      {event.domain || event.format || "Tech Event"}
+                    </span>
+                  </div>
+
+                  {/* Card Body */}
+                  <div className="p-5 flex flex-col flex-1">
+                    <h3 className="text-base font-bold text-slate-900 mb-2 leading-snug group-hover:text-blue-600 transition-colors line-clamp-2">
+                      {event.title}
+                    </h3>
+                    <p className="text-xs text-slate-500 leading-relaxed mb-4 line-clamp-2 flex-1">
+                      {event.description || "Join community builders and practitioners for an interactive technical session."}
+                    </p>
+                    <div className="text-xs text-slate-500 font-semibold space-y-1.5 mb-5 border-t border-slate-100 pt-4">
+                      <div className="flex items-center gap-2">
+                        <span className="text-slate-400">📅</span>
+                        <span>{formattedDate}</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <span className="text-slate-400">📍</span>
+                        <span>{event.location || event.mode || "Online"}</span>
                       </div>
                     </div>
-                  </div>
-                  <div className="p-6 pt-0">
-                    <Button asChild className="w-full rounded-full bg-blue-600 hover:bg-blue-700 font-bold text-xs">
+                    <Button asChild className="w-full rounded-full bg-blue-600 hover:bg-blue-700 font-bold text-xs h-10">
                       <Link to="/events">
                         Register Free <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
                       </Link>

@@ -29,14 +29,18 @@ export const EventExperiences: React.FC<EventExperiencesProps> = ({ data }) => {
         </div>
 
         {/* FEATURED POSTER BANNER + FORMAT GRID */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Featured Poster Banner (5 Columns) */}
-          <div className="lg:col-span-5 rounded-3xl overflow-hidden border border-white/20 shadow-2xl relative group bg-slate-900">
-            <img
-              src={data.flagshipPoster.posterUrl}
-              alt={data.flagshipPoster.title}
-              className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
-            />
+          <div className="lg:col-span-5 rounded-3xl overflow-hidden border border-white/20 shadow-2xl relative group bg-slate-900 flex flex-col">
+            {/* Poster image at natural ratio, max height 400px */}
+            <div className="relative overflow-hidden" style={{ maxHeight: "400px" }}>
+              <img
+                src={data.flagshipPoster.posterUrl}
+                alt={data.flagshipPoster.title}
+                className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent" />
+            </div>
             <div className="p-6 bg-slate-900 border-t border-white/10">
               <span className="text-[10px] font-bold uppercase tracking-wider bg-blue-500/20 text-blue-300 px-2.5 py-0.5 rounded border border-blue-500/30">
                 {data.flagshipPoster.tag}
@@ -51,11 +55,11 @@ export const EventExperiences: React.FC<EventExperiencesProps> = ({ data }) => {
             {data.formats.map((fmt) => (
               <div
                 key={fmt.name}
-                className="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-sm hover:border-blue-500/50 transition-colors"
+                className="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-sm hover:border-blue-500/50 hover:bg-white/10 transition-all duration-200 cursor-pointer group"
               >
-                <h4 className="text-base font-bold text-white mb-1 flex items-center justify-between">
+                <h4 className="text-base font-bold text-white mb-1.5 flex items-center justify-between">
                   <span>{fmt.name}</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-blue-400 opacity-60" />
+                  <ArrowRight className="w-3.5 h-3.5 text-blue-400 opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" />
                 </h4>
                 <p className="text-xs text-slate-300 leading-relaxed">{fmt.desc}</p>
               </div>
