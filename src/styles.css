@@ -655,6 +655,21 @@
     box-shadow: var(--shadow-elevated);
     z-index: 10;
   }
+  .image-overlay-dark {
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(5, 5, 5, 0.4) 0%, rgba(5, 5, 5, 0.85) 100%);
+      pointer-events: none;
+    }
+  }
+  .hero-editorial-cover {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
 }
 
 @layer base {

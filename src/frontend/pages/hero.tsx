@@ -25,28 +25,38 @@ export default function HeroSection() {
     <section
       id="hero"
       data-testid="hero"
-      className="relative overflow-hidden bg-[#050505] text-white"
+      className="relative overflow-hidden bg-[#050505] text-white hero-editorial-cover"
     >
-      {/* Background glow radial */}
-      <div className="absolute inset-0 pointer-events-none z-0">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-600/10 rounded-full blur-[120px]" />
-        <div className="absolute right-0 top-1/4 w-[600px] h-[600px] bg-emerald-600/10 rounded-full blur-[100px]" />
+      {/* Background Community Image Overlay */}
+      <div className="absolute inset-0 pointer-events-none z-0 opacity-25 mix-blend-luminosity">
+        <img
+          src="/team-group.webp"
+          alt="OrigoHOST Community Group"
+          className="w-full h-full object-cover filter blur-xs"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#050505] via-[#050505]/80 to-[#050505]" />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-7xl px-6 pt-28 pb-12 sm:pt-36 sm:pb-16 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        {/* Left Side */}
-        <div className="max-w-2xl">
+      {/* Background radial glows */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+        <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[750px] h-[750px] bg-blue-600/15 rounded-full blur-[130px]" />
+        <div className="absolute right-0 top-1/4 w-[600px] h-[600px] bg-emerald-600/10 rounded-full blur-[110px]" />
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-7xl px-6 pt-28 pb-12 sm:pt-36 sm:pb-16 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        {/* Left Side (7 Columns) */}
+        <div className="lg:col-span-7 max-w-2xl">
           {/* Eyebrow */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 rounded-full border border-blue-500/20 bg-[#111] px-4 py-1.5 mb-6"
+            className="inline-flex items-center gap-2.5 rounded-full border border-blue-500/30 bg-[#0d1527]/90 px-4 py-1.5 mb-6 backdrop-blur-md"
           >
             <span className="relative flex h-2.5 w-2.5">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-500 opacity-75"></span>
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-400 opacity-75"></span>
               <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-blue-500"></span>
             </span>
-            <span className="text-xs sm:text-xs font-bold uppercase tracking-widest text-blue-400">
+            <span className="text-xs sm:text-xs font-bold uppercase tracking-widest text-blue-300">
               TECHNOLOGY COMMUNITY • EVENTS • KNOWLEDGE • COLLABORATION
             </span>
           </motion.div>
@@ -60,7 +70,7 @@ export default function HeroSection() {
           >
             Where Technology Communities
             <br />
-            <span className="text-[#0066ff] drop-shadow-[0_0_20px_rgba(0,102,255,0.4)]">
+            <span className="bg-gradient-to-r from-blue-400 via-blue-500 to-emerald-400 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(37,99,235,0.4)]">
               Come Together.
             </span>
           </motion.h1>
@@ -70,11 +80,9 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-base sm:text-lg text-slate-300 leading-relaxed mb-8"
+            className="text-base sm:text-lg text-slate-200 leading-relaxed mb-8"
           >
-            OrigoHOST is a technology community bringing people together through meetups, seminars,
-            hackathons, ideathons, tech marathons, webinars, KSS sessions, workshops, and other
-            experiences across technology domains and real-world industries.
+            OrigoHOST brings developers, learners, innovators, educators, and practitioners together through meetups, seminars, hackathons, ideathons, webinars, KSS sessions, and workshops across technology domains and real-world industries.
           </motion.p>
 
           {/* CTAs */}
@@ -87,7 +95,7 @@ export default function HeroSection() {
             <Button
               asChild
               size="lg"
-              className="w-full sm:w-auto h-14 rounded-full bg-blue-600 hover:bg-blue-700 px-8 font-bold text-base text-white shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_30px_rgba(37,99,235,0.6)] transition-all hover:scale-105"
+              className="w-full sm:w-auto h-14 rounded-full bg-blue-600 hover:bg-blue-700 px-8 font-bold text-base text-white shadow-[0_0_25px_rgba(37,99,235,0.5)] hover:shadow-[0_0_35px_rgba(37,99,235,0.7)] transition-all hover:scale-105"
             >
               <Link to="/events">
                 Explore Events <ArrowRight className="ml-2 h-4 w-4" />
@@ -98,7 +106,7 @@ export default function HeroSection() {
               asChild
               size="lg"
               variant="outline"
-              className="w-full sm:w-auto h-14 rounded-full border-white/20 bg-white/5 px-8 font-bold text-base text-white backdrop-blur-md hover:bg-white/10 hover:border-white/30 transition-all hover:-translate-y-1 group"
+              className="w-full sm:w-auto h-14 rounded-full border-white/25 bg-white/10 px-8 font-bold text-base text-white backdrop-blur-md hover:bg-white/20 hover:border-white/40 transition-all hover:-translate-y-1 group"
             >
               <Link to="/register">
                 Join the Community{" "}
@@ -111,55 +119,61 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.35 }}
-            className="text-xs sm:text-sm font-semibold text-slate-400 tracking-wide"
+            className="text-xs sm:text-sm font-semibold text-slate-300 tracking-wide flex items-center gap-2"
           >
-            ✓ A Technology Community Where Ideas, People & Possibilities Connect.
+            <span className="text-emerald-400">✓</span> A Technology Community Where Ideas, People & Possibilities Connect.
           </motion.div>
         </div>
 
-        {/* Right Graphic: Integrated Ecosystem Visual */}
-        <div className="relative min-h-[400px] lg:min-h-[480px] flex items-center justify-center mt-6 lg:mt-0">
+        {/* Right Side: Visual Story Composition (5 Columns) */}
+        <div className="lg:col-span-5 relative min-h-[420px] flex items-center justify-center mt-6 lg:mt-0">
           <Tilt>
-            <div className="relative z-10 w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] lg:w-[440px] lg:h-[440px] flex items-center justify-center">
-              <div className="absolute inset-0 bg-blue-600/25 rounded-full blur-[90px] -z-10 animate-pulse" />
+            <div className="relative z-10 w-full max-w-[420px] aspect-4/3 rounded-3xl overflow-hidden border border-white/20 bg-slate-900/80 shadow-2xl group">
               <img
-                src="/logo-monogram.png"
-                alt="OrigoHOST Official Monogram"
-                className="relative z-10 w-48 h-48 sm:w-64 sm:h-64 object-contain drop-shadow-[0_0_40px_rgba(37,99,235,0.6)]"
+                src="/event-gallery-1.jpg"
+                alt="OrigoHOST Community Event"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
 
-              {/* Floating Ecosystem Badges */}
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.3 }}
-                className="absolute top-4 left-0 sm:-left-4 bg-slate-900/90 border border-blue-500/30 text-white px-3.5 py-2 rounded-2xl backdrop-blur-md shadow-xl flex items-center gap-2.5 z-20 text-xs font-bold"
-              >
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping" />
-                <span>CyberForge Hackathon Live</span>
-              </motion.div>
+              {/* Monogram Overlay Badge */}
+              <div className="absolute top-4 left-4 flex items-center gap-2 bg-slate-950/80 backdrop-blur-md border border-white/20 px-3 py-1.5 rounded-full text-xs font-bold text-white">
+                <img src="/logo-monogram.png" alt="Monogram" className="w-5 h-5 object-contain" />
+                <span>OrigoHOST Ecosystem</span>
+              </div>
 
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.4 }}
-                className="absolute bottom-12 right-0 sm:-right-4 bg-slate-900/90 border border-emerald-500/30 text-white px-3.5 py-2 rounded-2xl backdrop-blur-md shadow-xl flex items-center gap-2 z-20 text-xs font-bold"
-              >
-                <Sparkles className="w-4 h-4 text-emerald-400" />
-                <span>AI × AgriTech Ideathon</span>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 }}
-                className="absolute -bottom-2 left-8 bg-slate-900/90 border border-purple-500/30 text-white px-3.5 py-2 rounded-2xl backdrop-blur-md shadow-xl flex items-center gap-2 z-20 text-xs font-bold"
-              >
-                <Cpu className="w-4 h-4 text-purple-400" />
-                <span>120+ KSS & Workshops</span>
-              </motion.div>
+              {/* Event Content Overlay */}
+              <div className="absolute bottom-4 left-4 right-4 text-white">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/20 px-2.5 py-0.5 rounded border border-emerald-500/30">
+                  LIVE COMMUNITY SESSION
+                </span>
+                <h4 className="text-lg font-bold mt-1 leading-snug">National Tech Builders Summit</h4>
+                <p className="text-xs text-slate-300 mt-0.5 line-clamp-1">Connecting 15,000+ developers & researchers across India.</p>
+              </div>
             </div>
           </Tilt>
+
+          {/* Floating Chip 1 */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.4 }}
+            className="absolute -top-4 -right-2 sm:right-2 bg-slate-900/95 border border-blue-500/40 text-white px-3.5 py-2 rounded-2xl backdrop-blur-md shadow-xl flex items-center gap-2 z-20 text-xs font-bold"
+          >
+            <span className="w-2.5 h-2.5 rounded-full bg-blue-400 animate-ping" />
+            <span>CyberForge Hackathon Live</span>
+          </motion.div>
+
+          {/* Floating Chip 2 */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5 }}
+            className="absolute -bottom-4 -left-2 bg-slate-900/95 border border-emerald-500/40 text-white px-3.5 py-2 rounded-2xl backdrop-blur-md shadow-xl flex items-center gap-2 z-20 text-xs font-bold"
+          >
+            <Sparkles className="w-4 h-4 text-emerald-400" />
+            <span>AI × AgriTech Ideathon</span>
+          </motion.div>
         </div>
       </div>
 

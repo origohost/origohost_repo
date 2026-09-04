@@ -118,6 +118,31 @@ const TECH_INDUSTRY_INTERSECTIONS = [
   },
 ];
 
+// REAL LEADERS / SPEAKERS
+const COMMUNITY_LEADERS = [
+  {
+    name: "Ritik Kumar",
+    role: "Founder & Community Director",
+    org: "OrigoHOST Tech Ecosystem",
+    image: "/ritik-kumar.webp",
+    focus: "Community Growth & Tech Partnerships",
+  },
+  {
+    name: "Brajesh Kumar",
+    role: "Tech Lead & Keynote Speaker",
+    org: "OrigoHOST Labs",
+    image: "/brajesh-kumar.jpg",
+    focus: "Distributed Systems & Cloud Security",
+  },
+  {
+    name: "Tarun Kumar",
+    role: "Platform Architect",
+    org: "OrigoHOST Core",
+    image: "/tarun-kumar.webp",
+    focus: "Kubernetes, CI/CD & Platform Eng",
+  },
+];
+
 export default function HomePage() {
   const [featuredEvents, setFeaturedEvents] = useState<EventItem[]>([]);
 
@@ -132,7 +157,7 @@ export default function HomePage() {
       {/* 1. HERO SECTION & TRUST METRICS */}
       <HeroSection />
 
-      {/* 2. PARTICIPATION FRAMEWORK (4 PILLARS) */}
+      {/* 2. COMMUNITY PHOTO MOSAIC & PARTICIPATION FRAMEWORK */}
       <section id="participate" className="relative bg-white py-24 border-b border-slate-100">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center mb-16">
@@ -147,47 +172,76 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {PARTICIPATION_PILLARS.map((pillar) => (
-              <div
-                key={pillar.title}
-                className={`rounded-3xl border ${pillar.border} bg-white p-7 shadow-xs hover:shadow-md transition-all flex flex-col justify-between group`}
-              >
-                <div>
-                  <div className={`w-12 h-12 rounded-2xl ${pillar.bg} flex items-center justify-center mb-5`}>
-                    <pillar.icon className={`w-6 h-6 ${pillar.color}`} />
-                  </div>
-                  <span className="text-xs font-mono font-bold tracking-widest text-slate-400 block mb-1">
-                    PILLAR {pillar.title}
-                  </span>
-                  <h3 className="text-2xl font-black text-slate-900 mb-3">{pillar.title}</h3>
-                  <p className="text-xs text-slate-600 leading-relaxed mb-6">{pillar.desc}</p>
-
-                  <ul className="space-y-2 text-xs font-bold text-slate-800 border-t border-slate-100 pt-4">
-                    {pillar.items.map((item) => (
-                      <li key={item} className="flex items-center gap-2">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-blue-600 shrink-0" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+          {/* 2-COLUMN LAYOUT: PHOTO MOSAIC + 4 PILLARS */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16">
+            {/* Left Column: 3-Photo Community Mosaic */}
+            <div className="lg:col-span-5 grid grid-cols-2 gap-4">
+              <div className="col-span-2 rounded-3xl overflow-hidden shadow-lg border border-slate-200 aspect-16/10 group">
+                <img
+                  src="/event-gallery-2.jpg"
+                  alt="OrigoHOST Community Event Audience"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
               </div>
-            ))}
+              <div className="rounded-2xl overflow-hidden shadow-md border border-slate-200 aspect-square group">
+                <img
+                  src="/team-group.webp"
+                  alt="OrigoHOST Organizers"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+              </div>
+              <div className="rounded-2xl overflow-hidden shadow-md border border-slate-200 aspect-square group">
+                <img
+                  src="/event-gallery-4.jpg"
+                  alt="OrigoHOST Workshop Session"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+              </div>
+            </div>
+
+            {/* Right Column: 4 Pillars */}
+            <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {PARTICIPATION_PILLARS.map((pillar) => (
+                <div
+                  key={pillar.title}
+                  className={`rounded-3xl border ${pillar.border} bg-slate-50/50 p-6 shadow-xs hover:shadow-md transition-all flex flex-col justify-between group`}
+                >
+                  <div>
+                    <div className={`w-10 h-10 rounded-2xl ${pillar.bg} flex items-center justify-center mb-4`}>
+                      <pillar.icon className={`w-5 h-5 ${pillar.color}`} />
+                    </div>
+                    <span className="text-[10px] font-mono font-bold tracking-widest text-slate-400 block mb-1">
+                      PILLAR {pillar.title}
+                    </span>
+                    <h3 className="text-xl font-black text-slate-900 mb-2">{pillar.title}</h3>
+                    <p className="text-xs text-slate-600 leading-relaxed mb-4">{pillar.desc}</p>
+
+                    <ul className="space-y-1.5 text-xs font-bold text-slate-800 border-t border-slate-200/60 pt-3">
+                      {pillar.items.map((item) => (
+                        <li key={item} className="flex items-center gap-2">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-blue-600 shrink-0" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* 3. DYNAMIC UPCOMING EVENTS */}
-      <section id="events" className="bg-slate-900 py-24 text-white">
+      {/* 3. EVENT EXPERIENCES & FEATURED BANNER */}
+      <section id="event-experiences" className="bg-slate-950 py-24 text-white">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
             <div>
-              <span className="text-xs font-bold uppercase tracking-widest text-blue-400 bg-blue-500/20 px-3 py-1 rounded-full border border-blue-500/30">
-                UPCOMING EXPERIENCES
+              <span className="text-xs font-bold uppercase tracking-widest text-blue-400 bg-blue-500/20 px-3.5 py-1.5 rounded-full border border-blue-500/30">
+                EVENT EXPERIENCES
               </span>
-              <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight">
-                Featured Ecosystem Events
+              <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight">
+                Where the Community Comes Together
               </h2>
             </div>
             <Button
@@ -196,74 +250,186 @@ export default function HomePage() {
               className="rounded-full border-white/20 text-white hover:bg-white/10 font-bold text-sm"
             >
               <Link to="/events">
-                Explore All Events <Calendar className="ml-2 h-4 w-4" />
+                Explore All Formats <Calendar className="ml-2 h-4 w-4" />
               </Link>
             </Button>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {featuredEvents.length > 0
-              ? featuredEvents.map((ev) => (
-                  <div
-                    key={ev.id}
-                    className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm hover:border-blue-500/50 transition-all flex flex-col justify-between group"
-                  >
-                    <div>
-                      <div className="flex items-center justify-between text-xs font-bold mb-4">
-                        <span className="bg-blue-500/20 text-blue-300 border border-blue-500/30 px-3 py-1 rounded-full">
-                          {ev.format || "Community Event"}
-                        </span>
-                        <span className="text-slate-400 font-mono">{ev.mode || "Hybrid"}</span>
-                      </div>
-                      <h3 className="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
-                        {ev.title}
-                      </h3>
-                      <p className="text-xs text-slate-300 leading-relaxed mb-6 line-clamp-3">
-                        {ev.description || "Join community builders for this technical experience."}
-                      </p>
-                    </div>
-                    <Button asChild className="w-full rounded-full bg-blue-600 hover:bg-blue-700 font-bold">
-                      <Link to="/events">View Event <ArrowRight className="ml-2 h-4 w-4" /></Link>
-                    </Button>
-                  </div>
-                ))
-              : [
-                  { title: "CyberForge 2026 Hackathon", format: "Hackathon", desc: "48-hour intensive buildathon creating secure cloud applications & threat audit bots." },
-                  { title: "AI for Agriculture Ideathon", format: "Ideathon", desc: "Turn agricultural challenges into smart AI, drone telemetry & crop yield analysis solutions." },
-                  { title: "Knowledge Sharing Series (KSS)", format: "KSS Session", desc: "Expert-led technical deep dive sharing Kubernetes & CI/CD engineering playbooks." },
-                ].map((ev) => (
-                  <div
-                    key={ev.title}
-                    className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm hover:border-blue-500/50 transition-all flex flex-col justify-between group"
-                  >
-                    <div>
-                      <div className="flex items-center justify-between text-xs font-bold mb-4">
-                        <span className="bg-blue-500/20 text-blue-300 border border-blue-500/30 px-3 py-1 rounded-full">
-                          {ev.format}
-                        </span>
-                        <span className="text-emerald-400 font-mono">Upcoming</span>
-                      </div>
-                      <h3 className="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
-                        {ev.title}
-                      </h3>
-                      <p className="text-xs text-slate-300 leading-relaxed mb-6">
-                        {ev.desc}
-                      </p>
-                    </div>
-                    <Button asChild className="w-full rounded-full bg-blue-600 hover:bg-blue-700 font-bold">
-                      <Link to="/events">View Event <ArrowRight className="ml-2 h-4 w-4" /></Link>
-                    </Button>
-                  </div>
-                ))}
+          {/* FEATURED POSTER BANNER + FORMAT GRID */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            {/* Featured Poster Banner (5 Columns) */}
+            <div className="lg:col-span-5 rounded-3xl overflow-hidden border border-white/20 shadow-2xl relative group bg-slate-900">
+              <img
+                src="/assets/events/kss2026ep02-poster.webp"
+                alt="Knowledge Sharing Series Poster"
+                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+              <div className="p-6 bg-slate-900 border-t border-white/10">
+                <span className="text-[10px] font-bold uppercase tracking-wider bg-blue-500/20 text-blue-300 px-2.5 py-0.5 rounded border border-blue-500/30">
+                  FLAGSHIP WEBINAR SERIES
+                </span>
+                <h3 className="text-xl font-bold text-white mt-2">Knowledge Sharing Series (KSS 2026)</h3>
+                <p className="text-xs text-slate-300 mt-1">Live technical deep dives led by cloud and platform practitioners.</p>
+              </div>
+            </div>
+
+            {/* Format Cards (7 Columns) */}
+            <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {[
+                { name: "Meetups", desc: "Informal networking & community tech talks." },
+                { name: "Hackathons", desc: "48-hour buildathons creating open source tools." },
+                { name: "Ideathons", desc: "Solving real-world industry challenges." },
+                { name: "Tech Marathons", desc: "Multi-day continuous learning & sprint." },
+                { name: "Workshops", desc: "Hands-on guided coding & deployment labs." },
+                { name: "Masterclasses", desc: "Advanced practitioner sessions for senior engineers." },
+              ].map((fmt) => (
+                <div
+                  key={fmt.name}
+                  className="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-sm hover:border-blue-500/50 transition-colors"
+                >
+                  <h4 className="text-base font-bold text-white mb-1 flex items-center justify-between">
+                    <span>{fmt.name}</span>
+                    <ArrowRight className="w-3.5 h-3.5 text-blue-400 opacity-60" />
+                  </h4>
+                  <p className="text-xs text-slate-300 leading-relaxed">{fmt.desc}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* 4. TECHNOLOGY x INDUSTRY DISCOVERY ENGINE */}
-      <section id="taxonomy-matrix" className="bg-slate-50 py-24 border-b border-slate-200">
+      {/* 4. UPCOMING EVENTS WITH POSTERS */}
+      <section id="upcoming-events" className="bg-slate-50 py-24 border-b border-slate-200">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-widest text-blue-600 bg-blue-100 px-3.5 py-1.5 rounded-full border border-blue-200">
+                UPCOMING EVENTS
+              </span>
+              <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-slate-900">
+                Register for Next Events
+              </h2>
+            </div>
+            <Button asChild className="rounded-full bg-blue-600 hover:bg-blue-700 font-bold text-sm">
+              <Link to="/events">Browse Full Calendar <Calendar className="ml-2 h-4 w-4" /></Link>
+            </Button>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="rounded-3xl border border-slate-200 bg-white overflow-hidden shadow-xs hover:shadow-md transition-all flex flex-col justify-between group">
+              <div>
+                <div className="aspect-16/10 overflow-hidden relative">
+                  <img
+                    src="/assets/events/kss2026ep03-poster.webp"
+                    alt="KSS Episode 3 Poster"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <span className="absolute top-3 right-3 text-[10px] font-bold uppercase tracking-wider bg-blue-600 text-white px-2.5 py-1 rounded-full shadow-md">
+                    Upcoming
+                  </span>
+                </div>
+                <div className="p-6">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-blue-600 bg-blue-50 px-2.5 py-0.5 rounded border border-blue-200">
+                    DevOps & Cloud
+                  </span>
+                  <h3 className="text-lg font-bold text-slate-900 mt-2 mb-2 group-hover:text-blue-600 transition-colors">
+                    KSS Episode 3 — Kubernetes & IaC Automation
+                  </h3>
+                  <p className="text-xs text-slate-600 leading-relaxed mb-4 line-clamp-2">
+                    Learn Terraform, Helm charts, and container telemetry with OrigoHOST architects.
+                  </p>
+                  <div className="text-xs text-slate-500 font-semibold space-y-1">
+                    <div>📅 Date: 21 September 2026</div>
+                    <div>📍 Mode: Online Webinar Engine</div>
+                  </div>
+                </div>
+              </div>
+              <div className="p-6 pt-0">
+                <Button asChild className="w-full rounded-full bg-blue-600 hover:bg-blue-700 font-bold text-xs">
+                  <Link to="/events">Register Free <ArrowRight className="ml-1.5 h-3.5 w-3.5" /></Link>
+                </Button>
+              </div>
+            </div>
+
+            <div className="rounded-3xl border border-slate-200 bg-white overflow-hidden shadow-xs hover:shadow-md transition-all flex flex-col justify-between group">
+              <div>
+                <div className="aspect-16/10 overflow-hidden relative">
+                  <img
+                    src="/event-poster.jpg"
+                    alt="CyberForge Hackathon Poster"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <span className="absolute top-3 right-3 text-[10px] font-bold uppercase tracking-wider bg-emerald-600 text-white px-2.5 py-1 rounded-full shadow-md animate-pulse">
+                    Live Now
+                  </span>
+                </div>
+                <div className="p-6">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-600 bg-emerald-50 px-2.5 py-0.5 rounded border border-emerald-200">
+                    Cybersecurity
+                  </span>
+                  <h3 className="text-lg font-bold text-slate-900 mt-2 mb-2 group-hover:text-blue-600 transition-colors">
+                    CyberForge 2026 National Hackathon
+                  </h3>
+                  <p className="text-xs text-slate-600 leading-relaxed mb-4 line-clamp-2">
+                    48-hour buildathon creating threat scanners & smart contract security audit bots.
+                  </p>
+                  <div className="text-xs text-slate-500 font-semibold space-y-1">
+                    <div>📅 Date: 14-16 October 2026</div>
+                    <div>📍 Mode: Hybrid (Delhi & Online)</div>
+                  </div>
+                </div>
+              </div>
+              <div className="p-6 pt-0">
+                <Button asChild className="w-full rounded-full bg-emerald-600 hover:bg-emerald-700 font-bold text-xs">
+                  <Link to="/events">Join Live Hackathon <ArrowRight className="ml-1.5 h-3.5 w-3.5" /></Link>
+                </Button>
+              </div>
+            </div>
+
+            <div className="rounded-3xl border border-slate-200 bg-white overflow-hidden shadow-xs hover:shadow-md transition-all flex flex-col justify-between group">
+              <div>
+                <div className="aspect-16/10 overflow-hidden relative">
+                  <img
+                    src="/event-gallery-1.jpg"
+                    alt="AI for AgriTech Ideathon"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <span className="absolute top-3 right-3 text-[10px] font-bold uppercase tracking-wider bg-purple-600 text-white px-2.5 py-1 rounded-full shadow-md">
+                    Upcoming
+                  </span>
+                </div>
+                <div className="p-6">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-purple-600 bg-purple-50 px-2.5 py-0.5 rounded border border-purple-200">
+                    AI × Agriculture
+                  </span>
+                  <h3 className="text-lg font-bold text-slate-900 mt-2 mb-2 group-hover:text-blue-600 transition-colors">
+                    AI for Agriculture Ideathon 2026
+                  </h3>
+                  <p className="text-xs text-slate-600 leading-relaxed mb-4 line-clamp-2">
+                    Turn agricultural challenges into smart AI, drone telemetry & crop yield analysis solutions.
+                  </p>
+                  <div className="text-xs text-slate-500 font-semibold space-y-1">
+                    <div>📅 Date: 5 November 2026</div>
+                    <div>📍 Mode: Online Webinar Engine</div>
+                  </div>
+                </div>
+              </div>
+              <div className="p-6 pt-0">
+                <Button asChild className="w-full rounded-full bg-blue-600 hover:bg-blue-700 font-bold text-xs">
+                  <Link to="/events">Register Free <ArrowRight className="ml-1.5 h-3.5 w-3.5" /></Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. TECHNOLOGY x INDUSTRY DISCOVERY ENGINE */}
+      <section id="taxonomy-matrix" className="bg-white py-24 border-b border-slate-100">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center mb-16">
-            <span className="text-xs font-bold uppercase tracking-widest text-blue-600 bg-blue-100 px-3.5 py-1.5 rounded-full border border-blue-200">
+            <span className="text-xs font-bold uppercase tracking-widest text-blue-600 bg-blue-50 px-3.5 py-1.5 rounded-full border border-blue-200">
               DISCOVERY MATRIX ENGINE
             </span>
             <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-slate-900">
@@ -278,7 +444,7 @@ export default function HomePage() {
             {TECH_INDUSTRY_INTERSECTIONS.map((item) => (
               <div
                 key={item.title}
-                className="rounded-3xl bg-white p-6 shadow-xs border border-slate-200 hover:border-blue-300 hover:shadow-md transition-all flex flex-col justify-between"
+                className="rounded-3xl bg-slate-50/50 p-6 shadow-xs border border-slate-200 hover:border-blue-300 hover:shadow-md transition-all flex flex-col justify-between"
               >
                 <div>
                   <span className={`text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full inline-block border mb-4 ${item.tagColor}`}>
@@ -299,69 +465,122 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 5. HUMAN COMMUNITY STORYTELLING */}
-      <section id="community-people" className="bg-white py-24 border-b border-slate-100">
+      {/* 6. PEOPLE & COMMUNITY WITH REAL LEADER PORTRAITS */}
+      <section id="community-people" className="bg-slate-900 py-24 text-white">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-5">
-              <span className="text-xs font-bold uppercase tracking-widest text-purple-600 bg-purple-50 px-3.5 py-1.5 rounded-full border border-purple-200 inline-block mb-4">
-                COMMUNITY DRIVEN
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-xs font-bold uppercase tracking-widest text-purple-400 bg-purple-500/20 px-3.5 py-1.5 rounded-full border border-purple-500/30">
+              COMMUNITY LEADERSHIP
+            </span>
+            <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight">
+              Built by People. Powered by Community.
+            </h2>
+            <p className="mt-4 text-sm sm:text-base text-slate-300 leading-relaxed">
+              Meet the founders, technical architects, and community organizers behind OrigoHOST.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            {COMMUNITY_LEADERS.map((leader) => (
+              <div
+                key={leader.name}
+                className="rounded-3xl border border-white/10 bg-white/5 overflow-hidden backdrop-blur-sm p-6 hover:border-purple-500/50 transition-all flex flex-col items-center text-center group"
+              >
+                <div className="w-32 h-32 rounded-full overflow-hidden border-2 border-purple-400/50 mb-4 group-hover:scale-105 transition-transform duration-500 shadow-xl">
+                  <img src={leader.image} alt={leader.name} className="w-full h-full object-cover" />
+                </div>
+                <h3 className="text-xl font-bold text-white">{leader.name}</h3>
+                <span className="text-xs font-bold text-purple-400 mt-0.5">{leader.role}</span>
+                <span className="text-[11px] text-slate-400 block mb-3">{leader.org}</span>
+                <p className="text-xs text-slate-300 bg-white/5 px-3 py-1.5 rounded-xl border border-white/10">
+                  Focus: {leader.focus}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          {/* VERIFIED CERTIFICATION PROOF BANNER */}
+          <div className="rounded-3xl border border-white/10 bg-gradient-to-r from-blue-900/40 via-purple-900/30 to-slate-900 p-8 flex flex-col lg:flex-row items-center justify-between gap-8">
+            <div className="space-y-2 max-w-xl">
+              <span className="text-[10px] font-bold uppercase tracking-wider bg-emerald-500/20 text-emerald-300 px-2.5 py-0.5 rounded border border-emerald-500/30">
+                VERIFIED CREDENTIALS
               </span>
-              <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight mb-4">
-                Built by People. Powered by Community.
-              </h2>
-              <p className="text-sm sm:text-base text-slate-600 leading-relaxed mb-6">
-                OrigoHOST brings together developers, students, researchers, campus ambassadors, and senior engineers to collaborate, share knowledge, and build meaningful technology together.
+              <h3 className="text-2xl font-bold text-white">Official Certificate Verification</h3>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                Eligible participants earn cryptographically verified credentials backed by OrigoHOST's verification system.
               </p>
-              <div className="space-y-3 mb-8">
-                <div className="flex items-center gap-3 text-xs font-bold text-slate-800">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                  <span>15,000+ Active developers & student participants</span>
-                </div>
-                <div className="flex items-center gap-3 text-xs font-bold text-slate-800">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                  <span>75+ Participating academic & technical institutions</span>
-                </div>
-                <div className="flex items-center gap-3 text-xs font-bold text-slate-800">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                  <span>Certified verified credentials for eligible program completions</span>
-                </div>
-              </div>
-              <Button asChild className="rounded-full bg-blue-600 hover:bg-blue-700 font-bold px-6">
-                <Link to="/register">Join the Network <ArrowRight className="ml-2 h-4 w-4" /></Link>
-              </Button>
             </div>
-
-            <div className="lg:col-span-7 grid grid-cols-2 gap-4">
-              <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6">
-                <Users className="w-8 h-8 text-blue-600 mb-3" />
-                <h4 className="font-bold text-slate-900 text-base mb-1">Campus Ambassadors</h4>
-                <p className="text-xs text-slate-600">Leading tech chapters & workshops across engineering colleges.</p>
-              </div>
-
-              <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6">
-                <GraduationCap className="w-8 h-8 text-purple-600 mb-3" />
-                <h4 className="font-bold text-slate-900 text-base mb-1">Speakers & Mentors</h4>
-                <p className="text-xs text-slate-600">Senior practitioners leading masterclasses and project code reviews.</p>
-              </div>
-
-              <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6">
-                <Trophy className="w-8 h-8 text-amber-600 mb-3" />
-                <h4 className="font-bold text-slate-900 text-base mb-1">Hackathon Builders</h4>
-                <p className="text-xs text-slate-600">Creating open source tools, threat scanners & cloud applications.</p>
-              </div>
-
-              <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6">
-                <Award className="w-8 h-8 text-emerald-600 mb-3" />
-                <h4 className="font-bold text-slate-900 text-base mb-1">Verified Credentials</h4>
-                <p className="text-xs text-slate-600">Official certificate verification for event & bootcamp participants.</p>
-              </div>
+            <div className="w-full lg:w-72 h-44 rounded-2xl overflow-hidden border border-white/20 shadow-xl shrink-0">
+              <img src="/actual-cert.webp" alt="OrigoHOST Certificate Preview" className="w-full h-full object-cover" />
             </div>
           </div>
         </div>
       </section>
 
-      {/* 6. FINAL CTA BANNER */}
+      {/* 7. KNOWLEDGE HUB EDITORIAL SECTION WITH COVER IMAGE */}
+      <section id="knowledge-hub" className="bg-white py-24 border-b border-slate-100">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-widest text-blue-600 bg-blue-50 px-3.5 py-1.5 rounded-full border border-blue-200">
+                KNOWLEDGE HUB
+              </span>
+              <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-slate-900">
+                Knowledge for Builders
+              </h2>
+            </div>
+            <Button asChild variant="outline" className="rounded-full border-slate-300 font-bold text-sm">
+              <Link to="/knowledge">
+                Explore Knowledge <BookOpen className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            {/* Featured Article Card (7 Columns) */}
+            <div className="lg:col-span-7 rounded-3xl border border-slate-200 bg-slate-50 overflow-hidden shadow-xs hover:shadow-md transition-all group">
+              <div className="aspect-16/9 overflow-hidden">
+                <img
+                  src="/event-gallery-3.jpg"
+                  alt="Knowledge Article Cover"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+              </div>
+              <div className="p-8">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-blue-600 bg-blue-100 px-3 py-1 rounded-full">
+                  FEATURED RESEARCH
+                </span>
+                <h3 className="text-2xl font-black text-slate-900 mt-3 mb-2 group-hover:text-blue-600 transition-colors">
+                  Architecting Resilient Distributed Systems on Kubernetes
+                </h3>
+                <p className="text-xs text-slate-600 leading-relaxed mb-6">
+                  An in-depth study on container orchestration, automated failovers, and telemetry logging for high-scale tech platforms.
+                </p>
+                <Button asChild className="rounded-full bg-blue-600 hover:bg-blue-700 font-bold text-xs">
+                  <Link to="/knowledge">Read Full Article <ArrowRight className="ml-1.5 h-3.5 w-3.5" /></Link>
+                </Button>
+              </div>
+            </div>
+
+            {/* Knowledge Categories Grid (5 Columns) */}
+            <div className="lg:col-span-5 space-y-4">
+              {[
+                { title: "Tutorials & Playbooks", desc: "Step-by-step technical guides for cloud, AI, and security." },
+                { title: "Origo Labs Research", desc: "Emerging tech papers on distributed systems & cryptography." },
+                { title: "Community Stories", desc: "Real-world experiences from chapter leads and builders." },
+                { title: "Event Insights", desc: "Video archives and takeaways from Knowledge Sharing Series webinars." },
+              ].map((k) => (
+                <div key={k.title} className="p-5 rounded-2xl border border-slate-200 bg-white hover:border-blue-300 transition-all">
+                  <h4 className="font-bold text-slate-900 text-sm mb-1">{k.title}</h4>
+                  <p className="text-xs text-slate-600">{k.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 8. FINAL CTA BANNER */}
       <section
         id="final-cta"
         className="bg-gradient-to-br from-blue-700 via-blue-800 to-slate-900 py-24 text-white"
