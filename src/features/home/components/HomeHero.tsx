@@ -60,31 +60,48 @@ export const HomeHero: React.FC<HomeHeroProps> = ({ data }) => {
             </div>
           </div>
 
-          {/* Right Column: Composite Ecosystem Live Preview */}
-          {data.liveActivityEvent && (
-            <div className="lg:col-span-5">
-              <div className="rounded-3xl border border-white/20 bg-white/10 backdrop-blur-md overflow-hidden shadow-2xl relative group">
-                <div className="aspect-16/10 overflow-hidden relative">
-                  <img
-                    src={data.liveActivityEvent.imageUrl}
-                    alt={data.liveActivityEvent.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
-                  <div className="absolute top-4 right-4 bg-emerald-500/90 text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-lg backdrop-blur-sm animate-pulse">
-                    ● {data.liveActivityEvent.tag}
-                  </div>
+          {/* Right Column: Official Community Monogram & Ecosystem Live Preview */}
+          <div className="lg:col-span-5 flex justify-center">
+            <div className="w-full max-w-md rounded-3xl border border-white/20 bg-gradient-to-b from-white/10 via-slate-900/60 to-slate-950/90 backdrop-blur-xl p-8 shadow-[0_0_60px_rgba(59,130,246,0.25)] relative group text-center flex flex-col items-center justify-between">
+              {/* Glowing Ambient Halo behind Monogram */}
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-blue-600/20 to-purple-600/10 opacity-50 filter blur-xl group-hover:opacity-75 transition-opacity" />
+
+              {/* Official Monogram Badge */}
+              <div className="relative z-10 my-4 p-6 rounded-2xl bg-slate-900/80 border border-white/10 shadow-2xl flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
+                <img
+                  src="/origohost-monogram.png"
+                  alt="OrigoHOST Official Monogram"
+                  className="w-36 h-36 object-contain filter drop-shadow-[0_0_20px_rgba(59,130,246,0.5)]"
+                />
+              </div>
+
+              {/* Floating Activity Chips */}
+              <div className="relative z-10 w-full space-y-3 pt-2">
+                <div className="flex items-center justify-between gap-2 px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-xs font-mono">
+                  <span className="text-emerald-400 font-bold flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
+                    CyberForge Hackathon
+                  </span>
+                  <span className="text-slate-400 text-[10px]">LIVE SPRINT</span>
                 </div>
 
-                <div className="p-6 bg-slate-900/90 border-t border-white/10">
-                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-blue-400 block mb-1">
-                    FEATURED ECOSYSTEM ACTIVITY
-                  </span>
-                  <h3 className="text-xl font-bold text-white mb-2">{data.liveActivityEvent.title}</h3>
-                  <p className="text-xs text-slate-300 font-medium">{data.liveActivityEvent.mode}</p>
+                <div className="flex items-center justify-between gap-2 px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-xs font-mono">
+                  <span className="text-blue-400 font-bold">AI × AgriTech Ideathon</span>
+                  <span className="text-slate-400 text-[10px]">UPCOMING</span>
                 </div>
               </div>
+
+              {/* Ecosystem Label */}
+              <div className="relative z-10 mt-6 pt-4 border-t border-white/10 w-full text-center">
+                <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-blue-400 block mb-1">
+                  OFFICIAL COMMUNITY MONOGRAM
+                </span>
+                <p className="text-xs text-slate-300 font-semibold">
+                  OrigoHOST Technology Community Platform
+                </p>
+              </div>
             </div>
-          )}
+          </div>
         </div>
       </div>
     </section>
