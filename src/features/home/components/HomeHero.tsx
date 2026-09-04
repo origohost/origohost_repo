@@ -60,45 +60,45 @@ export const HomeHero: React.FC<HomeHeroProps> = ({ data }) => {
             </div>
           </div>
 
-          {/* Right Column: Official Community Monogram & Ecosystem Live Preview */}
+          {/* Right Column: Official OrigoHOST Monogram Emblem & Ecosystem Halo */}
           <div className="lg:col-span-5 flex justify-center">
-            <div className="w-full max-w-md rounded-3xl border border-white/20 bg-gradient-to-b from-white/10 via-slate-900/60 to-slate-950/90 backdrop-blur-xl p-8 shadow-[0_0_60px_rgba(59,130,246,0.25)] relative group text-center flex flex-col items-center justify-between">
-              {/* Glowing Ambient Halo behind Monogram */}
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-blue-600/20 to-purple-600/10 opacity-50 filter blur-xl group-hover:opacity-75 transition-opacity" />
+            <div className="relative w-full max-w-md">
+              {/* Outer Ambient Glow Effect */}
+              <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-blue-600 via-indigo-500 to-cyan-400 opacity-30 blur-2xl group-hover:opacity-50 transition-opacity duration-1000" />
 
-              {/* Official Monogram Badge */}
-              <div className="relative z-10 my-4 p-6 rounded-2xl bg-slate-900/80 border border-white/10 shadow-2xl flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
-                <img
-                  src="/origohost-monogram.png"
-                  alt="OrigoHOST Official Monogram"
-                  className="w-36 h-36 object-contain filter drop-shadow-[0_0_20px_rgba(59,130,246,0.5)]"
-                />
-              </div>
+              {/* Monogram Glass Container */}
+              <div className="relative rounded-3xl border border-white/20 bg-slate-900/80 backdrop-blur-xl p-10 flex flex-col items-center justify-center text-center shadow-2xl space-y-6 group overflow-hidden">
+                {/* Background Grid Pattern */}
+                <div className="absolute inset-0 bg-[radial-gradient(#3b82f6_1px,transparent_1px)] [background-size:16px_16px] opacity-10" />
 
-              {/* Floating Activity Chips */}
-              <div className="relative z-10 w-full space-y-3 pt-2">
-                <div className="flex items-center justify-between gap-2 px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-xs font-mono">
-                  <span className="text-emerald-400 font-bold flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-                    CyberForge Hackathon
+                {/* Floating Ecosystem Status Badge */}
+                <div className="absolute top-4 right-4 bg-blue-500/20 text-blue-300 border border-blue-500/30 text-[10px] font-mono font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-md backdrop-blur-sm flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-blue-400 animate-ping" />
+                  <span>Official Emblem</span>
+                </div>
+
+                {/* Monogram Image */}
+                <div className="relative pt-4 pb-2">
+                  <div className="absolute inset-0 rounded-full bg-blue-500/20 blur-xl scale-125" />
+                  <img
+                    src="/origohost-monogram.png"
+                    alt="OrigoHOST Official Monogram"
+                    className="w-40 sm:w-48 h-auto object-contain relative z-10 filter drop-shadow-[0_12px_24px_rgba(59,130,246,0.4)] group-hover:scale-105 transition-transform duration-700"
+                  />
+                </div>
+
+                {/* Monogram Brand Details */}
+                <div className="relative z-10 pt-2 border-t border-white/10 w-full space-y-1">
+                  <span className="text-[11px] font-mono font-bold uppercase tracking-widest text-blue-400">
+                    ORIGOHOST TECH ECOSYSTEM
                   </span>
-                  <span className="text-slate-400 text-[10px]">LIVE SPRINT</span>
+                  <h3 className="text-xl font-black text-white tracking-tight">
+                    Where Builders Connect
+                  </h3>
+                  <p className="text-xs text-slate-400 font-medium">
+                    Event Format × Technology Domain × Industry
+                  </p>
                 </div>
-
-                <div className="flex items-center justify-between gap-2 px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-xs font-mono">
-                  <span className="text-blue-400 font-bold">AI × AgriTech Ideathon</span>
-                  <span className="text-slate-400 text-[10px]">UPCOMING</span>
-                </div>
-              </div>
-
-              {/* Ecosystem Label */}
-              <div className="relative z-10 mt-6 pt-4 border-t border-white/10 w-full text-center">
-                <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-blue-400 block mb-1">
-                  OFFICIAL COMMUNITY MONOGRAM
-                </span>
-                <p className="text-xs text-slate-300 font-semibold">
-                  OrigoHOST Technology Community Platform
-                </p>
               </div>
             </div>
           </div>
