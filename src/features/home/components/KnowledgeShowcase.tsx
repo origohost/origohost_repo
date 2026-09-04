@@ -21,11 +21,12 @@ export const KnowledgeShowcase: React.FC<KnowledgeShowcaseProps> = ({ data }) =>
               {data.title}
             </h2>
           </div>
-          <Button asChild variant="outline" className="rounded-full border-slate-300 font-bold text-sm">
-            <Link to="/knowledge">
-              Explore Knowledge <BookOpen className="ml-2 h-4 w-4" />
-            </Link>
-          </Button>
+          <Link
+            to="/knowledge"
+            className="inline-flex items-center gap-2 h-9 px-5 rounded-full border border-slate-300 bg-white text-slate-700 text-sm font-bold hover:border-blue-400 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 shrink-0"
+          >
+            Explore Knowledge <BookOpen className="h-4 w-4" />
+          </Link>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">

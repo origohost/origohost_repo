@@ -1,7 +1,6 @@
 import React from "react";
 import { Brain, Cloud, Shield, Bot, Cpu, ArrowRight } from "lucide-react";
 import { Link } from "@tanstack/react-router";
-import { Button } from "@/components/ui/button";
 import { ExploreTechnologyData } from "../types/homepage.types";
 
 interface ExploreTechnologyProps {
@@ -64,15 +63,12 @@ export const ExploreTechnology: React.FC<ExploreTechnologyProps> = ({ data }) =>
                     </div>
                   </div>
 
-                  <Button
-                    asChild
-                    variant="outline"
-                    className="w-full rounded-full border-white/20 text-white hover:bg-white/10 text-xs font-bold"
+                  <Link
+                    to="/events"
+                    className="inline-flex items-center justify-center w-full h-9 px-4 rounded-full border border-white/30 bg-transparent text-white text-xs font-bold gap-1.5 hover:bg-white/15 hover:border-cyan-400/60 transition-all duration-200"
                   >
-                    <Link to="/events">
-                      Explore Domain <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
-                    </Link>
-                  </Button>
+                    Explore Domain <ArrowRight className="h-3.5 w-3.5" />
+                  </Link>
                 </div>
               </div>
             );

@@ -40,24 +40,24 @@ export const ParticipationSection: React.FC<ParticipationSectionProps> = ({
         </div>
 
         {/* 2-COLUMN LAYOUT: PHOTO MOSAIC + 4 PILLARS */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           {/* Left Column: 3-Photo Community Mosaic */}
-          <div className="lg:col-span-5 grid grid-cols-2 gap-4">
-            <div className="col-span-2 rounded-3xl overflow-hidden shadow-lg border border-slate-200 aspect-16/10 group">
+          <div className="lg:col-span-5 grid grid-cols-2 gap-4 sticky top-8">
+            <div className="col-span-2 rounded-3xl overflow-hidden shadow-lg border border-slate-200 h-56 group">
               <img
                 src={mosaicImages.hero}
                 alt="OrigoHOST Community Event Audience"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
             </div>
-            <div className="rounded-2xl overflow-hidden shadow-md border border-slate-200 aspect-square group">
+            <div className="rounded-2xl overflow-hidden shadow-md border border-slate-200 h-44 group">
               <img
                 src={mosaicImages.community}
                 alt="OrigoHOST Organizers"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
             </div>
-            <div className="rounded-2xl overflow-hidden shadow-md border border-slate-200 aspect-square group">
+            <div className="rounded-2xl overflow-hidden shadow-md border border-slate-200 h-44 group">
               <img
                 src={mosaicImages.workshop}
                 alt="OrigoHOST Workshop Session"
@@ -80,7 +80,7 @@ export const ParticipationSection: React.FC<ParticipationSectionProps> = ({
                       <Icon className={`w-5 h-5 ${pillar.color}`} />
                     </div>
                     <span className="text-[10px] font-mono font-bold tracking-widest text-slate-400 block mb-1">
-                      PILLAR {pillar.title}
+                      PILLAR · {pillar.title.toUpperCase()}
                     </span>
                     <h3 className="text-xl font-black text-slate-900 mb-2">{pillar.title}</h3>
                     <p className="text-xs text-slate-600 leading-relaxed mb-4">{pillar.desc}</p>

@@ -28,14 +28,12 @@ export const HomeCTA: React.FC<HomeCTAProps> = ({ data }) => {
               {data.primaryCtaText} <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
           </Button>
-          <Button
-            asChild
-            size="lg"
-            variant="outline"
-            className="w-full sm:w-auto h-14 rounded-full border-white/30 bg-white/10 text-white hover:bg-white/20 font-bold px-8 text-base"
+          <Link
+            to={data.secondaryCtaLink as any}
+            className="inline-flex items-center justify-center w-full sm:w-auto h-14 rounded-full border border-white/30 bg-white/10 text-white text-base font-bold px-8 hover:bg-white/20 transition-all duration-200"
           >
-            <Link to={data.secondaryCtaLink as any}>{data.secondaryCtaText}</Link>
-          </Button>
+            {data.secondaryCtaText}
+          </Link>
         </div>
       </div>
     </section>

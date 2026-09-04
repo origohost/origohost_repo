@@ -1,7 +1,6 @@
 import React from "react";
 import { ArrowRight, Calendar } from "lucide-react";
 import { Link } from "@tanstack/react-router";
-import { Button } from "@/components/ui/button";
 import { EventExperiencesData } from "../types/homepage.types";
 
 interface EventExperiencesProps {
@@ -21,15 +20,12 @@ export const EventExperiences: React.FC<EventExperiencesProps> = ({ data }) => {
               {data.title}
             </h2>
           </div>
-          <Button
-            asChild
-            variant="outline"
-            className="rounded-full border-white/20 text-white hover:bg-white/10 font-bold text-sm"
+          <Link
+            to="/events"
+            className="inline-flex items-center gap-2 h-9 px-5 rounded-full border border-white/25 bg-transparent text-white text-sm font-bold hover:bg-white/10 hover:border-blue-400/60 transition-all duration-200"
           >
-            <Link to="/events">
-              Explore All Formats <Calendar className="ml-2 h-4 w-4" />
-            </Link>
-          </Button>
+            Explore All Formats <Calendar className="h-4 w-4" />
+          </Link>
         </div>
 
         {/* FEATURED POSTER BANNER + FORMAT GRID */}

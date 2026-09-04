@@ -1,7 +1,6 @@
 import React from "react";
 import { Brain, Cloud, Shield, Bot, Sprout, HeartPulse, Coins, Landmark } from "lucide-react";
 import { Link } from "@tanstack/react-router";
-import { Button } from "@/components/ui/button";
 import { TechnologyIndustryData } from "../types/homepage.types";
 
 interface TechnologyIndustryExplorerProps {
@@ -55,9 +54,12 @@ export const TechnologyIndustryExplorer: React.FC<TechnologyIndustryExplorerProp
                   </div>
                   <p className="text-xs text-slate-600 leading-relaxed mb-6">{item.desc}</p>
                 </div>
-                <Button asChild variant="outline" className="w-full rounded-full border-slate-300 text-xs font-bold">
-                  <Link to="/events">Explore Intersection</Link>
-                </Button>
+                <Link
+                  to="/events"
+                  className="inline-flex items-center justify-center w-full h-9 px-4 rounded-full border border-slate-300 bg-white text-slate-700 text-xs font-bold hover:border-blue-400 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200"
+                >
+                  Explore Intersection
+                </Link>
               </div>
             );
           })}
