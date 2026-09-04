@@ -235,7 +235,7 @@ export function SiteHeader() {
                     className="cursor-pointer flex flex-col items-start gap-0.5 rounded-xl px-3 py-2 hover:bg-white/10"
                   >
                     <span className="font-bold text-xs text-white">{item.label}</span>
-                    <span className="text-[10px] text-slate-400 leading-tight">{item.desc}</span>
+                    <span className="text-[10px] text-slate-300 leading-tight">{item.desc}</span>
                   </Link>
                 </DropdownMenuItem>
               ))}
@@ -265,7 +265,7 @@ export function SiteHeader() {
                     className="cursor-pointer flex flex-col items-start gap-0.5 rounded-xl px-3 py-2 hover:bg-white/10"
                   >
                     <span className="font-bold text-xs text-white">{item.label}</span>
-                    <span className="text-[10px] text-slate-400 leading-tight">{item.desc}</span>
+                    <span className="text-[10px] text-slate-300 leading-tight">{item.desc}</span>
                   </Link>
                 </DropdownMenuItem>
               ))}
@@ -295,7 +295,7 @@ export function SiteHeader() {
                     className="cursor-pointer flex flex-col items-start gap-0.5 rounded-xl px-3 py-2 hover:bg-white/10"
                   >
                     <span className="font-bold text-xs text-white">{item.label}</span>
-                    <span className="text-[10px] text-slate-400 leading-tight">{item.desc}</span>
+                    <span className="text-[10px] text-slate-300 leading-tight">{item.desc}</span>
                   </Link>
                 </DropdownMenuItem>
               ))}

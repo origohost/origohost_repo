@@ -38,8 +38,8 @@ export function AdminSidebar() {
             if (pillarWorkspaces.length === 0) return null;
 
             return (
-              <div key={pillar.id} className="w-full flex flex-col items-center space-y-1.5 pt-1 border-t border-[var(--brand-ink)]/5 first:border-t-0 first:pt-0">
-                <span className="text-[9px] font-black uppercase tracking-wider text-[var(--brand-ink)]/40 px-1 select-none">
+              <div key={pillar.id} className="w-full flex flex-col items-center space-y-1.5 pt-1 border-t border-[var(--brand-ink)]/10 first:border-t-0 first:pt-0">
+                <span className="text-[9px] font-black uppercase tracking-wider text-[var(--brand-ink)]/70 px-1 select-none">
                   {pillar.id.slice(0, 3)}
                 </span>
                 {pillarWorkspaces.map((ws) => (
@@ -51,7 +51,7 @@ export function AdminSidebar() {
                       "grid h-10 w-10 place-items-center rounded-xl transition-all relative group",
                       activeWorkspace === ws.name
                         ? "bg-[var(--brand-orange)]/10 text-[var(--brand-orange)] ring-1 ring-[var(--brand-orange)]/20"
-                        : "text-[var(--brand-ink)]/50 hover:bg-[var(--brand-ink)]/5 hover:text-[var(--brand-ink)]",
+                        : "text-[var(--brand-ink)]/75 hover:bg-[var(--brand-ink)]/10 hover:text-[var(--brand-ink)]",
                     )}
                   >
                     <ws.icon className="h-4 w-4" />
@@ -85,7 +85,7 @@ export function AdminSidebar() {
             {currentWorkspace.pillar} PILLAR
           </span>
           <h2 className="font-bold text-[var(--brand-ink)] flex items-center gap-2 mt-0.5 text-base">
-            <currentWorkspace.icon className="h-4 w-4 opacity-70 text-[var(--brand-orange)]" />
+            <currentWorkspace.icon className="h-4 w-4 opacity-85 text-[var(--brand-orange)]" />
             {currentWorkspace.name}
           </h2>
         </div>
@@ -115,9 +115,9 @@ export function AdminSidebar() {
                   <li key={label}>
                     <button
                       onClick={handleSearchClick}
-                      className="group flex w-full items-center rounded-xl px-3 py-2.5 text-sm font-medium text-[var(--brand-ink)]/70 hover:bg-[var(--brand-ink)]/5 hover:text-[var(--brand-ink)] transition-colors"
+                      className="group flex w-full items-center rounded-xl px-3 py-2.5 text-sm font-medium text-[var(--brand-ink)]/80 hover:bg-[var(--brand-ink)]/5 hover:text-[var(--brand-ink)] transition-colors"
                     >
-                      <Search className="h-4 w-4 mr-3 opacity-50" />
+                      <Search className="h-4 w-4 mr-3 opacity-60" />
                       <span>{label}</span>
                     </button>
                   </li>
@@ -132,10 +132,10 @@ export function AdminSidebar() {
                       "group flex items-center rounded-xl px-3 py-2.5 text-sm font-medium transition-all",
                       isActive
                         ? "bg-[var(--brand-ink)]/5 text-[var(--brand-ink)] font-bold"
-                        : "text-[var(--brand-ink)]/60 hover:bg-[var(--brand-ink)]/5 hover:text-[var(--brand-ink)]",
+                        : "text-[var(--brand-ink)]/80 hover:bg-[var(--brand-ink)]/5 hover:text-[var(--brand-ink)]",
                     )}
                   >
-                    <Grip className="h-3 w-3 mr-3 opacity-0 group-hover:opacity-30 transition-opacity" />
+                    <Grip className="h-3 w-3 mr-3 opacity-0 group-hover:opacity-40 transition-opacity" />
                     <span>{label}</span>
                   </Link>
                 </li>
@@ -149,7 +149,7 @@ export function AdminSidebar() {
       <div className="relative z-30 flex items-center h-screen bg-transparent w-0">
         <button
           onClick={() => setCollapsed(!collapsed)}
-          className="absolute -left-3 flex h-6 w-6 items-center justify-center rounded-full border border-[var(--brand-ink)]/10 bg-white text-[var(--brand-ink)]/40 shadow-sm hover:text-[var(--brand-ink)] hover:shadow-md transition-all"
+          className="absolute -left-3 flex h-6 w-6 items-center justify-center rounded-full border border-[var(--brand-ink)]/10 bg-white text-[var(--brand-ink)]/60 shadow-sm hover:text-[var(--brand-ink)] hover:shadow-md transition-all"
         >
           {collapsed ? <ChevronRight className="h-3 w-3" /> : <ChevronLeft className="h-3 w-3" />}
         </button>

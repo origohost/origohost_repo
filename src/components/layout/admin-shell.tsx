@@ -56,14 +56,14 @@ export function AdminShell({ title, description, children }: AdminShellProps) {
 
       <main className="flex flex-1 flex-col overflow-hidden">
         {/* Top Header */}
-        <header className="flex h-16 shrink-0 items-center justify-between border-b border-[var(--brand-ink)]/5 bg-white px-8">
-          <div className="flex items-center text-sm font-medium text-[var(--brand-ink)]/50">
+        <header className="flex h-16 shrink-0 items-center justify-between border-b border-[var(--brand-ink)]/10 bg-white px-8">
+          <div className="flex items-center text-sm font-medium text-[var(--brand-ink)]/75">
             {paths.map((p, i) => (
               <span key={p} className="flex items-center">
-                {i > 0 && <ChevronRight className="mx-2 h-4 w-4" />}
+                {i > 0 && <ChevronRight className="mx-2 h-4 w-4 text-[var(--brand-ink)]/50" />}
                 <span
                   className={
-                    i === paths.length - 1 ? "text-[var(--brand-ink)] capitalize" : "capitalize"
+                    i === paths.length - 1 ? "text-[var(--brand-ink)] font-bold capitalize" : "capitalize"
                   }
                 >
                   {p.replace("-", " ")}
@@ -75,7 +75,7 @@ export function AdminShell({ title, description, children }: AdminShellProps) {
           <div className="flex items-center gap-4">
             <MobileAdminSidebar />
             <button className="grid h-9 w-9 place-items-center rounded-full hover:bg-[var(--brand-ink)]/5">
-              <Bell className="h-4 w-4 text-[var(--brand-ink)]/60" />
+              <Bell className="h-4 w-4 text-[var(--brand-ink)]/80" />
             </button>
             <div className="h-8 w-8 overflow-hidden rounded-full border border-[var(--brand-ink)]/10 bg-[var(--brand-ink)]">
               <img
@@ -97,7 +97,7 @@ export function AdminShell({ title, description, children }: AdminShellProps) {
                 {title}
               </h1>
               {description && (
-                <p className="mt-2 text-sm text-[var(--brand-ink)]/60">{description}</p>
+                <p className="mt-2 text-sm text-[var(--brand-ink)]/80 font-medium">{description}</p>
               )}
             </div>
             {children}

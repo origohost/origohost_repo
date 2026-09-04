@@ -93,7 +93,7 @@ function ProgramsPage() {
           <h1 className="mt-6 text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight">
             Programs That Turn Learning Into Capability
           </h1>
-          <p className="mt-6 text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="mt-6 text-lg sm:text-xl text-slate-200 max-w-3xl mx-auto leading-relaxed">
             Practical learning experiences designed around modern technology and real-world problem
             solving.
           </p>
@@ -113,7 +113,7 @@ function ProgramsPage() {
                   {prog.cat}
                 </span>
                 <h3 className="text-2xl font-bold text-slate-900 mb-3">{prog.name}</h3>
-                <p className="text-sm text-slate-600 leading-relaxed mb-6">{prog.desc}</p>
+                <p className="text-sm text-slate-700 leading-relaxed mb-6">{prog.desc}</p>
 
                 <div className="space-y-2 text-xs text-slate-500 mb-6 border-t border-slate-200/80 pt-4">
                   <div className="flex justify-between">

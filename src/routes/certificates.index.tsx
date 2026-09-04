@@ -38,7 +38,7 @@ function CertificatesPage() {
           <h1 className="mt-6 text-4xl sm:text-5xl font-black tracking-tight leading-tight">
             Verify an OrigoHOST Certificate
           </h1>
-          <p className="mt-6 text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-6 text-lg text-slate-200 max-w-2xl mx-auto leading-relaxed">
             Verify certificates issued for eligible OrigoHOST events, programs, bootcamps, and
             learning experiences.
           </p>

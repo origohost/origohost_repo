@@ -519,10 +519,10 @@ export default function AdminDashboard() {
 
 function TreeLink({ to, label, color = "blue" }: { to: string; label: string; color?: string }) {
   const colorMap: Record<string, string> = {
-    blue: "hover:bg-blue-500/20 text-slate-300 hover:text-blue-300 border-slate-800",
-    emerald: "hover:bg-emerald-500/20 text-slate-300 hover:text-emerald-300 border-slate-800",
-    purple: "hover:bg-purple-500/20 text-slate-300 hover:text-purple-300 border-slate-800",
-    amber: "hover:bg-amber-500/20 text-slate-300 hover:text-amber-300 border-slate-800",
+    blue: "hover:bg-blue-500/20 text-slate-200 hover:text-blue-300 border-slate-800",
+    emerald: "hover:bg-emerald-500/20 text-slate-200 hover:text-emerald-300 border-slate-800",
+    purple: "hover:bg-purple-500/20 text-slate-200 hover:text-purple-300 border-slate-800",
+    amber: "hover:bg-amber-500/20 text-slate-200 hover:text-amber-300 border-slate-800",
   };
 
   return (
@@ -533,7 +533,7 @@ function TreeLink({ to, label, color = "blue" }: { to: string; label: string; co
       }`}
     >
       <span>{label}</span>
-      <ChevronRight className="w-3 h-3 opacity-30 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all ml-1" />
+      <ChevronRight className="w-3 h-3 opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all ml-1" />
     </Link>
   );
 }
@@ -554,8 +554,8 @@ function MetricCard({
   return (
     <div className="flex flex-col rounded-3xl border border-[var(--brand-ink)]/10 bg-white p-6 shadow-sm relative overflow-hidden transition-all hover:shadow-md snap-center shrink-0 w-[80vw] sm:w-auto">
       <div className="flex items-center justify-between mb-4">
-        <span className="text-sm font-semibold text-[var(--brand-ink)]/60">{title}</span>
-        <Icon className="h-5 w-5 text-[var(--brand-ink)]/40" />
+        <span className="text-sm font-semibold text-[var(--brand-ink)]/85">{title}</span>
+        <Icon className="h-5 w-5 text-[var(--brand-ink)]/60" />
       </div>
       <div className="text-4xl font-black mb-2">{value === undefined ? "-" : value}</div>
       <div

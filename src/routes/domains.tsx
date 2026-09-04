@@ -102,7 +102,7 @@ function DomainsPage() {
           <h1 className="mt-6 text-4xl sm:text-5xl font-black tracking-tight leading-tight">
             Explore Technology. Across Every Domain.
           </h1>
-          <p className="mt-4 text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-4 text-lg text-slate-200 max-w-2xl mx-auto leading-relaxed">
             Technology is bigger than a single field. Explore the ideas, tools, challenges, and
             communities shaping the digital world.
           </p>
@@ -120,7 +120,7 @@ function DomainsPage() {
               <div>
                 <domain.icon className="h-8 w-8 text-blue-600 mb-4" />
                 <h3 className="text-2xl font-bold text-slate-900 mb-3">{domain.name}</h3>
-                <p className="text-sm text-slate-600 leading-relaxed mb-6">{domain.desc}</p>
+                <p className="text-sm text-slate-700 leading-relaxed mb-6">{domain.desc}</p>
               </div>
               <Button asChild variant="outline" className="w-full rounded-full border-slate-300">
                 <Link to="/events">Explore Domain Events</Link>

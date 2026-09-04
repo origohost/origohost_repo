@@ -121,7 +121,7 @@ function FooterCol({ title, links }: { title: string; links: { to: string; label
       <div
         className={`overflow-hidden transition-all duration-300 lg:!max-h-none lg:opacity-100 ${isOpen ? "max-h-96 opacity-100 pb-3" : "max-h-0 opacity-0"}`}
       >
-        <ul className="space-y-2.5 text-xs text-slate-400 font-medium w-full">
+        <ul className="space-y-2.5 text-xs text-slate-300 font-medium w-full">
           {links.map((l) => (
             <li key={l.label}>
               <a
@@ -159,7 +159,7 @@ export function SiteFooter() {
         <div className="mb-16 rounded-3xl bg-gradient-to-r from-blue-900/40 via-blue-800/30 to-emerald-900/30 p-8 border border-white/10 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
           <div>
             <h3 className="text-2xl font-black text-white">Your Next Build Could Start Here.</h3>
-            <p className="text-xs text-slate-300 mt-1">
+            <p className="text-xs text-slate-200 mt-1">
               Learn something new. Meet someone new. Build something meaningful.
             </p>
           </div>
@@ -200,7 +200,7 @@ export function SiteFooter() {
                   </span>
                 </span>
               </a>
-              <p className="text-slate-300 text-xs leading-relaxed mb-6 max-w-xs">
+              <p className="text-slate-200 text-xs leading-relaxed mb-6 max-w-xs">
                 A Technology Community Where Ideas, People & Possibilities Connect.
               </p>
               <div className="flex flex-wrap justify-center lg:justify-start gap-2 w-full">
@@ -233,7 +233,7 @@ export function SiteFooter() {
 
           {/* Social Icons & Copyright */}
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4 pt-6 border-t border-white/5">
-            <div className="text-xs text-slate-400 font-medium text-center sm:text-left">
+            <div className="text-xs text-slate-300 font-medium text-center sm:text-left">
               © 2026 OrigoHOST. All rights reserved. Learn. Connect. Compete. Build.
             </div>
 
