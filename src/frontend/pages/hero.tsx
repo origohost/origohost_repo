@@ -117,16 +117,47 @@ export default function HeroSection() {
           </motion.div>
         </div>
 
-        {/* Right Graphic */}
-        <div className="relative min-h-[360px] lg:min-h-[440px] flex items-center justify-center mt-6 lg:mt-0">
+        {/* Right Graphic: Integrated Ecosystem Visual */}
+        <div className="relative min-h-[400px] lg:min-h-[480px] flex items-center justify-center mt-6 lg:mt-0">
           <Tilt>
-            <div className="relative z-10 w-[260px] h-[260px] sm:w-[360px] sm:h-[360px] lg:w-[400px] lg:h-[400px] flex items-center justify-center transition-transform duration-500 hover:scale-105">
-              <div className="absolute inset-0 bg-blue-600/20 rounded-full blur-[80px] -z-10" />
+            <div className="relative z-10 w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] lg:w-[440px] lg:h-[440px] flex items-center justify-center">
+              <div className="absolute inset-0 bg-blue-600/25 rounded-full blur-[90px] -z-10 animate-pulse" />
               <img
                 src="/logo-monogram.png"
                 alt="OrigoHOST Official Monogram"
-                className="relative z-10 w-full h-full object-contain drop-shadow-[0_0_35px_rgba(37,99,235,0.5)]"
+                className="relative z-10 w-48 h-48 sm:w-64 sm:h-64 object-contain drop-shadow-[0_0_40px_rgba(37,99,235,0.6)]"
               />
+
+              {/* Floating Ecosystem Badges */}
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.3 }}
+                className="absolute top-4 left-0 sm:-left-4 bg-slate-900/90 border border-blue-500/30 text-white px-3.5 py-2 rounded-2xl backdrop-blur-md shadow-xl flex items-center gap-2.5 z-20 text-xs font-bold"
+              >
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping" />
+                <span>CyberForge Hackathon Live</span>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.4 }}
+                className="absolute bottom-12 right-0 sm:-right-4 bg-slate-900/90 border border-emerald-500/30 text-white px-3.5 py-2 rounded-2xl backdrop-blur-md shadow-xl flex items-center gap-2 z-20 text-xs font-bold"
+              >
+                <Sparkles className="w-4 h-4 text-emerald-400" />
+                <span>AI × AgriTech Ideathon</span>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+                className="absolute -bottom-2 left-8 bg-slate-900/90 border border-purple-500/30 text-white px-3.5 py-2 rounded-2xl backdrop-blur-md shadow-xl flex items-center gap-2 z-20 text-xs font-bold"
+              >
+                <Cpu className="w-4 h-4 text-purple-400" />
+                <span>120+ KSS & Workshops</span>
+              </motion.div>
             </div>
           </Tilt>
         </div>
@@ -167,7 +198,7 @@ export default function HeroSection() {
                   <div className="relative z-10 text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-slate-900">
                     <Counter value={s.value} suffix={s.suffix} />
                   </div>
-                  <div className="mt-2 text-xs sm:text-sm font-bold tracking-wide text-slate-600 relative inline-block">
+                  <div className="mt-2 text-xs sm:text-sm font-bold tracking-wide text-slate-700 relative inline-block">
                     {s.label}
                   </div>
                 </Tilt>
