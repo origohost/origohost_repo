@@ -10,13 +10,13 @@ export const CommunityShowcase: React.FC<CommunityShowcaseProps> = ({ data }) =>
     <section id="community-people" className="bg-slate-900 py-24 text-white">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-xs font-bold uppercase tracking-widest text-purple-400 bg-purple-500/20 px-3.5 py-1.5 rounded-full border border-purple-500/30">
+          <span className="text-xs font-semibold uppercase tracking-wider text-purple-300 bg-purple-500/20 px-3.5 py-1.5 rounded-full border border-purple-500/30">
             {data.eyebrow}
           </span>
-          <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight">
+          <h2 className="mt-4 text-3xl sm:text-4xl font-bold tracking-tight">
             {data.title}
           </h2>
-          <p className="mt-4 text-sm sm:text-base text-slate-300 leading-relaxed">
+          <p className="mt-4 text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
             {data.subtitle}
           </p>
         </div>
@@ -31,9 +31,9 @@ export const CommunityShowcase: React.FC<CommunityShowcaseProps> = ({ data }) =>
                 <img src={leader.image} alt={leader.name} className="w-full h-full object-cover" />
               </div>
               <h3 className="text-xl font-bold text-white">{leader.name}</h3>
-              <span className="text-xs font-bold text-purple-400 mt-0.5">{leader.role}</span>
-              <span className="text-[11px] text-slate-400 block mb-3">{leader.org}</span>
-              <p className="text-xs text-slate-300 bg-white/5 px-3 py-1.5 rounded-xl border border-white/10">
+              <span className="text-xs font-semibold text-purple-400 mt-1">{leader.role}</span>
+              <span className="text-xs text-slate-400 block mb-3">{leader.org}</span>
+              <p className="text-xs text-slate-300 bg-white/5 px-3 py-1.5 rounded-xl border border-white/10 font-medium">
                 Focus: {leader.focus}
               </p>
             </div>
@@ -43,11 +43,11 @@ export const CommunityShowcase: React.FC<CommunityShowcaseProps> = ({ data }) =>
         {/* VERIFIED CERTIFICATION PROOF BANNER */}
         <div className="rounded-3xl border border-white/10 bg-gradient-to-r from-blue-900/40 via-purple-900/30 to-slate-900 p-8 flex flex-col lg:flex-row items-center justify-between gap-8">
           <div className="space-y-2 max-w-xl">
-            <span className="text-[10px] font-bold uppercase tracking-wider bg-emerald-500/20 text-emerald-300 px-2.5 py-0.5 rounded border border-emerald-500/30">
+            <span className="text-xs font-semibold uppercase tracking-wider bg-emerald-500/20 text-emerald-300 px-2.5 py-1 rounded border border-emerald-500/30">
               {data.verifiedCertificate.tag}
             </span>
-            <h3 className="text-2xl font-bold text-white">{data.verifiedCertificate.title}</h3>
-            <p className="text-xs text-slate-300 leading-relaxed">
+            <h3 className="text-2xl font-bold text-white mt-1">{data.verifiedCertificate.title}</h3>
+            <p className="text-sm text-slate-300 leading-relaxed">
               {data.verifiedCertificate.desc}
             </p>
           </div>

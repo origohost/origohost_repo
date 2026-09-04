@@ -47,12 +47,12 @@ export const EcosystemPartners: React.FC<EcosystemPartnersProps> = ({ data }) =>
           transition={{ duration: 0.5 }}
           className="text-center mb-14"
         >
-          <span className="inline-flex items-center gap-2 text-[10px] font-mono font-bold uppercase tracking-[0.2em] text-slate-400 mb-4">
-            <Sparkles className="w-3 h-3 text-blue-400" />
+          <span className="inline-flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-slate-300 mb-4">
+            <Sparkles className="w-3.5 h-3.5 text-blue-400" />
             {data.eyebrow}
-            <Sparkles className="w-3 h-3 text-blue-400" />
+            <Sparkles className="w-3.5 h-3.5 text-blue-400" />
           </span>
-          <h3 className="text-2xl sm:text-3xl font-black text-white">{data.title}</h3>
+          <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">{data.title}</h3>
           <div className="mt-4 mx-auto w-20 h-[2px] bg-gradient-to-r from-transparent via-blue-500 to-transparent rounded-full" />
         </motion.div>
 
@@ -85,11 +85,11 @@ export const EcosystemPartners: React.FC<EcosystemPartnersProps> = ({ data }) =>
 
                   <div className="relative">
                     {partner.category && (
-                      <span className={`inline-block text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full border ${theme.bg} ${theme.text} ${theme.border} mb-2`}>
+                      <span className={`inline-block text-[11px] font-semibold uppercase tracking-wider px-2.5 py-0.5 rounded-full border ${theme.bg} ${theme.text} ${theme.border} mb-2`}>
                         {partner.category}
                       </span>
                     )}
-                    <div className="text-white font-bold text-sm group-hover:text-blue-200 transition-colors">
+                    <div className="text-white font-semibold text-sm group-hover:text-blue-200 transition-colors">
                       {partner.name}
                     </div>
                   </div>

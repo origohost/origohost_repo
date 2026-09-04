@@ -24,16 +24,16 @@ export const OpportunitiesShowcase: React.FC<OpportunitiesShowcaseProps> = ({ da
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
           <div>
-            <span className="text-xs font-bold uppercase tracking-widest text-blue-600 bg-blue-50 px-3.5 py-1.5 rounded-full border border-blue-200">
+            <span className="text-xs font-semibold uppercase tracking-wider text-blue-600 bg-blue-50 px-3.5 py-1.5 rounded-full border border-blue-200">
               {data.eyebrow}
             </span>
-            <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-slate-900">
+            <h2 className="mt-3 text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">
               {data.title}
             </h2>
           </div>
           <Link
             to="/opportunities"
-            className="inline-flex items-center gap-2 h-9 px-5 rounded-full border border-slate-300 bg-white text-slate-700 text-sm font-bold hover:border-blue-400 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 shrink-0"
+            className="inline-flex items-center gap-2 h-9 px-5 rounded-full border border-slate-300 bg-white text-slate-700 text-sm font-semibold hover:border-blue-400 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 shrink-0"
           >
             All Opportunities <Sparkles className="h-4 w-4" />
           </Link>
@@ -53,21 +53,21 @@ export const OpportunitiesShowcase: React.FC<OpportunitiesShowcaseProps> = ({ da
                     <OppIcon className="w-6 h-6 text-blue-600" />
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="text-[10px] font-bold uppercase tracking-wider bg-blue-100 text-blue-700 px-2.5 py-1 rounded-full border border-blue-200">
+                    <span className="text-xs font-semibold uppercase tracking-wider bg-blue-100 text-blue-700 px-2.5 py-1 rounded-full border border-blue-200">
                       {opp.type}
                     </span>
-                    <span className="text-[10px] font-mono font-bold text-slate-400 bg-slate-100 px-2.5 py-1 rounded-full border border-slate-200">
+                    <span className="text-xs font-mono font-medium text-slate-500 bg-slate-100 px-2.5 py-1 rounded-full border border-slate-200">
                       {opp.domain}
                     </span>
                   </div>
                 </div>
 
                 <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-blue-700 transition-colors">{opp.title}</h3>
-                <p className="text-sm text-slate-500 leading-relaxed mb-8 flex-1">{opp.desc}</p>
+                <p className="text-sm text-slate-600 leading-relaxed mb-8 flex-1">{opp.desc}</p>
 
                 <Link
                   to={opp.applyLink as any}
-                  className="inline-flex items-center justify-center w-full h-11 rounded-full bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold gap-2 shadow-md hover:shadow-lg transition-all duration-200"
+                  className="inline-flex items-center justify-center w-full h-11 rounded-full bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold gap-2 shadow-md hover:shadow-lg transition-all duration-200"
                 >
                   Apply Now <ArrowRight className="h-4 w-4" />
                 </Link>

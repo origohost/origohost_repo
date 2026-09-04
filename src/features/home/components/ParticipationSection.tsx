@@ -70,11 +70,11 @@ export const ParticipationSection: React.FC<ParticipationSectionProps> = ({
           transition={{ duration: 0.6 }}
           className="mx-auto max-w-3xl text-center mb-20"
         >
-          <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-blue-600 bg-blue-50 px-4 py-2 rounded-full border border-blue-200">
+          <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-blue-600 bg-blue-50 px-4 py-1.5 rounded-full border border-blue-200">
             <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
             {eyebrow}
           </span>
-          <h2 className="mt-5 text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-slate-900 leading-tight">
+          <h2 className="mt-5 text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 leading-tight">
             {title}
           </h2>
           {/* Animated gradient underline */}
@@ -116,7 +116,7 @@ export const ParticipationSection: React.FC<ParticipationSectionProps> = ({
               </div>
 
               {/* Flagship badge */}
-              <div className="absolute top-4 right-4 bg-blue-600/90 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full shadow-md flex items-center gap-1.5">
+              <div className="absolute top-4 right-4 bg-blue-600/90 backdrop-blur-sm text-white text-xs font-semibold uppercase tracking-wider px-3 py-1.5 rounded-full shadow-md flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-white animate-ping" />
                 Flagship Events
               </div>
@@ -140,7 +140,7 @@ export const ParticipationSection: React.FC<ParticipationSectionProps> = ({
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-transparent to-transparent" />
                   <div className="absolute bottom-3 left-3">
-                    <span className="text-[10px] font-bold text-white bg-black/30 backdrop-blur-sm px-2.5 py-1 rounded-full border border-white/20">
+                    <span className="text-xs font-semibold text-white bg-black/40 backdrop-blur-sm px-2.5 py-1 rounded-full border border-white/20">
                       {img.label}
                     </span>
                   </div>
@@ -163,8 +163,8 @@ export const ParticipationSection: React.FC<ParticipationSectionProps> = ({
                   transition={{ delay: i * 0.1 + 0.3 }}
                   className={`rounded-2xl border ${s.bg} p-4 text-center transition-all duration-300 cursor-default group`}
                 >
-                  <div className={`text-2xl font-black ${s.color} group-hover:scale-110 transition-transform`}>{s.val}</div>
-                  <div className="text-[10px] font-bold text-slate-500 mt-0.5 uppercase tracking-wide">{s.label}</div>
+                  <div className={`text-2xl font-bold ${s.color} group-hover:scale-105 transition-transform`}>{s.val}</div>
+                  <div className="text-xs font-medium text-slate-500 mt-1 uppercase tracking-wider">{s.label}</div>
                 </motion.div>
               ))}
             </div>
@@ -196,20 +196,20 @@ export const ParticipationSection: React.FC<ParticipationSectionProps> = ({
 
                   <div className="relative z-10">
                     <div className="flex items-start justify-between mb-5">
-                      <div className={`w-13 h-13 rounded-2xl ${pillar.bg} flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform duration-300`}>
+                      <div className={`w-12 h-12 rounded-2xl ${pillar.bg} flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform duration-300`}>
                         <Icon className={`w-6 h-6 ${pillar.color}`} />
                       </div>
-                      <span className={`text-[9px] font-mono font-black tracking-widest uppercase border px-2.5 py-1 rounded-full ${theme.badge}`}>
+                      <span className={`text-[11px] font-mono font-semibold tracking-wider uppercase border px-2.5 py-1 rounded-full ${theme.badge}`}>
                         Pillar
                       </span>
                     </div>
 
-                    <h3 className="text-xl font-black text-slate-900 mb-2 group-hover:text-slate-800">{pillar.title}</h3>
-                    <p className="text-xs text-slate-500 leading-relaxed mb-5 flex-1">{pillar.desc}</p>
+                    <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-slate-800">{pillar.title}</h3>
+                    <p className="text-sm text-slate-600 leading-relaxed mb-5 flex-1">{pillar.desc}</p>
 
                     <ul className="space-y-2 border-t border-slate-100 pt-4 mb-5">
                       {pillar.items.map((item) => (
-                        <li key={item} className="flex items-center gap-2.5 text-xs font-semibold text-slate-700">
+                        <li key={item} className="flex items-center gap-2.5 text-xs font-medium text-slate-700">
                           <CheckCircle2 className="w-3.5 h-3.5 text-blue-500 shrink-0" />
                           <span>{item}</span>
                         </li>
@@ -219,10 +219,10 @@ export const ParticipationSection: React.FC<ParticipationSectionProps> = ({
                     {/* Learn more link */}
                     <Link
                       to="/events"
-                      className="inline-flex items-center gap-1.5 text-[11px] font-bold text-blue-600 hover:text-blue-700 group/link"
+                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-600 hover:text-blue-700 group/link"
                     >
                       Explore
-                      <ArrowRight className="w-3 h-3 group-hover/link:translate-x-0.5 transition-transform" />
+                      <ArrowRight className="w-3.5 h-3.5 group-hover/link:translate-x-0.5 transition-transform" />
                     </Link>
                   </div>
                 </motion.div>

@@ -136,7 +136,7 @@ function FooterCol({ title, links }: { title: string; links: { to: string; label
     >
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center justify-between w-full py-3 lg:py-0 text-base lg:text-xs font-bold uppercase tracking-wider text-white lg:mb-3 lg:cursor-default"
+        className="flex items-center justify-between w-full py-3 lg:py-0 text-sm lg:text-xs font-semibold uppercase tracking-wider text-white lg:mb-3 lg:cursor-default"
         aria-expanded={isOpen}
       >
         <span>{title}</span>
@@ -147,7 +147,7 @@ function FooterCol({ title, links }: { title: string; links: { to: string; label
       <div
         className={`overflow-hidden transition-all duration-300 lg:!max-h-none lg:opacity-100 ${isOpen ? "max-h-96 opacity-100 pb-3" : "max-h-0 opacity-0"}`}
       >
-        <ul className="space-y-2.5 text-xs text-slate-300 font-medium w-full">
+        <ul className="space-y-2.5 text-xs text-slate-300 font-normal w-full">
           {links.map((l) => (
             <li key={l.label}>
               <a
@@ -191,17 +191,17 @@ export function SiteFooter() {
           <div className="relative">
             <div className="flex items-center gap-2 mb-1 justify-center md:justify-start">
               <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              <span className="text-[10px] font-bold uppercase tracking-widest text-emerald-400">Community is Live</span>
+              <span className="text-xs font-semibold uppercase tracking-wider text-emerald-400">Community is Live</span>
             </div>
-            <h3 className="text-2xl font-black text-white">Your Next Build Could Start Here.</h3>
-            <p className="text-xs text-slate-200 mt-1">
+            <h3 className="text-2xl font-bold text-white mt-1">Your Next Build Could Start Here.</h3>
+            <p className="text-sm text-slate-300 mt-1 leading-relaxed">
               Learn something new. Meet someone new. Build something meaningful.
             </p>
           </div>
           <Button
             asChild
             size="lg"
-            className="rounded-full bg-blue-600 hover:bg-blue-700 font-bold px-8"
+            className="rounded-full bg-blue-600 hover:bg-blue-700 font-bold px-8 text-sm"
           >
             <Link to="/register">
               Join OrigoHOST <ArrowRight className="ml-2 h-4 w-4" />
@@ -235,7 +235,7 @@ export function SiteFooter() {
                   </span>
                 </span>
               </a>
-              <p className="text-slate-200 text-xs leading-relaxed mb-6 max-w-xs font-semibold">
+              <p className="text-slate-300 text-xs leading-relaxed mb-6 max-w-xs font-normal">
                 Where Builders Become Innovators — Technology, Events, Learning & Real-World Building.
               </p>
               <div className="flex flex-wrap justify-center lg:justify-start gap-2 w-full">

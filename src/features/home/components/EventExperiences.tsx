@@ -61,18 +61,18 @@ export const EventExperiences: React.FC<EventExperiencesProps> = ({ data }) => {
           className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6"
         >
           <div>
-            <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-blue-400 bg-blue-500/15 px-4 py-2 rounded-full border border-blue-500/30">
+            <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-blue-400 bg-blue-500/15 px-4 py-1.5 rounded-full border border-blue-500/30">
               <Calendar className="w-3.5 h-3.5" />
               {data.eyebrow}
             </span>
-            <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight">
+            <h2 className="mt-4 text-3xl sm:text-4xl font-bold tracking-tight">
               {data.title}
             </h2>
             <div className="mt-3 h-[2px] w-16 rounded-full bg-gradient-to-r from-blue-500 via-cyan-400 to-emerald-400" />
           </div>
           <Link
             to="/events"
-            className="inline-flex items-center gap-2 h-10 px-5 rounded-full border border-white/20 bg-white/5 text-white text-sm font-bold hover:bg-white/12 hover:border-blue-400/50 transition-all duration-200 group"
+            className="inline-flex items-center gap-2 h-10 px-5 rounded-full border border-white/20 bg-white/5 text-white text-sm font-semibold hover:bg-white/12 hover:border-blue-400/50 transition-all duration-200 group"
           >
             Explore All Formats
             <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
@@ -103,7 +103,7 @@ export const EventExperiences: React.FC<EventExperiencesProps> = ({ data }) => {
 
               {/* Live badge if applicable */}
               <div className="absolute top-4 left-4 flex items-center gap-2">
-                <div className="bg-blue-600/90 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full shadow-md flex items-center gap-1.5">
+                <div className="bg-blue-600/90 backdrop-blur-sm text-white text-xs font-semibold uppercase tracking-wider px-3 py-1.5 rounded-full shadow-md flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-white animate-ping" />
                   {data.flagshipPoster.tag}
                 </div>
@@ -112,10 +112,10 @@ export const EventExperiences: React.FC<EventExperiencesProps> = ({ data }) => {
 
             <div className="relative z-10 p-6 bg-slate-900 border-t border-white/8">
               <h3 className="text-xl font-bold text-white mt-1">{data.flagshipPoster.title}</h3>
-              <p className="text-xs text-slate-300 mt-1.5 leading-relaxed">{data.flagshipPoster.subtitle}</p>
+              <p className="text-sm text-slate-300 mt-2 leading-relaxed">{data.flagshipPoster.subtitle}</p>
               <Link
                 to="/events"
-                className="inline-flex items-center gap-1.5 mt-4 text-xs font-bold text-blue-400 hover:text-blue-300 transition-colors group/link"
+                className="inline-flex items-center gap-1.5 mt-4 text-xs font-semibold text-blue-400 hover:text-blue-300 transition-colors group/link"
               >
                 Register Now <ArrowRight className="w-3 h-3 group-hover/link:translate-x-0.5 transition-transform" />
               </Link>
@@ -148,7 +148,7 @@ export const EventExperiences: React.FC<EventExperiencesProps> = ({ data }) => {
                     </div>
                     <ArrowRight className={`w-3.5 h-3.5 ${colors.icon} opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all`} />
                   </div>
-                  <p className="text-xs text-slate-400 leading-relaxed pl-7">{fmt.desc}</p>
+                  <p className="text-xs text-slate-300 leading-relaxed pl-7">{fmt.desc}</p>
                 </motion.div>
               );
             })}

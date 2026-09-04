@@ -78,13 +78,13 @@ export const HomeHero: React.FC<HomeHeroProps> = ({ data }) => {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2.5 rounded-full border border-blue-500/30 bg-blue-950/60 px-4 py-2 backdrop-blur-md"
+              className="inline-flex items-center gap-2.5 rounded-full border border-blue-500/30 bg-blue-950/60 px-4 py-1.5 backdrop-blur-md"
             >
-              <span className="relative flex h-2.5 w-2.5">
+              <span className="relative flex h-2 w-2">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-400 opacity-75" />
-                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-blue-500" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-blue-500" />
               </span>
-              <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-blue-300">
+              <span className="text-xs font-semibold uppercase tracking-wider text-blue-300">
                 {data.eyebrow}
               </span>
             </motion.div>
@@ -95,7 +95,7 @@ export const HomeHero: React.FC<HomeHeroProps> = ({ data }) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1, duration: 0.6 }}
             >
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black leading-[1.05] tracking-tight">
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.1] sm:leading-[1.08] tracking-tight">
                 <span className="text-white">Where Builders</span>
                 <br />
                 <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent drop-shadow-[0_0_40px_rgba(37,99,235,0.5)]">
@@ -104,11 +104,9 @@ export const HomeHero: React.FC<HomeHeroProps> = ({ data }) => {
               </h1>
 
               {/* Typewriter cycling phrase */}
-              <div className="mt-4 flex items-center gap-3">
-                <span className="text-sm sm:text-base font-semibold text-slate-400">
-                  Discover
-                </span>
-                <div className="relative overflow-hidden h-8 flex items-center min-w-[180px]">
+              <div className="mt-4 flex items-center gap-2.5 text-sm sm:text-base font-medium text-slate-300">
+                <span>Discover</span>
+                <div className="relative overflow-hidden h-7 flex items-center min-w-[190px]">
                   <AnimatePresence mode="wait">
                     <motion.span
                       key={phraseIndex}
@@ -116,15 +114,13 @@ export const HomeHero: React.FC<HomeHeroProps> = ({ data }) => {
                       animate={{ y: 0, opacity: 1 }}
                       exit={{ y: -16, opacity: 0 }}
                       transition={{ duration: 0.3, ease: "easeInOut" }}
-                      className="absolute text-sm sm:text-base font-black text-blue-400 whitespace-nowrap"
+                      className="absolute text-sm sm:text-base font-bold text-cyan-400 whitespace-nowrap"
                     >
                       {CYCLING_PHRASES[phraseIndex]}
                     </motion.span>
                   </AnimatePresence>
                 </div>
-                <span className="text-sm sm:text-base font-semibold text-slate-400">
-                  near you
-                </span>
+                <span>near you</span>
               </div>
             </motion.div>
 
@@ -133,7 +129,7 @@ export const HomeHero: React.FC<HomeHeroProps> = ({ data }) => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.6 }}
-              className="text-base sm:text-lg text-slate-300 leading-relaxed"
+              className="text-base sm:text-lg text-slate-300 leading-relaxed font-normal"
             >
               {data.subtitle}
             </motion.p>
@@ -224,8 +220,8 @@ export const HomeHero: React.FC<HomeHeroProps> = ({ data }) => {
               <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 via-transparent to-emerald-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
               {/* Live badge */}
-              <div className="absolute top-4 right-4 bg-blue-500/20 text-blue-300 border border-blue-500/30 text-[10px] font-mono font-bold uppercase tracking-wider px-3 py-1 rounded-full backdrop-blur-sm flex items-center gap-1.5 z-20">
-                <span className="w-2 h-2 rounded-full bg-blue-400 animate-ping" />
+              <div className="absolute top-4 right-4 bg-blue-500/20 text-blue-300 border border-blue-500/30 text-xs font-mono font-medium uppercase tracking-wider px-3 py-1 rounded-full backdrop-blur-sm flex items-center gap-1.5 z-20">
+                <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-ping" />
                 <span>Official Emblem</span>
               </div>
 
@@ -241,13 +237,13 @@ export const HomeHero: React.FC<HomeHeroProps> = ({ data }) => {
 
               {/* Brand info */}
               <div className="relative z-10 pt-4 border-t border-white/10 w-full space-y-1.5">
-                <span className="text-[11px] font-mono font-bold uppercase tracking-widest text-blue-400">
+                <span className="text-xs font-mono font-semibold uppercase tracking-wider text-blue-400">
                   ORIGOHOST TECH ECOSYSTEM
                 </span>
-                <h3 className="text-xl font-black text-white tracking-tight">
+                <h3 className="text-xl font-bold text-white tracking-tight">
                   Where Builders Connect
                 </h3>
-                <p className="text-xs text-slate-400 font-medium">
+                <p className="text-xs text-slate-300 font-normal">
                   Event Format × Technology Domain × Industry
                 </p>
               </div>

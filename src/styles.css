@@ -47,6 +47,7 @@
   --color-sidebar-ring: var(--sidebar-ring);
   --font-display: "Space Grotesk", "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", ui-monospace, monospace;
 }
 
 :root {
@@ -768,15 +769,25 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
-    overscroll-behavior-y: none; /* Prevents mobile rubber-banding */
+    -moz-osx-font-smoothing: grayscale;
+    overscroll-behavior-y: none;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
   }
-  h1,
-  h2,
-  h3,
-  h4 {
+  h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    font-weight: 700;
+  }
+  p, li, span {
+    line-height: inherit;
+  }
+  small {
+    font-size: 0.8125rem; /* 13px — readable minimum for secondary text */
   }
   ::selection {
     background: oklch(0.5 0.26 265 / 0.25);

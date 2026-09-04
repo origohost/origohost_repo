@@ -102,15 +102,15 @@ export const ExploreTechnology: React.FC<ExploreTechnologyProps> = ({ data }) =>
           transition={{ duration: 0.6 }}
           className="mx-auto max-w-3xl text-center mb-20"
         >
-          <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-cyan-400 bg-cyan-500/15 px-4 py-2 rounded-full border border-cyan-500/30">
+          <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-cyan-400 bg-cyan-500/15 px-4 py-1.5 rounded-full border border-cyan-500/30">
             <Zap className="w-3.5 h-3.5" />
             {data.eyebrow}
           </span>
-          <h2 className="mt-5 text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight">
+          <h2 className="mt-5 text-3xl sm:text-4xl font-bold tracking-tight">
             {data.title}
           </h2>
           <div className="mx-auto mt-3 h-[2px] w-20 rounded-full bg-gradient-to-r from-blue-500 via-cyan-400 to-emerald-400 animate-aurora" />
-          <p className="mt-5 text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl mx-auto">
+          <p className="mt-5 text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl mx-auto font-normal">
             {data.subtitle}
           </p>
         </motion.div>
@@ -150,14 +150,14 @@ export const ExploreTechnology: React.FC<ExploreTechnologyProps> = ({ data }) =>
 
                 <div className="relative z-10">
                   {/* Icon */}
-                  <div className={`w-13 h-13 rounded-2xl ${theme.bg} border ${theme.border} flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300`}
+                  <div className={`w-12 h-12 rounded-2xl ${theme.bg} border ${theme.border} flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300`}
                     style={{ boxShadow: `0 0 20px ${theme.glow}` }}
                   >
                     <Icon className={`w-6 h-6 ${theme.icon}`} />
                   </div>
 
                   <h3 className="text-lg font-bold text-white mb-2">{domain.name}</h3>
-                  <p className="text-xs text-slate-300 leading-relaxed mb-5">{domain.desc}</p>
+                  <p className="text-sm text-slate-300 leading-relaxed mb-5">{domain.desc}</p>
 
                   {/* Stats row */}
                   <div className="grid grid-cols-3 gap-2 text-center py-3 border-y border-white/8 mb-5">
@@ -168,14 +168,14 @@ export const ExploreTechnology: React.FC<ExploreTechnologyProps> = ({ data }) =>
                     ].map((s) => (
                       <div key={s.label}>
                         <span className={`font-bold text-sm block ${theme.statColor}`}>{s.val}</span>
-                        <span className="text-[10px] text-slate-400 font-mono">{s.label}</span>
+                        <span className="text-xs text-slate-400 font-mono">{s.label}</span>
                       </div>
                     ))}
                   </div>
 
                   <Link
                     to="/events"
-                    className={`inline-flex items-center justify-center w-full h-9 px-4 rounded-full border border-white/20 bg-transparent text-white text-xs font-bold gap-1.5 transition-all duration-200 ${theme.linkHover}`}
+                    className={`inline-flex items-center justify-center w-full h-9 px-4 rounded-full border border-white/20 bg-transparent text-white text-xs font-semibold gap-1.5 transition-all duration-200 ${theme.linkHover}`}
                   >
                     Explore Domain <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
                   </Link>

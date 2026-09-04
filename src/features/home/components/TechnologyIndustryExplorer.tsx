@@ -23,13 +23,13 @@ export const TechnologyIndustryExplorer: React.FC<TechnologyIndustryExplorerProp
     <section id="taxonomy-matrix" className="bg-white py-24 border-b border-slate-100">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center mb-16">
-          <span className="text-xs font-bold uppercase tracking-widest text-blue-600 bg-blue-50 px-3.5 py-1.5 rounded-full border border-blue-200">
+          <span className="text-xs font-semibold uppercase tracking-wider text-blue-600 bg-blue-50 px-3.5 py-1.5 rounded-full border border-blue-200">
             {data.eyebrow}
           </span>
-          <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-slate-900">
+          <h2 className="mt-4 text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">
             {data.title}
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed">
+          <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
             {data.subtitle}
           </p>
         </div>
@@ -44,19 +44,19 @@ export const TechnologyIndustryExplorer: React.FC<TechnologyIndustryExplorerProp
               >
                 <div>
                   <span
-                    className={`text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full inline-block border mb-4 ${item.tagColor}`}
+                    className={`text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full inline-block border mb-4 ${item.tagColor}`}
                   >
                     {item.title}
                   </span>
                   <h3 className="text-xl font-bold text-slate-900 mb-2">{item.tech}</h3>
-                  <div className="text-xs font-bold text-slate-500 mb-3 flex items-center gap-1.5">
+                  <div className="text-xs font-semibold text-slate-500 mb-3 flex items-center gap-1.5">
                     <span>In</span> <IndustryIcon className="w-3.5 h-3.5 text-blue-600" /> <span>{item.industry}</span>
                   </div>
-                  <p className="text-xs text-slate-600 leading-relaxed mb-6">{item.desc}</p>
+                  <p className="text-sm text-slate-600 leading-relaxed mb-6">{item.desc}</p>
                 </div>
                 <Link
                   to="/events"
-                  className="inline-flex items-center justify-center w-full h-9 px-4 rounded-full border border-slate-300 bg-white text-slate-700 text-xs font-bold hover:border-blue-400 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200"
+                  className="inline-flex items-center justify-center w-full h-9 px-4 rounded-full border border-slate-300 bg-white text-slate-700 text-xs font-semibold hover:border-blue-400 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200"
                 >
                   Explore Intersection
                 </Link>

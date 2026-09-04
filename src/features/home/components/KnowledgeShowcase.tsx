@@ -15,16 +15,16 @@ export const KnowledgeShowcase: React.FC<KnowledgeShowcaseProps> = ({ data }) =>
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
           <div>
-            <span className="text-xs font-bold uppercase tracking-widest text-blue-600 bg-blue-50 px-3.5 py-1.5 rounded-full border border-blue-200">
+            <span className="text-xs font-semibold uppercase tracking-wider text-blue-600 bg-blue-50 px-3.5 py-1.5 rounded-full border border-blue-200">
               {data.eyebrow}
             </span>
-            <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-slate-900">
+            <h2 className="mt-3 text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">
               {data.title}
             </h2>
           </div>
           <Link
             to="/knowledge"
-            className="inline-flex items-center gap-2 h-9 px-5 rounded-full border border-slate-300 bg-white text-slate-700 text-sm font-bold hover:border-blue-400 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 shrink-0"
+            className="inline-flex items-center gap-2 h-9 px-5 rounded-full border border-slate-300 bg-white text-slate-700 text-sm font-semibold hover:border-blue-400 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 shrink-0"
           >
             Explore Knowledge <BookOpen className="h-4 w-4" />
           </Link>
@@ -43,16 +43,16 @@ export const KnowledgeShowcase: React.FC<KnowledgeShowcaseProps> = ({ data }) =>
               {/* Gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
               {/* Tag badge overlaid on image */}
-              <span className="absolute top-4 left-4 text-[10px] font-bold uppercase tracking-wider text-blue-300 bg-blue-600/80 backdrop-blur-sm px-3 py-1 rounded-full border border-blue-400/40">
+              <span className="absolute top-4 left-4 text-xs font-semibold uppercase tracking-wider text-blue-300 bg-blue-600/80 backdrop-blur-sm px-3 py-1 rounded-full border border-blue-400/40">
                 {data.featuredArticle.tag}
               </span>
             </div>
 
             <div className="p-8 flex flex-col flex-1">
-              <h3 className="text-2xl font-black text-slate-900 mb-3 leading-tight group-hover:text-blue-600 transition-colors">
+              <h3 className="text-2xl font-bold text-slate-900 mb-3 leading-tight group-hover:text-blue-600 transition-colors">
                 {data.featuredArticle.title}
               </h3>
-              <p className="text-sm text-slate-500 leading-relaxed mb-6 flex-1">
+              <p className="text-sm text-slate-600 leading-relaxed mb-6 flex-1">
                 {data.featuredArticle.desc}
               </p>
               <Button asChild className="w-fit rounded-full bg-blue-600 hover:bg-blue-700 font-bold text-xs h-9 px-5">

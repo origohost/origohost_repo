@@ -84,7 +84,7 @@ function AnimatedCounter({
   }, [target]);
 
   return (
-    <div ref={ref} className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight" style={{ color: accentColor }}>
+    <div ref={ref} className="text-3xl sm:text-4xl font-extrabold tracking-tight" style={{ color: accentColor }}>
       {count}
       {suffix}
     </div>
@@ -104,9 +104,9 @@ export const CommunityProof: React.FC<CommunityProofProps> = ({ data }) => {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[1px] bg-gradient-to-r from-transparent via-blue-500/60 to-transparent" />
 
       {/* Live dot */}
-      <div className="absolute top-5 right-8 flex items-center gap-2 text-[10px] font-mono text-slate-500 uppercase tracking-widest">
-        <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
-        Live Stats
+      <div className="absolute top-5 right-8 flex items-center gap-2 text-xs font-mono text-slate-400 uppercase tracking-wider">
+        <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+        Live Community Stats
       </div>
 
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -153,11 +153,11 @@ export const CommunityProof: React.FC<CommunityProofProps> = ({ data }) => {
 
                 <AnimatedCounter target={num} suffix={suffix} accentColor={config.accentColor} />
 
-                <div className="mt-2 text-[11px] font-bold tracking-wide text-slate-400 uppercase">
+                <div className="mt-2 text-xs font-semibold tracking-normal text-slate-300">
                   {counter.value}
                 </div>
                 {counter.sublabel && (
-                  <div className="mt-0.5 text-[10px] text-slate-500">{counter.sublabel}</div>
+                  <div className="mt-0.5 text-xs text-slate-400 font-normal">{counter.sublabel}</div>
                 )}
               </motion.div>
             );

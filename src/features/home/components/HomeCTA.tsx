@@ -59,7 +59,7 @@ export const HomeCTA: React.FC<HomeCTAProps> = ({ data }) => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-blue-400 bg-blue-500/15 px-4 py-2 rounded-full border border-blue-500/30 mb-6"
+          className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-blue-400 bg-blue-500/15 px-4 py-1.5 rounded-full border border-blue-500/30 mb-6"
         >
           <Sparkles className="w-3.5 h-3.5" />
           Join the Ecosystem
@@ -71,7 +71,7 @@ export const HomeCTA: React.FC<HomeCTAProps> = ({ data }) => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1, duration: 0.6 }}
-          className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tight mb-6"
+          className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight mb-6 leading-tight"
         >
           <span className="bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent">
             {data.title}
@@ -84,7 +84,7 @@ export const HomeCTA: React.FC<HomeCTAProps> = ({ data }) => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2, duration: 0.5 }}
-          className="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed mb-10"
+          className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed mb-10 font-normal"
         >
           {data.subtitle}
         </motion.p>
@@ -101,7 +101,7 @@ export const HomeCTA: React.FC<HomeCTAProps> = ({ data }) => {
           <Button
             asChild
             size="lg"
-            className="relative w-full sm:w-auto h-14 rounded-full bg-white text-slate-900 hover:bg-blue-50 font-black px-10 shadow-[0_0_40px_rgba(255,255,255,0.25)] hover:shadow-[0_0_60px_rgba(255,255,255,0.4)] transition-all hover:scale-105 text-base group overflow-hidden"
+            className="relative w-full sm:w-auto h-14 rounded-full bg-white text-slate-900 hover:bg-blue-50 font-bold px-10 shadow-[0_0_40px_rgba(255,255,255,0.25)] hover:shadow-[0_0_60px_rgba(255,255,255,0.4)] transition-all hover:scale-105 text-base group overflow-hidden"
           >
             <Link to={data.primaryCtaLink as any}>
               <span className="absolute inset-0 translate-x-[-120%] skew-x-[-20deg] bg-blue-100/60 group-hover:translate-x-[120%] transition-transform duration-700 ease-in-out" />
@@ -115,7 +115,7 @@ export const HomeCTA: React.FC<HomeCTAProps> = ({ data }) => {
           {/* Secondary — glassmorphism */}
           <Link
             to={data.secondaryCtaLink as any}
-            className="inline-flex items-center justify-center w-full sm:w-auto h-14 rounded-full border border-white/25 bg-white/8 text-white text-base font-bold px-8 hover:bg-white/15 hover:border-white/40 backdrop-blur-md transition-all duration-200"
+            className="inline-flex items-center justify-center w-full sm:w-auto h-14 rounded-full border border-white/25 bg-white/8 text-white text-base font-semibold px-8 hover:bg-white/15 hover:border-white/40 backdrop-blur-md transition-all duration-200"
           >
             {data.secondaryCtaText}
           </Link>
@@ -130,9 +130,9 @@ export const HomeCTA: React.FC<HomeCTAProps> = ({ data }) => {
           className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3"
         >
           {TRUST_ITEMS.map(({ icon: Icon, text }) => (
-            <div key={text} className="flex items-center gap-2 text-sm text-slate-400">
+            <div key={text} className="flex items-center gap-2 text-sm text-slate-300">
               <Icon className="w-4 h-4 text-emerald-400" />
-              <span className="font-medium">{text}</span>
+              <span className="font-normal">{text}</span>
             </div>
           ))}
         </motion.div>
