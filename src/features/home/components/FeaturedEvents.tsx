@@ -45,7 +45,7 @@ export const FeaturedEvents: React.FC<FeaturedEventsProps> = ({ eyebrow, title, 
                   className="rounded-3xl border border-slate-200 bg-white overflow-hidden shadow-xs hover:shadow-md transition-all flex flex-col justify-between group"
                 >
                   <div>
-                    <div className="aspect-16/10 overflow-hidden relative">
+                    <div className="aspect-[16/10] overflow-hidden relative">
                       <img
                         src={event.banner_url || "/assets/events/kss2026ep03-poster.webp"}
                         alt={event.title}

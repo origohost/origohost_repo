@@ -31,7 +31,7 @@ export const KnowledgeShowcase: React.FC<KnowledgeShowcaseProps> = ({ data }) =>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           {/* Featured Article Card (7 Columns) */}
           <div className="lg:col-span-7 rounded-3xl border border-slate-200 bg-slate-50 overflow-hidden shadow-xs hover:shadow-md transition-all group">
-            <div className="aspect-16/9 overflow-hidden">
+            <div className="aspect-[16/9] overflow-hidden">
               <img
                 src={data.featuredArticle.coverUrl}
                 alt={data.featuredArticle.title}
