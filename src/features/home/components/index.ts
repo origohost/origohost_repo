@@ -1,6 +1,7 @@
 export { HomeHero } from "./HomeHero";
 export { CommunityProof } from "./CommunityProof";
 export { ParticipationSection } from "./ParticipationSection";
+export { ExploreTechnology } from "./ExploreTechnology";
 export { FeaturedEvents } from "./FeaturedEvents";
 export { EventExperiences } from "./EventExperiences";
 export { TechnologyIndustryExplorer } from "./TechnologyIndustryExplorer";

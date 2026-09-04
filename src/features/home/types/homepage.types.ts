@@ -42,6 +42,24 @@ export interface ParticipationPillar {
   border: string;
 }
 
+export interface TechDomainItem {
+  id: string;
+  name: string;
+  slug: string;
+  desc: string;
+  iconName: string;
+  eventCount: number;
+  projectCount: number;
+  articleCount: number;
+}
+
+export interface ExploreTechnologyData {
+  eyebrow: string;
+  title: string;
+  subtitle: string;
+  domains: TechDomainItem[];
+}
+
 export interface EventExperiencesData {
   eyebrow: string;
   title: string;
@@ -172,6 +190,7 @@ export interface HomepageViewModel {
     subtitle: string;
     pillars: ParticipationPillar[];
   };
+  exploreTechnology: ExploreTechnologyData;
   featuredEvents: {
     eyebrow: string;
     title: string;

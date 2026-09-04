@@ -68,6 +68,23 @@ export const HomepageViewModelSchema = z.object({
       })
     ),
   }),
+  exploreTechnology: z.object({
+    eyebrow: z.string(),
+    title: z.string(),
+    subtitle: z.string(),
+    domains: z.array(
+      z.object({
+        id: z.string(),
+        name: z.string(),
+        slug: z.string(),
+        desc: z.string(),
+        iconName: z.string(),
+        eventCount: z.number(),
+        projectCount: z.number(),
+        articleCount: z.number(),
+      })
+    ),
+  }),
   featuredEvents: z.object({
     eyebrow: z.string(),
     title: z.string(),

@@ -5,6 +5,7 @@ import {
   HomeHero,
   CommunityProof,
   ParticipationSection,
+  ExploreTechnology,
   FeaturedEvents,
   EventExperiences,
   TechnologyIndustryExplorer,
@@ -45,13 +46,13 @@ export default function HomePage() {
 
   return (
     <div className="relative min-h-screen bg-white text-[#0a0a0a] selection:bg-blue-600 selection:text-white">
-      {/* 1. HERO SECTION */}
+      {/* 01. HERO SECTION */}
       <HomeHero data={viewModel.hero} />
 
-      {/* 2. COMMUNITY PROOF METRICS */}
+      {/* 02. LIVE ECOSYSTEM IMPACT METRICS */}
       <CommunityProof data={viewModel.communityProof} />
 
-      {/* 3. PARTICIPATION PILLARS & MOSAIC */}
+      {/* 03. WHAT'S HAPPENING & 4 PARTICIPATION PILLARS */}
       <ParticipationSection
         eyebrow={viewModel.participation.eyebrow}
         title={viewModel.participation.title}
@@ -60,35 +61,38 @@ export default function HomePage() {
         mosaicImages={viewModel.communityProof.mosaicImages}
       />
 
-      {/* 4. EVENT EXPERIENCES */}
-      <EventExperiences data={viewModel.eventExperiences} />
+      {/* 04. EXPLORE TECHNOLOGY DOMAIN HUB */}
+      <ExploreTechnology data={viewModel.exploreTechnology} />
 
-      {/* 5. FEATURED UPCOMING EVENTS */}
+      {/* 05. TECHNOLOGY × INDUSTRY DISCOVERY MATRIX */}
+      <TechnologyIndustryExplorer data={viewModel.technologyIndustry} />
+
+      {/* 06. UPCOMING PUBLISHED EVENTS */}
       <FeaturedEvents
         eyebrow={viewModel.featuredEvents.eyebrow}
         title={viewModel.featuredEvents.title}
         events={viewModel.featuredEvents.events}
       />
 
-      {/* 6. TAXONOMY DISCOVERY MATRIX */}
-      <TechnologyIndustryExplorer data={viewModel.technologyIndustry} />
+      {/* 07. EVENT EXPERIENCES & FORMATS */}
+      <EventExperiences data={viewModel.eventExperiences} />
 
-      {/* 7. COMMUNITY LEADERSHIP & CERTIFICATIONS */}
-      <CommunityShowcase data={viewModel.community} />
-
-      {/* 8. KNOWLEDGE HUB */}
+      {/* 08. LEARN — KNOWLEDGE HUB */}
       <KnowledgeShowcase data={viewModel.knowledge} />
 
-      {/* 9. COMMUNITY BUILDS & PROJECTS */}
+      {/* 09. BUILD — COMMUNITY PROJECTS */}
       <ProjectShowcase data={viewModel.projects} />
 
-      {/* 10. ECOSYSTEM OPPORTUNITIES */}
+      {/* 10. COMMUNITY — PEOPLE & CERTIFICATIONS */}
+      <CommunityShowcase data={viewModel.community} />
+
+      {/* 11. ECOSYSTEM OPPORTUNITIES */}
       <OpportunitiesShowcase data={viewModel.opportunities} />
 
-      {/* 11. PARTNERS */}
+      {/* 12. ECOSYSTEM PARTNERS */}
       <EcosystemPartners data={viewModel.partners} />
 
-      {/* 12. FINAL CALL TO ACTION */}
+      {/* 13. FINAL CALL TO ACTION */}
       <HomeCTA data={viewModel.cta} />
     </div>
   );
