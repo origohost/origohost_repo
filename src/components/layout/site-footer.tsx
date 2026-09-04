@@ -200,8 +200,8 @@ export function SiteFooter() {
                   </span>
                 </span>
               </a>
-              <p className="text-slate-200 text-xs leading-relaxed mb-6 max-w-xs">
-                A Technology Community Where Ideas, People & Possibilities Connect.
+              <p className="text-slate-200 text-xs leading-relaxed mb-6 max-w-xs font-semibold">
+                Where Builders Become Innovators — Technology, Events, Learning & Real-World Building.
               </p>
               <div className="flex flex-wrap justify-center lg:justify-start gap-2 w-full">
                 <a

@@ -93,7 +93,7 @@ export const HomeHero: React.FC<HomeHeroProps> = ({ data }) => {
                     ORIGOHOST TECH ECOSYSTEM
                   </span>
                   <h3 className="text-xl font-black text-white tracking-tight">
-                    Where Builders Connect
+                    Where Builders Become Innovators
                   </h3>
                   <p className="text-xs text-slate-400 font-medium">
                     Event Format × Technology Domain × Industry

@@ -57,7 +57,7 @@ export default function HeroSection() {
               <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-blue-500"></span>
             </span>
             <span className="text-xs sm:text-xs font-bold uppercase tracking-widest text-blue-300">
-              TECHNOLOGY COMMUNITY • EVENTS • KNOWLEDGE • COLLABORATION
+              WHERE BUILDERS BECOME INNOVATORS
             </span>
           </motion.div>
 
@@ -68,10 +68,10 @@ export default function HeroSection() {
             transition={{ delay: 0.1 }}
             className="text-3xl sm:text-5xl md:text-6xl lg:text-6xl font-black leading-[1.1] tracking-tight mb-6"
           >
-            Where Technology Communities
+            Where Builders
             <br />
             <span className="bg-gradient-to-r from-blue-400 via-blue-500 to-emerald-400 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(37,99,235,0.4)]">
-              Come Together.
+              Become Innovators.
             </span>
           </motion.h1>
 

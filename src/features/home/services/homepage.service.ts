@@ -77,10 +77,10 @@ export class HomepageService {
 
     const rawData: HomepageViewModel = {
       hero: {
-        eyebrow: "TECHNOLOGY COMMUNITY • EVENTS • KNOWLEDGE • COLLABORATION",
-        title: "Where Technology Communities Come Together.",
+        eyebrow: "WHERE BUILDERS BECOME INNOVATORS",
+        title: "Where Builders Become Innovators.",
         subtitle:
-          "OrigoHOST brings together developers, students, builders, educators, and technology practitioners to learn, create, compete, and shape real-world technology.",
+          "OrigoHOST brings together developers, students, builders, researchers, and technology practitioners to learn, create, compete, and shape real-world technology.",
         primaryCtaText: "Explore Events",
         primaryCtaLink: "/events",
         secondaryCtaText: "Join the Community",
